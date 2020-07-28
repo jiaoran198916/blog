@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>JSAdvanced | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原型与原型链 所有函数都有一个特别的属性: prototype : 显式原型属性   所有实例对象都有一个特别的属性: __proto__ : 隐式原型属性   显式原型与隐式原型的关系 函数的prototype: 定义函数时被自动赋值, 值默认为{}, 即用为原型对象 实例对象的proto: 在创建实例对象时被自动添加, 并赋值为构造函数的prototype值 原型对象即为当前实例对象的父对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSAdvanced">
+<meta property="og:url" content="http://yoursite.com/2020/07/28/JSAdvanced/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="原型与原型链 所有函数都有一个特别的属性: prototype : 显式原型属性   所有实例对象都有一个特别的属性: __proto__ : 隐式原型属性   显式原型与隐式原型的关系 函数的prototype: 定义函数时被自动赋值, 值默认为{}, 即用为原型对象 实例对象的proto: 在创建实例对象时被自动添加, 并赋值为构造函数的prototype值 原型对象即为当前实例对象的父对象">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-28T02:17:14.000Z">
+<meta property="article:modified_time" content="2020-07-28T02:22:27.422Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JSAdvanced" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/28/JSAdvanced/" class="article-date">
+  <time datetime="2020-07-28T02:17:14.000Z" itemprop="datePublished">2020-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JSAdvanced
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="原型与原型链"><a href="#原型与原型链" class="headerlink" title="原型与原型链"></a>原型与原型链</h2><ul>
+<li>所有函数都有一个特别的属性:<ul>
+<li><code>prototype</code> : 显式原型属性</li>
+</ul>
+</li>
+<li>所有实例对象都有一个特别的属性:<ul>
+<li><code>__proto__</code> : 隐式原型属性</li>
+</ul>
+</li>
+<li>显式原型与隐式原型的关系<ul>
+<li>函数的prototype: 定义函数时被自动赋值, 值默认为{}, 即用为原型对象</li>
+<li>实例对象的<strong>proto</strong>: 在创建实例对象时被自动添加, 并赋值为构造函数的prototype值</li>
+<li>原型对象即为当前实例对象的父对象</li>
+</ul>
+</li>
+<li>原型链<ul>
+<li>所有的实例对象都有<strong>proto</strong>属性, 它指向的就是原型对象</li>
+<li>这样通过<strong>proto</strong>属性就形成了一个链的结构—-&gt;原型链</li>
+<li>当查找对象内部的属性/方法时, js引擎自动沿着这个原型链查找</li>
+<li>当给对象属性赋值时不会使用原型链, 而只是在当前对象中进行操作</li>
+</ul>
+</li>
+</ul>
+<h2 id="执行上下文与执行上下文栈"><a href="#执行上下文与执行上下文栈" class="headerlink" title="执行上下文与执行上下文栈"></a>执行上下文与执行上下文栈</h2><ul>
+<li>变量提升与函数提升<ul>
+<li>变量提升: 在变量定义语句之前, 就可以访问到这个变量(undefined)</li>
+<li>函数提升: 在函数定义语句之前, 就执行该函数</li>
+<li>先有变量提升, 再有函数提升</li>
+</ul>
+</li>
+<li>理解<ul>
+<li>执行上下文: 由js引擎自动创建的对象, 包含对应作用域中的所有变量属性</li>
+<li>执行上下文栈: 用来管理产生的多个执行上下文</li>
+</ul>
+</li>
+<li>分类:<ul>
+<li>全局: window</li>
+<li>函数: 对程序员来说是透明的</li>
+</ul>
+</li>
+<li>生命周期<ul>
+<li>全局 : 准备执行全局代码前产生, 当页面刷新/关闭页面时死亡</li>
+<li>函数 : 调用函数时产生, 函数执行完时死亡</li>
+</ul>
+</li>
+<li>包含哪些属性:<ul>
+<li>全局 :<ul>
+<li>用var定义的全局变量  ==&gt;undefined</li>
+<li>使用function声明的函数   ===&gt;function</li>
+<li>this   ===&gt;window</li>
+</ul>
+</li>
+<li>函数<ul>
+<li>用var定义的局部变量  ==&gt;undefined</li>
+<li>使用function声明的函数   ===&gt;function</li>
+<li>this   ===&gt; 调用函数的对象, 如果没有指定就是window</li>
+<li>形参变量   ===&gt;对应实参值</li>
+<li>arguments ===&gt;实参列表的伪数组</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>执行上下文创建和初始化的过程<ul>
+<li>全局:<ul>
+<li>在全局代码执行前最先创建一个全局执行上下文(window)</li>
+<li>收集一些全局变量, 并初始化</li>
+<li>将这些变量设置为window的属性</li>
+</ul>
+</li>
+<li>函数:<ul>
+<li>在调用函数时, 在执行函数体之前先创建一个函数执行上下文</li>
+<li>收集一些局部变量, 并初始化</li>
+<li>将这些变量设置为执行上下文的属性<h2 id="作用域与作用域链"><a href="#作用域与作用域链" class="headerlink" title="作用域与作用域链"></a>作用域与作用域链</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>理解:<ul>
+<li>作用域: 一块代码区域, 在编码时就确定了, 不会再变化</li>
+<li>作用域链: 多个嵌套的作用域形成的由内向外的结构, 用于查找变量</li>
+</ul>
+</li>
+<li>分类:<ul>
+<li>全局</li>
+<li>函数</li>
+<li>js没有块作用域(在ES6之前)</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>作用域: 隔离变量, 可以在不同作用域定义同名的变量不冲突</li>
+<li>作用域链: 查找变量</li>
+</ul>
+</li>
+<li>区别作用域与执行上下文<ul>
+<li>作用域: 静态的, 编码时就确定了(不是在运行时), 一旦确定就不会变化了</li>
+<li>执行上下文: 动态的, 执行代码时动态创建, 当执行结束消失</li>
+<li>联系: 执行上下文环境是在对应的作用域中的</li>
+</ul>
+</li>
+</ul>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><ul>
+<li>理解:<ul>
+<li>当嵌套的内部函数引用了外部函数的变量时就产生了闭包</li>
+<li>通过chrome工具得知: 闭包本质是内部函数中的一个对象, 这个对象中包含引用的变量属性</li>
+</ul>
+</li>
+<li>作用:<ul>
+<li>延长局部变量的生命周期</li>
+<li>让函数外部能操作内部的局部变量</li>
+</ul>
+</li>
+<li>写一个闭包程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function fn1() &#123;</span><br><span class="line">  var a &#x3D; 2;</span><br><span class="line">  function fn2() &#123;</span><br><span class="line">    a++;</span><br><span class="line">    console.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">  return fn2;</span><br><span class="line">&#125;</span><br><span class="line">var f &#x3D; fn1();</span><br><span class="line">f();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure></li>
+<li>闭包应用:<ul>
+<li>模块化: 封装一些数据以及操作数据的函数, 向外暴露一些行为</li>
+<li>循环遍历加监听</li>
+<li>JS框架(jQuery)大量使用了闭包</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>变量占用内存的时间可能会过长</li>
+<li>可能导致内存泄露</li>
+<li>解决:<ul>
+<li>及时释放 : f = null; //让内部函数对象成为垃圾对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="内存溢出与内存泄露"><a href="#内存溢出与内存泄露" class="headerlink" title="内存溢出与内存泄露"></a>内存溢出与内存泄露</h2><ol>
+<li>内存溢出<ul>
+<li>一种程序运行出现的错误</li>
+<li>当程序运行需要的内存超过了剩余的内存时, 就出抛出内存溢出的错误</li>
+</ul>
+</li>
+<li>内存泄露<ul>
+<li>占用的内存没有及时释放</li>
+<li>内存泄露积累多了就容易导致内存溢出</li>
+<li>常见的内存泄露:<ul>
+<li>意外的全局变量</li>
+<li>没有及时清理的计时器或回调函数</li>
+<li>闭包</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/28/JSAdvanced/" data-id="ckd5bl2jh000078n5ee47dvql" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/28/draft/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          draft
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/28/draft/">draft</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/28/JSAdvanced/">JSAdvanced</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/27/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
