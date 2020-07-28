@@ -1,7 +1,7 @@
 ---
 title: JSAdvanced
 date: 2020-07-28 10:17:14
-tags: 原型,prototype
+tags: 原型 prototype
 ---
 ## 原型与原型链
 * 所有函数都有一个特别的属性1:
