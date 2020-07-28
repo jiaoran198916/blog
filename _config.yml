@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
+title: 皎然
+subtitle: 'Web Developer'
+description: '如果我不得不在自己的墓碑上写些什么，我愿意写上的不是别的，而是“这个个体”——一个人若能真正地独自立于这个世界，只是听从自己良心的忠告，那么他就是一位英雄。-- 克尔凯戈尔'
+keywords: 技术、书与电影、哲学、杂谈、段子
+author: 皎然
+language: zh-CN
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://www.jiaoran.com
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
