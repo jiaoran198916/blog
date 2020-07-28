@@ -5,17 +5,19 @@
   
 
   
-  <title>归档: 2020/7 | 皎然</title>
+  <title>jQuery数组的操作 | 皎然</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如果我不得不在自己的墓碑上写些什么，我愿意写上的不是别的，而是“这个个体”——一个人若能真正地独自立于这个世界，只是听从自己良心的忠告，那么他就是一位英雄。-- 克尔凯戈尔">
-<meta property="og:type" content="website">
-<meta property="og:title" content="皎然">
-<meta property="og:url" content="http://www.jiaoran.com/archives/2020/07/index.html">
+  <meta name="description" content="jQuery操作数组主要有两种方式： 普通数组123$.each(array,function(k,v)&amp;#123;  &#x2F;&#x2F;...&amp;#125;);  关联数组，{“id”:10,”name”:”tom”} 索引数组，[1,2,3,4,5,6,7,8,9]  k:如果是关联是键名，如果是索引是下标（从0开始;vo:是元素值;  对象数组123$(&quot;p&quot;).e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery数组的操作">
+<meta property="og:url" content="http://www.jiaoran.com/2020/07/28/jquery-array/index.html">
 <meta property="og:site_name" content="皎然">
-<meta property="og:description" content="如果我不得不在自己的墓碑上写些什么，我愿意写上的不是别的，而是“这个个体”——一个人若能真正地独自立于这个世界，只是听从自己良心的忠告，那么他就是一位英雄。-- 克尔凯戈尔">
+<meta property="og:description" content="jQuery操作数组主要有两种方式： 普通数组123$.each(array,function(k,v)&amp;#123;  &#x2F;&#x2F;...&amp;#125;);  关联数组，{“id”:10,”name”:”tom”} 索引数组，[1,2,3,4,5,6,7,8,9]  k:如果是关联是键名，如果是索引是下标（从0开始;vo:是元素值;  对象数组123$(&quot;p&quot;).e">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-28T08:15:20.000Z">
+<meta property="article:modified_time" content="2020-07-28T08:26:58.238Z">
 <meta property="article:author" content="皎然">
-<meta property="article:tag" content="技术、书与电影、哲学、杂谈、段子">
+<meta property="article:tag" content="jQuery">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="皎然" type="application/atom+xml">
@@ -69,78 +71,65 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/28/jquery-array/" class="archive-article-date">
-  <time datetime="2020-07-28T08:15:20.000Z" itemprop="datePublished">7月 28</time>
+        <section id="main"><article id="post-jquery-array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/28/jquery-array/" class="article-date">
+  <time datetime="2020-07-28T08:15:20.000Z" itemprop="datePublished">2020-07-28</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/28/jquery-array/">jQuery数组的操作</a>
+    <h1 class="article-title" itemprop="name">
+      jQuery数组的操作
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/28/JSAdvanced/" class="archive-article-date">
-  <time datetime="2020-07-28T02:17:14.000Z" itemprop="datePublished">7月 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/28/JSAdvanced/">JSAdvanced</a>
-    </h1>
-  
+        <hr>
+<p>jQuery操作数组主要有两种方式：</p>
+<h2 id="普通数组"><a href="#普通数组" class="headerlink" title="普通数组"></a>普通数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.each(array,function(k,v)&#123;</span><br><span class="line">  &#x2F;&#x2F;...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关联数组，{“id”:10,”name”:”tom”}</li>
+<li>索引数组，[1,2,3,4,5,6,7,8,9]</li>
+</ul>
+<p>k:如果是关联是键名，如果是索引是下标（从0开始;<br>vo:是元素值;</p>
+<hr>
+<h2 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;p&quot;).each(function(k,v)&#123;</span><br><span class="line">  &#x2F;&#x2F;...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>i 是数组元素的下标数字，索引下标<br>v 是dom中的节点[子对象]</p>
+<p>其中<br>v = this = <code>&#39;&lt;p&gt;...&lt;/p&gt;&#39;</code> //字符串<br>$(v) = $(this) = init… //dom节点对象</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/07/27/hello-world/" class="archive-article-date">
-  <time datetime="2020-07-27T07:21:49.953Z" itemprop="datePublished">7月 27</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/27/hello-world/">Hello World</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.jiaoran.com/2020/07/28/jquery-array/" data-id="ckd5og29n0000y8n5cspkhsq9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/07/28/JSAdvanced/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JSAdvanced</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

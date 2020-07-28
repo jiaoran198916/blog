@@ -71,6 +71,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-jquery-array" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/28/jquery-array/" class="article-date">
+  <time datetime="2020-07-28T08:15:20.000Z" itemprop="datePublished">2020-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/28/jquery-array/">jQuery数组的操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>jQuery操作数组主要有两种方式：</p>
+<h2 id="普通数组"><a href="#普通数组" class="headerlink" title="普通数组"></a>普通数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.each(array,function(k,v)&#123;</span><br><span class="line">  &#x2F;&#x2F;...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关联数组，{“id”:10,”name”:”tom”}</li>
+<li>索引数组，[1,2,3,4,5,6,7,8,9]</li>
+</ul>
+<p>k:如果是关联是键名，如果是索引是下标（从0开始;<br>vo:是元素值;</p>
+<hr>
+<h2 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;p&quot;).each(function(k,v)&#123;</span><br><span class="line">  &#x2F;&#x2F;...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>i 是数组元素的下标数字，索引下标<br>v 是dom中的节点[子对象]</p>
+<p>其中<br>v = this = <code>&#39;&lt;p&gt;...&lt;/p&gt;&#39;</code> //字符串<br>$(v) = $(this) = init… //dom节点对象</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.jiaoran.com/2020/07/28/jquery-array/" data-id="ckd5og29n0000y8n5cspkhsq9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JSAdvanced" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/28/JSAdvanced/" class="article-date">
@@ -94,7 +144,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="原型与原型链"><a href="#原型与原型链" class="headerlink" title="原型与原型链"></a>原型与原型链</h2><ul>
-<li>所有函数都有一个特别的属性1:<ul>
+<li>所有函数都有一个特别的属性:<ul>
 <li><code>prototype</code> : 显式原型属性</li>
 </ul>
 </li>
@@ -317,7 +367,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B-prototype/" rel="tag">原型 prototype</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%9F%E5%9E%8B-prototype/" rel="tag">原型 prototype</a></li></ul>
     </div>
   </div>
 
@@ -327,7 +377,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E5%8E%9F%E5%9E%8B-prototype/" style="font-size: 10px;">原型 prototype</a>
+      <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/%E5%8E%9F%E5%9E%8B-prototype/" style="font-size: 10px;">原型 prototype</a>
     </div>
   </div>
 
@@ -347,6 +397,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/07/28/jquery-array/">jQuery数组的操作</a>
+          </li>
         
           <li>
             <a href="/2020/07/28/JSAdvanced/">JSAdvanced</a>
