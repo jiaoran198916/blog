@@ -1,6 +1,6 @@
 ---
 title: JSAdvanced
-tags: 原型 prototype
+tags: [原型,prototype]
 abbrlink: '11757e2'
 date: 2020-07-28 10:17:14
 ---
