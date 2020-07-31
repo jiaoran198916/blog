@@ -1,7 +1,8 @@
 ---
 title: Joys and Passions
-date: 2020-07-31 09:21:39
 tags: 哲学
+abbrlink: d32c0929
+date: 2020-07-31 09:21:39
 ---
 MY BROTHER, when you have a virtue, and it is your own virtue, you have it in common with no one.
 
