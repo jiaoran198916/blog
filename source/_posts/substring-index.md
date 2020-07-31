@@ -2,6 +2,7 @@
 title: MySQL字符串函数：substring_index()的使用详解
 date: 2020-07-31 16:36:15
 tags: [MySQL,String]
+categories: MySQL
 ---
 ## 定义
 SUBSTRING_INDEX - 按分隔符截取字符串
