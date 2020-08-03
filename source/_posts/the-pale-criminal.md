@@ -1,5 +1,5 @@
 ---
-title: the-pale-criminal
+title: The Pale Criminal
 tags:
   - 哲学
   - 尼采
