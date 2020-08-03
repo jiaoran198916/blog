@@ -11,7 +11,8 @@ date: 2020-08-03 11:44:18
 ```
 convert +profile '*' source -quality 80 -resize '800x600'
 water.png -gravity southeast -geometry +0+0 -composite
--fill rgba\(255,255,255,0.35\) -font fzltchjt.TTF -pointsize 20 -stroke rgba\(0,0,0,0.22\) -strokewidth 1
+-fill rgba\(255,255,255,0.35\) -font fzltchjt.TTF
+-pointsize 20 -stroke rgba\(0,0,0,0.22\) -strokewidth 1
 -gravity SouthEast -draw "text 28,15 '贴图ID:188916'" dest
 ```
 - +profile  
