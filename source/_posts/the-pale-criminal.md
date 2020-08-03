@@ -61,3 +61,7 @@ I wish that their madness were called truth, or fidelity, or justice: but they h
 35 I am a railing beside the torrent; whoever is able to grasp me may grasp me! Your crutch, however, I am not.-
 
 Thus spoke Zarathustra.
+
+<span id="busuanzi_container_page_pv">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
