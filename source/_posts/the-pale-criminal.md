@@ -58,7 +58,7 @@ Much about your good people cause me disgust, and verily, not their evil. I wish
 
 I wish that their madness were called truth, or fidelity, or justice: but they have their virtue in order to live long, and in miserable selfcomplacency.
 
-35 I am a railing beside the torrent; whoever is able to grasp me may grasp me! Your crutch, however, I am not.-
+I am a railing beside the torrent; whoever is able to grasp me may grasp me! Your crutch, however, I am not.-
 
 Thus spoke Zarathustra.
 
