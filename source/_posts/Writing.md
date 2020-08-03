@@ -34,7 +34,7 @@ He who climbs high mountains, laughs at all tragic plays and tragic realities.
 
 Brave, unconcerned, mocking, violent- thus wisdom wants us; wisdom is a woman, and always loves only a warrior.
 
-37 You tell me, "Life is hard to bear." But why should you have your pride in the morning and your resignation in the evening?
+You tell me, "Life is hard to bear." But why should you have your pride in the morning and your resignation in the evening?
 
 Life is hard to bear: but do not pretend to be so delicate! We are all of us fine sumpter asses and she-asses.
 
