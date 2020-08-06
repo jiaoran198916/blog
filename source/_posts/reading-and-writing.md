@@ -1,12 +1,14 @@
 ---
-title: Reading And Writing
+title: 【P1C7】Reading And Writing
 tags:
   - 哲学
   - 尼采
 abbrlink: 6d1738f6
 date: 2020-08-03 09:16:14
+categories: Zarathustra
 ---
 Of all that is written, I love only what a man has written with his blood. Write with blood, and you will find that blood is spirit.
+<!-- more -->
 
 It is no easy task to understand unfamiliar blood; I hate reading idlers.
 

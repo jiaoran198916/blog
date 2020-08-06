@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"www.jiaoran.net","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="打水印时主要用的是PHP扩展ImageMagick，该扩展专门用于处理图片，功能丰富，使用灵活，详细介绍可参看官方文档. 基本操作有打水印、裁剪、划线、画矩形、格式转换等。其中打水印命令最为复杂，下面对其中的参数和选项做个梳理。 12345convert +profile &#39;*&#39; source -quality 80 -resize &#39;800x600&#39;water.p">
+  <meta name="description" content="使用PHP扩展ImageMagick给图片打水印，convert...">
 <meta property="og:type" content="article">
 <meta property="og:title" content="打水印命令convert详解">
 <meta property="og:url" content="https://www.jiaoran.net/p/6ab45c92/index.html">
 <meta property="og:site_name" content="皎然 -- 自己的园地">
-<meta property="og:description" content="打水印时主要用的是PHP扩展ImageMagick，该扩展专门用于处理图片，功能丰富，使用灵活，详细介绍可参看官方文档. 基本操作有打水印、裁剪、划线、画矩形、格式转换等。其中打水印命令最为复杂，下面对其中的参数和选项做个梳理。 12345convert +profile &#39;*&#39; source -quality 80 -resize &#39;800x600&#39;water.p">
+<meta property="og:description" content="使用PHP扩展ImageMagick给图片打水印，convert...">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-03T03:44:18.000Z">
-<meta property="article:modified_time" content="2020-08-03T07:32:23.278Z">
+<meta property="article:modified_time" content="2020-08-06T05:21:02.583Z">
 <meta property="article:author" content="皎然">
 <meta property="article:tag" content="水印">
 <meta name="twitter:card" content="summary">
@@ -191,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-08-03 11:44:18 / 修改时间：15:32:23" itemprop="dateCreated datePublished" datetime="2020-08-03T11:44:18+08:00">2020-08-03</time>
+              <time title="创建时间：2020-08-03 11:44:18" itemprop="dateCreated datePublished" datetime="2020-08-03T11:44:18+08:00">2020-08-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-06 13:21:02" itemprop="dateModified" datetime="2020-08-06T13:21:02+08:00">2020-08-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -218,7 +224,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>919</span>
+              <span>923</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -239,9 +245,9 @@
       
         <p>打水印时主要用的是PHP扩展ImageMagick，该扩展专门用于处理图片，功能丰富，使用灵活，详细介绍可参看<a target="_blank" rel="noopener" href="https://www.imagemagick.org/script/command-line-processing.php">官方文档</a>.</p>
 <p>基本操作有打水印、裁剪、划线、画矩形、格式转换等。其中打水印命令最为复杂，下面对其中的参数和选项做个梳理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">convert +profile &#39;*&#39; source -quality 80 -resize &#39;800x600&#39;</span><br><span class="line">water.png -gravity southeast -geometry +0+0 -composite</span><br><span class="line">-fill rgba\(255,255,255,0.35\) -font fzltchjt.TTF</span><br><span class="line">-pointsize 20 -stroke rgba\(0,0,0,0.22\) -strokewidth 1</span><br><span class="line">-gravity SouthEast -draw &quot;text 28,15 &#39;贴图ID:188916&#39;&quot; dest</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">convert +profile <span class="string">&#x27;*&#x27;</span> <span class="built_in">source</span> -quality 80 -resize <span class="string">&#x27;800x600&#x27;</span></span><br><span class="line">water.png -gravity southeast -geometry +0+0 -composite</span><br><span class="line">-fill rgba\(255,255,255,0.35\) -font fzltchjt.TTF</span><br><span class="line">-pointsize 20 -stroke rgba\(0,0,0,0.22\) -strokewidth 1</span><br><span class="line">-gravity SouthEast -draw <span class="string">&quot;text 28,15 &#x27;贴图ID:188916&#x27;&quot;</span> dest</span><br></pre></td></tr></table></figure>
 <ul>
-<li>+profile<br>Use <code>+profile profile_name</code> to remove the indicated profile.<br>‘*’代表去除所有。但没弄懂profile是啥。</li>
+<li>+profile<br>Use <code>+profile profile_name</code> to remove the indicated profile.<br><code>*</code>代表去除所有。但没弄懂profile是啥。</li>
 <li>source 原图片</li>
 <li>quality 质量，品质</li>
 <li>resize 重新设置大小，以上两项均针对原图片source</li>
