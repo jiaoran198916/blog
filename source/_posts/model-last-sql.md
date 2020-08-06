@@ -5,7 +5,7 @@ tags:
   - SQL
   - 调试
 categories: PHP
-excerpt: dd
+excerpt: 获取最近执行的SQL语句及错误的方法，getLastsql、_sql()、fetchSql(true)、getDbError()
 abbrlink: 65fe8651
 date: 2020-08-06 14:30:57
 ---
