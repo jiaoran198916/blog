@@ -1,9 +1,13 @@
 ---
 title: thinkPHP模型调试之查看执行的SQL语句
-date: 2020-08-06 14:30:57
-tags: [thinkPHP,SQL,调试]
+tags:
+  - thinkPHP
+  - SQL
+  - 调试
 categories: PHP
-excerpt:
+excerpt: dd
+abbrlink: 65fe8651
+date: 2020-08-06 14:30:57
 ---
 
 ## 调试执行的SQL语句
