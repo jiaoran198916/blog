@@ -1,15 +1,14 @@
 ---
-title: The Preachers of Death
+title: 【P1C9】The Preachers of Death
 tags:
   - 哲学
   - 尼采
-categories:
-  - 哲学
+categories: Zarathustra
 abbrlink: 4442ec63
 date: 2020-08-05 10:54:15
 ---
 There are preachers of death: and the earth is full of those to whom renunciation of life must be preached.
-
+<!-- more -->
 The earth is full of the superfluous; life is marred by the all-too-many. May they be tempted out of this life by the "life eternal"!
 
 "The yellow ones": so are called the preachers of death, or "the black ones." But I will show them to you in still other colors.

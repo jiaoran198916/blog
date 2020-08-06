@@ -1,13 +1,15 @@
 ---
-title: The Tree on the Hill
+title: 【P1C8】The Tree on the Hill
 tags:
   - 哲学
   - 尼采
-categories: 哲学
+categories: Zarathustra
 abbrlink: 793aaa02
 date: 2020-08-04 09:04:35
 ---
-Zarathustra's eye had perceived that a certain youth avoided him. And as he walked alone one evening over the hills surrounding the town called "The Pied Cow," behold, there he found the youth sitting leaning against a tree, and gazing with wearied look into the valley. Zarathustra then laid hold of the tree beside which the youth sat, and spoke thus:
+Zarathustra's eye had perceived that a certain youth avoided him. And as he walked alone one evening over the hills surrounding the town called "The Pied Cow," behold, there he found the youth sitting leaning against a tree, and gazing with wearied look into the valley.
+<!-- more -->
+Zarathustra then laid hold of the tree beside which the youth sat, and spoke thus:
 
 "If I wished to shake this tree with my hands, I should not be able to do so.
 

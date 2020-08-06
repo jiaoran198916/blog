@@ -1,13 +1,14 @@
 ---
-title: The Pale Criminal
+title: 【P1C6】The Pale Criminal
 tags:
   - 哲学
   - 尼采
 abbrlink: dfd4a9fc
 date: 2020-08-03 09:01:02
+categories: Zarathustra
 ---
 YOU do not want to kill, you judges and executioners, until the animal has bowed its head? Behold, the pale criminal has bowed his head: out of his eye speaks the great contempt.
-
+<!-- more -->
 "My ego is something that shall be overcome: my ego is to me the great contempt of man": so speaks it out of that eye.
 
 When he judged himself- that was his supreme moment; let not the exalted one return again to his baseness!

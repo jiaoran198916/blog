@@ -1,8 +1,9 @@
 ---
-title: The Despisers of the Body
+title: 【P1C4】The Despisers of the Body
 tags: 哲学
 abbrlink: 50bd86d4
 date: 2020-07-30 09:22:55
+categories: Zarathustra
 ---
 To the despisers of the body I speak my word. I wish them neither to learn afresh, nor teach anew, but only to bid farewell to their own bodies,- and thus become silent.
 

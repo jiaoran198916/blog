@@ -1,11 +1,12 @@
 ---
-title: Joys and Passions
+title: 【P1C5】Joys and Passions
 tags: 哲学
 abbrlink: d32c0929
 date: 2020-07-31 09:21:39
+categories: Zarathustra
 ---
-MY BROTHER, when you have a virtue, and it is your own virtue, you have it in common with no one.
-
+My brother, when you have a virtue, and it is your own virtue, you have it in common with no one.
+<!-- more -->
 To be sure, you would call it by name and caress it; you would tug its ears and amuse yourself with it.
 
 And lo! Then have you its name in common with the people, and have become one of the people and the herd with your virtue!
