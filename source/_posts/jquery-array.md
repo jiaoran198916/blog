@@ -3,11 +3,12 @@ title: jQuery数组的操作
 tags: jQuery
 abbrlink: 30266b9b
 date: 2020-07-28 16:15:20
+categories: JavaScript
 ---
 *********
 jQuery操作数组主要有两种方式：
 ## 普通数组
-```
+```js
 $.each(array,function(k,v){
   //...
 });
@@ -19,7 +20,7 @@ k:如果是关联是键名，如果是索引是下标（从0开始;
 vo:是元素值;
   ********
 ## 对象数组
-```
+```js
 $("p").each(function(k,v){
   //...
 })
