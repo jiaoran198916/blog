@@ -1,5 +1,5 @@
 ---
-title: The New Idol
+title: 【P1C11】The New Idol
 tags:
   - 哲学
   - 尼采
@@ -7,7 +7,7 @@ categories: Zarathustra
 abbrlink: 265c1246
 date: 2020-08-07 09:01:24
 ---
-SOMEWHERE there are still peoples and herds, but not with us, my brothers: here there are states.
+Somewhere there are still peoples and herds, but not with us, my brothers: here there are states.
 
 A state? What is that? Well! open now your ears to me, for now I will speak to you about the death of peoples.
 <!-- more -->
