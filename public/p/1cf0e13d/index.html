@@ -20,18 +20,21 @@
     var CONFIG = {"hostname":"www.jiaoran.net","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="一个人若能真正地独自立于这个世界只是听从自己良心的忠告那么他就是一位英雄--克尔凯戈尔">
-<meta property="og:type" content="website">
-<meta property="og:title" content="皎然 -- 自己的园地">
-<meta property="og:url" content="https://www.jiaoran.net/tags/Sheldon/index.html">
+  <meta name="description" content="strtotime(&quot;$info[&#39;freedayend&#39;] +1 day&quot;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="strtotime关于在某个日期区间的优化">
+<meta property="og:url" content="https://www.jiaoran.net/p/1cf0e13d/index.html">
 <meta property="og:site_name" content="皎然 -- 自己的园地">
-<meta property="og:description" content="一个人若能真正地独自立于这个世界只是听从自己良心的忠告那么他就是一位英雄--克尔凯戈尔">
+<meta property="og:description" content="strtotime(&quot;$info[&#39;freedayend&#39;] +1 day&quot;)">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-07T02:53:46.000Z">
+<meta property="article:modified_time" content="2020-08-07T02:55:32.359Z">
 <meta property="article:author" content="皎然">
-<meta property="article:tag" content="技术、书与电影、哲学、杂谈、段子">
+<meta property="article:tag" content="strtotime">
+<meta property="article:tag" content="date">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.jiaoran.net/tags/Sheldon/">
+<link rel="canonical" href="https://www.jiaoran.net/p/1cf0e13d/">
 
 
 <script id="page-configurations">
@@ -39,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: Sheldon | 皎然 -- 自己的园地</title>
+  <title>strtotime关于在某个日期区间的优化 | 皎然 -- 自己的园地</title>
   
 
 
@@ -160,51 +163,138 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Sheldon
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jiaoran.net/p/1cf0e13d/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="皎然">
+      <meta itemprop="description" content="一个人若能真正地独自立于这个世界<br>只是听从自己良心的忠告<br>那么他就是一位英雄<br>--克尔凯戈尔">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="皎然 -- 自己的园地">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          strtotime关于在某个日期区间的优化
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-07 10:53:46 / 修改时间：10:55:32" itemprop="dateCreated datePublished" datetime="2020-08-07T10:53:46+08:00">2020-08-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>820</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>工作中，经常碰到需要判断某个当前时间是否在某个时间区间的情况，一般可通过使用 strtotime 将日期转换成时间戳，然后进行比较，比如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$freedaystart = strtotime($info[<span class="string">&#x27;freedaystart&#x27;</span>].<span class="string">&#x27; 00:00:00&#x27;</span>);</span><br><span class="line">$freedayend = strtotime($info[<span class="string">&#x27;freedayend&#x27;</span>].<span class="string">&#x27; 23:59:59&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(time() &gt; $freedaystart &amp;&amp;  time() &lt; $freedayend)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但时分秒拼接上去，感觉不够简洁优雅，可以将结束时间退后一天，时分秒仍默认为0点，像下面这样：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$freedaystart = strtotime($info[<span class="string">&#x27;freedaystart&#x27;</span>]);</span><br><span class="line">$freedayend = strtotime(<span class="string">&quot;$info[&#x27;freedayend&#x27;] +1 day&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>是不是感觉清爽多了，strtotime 还支持其他时间格式，如 <code>strtotime(&quot;$date +1 month +2 day&quot;)</code>等，完整格式列表可参看官网对应页面。</p>
+<hr>
+<p>经测试，这里 day 的单复数都没有影响，可能是为了更好的兼容，不过为了严谨也为了增强可读性，建议按规范写，该复数的加上复数。</p>
+<hr>
+<p>日期数据也是可以直接比较的，但需要保持要比较的数据格式完全一致，否则容易出错，因为它们本质上还是当成字符串比较，所以最保险的还是转化成时间戳比较。<br>比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;2020-04-05&#39; &gt; &#39;2020-03-05&#39;&#x2F;&#x2F;true</span><br><span class="line">&#39;2020-04-05&#39; &gt; &#39;2020-3-5&#39;&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-05T14:09:52+08:00"
-              content="2020-08-05">
-          08-05
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>皎然
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.jiaoran.net/p/1cf0e13d/" title="strtotime关于在某个日期区间的优化">https://www.jiaoran.net/p/1cf0e13d/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/p/bc92ce6c/" itemprop="url">
-            <span itemprop="name">That Is My Spot</span>
-          </a>
-      </div>
 
-    </header>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/strtotime/" rel="tag"><i class="fa fa-tag"></i> strtotime</a>
+              <a href="/tags/date/" rel="tag"><i class="fa fa-tag"></i> date</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/p/382ad94/" rel="prev" title="用case when优化Sql语句">
+      <i class="fa fa-chevron-left"></i> 用case when优化Sql语句
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
