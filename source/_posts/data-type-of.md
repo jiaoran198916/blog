@@ -2,7 +2,7 @@
 title: 1、数据类型的分类与判断
 tags: 数据类型
 categories: JS高级
-excerpt: 5中基本类型+3种对象类型
+excerpt: 5种基本类型+3种对象类型
 abbrlink: f0517a0b
 date: 2020-08-08 20:44:42
 ---
