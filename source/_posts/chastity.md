@@ -33,7 +33,7 @@ Your eyes are too cruel, and you seek lustfully for sufferers. Has not your lust
 
 And I give this parable to you: Many who tried to cast out their devil, went themselves into swine.
 
-52 To whom chastity is difficult, it is to be dissuaded: lest it become the road to hell- to filth and lust of soul.
+To whom chastity is difficult, it is to be dissuaded: lest it become the road to hell- to filth and lust of soul.
 
 Do I speak of filthy things? That is not the worst thing for me to do. Not when the truth is filthy, but when it is shallow, does the discerning one go unwillingly into its waters.
 
