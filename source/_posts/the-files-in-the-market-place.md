@@ -63,7 +63,7 @@ They flatter you, as one flatters a God or devil; they whimper before you, as be
 
 Often, also, do they show themselves to you as friendly ones. But that has always been the prudence of cowards. Yes! cowards are wise!
 
-50 They think much about you with their petty souls- you are always suspect to them! Whatever is much thought about is at last thought suspicious.
+They think much about you with their petty souls- you are always suspect to them! Whatever is much thought about is at last thought suspicious.
 
 They punish you for all your virtues. They pardon you entirely- for your errors.
 
