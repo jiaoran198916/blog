@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"www.jiaoran.net","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="一个人若能真正地独自立于这个世界只是听从自己良心的忠告那么他就是一位英雄--克尔凯戈尔">
-<meta property="og:type" content="website">
-<meta property="og:title" content="皎然 -- 自己的园地">
-<meta property="og:url" content="https://www.jiaoran.net/categories/TBBT/index.html">
+  <meta name="description" content="什么是函数，如何调用函数，回调函数，匿名函数自调用，this的理解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4、JS中的函数">
+<meta property="og:url" content="https://www.jiaoran.net/p/a7b6368c/index.html">
 <meta property="og:site_name" content="皎然 -- 自己的园地">
-<meta property="og:description" content="一个人若能真正地独自立于这个世界只是听从自己良心的忠告那么他就是一位英雄--克尔凯戈尔">
+<meta property="og:description" content="什么是函数，如何调用函数，回调函数，匿名函数自调用，this的理解">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-09T11:24:00.000Z">
+<meta property="article:modified_time" content="2020-08-09T11:25:50.745Z">
 <meta property="article:author" content="皎然">
-<meta property="article:tag" content="技术、书与电影、哲学、杂谈、段子">
+<meta property="article:tag" content="Function">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.jiaoran.net/categories/TBBT/">
+<link rel="canonical" href="https://www.jiaoran.net/p/a7b6368c/">
 
 
 <script id="page-configurations">
@@ -39,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: TBBT | 皎然 -- 自己的园地</title>
+  <title>4、JS中的函数 | 皎然 -- 自己的园地</title>
   
 
 
@@ -160,51 +162,201 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">TBBT
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jiaoran.net/p/a7b6368c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="皎然">
+      <meta itemprop="description" content="一个人若能真正地独自立于这个世界<br>只是听从自己良心的忠告<br>那么他就是一位英雄<br>--克尔凯戈尔">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="皎然 -- 自己的园地">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          4、JS中的函数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-09 19:24:00 / 修改时间：19:25:50" itemprop="dateCreated datePublished" datetime="2020-08-09T19:24:00+08:00">2020-08-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS%E9%AB%98%E7%BA%A7/" itemprop="url" rel="index"><span itemprop="name">JS高级</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>859</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <h2 id="JS中的函数"><a href="#JS中的函数" class="headerlink" title="JS中的函数"></a>JS中的函数</h2><ol>
+<li>什么是函数?<ul>
+<li>具有特定功能的n条语句的封装体</li>
+<li>只有函数是可执行的, 其它类型的数据是不可执行的</li>
+<li>函数也是对象</li>
+</ul>
+</li>
+<li>为什么要用函数?<ul>
+<li>提高代码复用</li>
+<li>便于阅读和交流</li>
+</ul>
+</li>
+<li>如何定义函数?<ul>
+<li>函数声明 <code>function f()&#123;&#125;</code></li>
+<li>表达式 <code>var f = function()&#123;&#125;</code></li>
+</ul>
+</li>
+<li>如何调用(执行)函数?<ul>
+<li>test(): 直接调用</li>
+<li>obj.test(): 通过对象调用</li>
+<li>new test(): new调用</li>
+<li>test.call/apply(obj): 临时让test成为obj的方法进行调用</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><ol>
+<li>什么函数才是回调函数?<ul>
+<li>你定义的</li>
+<li>没有直接调用</li>
+<li>但最终它执行了(在特定条件或时刻)</li>
+</ul>
+</li>
+<li>常见的回调函数?<ul>
+<li>DOM事件函数 ==&gt;发生事件的dom元素</li>
+<li>定时器函数 ===&gt;window, setInterval、setTimeout</li>
+<li>ajax回调函数</li>
+<li>生命周期回调函数</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="匿名函数自调用-IIFE"><a href="#匿名函数自调用-IIFE" class="headerlink" title="匿名函数自调用 (IIFE)"></a>匿名函数自调用 (IIFE)</h2><ol>
+<li>理解<ul>
+<li>全称: Immediately-Invoked Function Expression 立即调用函数表达式</li>
+<li>别名: 匿名函数自调用</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>隐藏内部实现</li>
+<li>不污染外部命名空间</li>
+<li>用来编码js模块<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">test</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(++a)</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">window</span>.$ = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// 向外暴露一个全局函数</span></span><br><span class="line">     <span class="keyword">return</span> &#123;</span><br><span class="line">       test: test</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;)()</span><br><span class="line">$().test() <span class="comment">// 1. $是一个函数 2. $执行后返回的是一个对象</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="函数中的this"><a href="#函数中的this" class="headerlink" title="函数中的this"></a>函数中的this</h2><ol>
+<li>this是什么?<ul>
+<li>任何函数本质上都是通过某个对象来调用的, 如果没有直接指定就是window</li>
+<li>所有函数内部都有一个变量this，可以直接使用</li>
+<li>它的值是调用函数的当前对象</li>
+<li>一个关键字, 一个内置的引用变量</li>
+<li>在定义函数时, this还没有确定, 只有在执行时才动态确定(绑定)的</li>
+</ul>
+</li>
+<li>如何确定this的值?<ul>
+<li>test(): window</li>
+<li>p.test(): p</li>
+<li>new test(): 新创建的对象</li>
+<li>p.call(obj): obj</li>
+</ul>
+</li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-05T14:09:52+08:00"
-              content="2020-08-05">
-          08-05
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>皎然
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.jiaoran.net/p/a7b6368c/" title="4、JS中的函数">https://www.jiaoran.net/p/a7b6368c/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/p/bc92ce6c/" itemprop="url">
-            <span itemprop="name">That Is My Spot</span>
-          </a>
-      </div>
 
-    </header>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Function/" rel="tag"><i class="fa fa-tag"></i> Function</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/p/b73cad21/" rel="prev" title="3、JS中的对象">
+      <i class="fa fa-chevron-left"></i> 3、JS中的对象
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -257,6 +409,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">JS中的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E8%87%AA%E8%B0%83%E7%94%A8-IIFE"><span class="nav-number">3.</span> <span class="nav-text">匿名函数自调用 (IIFE)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84this"><span class="nav-number">4.</span> <span class="nav-text">函数中的this</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
