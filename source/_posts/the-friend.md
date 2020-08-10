@@ -7,9 +7,10 @@ categories: Zarathustra
 abbrlink: ebb7e67c
 date: 2020-08-10 08:58:22
 ---
-"THERE is always one too many about me"- thinks the hermit. "Always one and one- eventually that makes two!"
+"There is always one too many about me"- thinks the hermit. "Always one and one- eventually that makes two!"
 
 I and me are always too deeply in conversation: how could I endure it, if there were not a friend?
+<!-- more-->
 
 The friend of the hermit is always the third one: the third one is the float which prevents the conversation of the two from sinking into the depth.
 
