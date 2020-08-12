@@ -1,5 +1,5 @@
 ---
-title: love-of-the-neighbor
+title: 【P1C16】Love of the Neighbor
 tags:
   - 哲学
   - 尼采
