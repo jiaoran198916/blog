@@ -1,8 +1,11 @@
 ---
 title: JS中 Number()方法的两种用法
-date: 2020-08-13 13:47:36
-tags: [Number, 数据类型]
+tags:
+  - Number
+  - 数据类型
 categories: JavaScript
+abbrlink: ad62e574
+date: 2020-08-13 13:47:36
 ---
 JS中，调用Number()主要有两种方式，一是作为一个 function 将任意类型的数据转换成数值，二是作为一个类，通过new 生成一个数值对象。  
 <!--more -->
