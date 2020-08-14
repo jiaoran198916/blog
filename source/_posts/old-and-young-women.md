@@ -10,7 +10,7 @@ date: 2020-08-14 09:15:16
 Why do you steal along so furtively in the twilight, Zarathustra? And what do you hide so carefully under your cloak?
 
 Is it a treasure that has been given to you? Or a child that has been born to you? Or do you go on a thief's errand, you friend of evil?-
-
+<!-- more -->
 My brother, said Zarathustra, it is a treasure that has been given me: I carry a little truth.
 
 But it is naughty, like a young child; and if I do not hold its mouth, it screams too loudly.
