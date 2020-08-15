@@ -121,3 +121,9 @@ favicon:
   safari_pinned_tab: /images/logo.svg
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
