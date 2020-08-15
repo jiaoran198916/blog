@@ -127,4 +127,3 @@ search:
   field: post
   content: true
   format: html
-  limit: 10000
