@@ -1,5 +1,5 @@
 ---
-title: 原型与原型链
+title: 5、原型与原型链
 tags: prototype
 categories: JS高级
 excerpt: '每个函数都有一个 `prototype` 属性, 默认指向一个Object空对象, 即原型对象'
