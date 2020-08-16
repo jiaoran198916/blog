@@ -1,9 +1,10 @@
 ---
 title: 原型与原型链
-date: 2020-08-16 10:57:20
 tags: prototype
 categories: JS高级
-excerpt: 每个函数都有一个 `prototype` 属性, 默认指向一个Object空对象, 即原型对象
+excerpt: '每个函数都有一个 `prototype` 属性, 默认指向一个Object空对象, 即原型对象'
+abbrlink: e8f85541
+date: 2020-08-16 10:57:20
 ---
 * 显式原型与隐式原型
   * 每个函数都有一个 `prototype` 属性, 称为显式原型属性，默认指向一个 Object空对象, 即原型对象
