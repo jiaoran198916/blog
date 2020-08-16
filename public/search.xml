@@ -63,6 +63,48 @@
       </tags>
   </entry>
   <entry>
+    <title>【P1C20】Child and Marriage</title>
+    <url>/p/ddd0139e/</url>
+    <content><![CDATA[<p>I have a question for you alone, my brother: like a sounding-lead, I cast this question into your soul, that I may know its depth.</p>
+<p>You are young, and desire child and marriage. But I ask you: are you a man entitled to desire a child?</p>
+<a id="more"></a>
+<p>Are you the victorious one, the self-conqueror, the ruler of your passions, the master of your virtues? Thus do I ask you.</p>
+<p>Or does the animal speak in your wish, and need? Or loneliness? Or discord in you?</p>
+<p>Let your victory and freedom long for a child. You shall build living monuments to your victory and freedom.</p>
+<p>You shall build beyond yourself. But first of all you must be built yourself, solid in body and soul.</p>
+<p>You shall propagate yourself not only onward, but upward! For that purpose may the garden of marriage help you!</p>
+<p>You shall create a higher body, a first movement, a spontaneously rolling wheel- you shall create a creator.</p>
+<p>Marriage: so call I the will of the two to create the one that is more than those who created it. The reverence for one another, as those exercising such a will, I call marriage.</p>
+<p>Let this be the significance and the truth of your marriage. But that which the all-too-many call marriage, those superfluous ones- ah, what shall I call it?</p>
+<p>Ah, the poverty of soul in the two! Ah, the filth of soul in the two! Ah, the pitiable self-complacency in the two!</p>
+<p>They call it marriage; and they say their marriages are made in heaven.</p>
+<p>Well I do not like that heaven of the superfluous! No, I do not like them, those animals tangled in the heavenly net!</p>
+<p>Keep far from me that God who limps near to bless what he has not matched!</p>
+<p>Do not laugh at such marriages! What child has not had reason to weep over its parents?</p>
+<p>This man seemed worthy, and ripe for the meaning of the earth: but when I saw his wife, the earth seemed to me an asylum of madmen.</p>
+<p>Yes, I wish that the earth shook with convulsions when a saint and a goose mate with one another.</p>
+<p>This one went forth in quest of truth as a hero, and at last got for himself a small dressed-up lie: his marriage he calls it.</p>
+<p>That one was reserved and chose warily. But then he spoilt his company for all time: his marriage he calls it.</p>
+<p>Another sought a handmaid with the virtues of an angel. But then he became the handmaid of a woman, and now he must become an angel.</p>
+<p>Careful, have I found all buyers, and all of them have astute eyes. But even the most astute of them buys his wife in a poke.</p>
+<p>Many brief follies- that you call love. And your marriage puts an end to your many brief follies, with one long stupidity.</p>
+<p>Your love of woman, and woman’s love of man- ah, if only it were sympathy for suffering and veiled gods! But usually, two animals find each another.</p>
+<p>But even your best love is only an enraptured parable and a painful ardor. It is a torch to light loftier paths for you.</p>
+<p>You shall love beyond yourselves some day! So first, learn to love. And for that you have to drink the bitter cup of your love.</p>
+<p>Bitterness is in the cup even of the best love; thus does it cause longing for the Superman; thus does it cause thirst in you, the creator!</p>
+<p>Thirst in the creator, arrow and longing for the Superman: tell me, my brother, is this your will to marriage?</p>
+<p>Sacred I call such a will, and such a marriage.</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>打水印命令convert详解</title>
     <url>/p/6ab45c92/</url>
     <content><![CDATA[<p>打水印时主要用的是PHP扩展ImageMagick，该扩展专门用于处理图片，功能丰富，使用灵活，详细介绍可参看<a href="https://www.imagemagick.org/script/command-line-processing.php">官方文档</a>.</p>
@@ -882,6 +924,57 @@
       </tags>
   </entry>
   <entry>
+    <title>5、原型与原型链</title>
+    <url>/p/e8f85541/</url>
+    <content><![CDATA[<ul>
+<li>显式原型与隐式原型<ul>
+<li>每个函数都有一个 <code>prototype</code> 属性, 称为显式原型属性，默认指向一个 Object空对象, 即原型对象</li>
+<li>原型对象中有一个属性 constructor, 它指向函数对象</li>
+<li>所有实例对象都有一个特别的属性，<code>__proto__</code>，称为隐式原型属性</li>
+</ul>
+</li>
+<li>显式原型与隐式原型的关系<ul>
+<li>函数的prototype: 定义函数时被自动赋值, 值默认为{}, 即用为原型对象</li>
+<li>实例对象的<strong>proto</strong>: 在创建实例对象时被自动添加, 并赋值为构造函数的prototype值</li>
+<li>原型对象即为当前实例对象的父对象</li>
+<li>给原型对象添加属性(一般是方法), 实例对象可以访问</li>
+</ul>
+</li>
+<li>原型链<ul>
+<li>所有的实例对象都有<strong>proto</strong>属性, 它指向的就是原型对象</li>
+<li>这样通过<strong>proto</strong>属性就形成了一个链的结构—-&gt;原型链</li>
+<li>当查找对象内部的属性/方法时, js引擎自动沿着这个原型链查找,如果最终没找到, 返回undefined</li>
+<li>当给对象属性赋值时不会使用原型链, 而只是在当前对象中进行操作</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>函数的显示原型指向的对象默认是空Object实例对象(但Object不满足)</li>
+<li>所有函数都是Function的实例(包含Function) ，Function是通过new自己产生的实例<br><code>Function = new Function()</code></li>
+<li>Object的原型对象是原型链尽头<br><code>Object.prototype.__proto__ === null</code></li>
+</ul>
+</li>
+<li>探索 instanceof<ul>
+<li>表达式: A instanceof B</li>
+<li>如果B函数的显式原型对象在A对象的原型链上, 返回true, 否则返回false<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>测试题1.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">A.prototype.n = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> A()</span><br><span class="line">A.prototype = &#123;</span><br><span class="line">  n: <span class="number">2</span>,</span><br><span class="line">  m: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> A()</span><br><span class="line"><span class="built_in">console</span>.log(b.n, b.m, c.n, c.m)</span><br></pre></td></tr></table></figure></li>
+<li>测试题2.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;a()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;b()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F()</span><br><span class="line">f.a()</span><br><span class="line"><span class="comment">// f.b()</span></span><br><span class="line">F.a()</span><br><span class="line">F.b()</span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.prototype)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>prototype</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【P1C7】Reading And Writing</title>
     <url>/p/6d1738f6/</url>
     <content><![CDATA[<p>Of all that is written, I love only what a man has written with his blood. Write with blood, and you will find that blood is spirit.</p>
@@ -1438,99 +1531,6 @@
       <tags>
         <tag>哲学</tag>
         <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P1C20】Child and Marriage</title>
-    <url>/p/ddd0139e/</url>
-    <content><![CDATA[<p>I have a question for you alone, my brother: like a sounding-lead, I cast this question into your soul, that I may know its depth.</p>
-<p>You are young, and desire child and marriage. But I ask you: are you a man entitled to desire a child?</p>
-<a id="more"></a>
-<p>Are you the victorious one, the self-conqueror, the ruler of your passions, the master of your virtues? Thus do I ask you.</p>
-<p>Or does the animal speak in your wish, and need? Or loneliness? Or discord in you?</p>
-<p>Let your victory and freedom long for a child. You shall build living monuments to your victory and freedom.</p>
-<p>You shall build beyond yourself. But first of all you must be built yourself, solid in body and soul.</p>
-<p>You shall propagate yourself not only onward, but upward! For that purpose may the garden of marriage help you!</p>
-<p>You shall create a higher body, a first movement, a spontaneously rolling wheel- you shall create a creator.</p>
-<p>Marriage: so call I the will of the two to create the one that is more than those who created it. The reverence for one another, as those exercising such a will, I call marriage.</p>
-<p>Let this be the significance and the truth of your marriage. But that which the all-too-many call marriage, those superfluous ones- ah, what shall I call it?</p>
-<p>Ah, the poverty of soul in the two! Ah, the filth of soul in the two! Ah, the pitiable self-complacency in the two!</p>
-<p>They call it marriage; and they say their marriages are made in heaven.</p>
-<p>Well I do not like that heaven of the superfluous! No, I do not like them, those animals tangled in the heavenly net!</p>
-<p>Keep far from me that God who limps near to bless what he has not matched!</p>
-<p>Do not laugh at such marriages! What child has not had reason to weep over its parents?</p>
-<p>This man seemed worthy, and ripe for the meaning of the earth: but when I saw his wife, the earth seemed to me an asylum of madmen.</p>
-<p>Yes, I wish that the earth shook with convulsions when a saint and a goose mate with one another.</p>
-<p>This one went forth in quest of truth as a hero, and at last got for himself a small dressed-up lie: his marriage he calls it.</p>
-<p>That one was reserved and chose warily. But then he spoilt his company for all time: his marriage he calls it.</p>
-<p>Another sought a handmaid with the virtues of an angel. But then he became the handmaid of a woman, and now he must become an angel.</p>
-<p>Careful, have I found all buyers, and all of them have astute eyes. But even the most astute of them buys his wife in a poke.</p>
-<p>Many brief follies- that you call love. And your marriage puts an end to your many brief follies, with one long stupidity.</p>
-<p>Your love of woman, and woman’s love of man- ah, if only it were sympathy for suffering and veiled gods! But usually, two animals find each another.</p>
-<p>But even your best love is only an enraptured parable and a painful ardor. It is a torch to light loftier paths for you.</p>
-<p>You shall love beyond yourselves some day! So first, learn to love. And for that you have to drink the bitter cup of your love.</p>
-<p>Bitterness is in the cup even of the best love; thus does it cause longing for the Superman; thus does it cause thirst in you, the creator!</p>
-<p>Thirst in the creator, arrow and longing for the Superman: tell me, my brother, is this your will to marriage?</p>
-<p>Sacred I call such a will, and such a marriage.</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>5、原型与原型链</title>
-    <url>/p/e8f85541/</url>
-    <content><![CDATA[<ul>
-<li>显式原型与隐式原型<ul>
-<li>每个函数都有一个 <code>prototype</code> 属性, 称为显式原型属性，默认指向一个 Object空对象, 即原型对象</li>
-<li>原型对象中有一个属性 constructor, 它指向函数对象</li>
-<li>所有实例对象都有一个特别的属性，<code>__proto__</code>，称为隐式原型属性</li>
-</ul>
-</li>
-<li>显式原型与隐式原型的关系<ul>
-<li>函数的prototype: 定义函数时被自动赋值, 值默认为{}, 即用为原型对象</li>
-<li>实例对象的<strong>proto</strong>: 在创建实例对象时被自动添加, 并赋值为构造函数的prototype值</li>
-<li>原型对象即为当前实例对象的父对象</li>
-<li>给原型对象添加属性(一般是方法), 实例对象可以访问</li>
-</ul>
-</li>
-<li>原型链<ul>
-<li>所有的实例对象都有<strong>proto</strong>属性, 它指向的就是原型对象</li>
-<li>这样通过<strong>proto</strong>属性就形成了一个链的结构—-&gt;原型链</li>
-<li>当查找对象内部的属性/方法时, js引擎自动沿着这个原型链查找,如果最终没找到, 返回undefined</li>
-<li>当给对象属性赋值时不会使用原型链, 而只是在当前对象中进行操作</li>
-</ul>
-</li>
-<li>注意<ul>
-<li>函数的显示原型指向的对象默认是空Object实例对象(但Object不满足)</li>
-<li>所有函数都是Function的实例(包含Function) ，Function是通过new自己产生的实例<br><code>Function = new Function()</code></li>
-<li>Object的原型对象是原型链尽头<br><code>Object.prototype.__proto__ === null</code></li>
-</ul>
-</li>
-<li>探索 instanceof<ul>
-<li>表达式: A instanceof B</li>
-<li>如果B函数的显式原型对象在A对象的原型链上, 返回true, 否则返回false<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li>测试题1.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">A.prototype.n = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> A()</span><br><span class="line">A.prototype = &#123;</span><br><span class="line">  n: <span class="number">2</span>,</span><br><span class="line">  m: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> A()</span><br><span class="line"><span class="built_in">console</span>.log(b.n, b.m, c.n, c.m)</span><br></pre></td></tr></table></figure></li>
-<li>测试题2.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;a()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;b()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F()</span><br><span class="line">f.a()</span><br><span class="line"><span class="comment">// f.b()</span></span><br><span class="line">F.a()</span><br><span class="line">F.b()</span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.prototype)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JS高级</category>
-      </categories>
-      <tags>
-        <tag>prototype</tag>
       </tags>
   </entry>
 </search>
