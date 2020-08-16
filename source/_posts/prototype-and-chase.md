@@ -2,7 +2,7 @@
 title: 5、原型与原型链
 tags: prototype
 categories: JS高级
-excerpt: '每个函数都有一个 `prototype` 属性, 默认指向一个Object空对象, 即原型对象'
+excerpt: '每个函数都有一个 `prototype` 属性, 称为为显式原型属性, 默认指向一个Object空对象, 即原型对象; 所有实例对象都有一个特别的属性, `__proto__`, 称为隐式原型属性'
 abbrlink: e8f85541
 date: 2020-08-16 10:57:20
 ---
