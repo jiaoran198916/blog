@@ -1,8 +1,11 @@
 ---
 title: 【P1C21】Free Death
-date: 2020-08-17 11:01:42
-tags: [哲学, 尼采]
+tags:
+  - 哲学
+  - 尼采
 categories: Zarathustra
+abbrlink: '76672179'
+date: 2020-08-17 11:01:42
 ---
 Many die too late, and some die too early. Yet strange sounds the precept: "Die at the right time!
 
