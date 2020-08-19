@@ -9,7 +9,7 @@ date: 2020-08-19 17:57:58
 ---
 1.
 When Zarathustra had taken leave of the town to which his heart was attached, the name of which is "The Pied Cow," many people who called themselves his disciples followed him, and kept him company. Thus they came to a crossroads. Then Zarathustra told them that he now wanted to walk alone; for he was fond of walking alone. His disciples, however, presented him a staff with a golden handle, on which a serpent twined round the sun. Zarathustra rejoiced on account of the staff, and leaned on it; then thus he spoke to his disciples:
-
+<!--more-->
 Tell me, pray: how did gold attain the highest value? Because it is uncommon, and useless, and gleaming, and soft in lustre; it always gives itself.
 
 Only as an image of the highest virtue did gold attain the highest value. Golden, gleams the glance of the giver. Golden lustre makes peace between moon and sun.
