@@ -31,38 +31,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【P1C13】Chastity</title>
-    <url>/p/948ca02f/</url>
-    <content><![CDATA[<p>I love the forest. It is bad to live in cities: there, there are too many of the lustful.</p>
-<a id="more"></a>
-<p>Is it not better to fall into the hands of a murderer than into the dreams of a lustful woman?</p>
-<p>And just look at these men: their eye says it- they cannot conceive of anything better on earth than to lie with a woman.</p>
-<p>Filth is at the bottom of their souls; and alas! if their filth still has spirit in it!</p>
-<p>If only you were perfect- at least as animals! But to animals belongs innocence.</p>
-<p>Do I counsel you to kill your instincts? I counsel you to innocence in your instincts.</p>
-<p>Do I counsel you to chastity? Chastity is a virtue with some, but almost a vice with many.</p>
-<p>They are chaste, to be sure: but the bitch, lust, looks enviously out of all that they do.</p>
-<p>Even into the heights of their virtue and into their cold spirit does this creature follow them, with its discord.</p>
-<p>And how nicely can the bitch, lust, beg for a piece of spirit, when a piece of flesh is denied it!</p>
-<p>You love tragedies and all that breaks the heart? But I am distrustful of your bitch.</p>
-<p>Your eyes are too cruel, and you seek lustfully for sufferers. Has not your lust just disguised itself and taken the name of pity?</p>
-<p>And I give this parable to you: Many who tried to cast out their devil, went themselves into swine.</p>
-<p>To whom chastity is difficult, it is to be dissuaded: lest it become the road to hell- to filth and lust of soul.</p>
-<p>Do I speak of filthy things? That is not the worst thing for me to do. Not when the truth is filthy, but when it is shallow, does the discerning one go unwillingly into its waters.</p>
-<p>There are some who are chaste from their very nature; they are gentler of heart, and laugh better and more often than you.</p>
-<p>They laugh also at chastity, and ask: “What is chastity?</p>
-<p>Is chastity not folly? But this folly came to us, and not we to it.</p>
-<p>We offered that guest harbor and heart: now it dwells with us- let it stay as long as it will!”Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【P1C20】Child and Marriage</title>
     <url>/p/ddd0139e/</url>
     <content><![CDATA[<p>I have a question for you alone, my brother: like a sounding-lead, I cast this question into your soul, that I may know its depth.</p>
@@ -105,37 +73,35 @@
       </tags>
   </entry>
   <entry>
-    <title>打水印命令convert详解</title>
-    <url>/p/6ab45c92/</url>
-    <content><![CDATA[<p>打水印时主要用的是PHP扩展ImageMagick，该扩展专门用于处理图片，功能丰富，使用灵活，详细介绍可参看<a href="https://www.imagemagick.org/script/command-line-processing.php">官方文档</a>.</p>
-<p>基本操作有打水印、裁剪、划线、画矩形、格式转换等。其中打水印命令最为复杂，下面对其中的参数和选项做个梳理。</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">convert +profile <span class="string">&#x27;*&#x27;</span> <span class="built_in">source</span> -quality 80 -resize <span class="string">&#x27;800x600&#x27;</span></span><br><span class="line">water.png -gravity southeast -geometry +0+0 -composite</span><br><span class="line">-fill rgba\(255,255,255,0.35\) -font fzltchjt.TTF</span><br><span class="line">-pointsize 20 -stroke rgba\(0,0,0,0.22\) -strokewidth 1</span><br><span class="line">-gravity SouthEast -draw <span class="string">&quot;text 28,15 &#x27;贴图ID:188916&#x27;&quot;</span> dest</span><br></pre></td></tr></table></figure>
-<ul>
-<li>+profile<br>Use <code>+profile profile_name</code> to remove the indicated profile.<br><code>*</code>代表去除所有。但没弄懂profile是啥。</li>
-<li>source 原图片</li>
-<li>quality 质量，品质</li>
-<li>resize 重新设置大小，以上两项均针对原图片source</li>
-<li>water.png 水印图片</li>
-<li>southeast 和 geometry 指定图片叠加位置，遵循地理位置，上北下南左西右东，southeast就是右下角，geometry指定相对原点的偏移值，有很多写法，默认是 +0+0，可省略</li>
-<li>composite 代表用多个图片合并起来，这里应该是将两个图片（source和water.png）叠加起来</li>
-<li>(下面一些是对添加水印字体的设置)</li>
-<li>fill 字体颜色</li>
-<li>font 指定字体</li>
-<li>pointsize 字体大小，像素为单位</li>
-<li>stroke 描边颜色</li>
-<li>strokewidth 描边宽度</li>
-<li>-gravity SouthEast 第二个指定水印字体相对位置，此处如同上面相同可省略</li>
-<li>draw 绘制字体 text 28,15 代表相对水平和垂直位置，后面是具体值</li>
-<li>dest 目标输出图片</li>
-</ul>
-<p>关于路径写法，绝对路径和相对路径都支持，但输出图片时不允许新建目录。</p>
-<p>测试过部分参数，不知道理解的对不对，原参数实在太多了 -_-||</p>
+    <title>【P1C13】Chastity</title>
+    <url>/p/948ca02f/</url>
+    <content><![CDATA[<p>I love the forest. It is bad to live in cities: there, there are too many of the lustful.</p>
+<a id="more"></a>
+<p>Is it not better to fall into the hands of a murderer than into the dreams of a lustful woman?</p>
+<p>And just look at these men: their eye says it- they cannot conceive of anything better on earth than to lie with a woman.</p>
+<p>Filth is at the bottom of their souls; and alas! if their filth still has spirit in it!</p>
+<p>If only you were perfect- at least as animals! But to animals belongs innocence.</p>
+<p>Do I counsel you to kill your instincts? I counsel you to innocence in your instincts.</p>
+<p>Do I counsel you to chastity? Chastity is a virtue with some, but almost a vice with many.</p>
+<p>They are chaste, to be sure: but the bitch, lust, looks enviously out of all that they do.</p>
+<p>Even into the heights of their virtue and into their cold spirit does this creature follow them, with its discord.</p>
+<p>And how nicely can the bitch, lust, beg for a piece of spirit, when a piece of flesh is denied it!</p>
+<p>You love tragedies and all that breaks the heart? But I am distrustful of your bitch.</p>
+<p>Your eyes are too cruel, and you seek lustfully for sufferers. Has not your lust just disguised itself and taken the name of pity?</p>
+<p>And I give this parable to you: Many who tried to cast out their devil, went themselves into swine.</p>
+<p>To whom chastity is difficult, it is to be dissuaded: lest it become the road to hell- to filth and lust of soul.</p>
+<p>Do I speak of filthy things? That is not the worst thing for me to do. Not when the truth is filthy, but when it is shallow, does the discerning one go unwillingly into its waters.</p>
+<p>There are some who are chaste from their very nature; they are gentler of heart, and laugh better and more often than you.</p>
+<p>They laugh also at chastity, and ask: “What is chastity?</p>
+<p>Is chastity not folly? But this folly came to us, and not we to it.</p>
+<p>We offered that guest harbor and heart: now it dwells with us- let it stay as long as it will!”Thus spoke Zarathustra.</p>
 ]]></content>
       <categories>
-        <category>PHP</category>
+        <category>Zarathustra</category>
       </categories>
       <tags>
-        <tag>水印</tag>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
       </tags>
   </entry>
   <entry>
@@ -290,6 +256,172 @@
       </tags>
   </entry>
   <entry>
+    <title>打水印命令convert详解</title>
+    <url>/p/6ab45c92/</url>
+    <content><![CDATA[<p>打水印时主要用的是PHP扩展ImageMagick，该扩展专门用于处理图片，功能丰富，使用灵活，详细介绍可参看<a href="https://www.imagemagick.org/script/command-line-processing.php">官方文档</a>.</p>
+<p>基本操作有打水印、裁剪、划线、画矩形、格式转换等。其中打水印命令最为复杂，下面对其中的参数和选项做个梳理。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">convert +profile <span class="string">&#x27;*&#x27;</span> <span class="built_in">source</span> -quality 80 -resize <span class="string">&#x27;800x600&#x27;</span></span><br><span class="line">water.png -gravity southeast -geometry +0+0 -composite</span><br><span class="line">-fill rgba\(255,255,255,0.35\) -font fzltchjt.TTF</span><br><span class="line">-pointsize 20 -stroke rgba\(0,0,0,0.22\) -strokewidth 1</span><br><span class="line">-gravity SouthEast -draw <span class="string">&quot;text 28,15 &#x27;贴图ID:188916&#x27;&quot;</span> dest</span><br></pre></td></tr></table></figure>
+<ul>
+<li>+profile<br>Use <code>+profile profile_name</code> to remove the indicated profile.<br><code>*</code>代表去除所有。但没弄懂profile是啥。</li>
+<li>source 原图片</li>
+<li>quality 质量，品质</li>
+<li>resize 重新设置大小，以上两项均针对原图片source</li>
+<li>water.png 水印图片</li>
+<li>southeast 和 geometry 指定图片叠加位置，遵循地理位置，上北下南左西右东，southeast就是右下角，geometry指定相对原点的偏移值，有很多写法，默认是 +0+0，可省略</li>
+<li>composite 代表用多个图片合并起来，这里应该是将两个图片（source和water.png）叠加起来</li>
+<li>(下面一些是对添加水印字体的设置)</li>
+<li>fill 字体颜色</li>
+<li>font 指定字体</li>
+<li>pointsize 字体大小，像素为单位</li>
+<li>stroke 描边颜色</li>
+<li>strokewidth 描边宽度</li>
+<li>-gravity SouthEast 第二个指定水印字体相对位置，此处如同上面相同可省略</li>
+<li>draw 绘制字体 text 28,15 代表相对水平和垂直位置，后面是具体值</li>
+<li>dest 目标输出图片</li>
+</ul>
+<p>关于路径写法，绝对路径和相对路径都支持，但输出图片时不允许新建目录。</p>
+<p>测试过部分参数，不知道理解的对不对，原参数实在太多了 -_-||</p>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>水印</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>6、执行上下文与执行上下文栈</title>
+    <url>/p/fc7eaee4/</url>
+    <content><![CDATA[<ul>
+<li>变量提升与函数提升<ul>
+<li>变量提升: 在变量var定义(声明)语句之前, 就可以访问到这个变量(undefined)</li>
+<li>函数提升: 在函数定义语句之前, 就执行该函数</li>
+<li>先有变量提升, 再有函数提升<a id="more"></a></li>
+</ul>
+</li>
+<li>理解<ul>
+<li>执行上下文: 由js引擎自动创建的对象, 包含对应作用域中的所有变量属性</li>
+<li>执行上下文栈: 用来管理产生的多个执行上下文</li>
+</ul>
+</li>
+<li>分类:<ul>
+<li>全局: window</li>
+<li>函数(局部): 对程序员来说是透明的</li>
+</ul>
+</li>
+<li>生命周期<ul>
+<li>全局 : 准备执行全局代码前产生, 当页面刷新/关闭页面时死亡</li>
+<li>函数 : 调用函数时产生, 函数执行完时死亡</li>
+</ul>
+</li>
+<li>包含哪些属性:<ul>
+<li>全局 :<ul>
+<li>用var定义的全局变量  ==&gt;undefined</li>
+<li>使用function声明的函数   ===&gt;function</li>
+<li>this   ===&gt;window</li>
+</ul>
+</li>
+<li>函数<ul>
+<li>用var定义的局部变量  ==&gt;undefined</li>
+<li>使用function声明的函数   ===&gt;function</li>
+<li>this   ===&gt; 调用函数的对象, 如果没有指定就是window</li>
+<li>形参变量   ===&gt;对应实参值</li>
+<li>arguments ===&gt;实参列表的伪数组</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>执行上下文创建和初始化的过程<ul>
+<li>全局:<ul>
+<li>在全局代码执行前最先创建一个全局执行上下文(window)</li>
+<li>收集一些全局变量, 并初始化</li>
+<li>将这些变量设置为window的属性</li>
+</ul>
+</li>
+<li>函数:<ul>
+<li>在调用函数时, 在执行函数体之前先创建一个函数执行上下文</li>
+<li>收集一些局部变量, 并初始化</li>
+<li>将这些变量设置为执行上下文的属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>执行上下文栈<ul>
+<li>在全局代码执行前, JS引擎就会创建一个栈来存储管理所有的执行上下文对象</li>
+<li>在全局执行上下文(window)确定后, 将其添加到栈中(压栈)</li>
+<li>在函数执行上下文创建后, 将其添加到栈中(压栈)</li>
+<li>在当前函数执行完后,将栈顶的对象移除(出栈)</li>
+<li>当所有的代码执行完后, 栈中只剩下window<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">5</span></span><br><span class="line">    foo(x + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c = <span class="number">5</span></span><br><span class="line">    <span class="built_in">console</span>.log(a + c + y)</span><br><span class="line">&#125;</span><br><span class="line">bar(<span class="number">10</span>)</span><br><span class="line"><span class="comment">// bar(10)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>测试题1<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;gb: &#x27;</span>+ i)</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span></span><br><span class="line">foo(<span class="number">1</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (i == <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;fb:&#x27;</span> + i)</span><br><span class="line">  foo(i + <span class="number">1</span>) <span class="comment">//递归调用: 在函数内部调用自己</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;fe:&#x27;</span> + i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;ge: &#x27;</span> + i)</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  1. 依次输出什么?</span></span><br><span class="line"><span class="comment">    gb: undefined</span></span><br><span class="line"><span class="comment">    fb: 1</span></span><br><span class="line"><span class="comment">    fb: 2</span></span><br><span class="line"><span class="comment">    fb: 3</span></span><br><span class="line"><span class="comment">    fe: 3</span></span><br><span class="line"><span class="comment">    fe: 2</span></span><br><span class="line"><span class="comment">    fe: 1</span></span><br><span class="line"><span class="comment">    ge: 1</span></span><br><span class="line"><span class="comment">  2. 整个过程中产生了几个执行上下文?  5</span></span><br><span class="line"><span class="comment">  */</span></span><br></pre></td></tr></table></figure></li>
+<li>测试题2<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 1:先预处理变量, 后预处理函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a) <span class="comment">// &#x27;function&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 2:变量预处理, in操作符</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">if</span> (!(b <span class="keyword">in</span> <span class="built_in">window</span>)) &#123;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 3:预处理, 顺序执行</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(c)</span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">c(<span class="number">2</span>) <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>execution</tag>
+        <tag>执行上下文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C21】Free Death</title>
+    <url>/p/76672179/</url>
+    <content><![CDATA[<p>Many die too late, and some die too early. Yet strange sounds the precept: “Die at the right time!</p>
+<p>Die at the right time: thus teaches Zarathustra.</p>
+<a id="more"></a>
+<p>To be sure, how could he who never lives at the right time ever die at the right time? If only he had never been born!- Thus do I advise the superfluous.</p>
+<p>But even the superfluous make a show of their death, and even the hollowest nut wants to be cracked.</p>
+<p>All regard dying as a great matter: but as yet death is not a festival. People have not yet learned to inaugurate the finest festivals.</p>
+<p>I teach you the death which consummates, and becomes a spur and promise to the living.</p>
+<p>He who consummates his life, then dies triumphant, surrounded by those who hope and promise.</p>
+<p>Thus should one learn to die; and there should be no festival at which one who dies in this way does not consecrate the oaths of the living!</p>
+<p>Thus to die is best; the next best, however, is to die in battle, and squander a great soul.</p>
+<p>But equally hateful to vanquished and victor, is the grinning death which steals nigh like a thief,- and yet comes as master.</p>
+<p>My death I praise to you, the voluntary death, which comes to me because I want it.</p>
+<p>And when shall I want it?- He that has a goal and an heir, wants death at the right time for the goal and the heir.</p>
+<p>And from reverence for the goal and heir, he will hang no more withered wreaths in the sanctuary of life.</p>
+<p>I will not imitate the rope-makers: they lengthen out their cord and always walk backward.</p>
+<p>And many grow too old for their truths and triumphs; a toothless mouth no longer has the right to every truth.</p>
+<p>And whoever wants fame must take leave of honor and practice the difficult art of- leaving at the right time.</p>
+<p>One must stop being eaten when one tastes best: those who want to be long loved know this.</p>
+<p>There are sour apples, no doubt, whose lot is to wait until the last day of autumn: and at once they become ripe, yellow, and shrivelled.</p>
+<p>In some the heart ages first, and in others the spirit. And some are hoary in youth, but those who are young latest keep young longer.</p>
+<p>To many men life is a failure; a poison-worm gnaws at their heart. Then at least let their dying be a success.</p>
+<p>Many never become sweet; they rot even in the summer. Cowardice holds them fast to their branches.</p>
+<p>Far too many live, and far too long do they hang on their branches. If only a storm would come and shake all that is rotten and worm-eaten from the tree!</p>
+<p>If only there were preachers of quick death! They would be the right storms and shakers of the trees of life! But I hear only the slow death preached, and patience with all that is “earthly.”</p>
+<p>Ah! you preach patience with what is earthly? It is the earthly that has too much patience with you, you blasphemers!</p>
+<p>Too early died that Hebrew whom the preachers of slow death honor: and it is a calamity to many that he died too early.</p>
+<p>As yet he knew only tears, and the melancholy of the Hebrews, and hatred of the good and just- the Hebrew Jesus: then he was seized with longing for death.</p>
+<p>If only he had remained in the wilderness, far from the good the just! Perhaps then he would have learned to live and love the earth- and laughter also!</p>
+<p>Believe me, my brothers! He died too early; he himself would have recanted his doctrine had he reached my age! He was noble enough to recant!</p>
+<p>But he was still immature. The youth loves immaturely, and he also hates immaturely both man and earth. His soul and the wings of his spirit are still confined and awkward.</p>
+<p>But in man there is more of the child than in the youth, and less melancholy: he better understands life and death.</p>
+<p>Free for death, and free in death; a sacred Nosayer, when there is no longer time for Yes: thus he understands death and life.</p>
+<p>That your dying be no reproach to man and the earth, my friends: that I ask of the honey of your soul.</p>
+<p>In your dying, your spirit and your virtue shall still shine like an sunset around the earth: otherwise your dying has gone badly.</p>
+<p>Thus I will die myself, that you, my friends, may love the earth more for my sake; and earth will I again become, to have rest in her that bore me.</p>
+<p>Zarathustra had a goal; he threw his ball. Now you, my friends, are the heirs of my goal; to you I throw the golden ball.</p>
+<p>I like best of all to see you, my friends, throw the golden ball! And so I tarry a little while on the earth- pardon me for it!</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>getimagesize()获取图片尺寸等信息</title>
     <url>/p/7495c85b/</url>
     <content><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>getimagesize - 获取图片尺寸</p>
@@ -309,6 +441,44 @@
       </categories>
       <tags>
         <tag>getimagesize</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C5】Joys and Passions</title>
+    <url>/p/d32c0929/</url>
+    <content><![CDATA[<p>My brother, when you have a virtue, and it is your own virtue, you have it in common with no one.</p>
+<a id="more"></a>
+<p>To be sure, you would call it by name and caress it; you would tug its ears and amuse yourself with it.</p>
+<p>And lo! Then have you its name in common with the people, and have become one of the people and the herd with your virtue!</p>
+<p>Better for you to say: “Inexpressible and nameless is that which gives pain and sweetness to my soul, and is the hunger of my bowels.”</p>
+<p>Let your virtue be too exalted for the familiarity of names, and if you must speak of it, be not ashamed to stammer about it.</p>
+<p>Thus speak and stammer: “This is my good, this I love, thus does it please me entirely, thus alone do I want the good.</p>
+<p>I do not want it as divine law, not as a human law or a human need; it will not be a guide-post for me to over-earths and paradises.</p>
+<p>It is an earthly virtue which I love: there is little prudence in it, and least of all any common wisdom.</p>
+<p>But that bird built its nest with me: therefore, I love and cherish itnow it sits with me on its golden eggs.”</p>
+<p>Thus should you stammer, and praise your virtue.</p>
+<p>Once you had passions and called them evil. But now you have only your virtues: they grew out of your passions.</p>
+<p>You implanted your highest goal into the heart of those passions: then they became your virtues and joys.</p>
+<p>And though you were of the race of the hot-tempered, or of the voluptuous, or of the fanatical, or the vindictive;</p>
+<p>All your passions in the end became virtues, and all your devils angels.</p>
+<p>32 Once had you wild dogs in your cellar: but they changed at last into birds and charming singers.</p>
+<p>Out of your poisons you brewed your balsam; you milked your cow, melancholy- now you drink the sweet milk of her udder.</p>
+<p>And nothing evil grows in you any longer, unless it be the evil that grows out of the conflict of your virtues.</p>
+<p>My brother, if you are fortunate, then you have one virtue and no more: thus you will go easier over the bridge.</p>
+<p>It is illustrious to have many virtues, but a hard lot; and many a one has gone into the wilderness and killed himself, because he was weary of being the battle and battlefield of virtues.</p>
+<p>My brother, are war and battle evil? But this evil is necessary; necessary are the envy and the distrust and the back-biting among the virtues.</p>
+<p>Behold how each of your virtues is covetous of the highest place; each wants your whole spirit to be her herald, it wants your whole power, in wrath, hatred, and love.</p>
+<p>Each virtue is jealous of the others, and jealousy is a terrible thing. Even virtues may perish of jealousy.</p>
+<p>He whom the flame of jealousy encompasses, will at last, like the scorpion, turn the poisoned sting against himself.</p>
+<p>Ah! my brother, have you never seen a virtue backbite and stab itself?</p>
+<p>Man is something that must be overcome: and therefore you will love your virtues,- for you will perish by them.-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
       </tags>
   </entry>
   <entry>
@@ -495,44 +665,6 @@
       </categories>
       <tags>
         <tag>Server</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P1C5】Joys and Passions</title>
-    <url>/p/d32c0929/</url>
-    <content><![CDATA[<p>My brother, when you have a virtue, and it is your own virtue, you have it in common with no one.</p>
-<a id="more"></a>
-<p>To be sure, you would call it by name and caress it; you would tug its ears and amuse yourself with it.</p>
-<p>And lo! Then have you its name in common with the people, and have become one of the people and the herd with your virtue!</p>
-<p>Better for you to say: “Inexpressible and nameless is that which gives pain and sweetness to my soul, and is the hunger of my bowels.”</p>
-<p>Let your virtue be too exalted for the familiarity of names, and if you must speak of it, be not ashamed to stammer about it.</p>
-<p>Thus speak and stammer: “This is my good, this I love, thus does it please me entirely, thus alone do I want the good.</p>
-<p>I do not want it as divine law, not as a human law or a human need; it will not be a guide-post for me to over-earths and paradises.</p>
-<p>It is an earthly virtue which I love: there is little prudence in it, and least of all any common wisdom.</p>
-<p>But that bird built its nest with me: therefore, I love and cherish itnow it sits with me on its golden eggs.”</p>
-<p>Thus should you stammer, and praise your virtue.</p>
-<p>Once you had passions and called them evil. But now you have only your virtues: they grew out of your passions.</p>
-<p>You implanted your highest goal into the heart of those passions: then they became your virtues and joys.</p>
-<p>And though you were of the race of the hot-tempered, or of the voluptuous, or of the fanatical, or the vindictive;</p>
-<p>All your passions in the end became virtues, and all your devils angels.</p>
-<p>32 Once had you wild dogs in your cellar: but they changed at last into birds and charming singers.</p>
-<p>Out of your poisons you brewed your balsam; you milked your cow, melancholy- now you drink the sweet milk of her udder.</p>
-<p>And nothing evil grows in you any longer, unless it be the evil that grows out of the conflict of your virtues.</p>
-<p>My brother, if you are fortunate, then you have one virtue and no more: thus you will go easier over the bridge.</p>
-<p>It is illustrious to have many virtues, but a hard lot; and many a one has gone into the wilderness and killed himself, because he was weary of being the battle and battlefield of virtues.</p>
-<p>My brother, are war and battle evil? But this evil is necessary; necessary are the envy and the distrust and the back-biting among the virtues.</p>
-<p>Behold how each of your virtues is covetous of the highest place; each wants your whole spirit to be her herald, it wants your whole power, in wrath, hatred, and love.</p>
-<p>Each virtue is jealous of the others, and jealousy is a terrible thing. Even virtues may perish of jealousy.</p>
-<p>He whom the flame of jealousy encompasses, will at last, like the scorpion, turn the poisoned sting against himself.</p>
-<p>Ah! my brother, have you never seen a virtue backbite and stab itself?</p>
-<p>Man is something that must be overcome: and therefore you will love your virtues,- for you will perish by them.-</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
       </tags>
   </entry>
   <entry>
@@ -1070,36 +1202,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【P1C19】The Bite of the Adder</title>
-    <url>/p/db77dade/</url>
-    <content><![CDATA[<p>One day Zarathustra had fallen asleep under a fig-tree, owing to the heat, with his arm over his face. And there came an adder and bit him in the neck, so that Zarathustra cried with pain. When he had taken his arm from his face he looked at the serpent; and then it recognized the eyes of Zarathustra, wriggled awkwardly, and tried to get away. “Do not go,” said Zarathustra, “as yet have you not received my thanks! you have awakened me in time; my journey is yet long.” “Your journey is short,” said the adder sadly; “my poison is fatal.” Zarathustra smiled. “When ever did a dragon die of a serpent’s poison?”- he said. “But take your poison back! you are not rich enough to give it to me.” Then the adder fell again on his neck, and licked his wound.</p>
-<a id="more"></a>
-<p>When Zarathustra had told this to his disciples they asked him: “And what, O Zarathustra, is the moral of your story?” And Zarathustra answered them thus:</p>
-<p>The destroyer of morality, the good and just call me: my story is immoral.</p>
-<p>When, however, you have an enemy, then do not requite him good for evil: for that would shame him. Instead, prove that he did some good for you.</p>
-<p>And rather be angry than put to shame! And when you are cursed, I do not like it that you want to bless. Rather curse a little also!</p>
-<p>And if you are done a great injustice, then quickly add five small ones. Hideous to behold is he who is obsessed with an injustice.</p>
-<p>Did you know this? A shared injustice is half just. And he who can bear it, should take the injustice upon himself!</p>
-<p>A small revenge is more human than no revenge at all. And if the punishment is not also a right and an honor to the transgressor, I do not like your punishment.</p>
-<p>It is nobler to declare oneself wrong than to prove oneself right, especially when one is right. Only, one must be rich enough to do so.</p>
-<p>I do not like your cold justice; out of the eye of your judges there always glances the executioner and his cold steel.</p>
-<p>Tell me: where do we find the justice which is love with open eyes? Invent for me then the love which not only bears all punishment, but also all guilt!</p>
-<p>Invent for me then the justice which acquits every one, except he who judges!</p>
-<p>And would you hear this? To him who would be just from the heart, even lies become a kindness to others.</p>
-<p>But how could I be just from the heart! How can I give each his own! Let this be enough for me: I give each my own.</p>
-<p>Finally, my brothers, guard against doing wrong to any hermit. How could a hermit forget! How could he requite!</p>
-<p>Like a deep well is a hermit. It is easy to throw in a stone: if it sinks to the bottom then tell me, who will bring it out again?</p>
-<p>Guard against injuring the hermit! But if you have done so, well then kill him also!Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【P1C4】The Despisers of the Body</title>
     <url>/p/50bd86d4/</url>
     <content><![CDATA[<p>To the despisers of the body I speak my word. I wish them neither to learn afresh, nor teach anew, but only to bid farewell to their own bodies,- and thus become silent.</p>
@@ -1132,6 +1234,36 @@
       </categories>
       <tags>
         <tag>哲学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C19】The Bite of the Adder</title>
+    <url>/p/db77dade/</url>
+    <content><![CDATA[<p>One day Zarathustra had fallen asleep under a fig-tree, owing to the heat, with his arm over his face. And there came an adder and bit him in the neck, so that Zarathustra cried with pain. When he had taken his arm from his face he looked at the serpent; and then it recognized the eyes of Zarathustra, wriggled awkwardly, and tried to get away. “Do not go,” said Zarathustra, “as yet have you not received my thanks! you have awakened me in time; my journey is yet long.” “Your journey is short,” said the adder sadly; “my poison is fatal.” Zarathustra smiled. “When ever did a dragon die of a serpent’s poison?”- he said. “But take your poison back! you are not rich enough to give it to me.” Then the adder fell again on his neck, and licked his wound.</p>
+<a id="more"></a>
+<p>When Zarathustra had told this to his disciples they asked him: “And what, O Zarathustra, is the moral of your story?” And Zarathustra answered them thus:</p>
+<p>The destroyer of morality, the good and just call me: my story is immoral.</p>
+<p>When, however, you have an enemy, then do not requite him good for evil: for that would shame him. Instead, prove that he did some good for you.</p>
+<p>And rather be angry than put to shame! And when you are cursed, I do not like it that you want to bless. Rather curse a little also!</p>
+<p>And if you are done a great injustice, then quickly add five small ones. Hideous to behold is he who is obsessed with an injustice.</p>
+<p>Did you know this? A shared injustice is half just. And he who can bear it, should take the injustice upon himself!</p>
+<p>A small revenge is more human than no revenge at all. And if the punishment is not also a right and an honor to the transgressor, I do not like your punishment.</p>
+<p>It is nobler to declare oneself wrong than to prove oneself right, especially when one is right. Only, one must be rich enough to do so.</p>
+<p>I do not like your cold justice; out of the eye of your judges there always glances the executioner and his cold steel.</p>
+<p>Tell me: where do we find the justice which is love with open eyes? Invent for me then the love which not only bears all punishment, but also all guilt!</p>
+<p>Invent for me then the justice which acquits every one, except he who judges!</p>
+<p>And would you hear this? To him who would be just from the heart, even lies become a kindness to others.</p>
+<p>But how could I be just from the heart! How can I give each his own! Let this be enough for me: I give each my own.</p>
+<p>Finally, my brothers, guard against doing wrong to any hermit. How could a hermit forget! How could he requite!</p>
+<p>Like a deep well is a hermit. It is easy to throw in a stone: if it sinks to the bottom then tell me, who will bring it out again?</p>
+<p>Guard against injuring the hermit! But if you have done so, well then kill him also!Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
       </tags>
   </entry>
   <entry>
@@ -1218,6 +1350,76 @@
 <p>As yet woman is not capable of friendship. But tell me, you men, who of you is capable of friendship?</p>
 <p>Oh! your poverty, you men, and your sparingness of soul! As much as you give to your friend, I will give even to my enemy, and will not become poorer for it.</p>
 <p>There is comradeship: may there be friendship!</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C22】The Giving Virtue</title>
+    <url>/p/6fd217a7/</url>
+    <content><![CDATA[<p>1.<br>When Zarathustra had taken leave of the town to which his heart was attached, the name of which is “The Pied Cow,” many people who called themselves his disciples followed him, and kept him company. Thus they came to a crossroads. Then Zarathustra told them that he now wanted to walk alone; for he was fond of walking alone. His disciples, however, presented him a staff with a golden handle, on which a serpent twined round the sun. Zarathustra rejoiced on account of the staff, and leaned on it; then thus he spoke to his disciples:</p>
+<a id="more"></a>
+<p>Tell me, pray: how did gold attain the highest value? Because it is uncommon, and useless, and gleaming, and soft in lustre; it always gives itself.</p>
+<p>Only as an image of the highest virtue did gold attain the highest value. Golden, gleams the glance of the giver. Golden lustre makes peace between moon and sun.</p>
+<p>Uncommon is the highest virtue, and useless, it is gleaming, and soft of lustre: a giving virtue is the highest virtue.</p>
+<p>I know you well, my disciples: you strive like me for the giving virtue. What would you have in common with cats and wolves?</p>
+<p>You thirst to become sacrifices and gifts yourselves: and so you thirst to amass all riches in your soul.</p>
+<p>Your soul strives insatiably for treasures and jewels, because your virtue is insatiable in desiring to give.</p>
+<p>You force all things to flow towards you and into you, so that they shall flow back again out of your fountain as the gifts of your love.</p>
+<p>Such giving love must become a thief of all values; but I call this selfishness healthy and sacred,.-</p>
+<p>There is another selfishness, an all-too-poor and hungry kind, which would always steal- the selfishness of the sick, the sickly selfishness.</p>
+<p>With the eye of the thief it looks upon all that is lustrous; with the craving of hunger it measures him who has abundance; and ever does it prowl round the tables of givers.</p>
+<p>Sickness speaks in such craving and invisible degeneration; the larcenous craving of this selfishness speaks of a sickly body.</p>
+<p>Tell me, my brother, what do we think bad, and worst of all? Is it not degeneration?- And we always suspect degeneration when the giving soul is lacking.</p>
+<p>Upward goes our course from genera on to over-genera. But a horror to us is the degenerate sense, which says: “All for myself.”</p>
+<p>Upward soars our sense: thus is it a parable of our body, a parable of an elevation. Such parables of elevations are the names of the virtues.</p>
+<p>Thus the body goes through history, a becoming and fighting. And the spirit- what is that to the body? The herald of its fights and victories, its companion and echo.</p>
+<p>All names of good and evil are parables; they do not speak out, they only hint. A fool is he who seeks knowledge from them!</p>
+<p>Take heed, my brothers, of every hour when your spirit would speak in parables: there is the origin of your virtue.</p>
+<p>Your body is then elevated and raised up; with its rapture it delights the spirit, so that it becomes creator, and valuer, and lover, and benefactor of all.</p>
+<p>When your heart overflows broad and full like the river, a blessing and a danger to those on the banks: there is the origin of your virtue.</p>
+<p>When you are exalted above praise and blame, and your will wants to command all things, as a lover’s will: there is the origin of your virtue.</p>
+<p>When you despise pleasant things, and the soft couch, and cannot couch far enough from the soft: there is the origin of your virtue.</p>
+<p>When you will with one will, and when the end of all need is necessary to you: there is the origin of your virtue.</p>
+<p>It is a new good and evil! a new deep murmuring, and the voice of a new fountain!</p>
+<p>This new virtue is power; it is a ruling thought, and around it a discerning soul: a golden sun, with the serpent of knowledge around it.</p>
+<p>2.</p>
+<p>Here Zarathustra paused awhile, and looked lovingly on his disciples. Then he continued to speak thus- and his voice had changed:</p>
+<p>Remain faithful to the earth, my brothers, with the power of your virtue! Let your giving love and your knowledge serve the meaning of the earth! Thus I pray and beseech you.</p>
+<p>Do not let it fly away from the earthly and beat its wings against eternal walls! Ah, there has always been so much virtue that has flown away!</p>
+<p>Lead, like me, the virtue that has flown away back to the earth- yes, back to body and life: that it may give a meaning to the earth, a human meaning!</p>
+<p>A hundred times before spirit as well as virtue has flown away and blundered. Alas! all this delusion and blundering still dwells in our body: it has there become body and will.</p>
+<p>A hundred times before has spirit as well as virtue tried and erred. Yes, man has been an experiment. Alas, much ignorance and error has become embodied in us!</p>
+<p>Not only the rationality of millennia- also their madness, breaks out in us. It is dangerous to be an heir.</p>
+<p>Still we fight step by step with the giant Chance, and hitherto over all mankind has ruled nonsense, the lack-of-sense.</p>
+<p>Let your spirit and your virtue serve the sense of the earth, my brothers: let the value of all things be determined anew by you! Therefore you shall be fighters! Therefore you shall be creators!</p>
+<p>With knowledge, the body purifies itself; experimenting with knowledge, it exalts itself; to the knowledgeable all impulses are sacred; to the exalted, the soul becomes joyful.</p>
+<p>Physician, heal thyself: then you will also heal your patient. Let it be his best cure to see with his eyes the man who heals himself.</p>
+<p>There are a thousand paths which have never yet been trodden; a thousand healths and hidden islands of life. Man and man’s world is still unexhausted and undiscovered.</p>
+<p>Awake and listen, you that are lonely! From the future come winds with stealthy wings, and to subtle ears good tidings are proclaimed.</p>
+<p>You that are lonely today, you that withdraw, you shall one day be a people: out of you, who have chosen yourselves, shall arise a chosen people:- and out of them, the Superman.</p>
+<p>The earth shall become a place of healing! And there already is a new fragrance surrounding it, a salvation-bringing fragrance- and a new hope!</p>
+<p>3.</p>
+<p>When Zarathustra had spoken these words, he paused, like one who had not yet said his last word; and long did he balance the staff doubtfully in his hand. At last he spoke thus- and his voice had changed:</p>
+<p>I now go alone, my disciples! You too go now, alone! Thus I want it.</p>
+<p>I advise you: depart from me, and guard yourselves against Zarathustra! And better still: be ashamed of him! Perhaps he has deceived you.</p>
+<p>The man of knowledge must be able not only to love his enemies, but also to hate his friends.</p>
+<p>One requites a teacher badly if one remains merely a student. And why will you not pluck at my wreath?</p>
+<p>You venerate me; but what if your veneration should some day collapse? Beware lest a statue crush you!</p>
+<p>You say you believe in Zarathustra? But what matters Zarathustra! You are my believers: but what matters all believers!</p>
+<p>You had not yet sought yourselves: then you found me. So do all believers; thus all belief matters so little.</p>
+<p>Now I bid you lose me and find yourselves; and only when you have all denied me will I return to you.</p>
+<p>With other eyes, my brothers, shall I then seek my lost ones; with another love shall I then love you.</p>
+<p>And once again you shall become friends to me, and children of one hope: then I will be with you for the third time, to celebrate the great noontide with you.</p>
+<p>And it is the great noontide, when man is in the middle of his course between animal and Superman, and celebrates his advance to the evening as his highest hope: for it is the advance to a new morning.</p>
+<p>Then will the down-goer bless himself, for being an over-goer; and the sun of his knowledge will be at noontide.</p>
+<p>“Dead are all Gods: now we want the Superman to live.”- Let this be our final will at the great noontide!-</p>
 <p>Thus spoke Zarathustra.</p>
 ]]></content>
       <categories>
@@ -1523,208 +1725,6 @@
 <p>Your highest thought, however, you shall receive as a command from me- and it is this: man is something that will be overcome.</p>
 <p>So live your life of obedience and of war! What matters long life! What warrior wishes to be spared!</p>
 <p>I do not spare you, I love you from my very heart, my brothers in war!-</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>6、执行上下文与执行上下文栈</title>
-    <url>/p/fc7eaee4/</url>
-    <content><![CDATA[<ul>
-<li>变量提升与函数提升<ul>
-<li>变量提升: 在变量var定义(声明)语句之前, 就可以访问到这个变量(undefined)</li>
-<li>函数提升: 在函数定义语句之前, 就执行该函数</li>
-<li>先有变量提升, 再有函数提升<a id="more"></a></li>
-</ul>
-</li>
-<li>理解<ul>
-<li>执行上下文: 由js引擎自动创建的对象, 包含对应作用域中的所有变量属性</li>
-<li>执行上下文栈: 用来管理产生的多个执行上下文</li>
-</ul>
-</li>
-<li>分类:<ul>
-<li>全局: window</li>
-<li>函数(局部): 对程序员来说是透明的</li>
-</ul>
-</li>
-<li>生命周期<ul>
-<li>全局 : 准备执行全局代码前产生, 当页面刷新/关闭页面时死亡</li>
-<li>函数 : 调用函数时产生, 函数执行完时死亡</li>
-</ul>
-</li>
-<li>包含哪些属性:<ul>
-<li>全局 :<ul>
-<li>用var定义的全局变量  ==&gt;undefined</li>
-<li>使用function声明的函数   ===&gt;function</li>
-<li>this   ===&gt;window</li>
-</ul>
-</li>
-<li>函数<ul>
-<li>用var定义的局部变量  ==&gt;undefined</li>
-<li>使用function声明的函数   ===&gt;function</li>
-<li>this   ===&gt; 调用函数的对象, 如果没有指定就是window</li>
-<li>形参变量   ===&gt;对应实参值</li>
-<li>arguments ===&gt;实参列表的伪数组</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>执行上下文创建和初始化的过程<ul>
-<li>全局:<ul>
-<li>在全局代码执行前最先创建一个全局执行上下文(window)</li>
-<li>收集一些全局变量, 并初始化</li>
-<li>将这些变量设置为window的属性</li>
-</ul>
-</li>
-<li>函数:<ul>
-<li>在调用函数时, 在执行函数体之前先创建一个函数执行上下文</li>
-<li>收集一些局部变量, 并初始化</li>
-<li>将这些变量设置为执行上下文的属性</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>执行上下文栈<ul>
-<li>在全局代码执行前, JS引擎就会创建一个栈来存储管理所有的执行上下文对象</li>
-<li>在全局执行上下文(window)确定后, 将其添加到栈中(压栈)</li>
-<li>在函数执行上下文创建后, 将其添加到栈中(压栈)</li>
-<li>在当前函数执行完后,将栈顶的对象移除(出栈)</li>
-<li>当所有的代码执行完后, 栈中只剩下window<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">5</span></span><br><span class="line">    foo(x + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c = <span class="number">5</span></span><br><span class="line">    <span class="built_in">console</span>.log(a + c + y)</span><br><span class="line">&#125;</span><br><span class="line">bar(<span class="number">10</span>)</span><br><span class="line"><span class="comment">// bar(10)</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li>测试题1<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;gb: &#x27;</span>+ i)</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span></span><br><span class="line">foo(<span class="number">1</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (i == <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;fb:&#x27;</span> + i)</span><br><span class="line">  foo(i + <span class="number">1</span>) <span class="comment">//递归调用: 在函数内部调用自己</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;fe:&#x27;</span> + i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;ge: &#x27;</span> + i)</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  1. 依次输出什么?</span></span><br><span class="line"><span class="comment">    gb: undefined</span></span><br><span class="line"><span class="comment">    fb: 1</span></span><br><span class="line"><span class="comment">    fb: 2</span></span><br><span class="line"><span class="comment">    fb: 3</span></span><br><span class="line"><span class="comment">    fe: 3</span></span><br><span class="line"><span class="comment">    fe: 2</span></span><br><span class="line"><span class="comment">    fe: 1</span></span><br><span class="line"><span class="comment">    ge: 1</span></span><br><span class="line"><span class="comment">  2. 整个过程中产生了几个执行上下文?  5</span></span><br><span class="line"><span class="comment">  */</span></span><br></pre></td></tr></table></figure></li>
-<li>测试题2<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 1:先预处理变量, 后预处理函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a) <span class="comment">// &#x27;function&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 2:变量预处理, in操作符</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">if</span> (!(b <span class="keyword">in</span> <span class="built_in">window</span>)) &#123;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 3:预处理, 顺序执行</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(c)</span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">c(<span class="number">2</span>) <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JS高级</category>
-      </categories>
-      <tags>
-        <tag>execution</tag>
-        <tag>执行上下文</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P1C21】Free Death</title>
-    <url>/p/76672179/</url>
-    <content><![CDATA[<p>Many die too late, and some die too early. Yet strange sounds the precept: “Die at the right time!</p>
-<p>Die at the right time: thus teaches Zarathustra.</p>
-<a id="more"></a>
-<p>To be sure, how could he who never lives at the right time ever die at the right time? If only he had never been born!- Thus do I advise the superfluous.</p>
-<p>But even the superfluous make a show of their death, and even the hollowest nut wants to be cracked.</p>
-<p>All regard dying as a great matter: but as yet death is not a festival. People have not yet learned to inaugurate the finest festivals.</p>
-<p>I teach you the death which consummates, and becomes a spur and promise to the living.</p>
-<p>He who consummates his life, then dies triumphant, surrounded by those who hope and promise.</p>
-<p>Thus should one learn to die; and there should be no festival at which one who dies in this way does not consecrate the oaths of the living!</p>
-<p>Thus to die is best; the next best, however, is to die in battle, and squander a great soul.</p>
-<p>But equally hateful to vanquished and victor, is the grinning death which steals nigh like a thief,- and yet comes as master.</p>
-<p>My death I praise to you, the voluntary death, which comes to me because I want it.</p>
-<p>And when shall I want it?- He that has a goal and an heir, wants death at the right time for the goal and the heir.</p>
-<p>And from reverence for the goal and heir, he will hang no more withered wreaths in the sanctuary of life.</p>
-<p>I will not imitate the rope-makers: they lengthen out their cord and always walk backward.</p>
-<p>And many grow too old for their truths and triumphs; a toothless mouth no longer has the right to every truth.</p>
-<p>And whoever wants fame must take leave of honor and practice the difficult art of- leaving at the right time.</p>
-<p>One must stop being eaten when one tastes best: those who want to be long loved know this.</p>
-<p>There are sour apples, no doubt, whose lot is to wait until the last day of autumn: and at once they become ripe, yellow, and shrivelled.</p>
-<p>In some the heart ages first, and in others the spirit. And some are hoary in youth, but those who are young latest keep young longer.</p>
-<p>To many men life is a failure; a poison-worm gnaws at their heart. Then at least let their dying be a success.</p>
-<p>Many never become sweet; they rot even in the summer. Cowardice holds them fast to their branches.</p>
-<p>Far too many live, and far too long do they hang on their branches. If only a storm would come and shake all that is rotten and worm-eaten from the tree!</p>
-<p>If only there were preachers of quick death! They would be the right storms and shakers of the trees of life! But I hear only the slow death preached, and patience with all that is “earthly.”</p>
-<p>Ah! you preach patience with what is earthly? It is the earthly that has too much patience with you, you blasphemers!</p>
-<p>Too early died that Hebrew whom the preachers of slow death honor: and it is a calamity to many that he died too early.</p>
-<p>As yet he knew only tears, and the melancholy of the Hebrews, and hatred of the good and just- the Hebrew Jesus: then he was seized with longing for death.</p>
-<p>If only he had remained in the wilderness, far from the good the just! Perhaps then he would have learned to live and love the earth- and laughter also!</p>
-<p>Believe me, my brothers! He died too early; he himself would have recanted his doctrine had he reached my age! He was noble enough to recant!</p>
-<p>But he was still immature. The youth loves immaturely, and he also hates immaturely both man and earth. His soul and the wings of his spirit are still confined and awkward.</p>
-<p>But in man there is more of the child than in the youth, and less melancholy: he better understands life and death.</p>
-<p>Free for death, and free in death; a sacred Nosayer, when there is no longer time for Yes: thus he understands death and life.</p>
-<p>That your dying be no reproach to man and the earth, my friends: that I ask of the honey of your soul.</p>
-<p>In your dying, your spirit and your virtue shall still shine like an sunset around the earth: otherwise your dying has gone badly.</p>
-<p>Thus I will die myself, that you, my friends, may love the earth more for my sake; and earth will I again become, to have rest in her that bore me.</p>
-<p>Zarathustra had a goal; he threw his ball. Now you, my friends, are the heirs of my goal; to you I throw the golden ball.</p>
-<p>I like best of all to see you, my friends, throw the golden ball! And so I tarry a little while on the earth- pardon me for it!</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P1C22】The Giving Virtue</title>
-    <url>/p/6fd217a7/</url>
-    <content><![CDATA[<p>1.<br>When Zarathustra had taken leave of the town to which his heart was attached, the name of which is “The Pied Cow,” many people who called themselves his disciples followed him, and kept him company. Thus they came to a crossroads. Then Zarathustra told them that he now wanted to walk alone; for he was fond of walking alone. His disciples, however, presented him a staff with a golden handle, on which a serpent twined round the sun. Zarathustra rejoiced on account of the staff, and leaned on it; then thus he spoke to his disciples:</p>
-<a id="more"></a>
-<p>Tell me, pray: how did gold attain the highest value? Because it is uncommon, and useless, and gleaming, and soft in lustre; it always gives itself.</p>
-<p>Only as an image of the highest virtue did gold attain the highest value. Golden, gleams the glance of the giver. Golden lustre makes peace between moon and sun.</p>
-<p>Uncommon is the highest virtue, and useless, it is gleaming, and soft of lustre: a giving virtue is the highest virtue.</p>
-<p>I know you well, my disciples: you strive like me for the giving virtue. What would you have in common with cats and wolves?</p>
-<p>You thirst to become sacrifices and gifts yourselves: and so you thirst to amass all riches in your soul.</p>
-<p>Your soul strives insatiably for treasures and jewels, because your virtue is insatiable in desiring to give.</p>
-<p>You force all things to flow towards you and into you, so that they shall flow back again out of your fountain as the gifts of your love.</p>
-<p>Such giving love must become a thief of all values; but I call this selfishness healthy and sacred,.-</p>
-<p>There is another selfishness, an all-too-poor and hungry kind, which would always steal- the selfishness of the sick, the sickly selfishness.</p>
-<p>With the eye of the thief it looks upon all that is lustrous; with the craving of hunger it measures him who has abundance; and ever does it prowl round the tables of givers.</p>
-<p>Sickness speaks in such craving and invisible degeneration; the larcenous craving of this selfishness speaks of a sickly body.</p>
-<p>Tell me, my brother, what do we think bad, and worst of all? Is it not degeneration?- And we always suspect degeneration when the giving soul is lacking.</p>
-<p>Upward goes our course from genera on to over-genera. But a horror to us is the degenerate sense, which says: “All for myself.”</p>
-<p>Upward soars our sense: thus is it a parable of our body, a parable of an elevation. Such parables of elevations are the names of the virtues.</p>
-<p>Thus the body goes through history, a becoming and fighting. And the spirit- what is that to the body? The herald of its fights and victories, its companion and echo.</p>
-<p>All names of good and evil are parables; they do not speak out, they only hint. A fool is he who seeks knowledge from them!</p>
-<p>Take heed, my brothers, of every hour when your spirit would speak in parables: there is the origin of your virtue.</p>
-<p>Your body is then elevated and raised up; with its rapture it delights the spirit, so that it becomes creator, and valuer, and lover, and benefactor of all.</p>
-<p>When your heart overflows broad and full like the river, a blessing and a danger to those on the banks: there is the origin of your virtue.</p>
-<p>When you are exalted above praise and blame, and your will wants to command all things, as a lover’s will: there is the origin of your virtue.</p>
-<p>When you despise pleasant things, and the soft couch, and cannot couch far enough from the soft: there is the origin of your virtue.</p>
-<p>When you will with one will, and when the end of all need is necessary to you: there is the origin of your virtue.</p>
-<p>It is a new good and evil! a new deep murmuring, and the voice of a new fountain!</p>
-<p>This new virtue is power; it is a ruling thought, and around it a discerning soul: a golden sun, with the serpent of knowledge around it.</p>
-<p>2.</p>
-<p>Here Zarathustra paused awhile, and looked lovingly on his disciples. Then he continued to speak thus- and his voice had changed:</p>
-<p>Remain faithful to the earth, my brothers, with the power of your virtue! Let your giving love and your knowledge serve the meaning of the earth! Thus I pray and beseech you.</p>
-<p>Do not let it fly away from the earthly and beat its wings against eternal walls! Ah, there has always been so much virtue that has flown away!</p>
-<p>Lead, like me, the virtue that has flown away back to the earth- yes, back to body and life: that it may give a meaning to the earth, a human meaning!</p>
-<p>A hundred times before spirit as well as virtue has flown away and blundered. Alas! all this delusion and blundering still dwells in our body: it has there become body and will.</p>
-<p>A hundred times before has spirit as well as virtue tried and erred. Yes, man has been an experiment. Alas, much ignorance and error has become embodied in us!</p>
-<p>Not only the rationality of millennia- also their madness, breaks out in us. It is dangerous to be an heir.</p>
-<p>Still we fight step by step with the giant Chance, and hitherto over all mankind has ruled nonsense, the lack-of-sense.</p>
-<p>Let your spirit and your virtue serve the sense of the earth, my brothers: let the value of all things be determined anew by you! Therefore you shall be fighters! Therefore you shall be creators!</p>
-<p>With knowledge, the body purifies itself; experimenting with knowledge, it exalts itself; to the knowledgeable all impulses are sacred; to the exalted, the soul becomes joyful.</p>
-<p>Physician, heal thyself: then you will also heal your patient. Let it be his best cure to see with his eyes the man who heals himself.</p>
-<p>There are a thousand paths which have never yet been trodden; a thousand healths and hidden islands of life. Man and man’s world is still unexhausted and undiscovered.</p>
-<p>Awake and listen, you that are lonely! From the future come winds with stealthy wings, and to subtle ears good tidings are proclaimed.</p>
-<p>You that are lonely today, you that withdraw, you shall one day be a people: out of you, who have chosen yourselves, shall arise a chosen people:- and out of them, the Superman.</p>
-<p>The earth shall become a place of healing! And there already is a new fragrance surrounding it, a salvation-bringing fragrance- and a new hope!</p>
-<p>3.</p>
-<p>When Zarathustra had spoken these words, he paused, like one who had not yet said his last word; and long did he balance the staff doubtfully in his hand. At last he spoke thus- and his voice had changed:</p>
-<p>I now go alone, my disciples! You too go now, alone! Thus I want it.</p>
-<p>I advise you: depart from me, and guard yourselves against Zarathustra! And better still: be ashamed of him! Perhaps he has deceived you.</p>
-<p>The man of knowledge must be able not only to love his enemies, but also to hate his friends.</p>
-<p>One requites a teacher badly if one remains merely a student. And why will you not pluck at my wreath?</p>
-<p>You venerate me; but what if your veneration should some day collapse? Beware lest a statue crush you!</p>
-<p>You say you believe in Zarathustra? But what matters Zarathustra! You are my believers: but what matters all believers!</p>
-<p>You had not yet sought yourselves: then you found me. So do all believers; thus all belief matters so little.</p>
-<p>Now I bid you lose me and find yourselves; and only when you have all denied me will I return to you.</p>
-<p>With other eyes, my brothers, shall I then seek my lost ones; with another love shall I then love you.</p>
-<p>And once again you shall become friends to me, and children of one hope: then I will be with you for the third time, to celebrate the great noontide with you.</p>
-<p>And it is the great noontide, when man is in the middle of his course between animal and Superman, and celebrates his advance to the evening as his highest hope: for it is the advance to a new morning.</p>
-<p>Then will the down-goer bless himself, for being an over-goer; and the sun of his knowledge will be at noontide.</p>
-<p>“Dead are all Gods: now we want the Superman to live.”- Let this be our final will at the great noontide!-</p>
 <p>Thus spoke Zarathustra.</p>
 ]]></content>
       <categories>
