@@ -8,7 +8,7 @@ abbrlink: e0dc4cb4
 date: 2020-08-21 09:19:18
 ---
 After this Zarathustra returned again into the mountains to the solitude of his cave, and withdrew himself from men, waiting like a sower who has scattered his seed. His soul, however, became impatient and full of longing for those whom he loved: because he had still much to give them. For this is hardest of all: to close the open hand out of love, and keep modest as a giver.
-
+<!--more-->
 Thus passed with the lonesome one months and years; his wisdom meanwhile increased, and caused him pain by its abundance.
 
 One morning, however, he awoke before the rosy dawn, and having meditated long on his couch, at last spoke thus to his heart:
