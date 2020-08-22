@@ -10,7 +10,7 @@ date: 2020-08-22 14:23:23
 The figs fall from the trees, they are good and sweet; and in falling the red skins of them break. A north wind am I to ripe figs.
 
 Thus, like figs, do these doctrines fall for you, my friends: imbibe now their juice and their sweet substance! It is autumn all around, and clear sky, and afternoon.
-
+<!-- more -->
 Lo, what fullness is around us! And out of the midst of superabundance, it is delightful to look out upon distant seas.
 
 Once did people say God, when they looked out upon distant seas; now, however, have I taught you to say, Superman.
