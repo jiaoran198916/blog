@@ -1870,4 +1870,97 @@
         <tag>Scope</tag>
       </tags>
   </entry>
+  <entry>
+    <title>8、JS中的闭包</title>
+    <url>/p/33819c82/</url>
+    <content><![CDATA[<h2 id="JS中的闭包"><a href="#JS中的闭包" class="headerlink" title="JS中的闭包"></a>JS中的闭包</h2><ul>
+<li>引入<br>需求: 点击某个按钮, 提示”点击的是第 n 个按钮”<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;button&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,length=btns.length; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> btn = btns[i]</span><br><span class="line">    <span class="comment">//将btn所对应的下标保存在btn上</span></span><br><span class="line">    btn.index = i</span><br><span class="line">    btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="string">&#x27;第&#x27;</span>+(<span class="built_in">this</span>.index+<span class="number">1</span>)+<span class="string">&#x27;个&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//利用闭包</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,length=btns.length; i &lt; length; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> btn = btns[j]</span><br><span class="line">      btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">&#x27;第&#x27;</span>+(j+<span class="number">1</span>)+<span class="string">&#x27;个&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)(i)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li>如何产生闭包?<ul>
+<li>当一个嵌套的内部(子)函数引用了嵌套的外部(父)函数的变量(函数)时, 就产生了闭包<ul>
+<li>函数嵌套</li>
+<li>内部函数引用了外部函数的数据(变量/函数)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>闭包到底是什么?<ul>
+<li>理解一: 闭包是嵌套的内部函数(绝大部分人)</li>
+<li>理解二: 包含被引用变量(函数)的对象(极少数人)</li>
+<li>注意: 闭包存在于嵌套的内部函数中</li>
+<li>闭包本质是内部函数中的一个对象, 这个对象中包含引用的变量属性</li>
+</ul>
+</li>
+<li>常见闭包<ul>
+<li><ol>
+<li>将函数作为另一个函数的返回值<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn1() &#123;</span><br><span class="line">  var a &#x3D; 2;</span><br><span class="line">  function fn2() &#123;</span><br><span class="line">    a++;</span><br><span class="line">    console.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">  return fn2;</span><br><span class="line">&#125;</span><br><span class="line">var f &#x3D; fn1();</span><br><span class="line">f();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将函数作为实参传递给另一个函数调用<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function showDelay(msg, time) &#123;</span><br><span class="line">  setTimeout(function () &#123;</span><br><span class="line">    alert(msg)</span><br><span class="line">  &#125;, time)</span><br><span class="line">&#125;</span><br><span class="line">showDelay(&#39;atguigu&#39;, 2000)</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>闭包的作用:<ul>
+<li>使用函数内部的变量在函数执行完后, 仍然存活在内存中(延长了局部变量的生命周期)</li>
+<li>让函数外部可以操作(读写)到函数内部的数据(变量/函数)</li>
+<li>函数执行完后, 函数内部声明的局部变量是否还存在?  //一般是不存在, 存在于闭中的变量才可能存在</li>
+<li>在函数外部能直接访问函数内部的局部变量吗? //不能, 但我们可以通过闭包让外部操作它</li>
+</ul>
+</li>
+<li>闭包的生命周期<ul>
+<li>产生: 在嵌套内部函数定义执行完时就产生了(不是在调用)</li>
+<li>死亡: 在嵌套的内部函数成为垃圾对象时，<code>f = null</code></li>
+</ul>
+</li>
+<li>闭包应用:<ul>
+<li>模块化: 封装一些数据以及操作数据的函数, 向外暴露一些行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">window</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//私有的数据</span></span><br><span class="line">  <span class="keyword">var</span> msg = <span class="string">&#x27;atguigu&#x27;</span></span><br><span class="line">  <span class="keyword">var</span> names = [<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;Love&#x27;</span>, <span class="string">&#x27;you&#x27;</span>]</span><br><span class="line">  <span class="comment">//操作数据的函数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(msg.toUpperCase())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(names.join(<span class="string">&#x27; &#x27;</span>))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.coolModule2 =  &#123;</span><br><span class="line">      doSomething: a,</span><br><span class="line">      doOtherthing: b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure></li>
+<li>循环遍历加监听</li>
+<li>JS框架(jQuery)大量使用了闭包</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>变量占用内存的时间可能会过长</li>
+<li>可能导致内存泄露</li>
+<li>解决:<ul>
+<li>及时释放 : f = null; //让内部函数对象成为垃圾对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul>
+<li>1.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  <span class="comment">//代码片段一</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;The Window&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name : <span class="string">&quot;My Object&quot;</span>,</span><br><span class="line">  getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(object.getNameFunc()());  <span class="comment">//?  the window</span></span><br><span class="line"><span class="comment">//代码片段二</span></span><br><span class="line"><span class="keyword">var</span> name2 = <span class="string">&quot;The Window&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> object2 = &#123;</span><br><span class="line">  name2 : <span class="string">&quot;My Object&quot;</span>,</span><br><span class="line">  getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> that.name2;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(object2.getNameFunc()()); <span class="comment">//?  my object</span></span><br></pre></td></tr></table></figure></li>
+<li>2.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">n,o</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(o)</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> fun(m,n)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = fun(<span class="number">0</span>)</span><br><span class="line">a.fun(<span class="number">1</span>)</span><br><span class="line">a.fun(<span class="number">2</span>)</span><br><span class="line">a.fun(<span class="number">3</span>)<span class="comment">//undefined,0,0,0</span></span><br><span class="line"><span class="keyword">var</span> b = fun(<span class="number">0</span>).fun(<span class="number">1</span>).fun(<span class="number">2</span>).fun(<span class="number">3</span>)<span class="comment">//undefined,0,1,2</span></span><br><span class="line"><span class="keyword">var</span> c = fun(<span class="number">0</span>).fun(<span class="number">1</span>)</span><br><span class="line">c.fun(<span class="number">2</span>)</span><br><span class="line">c.fun(<span class="number">3</span>)<span class="comment">//undefined,0,1,1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="内存溢出与内存泄露"><a href="#内存溢出与内存泄露" class="headerlink" title="内存溢出与内存泄露"></a>内存溢出与内存泄露</h2><ol>
+<li>内存溢出<ul>
+<li>一种程序运行出现的错误</li>
+<li>当程序运行需要的内存超过了剩余的内存时, 就出抛出内存溢出的错误</li>
+</ul>
+</li>
+<li>内存泄露<ul>
+<li>占用的内存没有及时释放</li>
+<li>内存泄露积累多了就容易导致内存溢出</li>
+<li>常见的内存泄露:<ul>
+<li>意外的全局变量</li>
+<li>没有及时清理的计时器或回调函数</li>
+<li>闭包<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 内存溢出</span></span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    obj[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10000000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;-----&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 2. 内存泄露</span></span><br><span class="line">    <span class="comment">// 意外的全局变量</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10000000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  fn()</span><br><span class="line">   <span class="comment">// 没有及时清理的计时器或回调函数</span></span><br><span class="line">  <span class="keyword">var</span> intervalId = <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//启动循环定时器后不清理</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;----&#x27;</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">  <span class="comment">// clearInterval(intervalId)</span></span><br><span class="line">    <span class="comment">// 闭包</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">4</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(++a)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fn2</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> f = fn1()</span><br><span class="line">  f()</span><br><span class="line">  <span class="comment">// f = null</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>闭包</tag>
+      </tags>
+  </entry>
 </search>
