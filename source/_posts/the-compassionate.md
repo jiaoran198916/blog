@@ -1,8 +1,11 @@
 ---
 title: 【P2C3】The Compassionate
-date: 2020-08-23 16:00:13
-tags: [哲学,尼采]
+tags:
+  - 哲学
+  - 尼采
 categories: Zarathustara
+abbrlink: efaea7e3
+date: 2020-08-23 16:00:13
 ---
 My friends, there has arisen a satire on your friend: "Behold Zarathustra! Walks he not amongst us as if amongst animals?"
 
