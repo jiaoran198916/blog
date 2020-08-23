@@ -3,7 +3,7 @@ title: 【P2C3】The Compassionate
 tags:
   - 哲学
   - 尼采
-categories: Zarathustara
+categories: Zarathustra
 abbrlink: efaea7e3
 date: 2020-08-23 16:00:13
 ---
