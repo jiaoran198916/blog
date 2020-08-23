@@ -1,0 +1,2021 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>乳赋</title>
+    <url>/p/6a2ef26b/</url>
+    <content><![CDATA[<p>陈独秀著</p>
+<p>乳者，奶也。妇人胸前之物，其数为二，左右称之。发与豆蔻，成于二八。白昼伏蜇，夜展光华。</p>
+<p>曰咪咪，曰波波，曰双峰，曰花房。从来美人必争地，自古英雄温柔乡。其色若何？深冬冰雪。其质若何？初夏新棉。其味若何？三春桃李。其态若何？秋波滟滟。</p>
+<p>动时如兢兢玉兔，静时如慵慵白鸽。高颠颠，肉颤颤，粉嫩嫩，水灵灵。夺男人魂魄，发女子骚情。</p>
+<p>俯我憔悴首，探你双玉峰，一如船入港，犹如老还乡。除却一身寒风冷雨，投入万丈温暖海洋。深含，浅荡，沉醉，飞翔。</p>
+]]></content>
+      <tags>
+        <tag>奇文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用case when优化Sql语句</title>
+    <url>/p/382ad94/</url>
+    <content><![CDATA[<p>有些时候想直接从数据库查询数据，并导出，但一些类型或状态存储的是01等数字，你想显示对应的文字，这个时候就可以使用 case…when 语句了。</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">case...when...then...when...then...else...end</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,title,<span class="keyword">CASE</span> <span class="keyword">type</span> <span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">&#x27;大学&#x27;</span> <span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span> <span class="string">&#x27;小学&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;未知&#x27;</span> <span class="keyword">END</span> <span class="keyword">as</span> 学历</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">table</span>;</span><br></pre></td></tr></table></figure>
+<p>另外还可以使用if实现简单的条件筛选</p>
+<p>IF( expr1 , expr2 , expr3 )<br>expr1 的值为 TRUE，则返回值为 expr2<br>expr1 的值为 FALSE，则返回值为 expr3</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C13】Chastity</title>
+    <url>/p/948ca02f/</url>
+    <content><![CDATA[<p>I love the forest. It is bad to live in cities: there, there are too many of the lustful.</p>
+<a id="more"></a>
+<p>Is it not better to fall into the hands of a murderer than into the dreams of a lustful woman?</p>
+<p>And just look at these men: their eye says it- they cannot conceive of anything better on earth than to lie with a woman.</p>
+<p>Filth is at the bottom of their souls; and alas! if their filth still has spirit in it!</p>
+<p>If only you were perfect- at least as animals! But to animals belongs innocence.</p>
+<p>Do I counsel you to kill your instincts? I counsel you to innocence in your instincts.</p>
+<p>Do I counsel you to chastity? Chastity is a virtue with some, but almost a vice with many.</p>
+<p>They are chaste, to be sure: but the bitch, lust, looks enviously out of all that they do.</p>
+<p>Even into the heights of their virtue and into their cold spirit does this creature follow them, with its discord.</p>
+<p>And how nicely can the bitch, lust, beg for a piece of spirit, when a piece of flesh is denied it!</p>
+<p>You love tragedies and all that breaks the heart? But I am distrustful of your bitch.</p>
+<p>Your eyes are too cruel, and you seek lustfully for sufferers. Has not your lust just disguised itself and taken the name of pity?</p>
+<p>And I give this parable to you: Many who tried to cast out their devil, went themselves into swine.</p>
+<p>To whom chastity is difficult, it is to be dissuaded: lest it become the road to hell- to filth and lust of soul.</p>
+<p>Do I speak of filthy things? That is not the worst thing for me to do. Not when the truth is filthy, but when it is shallow, does the discerning one go unwillingly into its waters.</p>
+<p>There are some who are chaste from their very nature; they are gentler of heart, and laugh better and more often than you.</p>
+<p>They laugh also at chastity, and ask: “What is chastity?</p>
+<p>Is chastity not folly? But this folly came to us, and not we to it.</p>
+<p>We offered that guest harbor and heart: now it dwells with us- let it stay as long as it will!”Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C20】Child and Marriage</title>
+    <url>/p/ddd0139e/</url>
+    <content><![CDATA[<p>I have a question for you alone, my brother: like a sounding-lead, I cast this question into your soul, that I may know its depth.</p>
+<p>You are young, and desire child and marriage. But I ask you: are you a man entitled to desire a child?</p>
+<a id="more"></a>
+<p>Are you the victorious one, the self-conqueror, the ruler of your passions, the master of your virtues? Thus do I ask you.</p>
+<p>Or does the animal speak in your wish, and need? Or loneliness? Or discord in you?</p>
+<p>Let your victory and freedom long for a child. You shall build living monuments to your victory and freedom.</p>
+<p>You shall build beyond yourself. But first of all you must be built yourself, solid in body and soul.</p>
+<p>You shall propagate yourself not only onward, but upward! For that purpose may the garden of marriage help you!</p>
+<p>You shall create a higher body, a first movement, a spontaneously rolling wheel- you shall create a creator.</p>
+<p>Marriage: so call I the will of the two to create the one that is more than those who created it. The reverence for one another, as those exercising such a will, I call marriage.</p>
+<p>Let this be the significance and the truth of your marriage. But that which the all-too-many call marriage, those superfluous ones- ah, what shall I call it?</p>
+<p>Ah, the poverty of soul in the two! Ah, the filth of soul in the two! Ah, the pitiable self-complacency in the two!</p>
+<p>They call it marriage; and they say their marriages are made in heaven.</p>
+<p>Well I do not like that heaven of the superfluous! No, I do not like them, those animals tangled in the heavenly net!</p>
+<p>Keep far from me that God who limps near to bless what he has not matched!</p>
+<p>Do not laugh at such marriages! What child has not had reason to weep over its parents?</p>
+<p>This man seemed worthy, and ripe for the meaning of the earth: but when I saw his wife, the earth seemed to me an asylum of madmen.</p>
+<p>Yes, I wish that the earth shook with convulsions when a saint and a goose mate with one another.</p>
+<p>This one went forth in quest of truth as a hero, and at last got for himself a small dressed-up lie: his marriage he calls it.</p>
+<p>That one was reserved and chose warily. But then he spoilt his company for all time: his marriage he calls it.</p>
+<p>Another sought a handmaid with the virtues of an angel. But then he became the handmaid of a woman, and now he must become an angel.</p>
+<p>Careful, have I found all buyers, and all of them have astute eyes. But even the most astute of them buys his wife in a poke.</p>
+<p>Many brief follies- that you call love. And your marriage puts an end to your many brief follies, with one long stupidity.</p>
+<p>Your love of woman, and woman’s love of man- ah, if only it were sympathy for suffering and veiled gods! But usually, two animals find each another.</p>
+<p>But even your best love is only an enraptured parable and a painful ardor. It is a torch to light loftier paths for you.</p>
+<p>You shall love beyond yourselves some day! So first, learn to love. And for that you have to drink the bitter cup of your love.</p>
+<p>Bitterness is in the cup even of the best love; thus does it cause longing for the Superman; thus does it cause thirst in you, the creator!</p>
+<p>Thirst in the creator, arrow and longing for the Superman: tell me, my brother, is this your will to marriage?</p>
+<p>Sacred I call such a will, and such a marriage.</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打水印命令convert详解</title>
+    <url>/p/6ab45c92/</url>
+    <content><![CDATA[<p>打水印时主要用的是PHP扩展ImageMagick，该扩展专门用于处理图片，功能丰富，使用灵活，详细介绍可参看<a href="https://www.imagemagick.org/script/command-line-processing.php">官方文档</a>.</p>
+<p>基本操作有打水印、裁剪、划线、画矩形、格式转换等。其中打水印命令最为复杂，下面对其中的参数和选项做个梳理。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">convert +profile <span class="string">&#x27;*&#x27;</span> <span class="built_in">source</span> -quality 80 -resize <span class="string">&#x27;800x600&#x27;</span></span><br><span class="line">water.png -gravity southeast -geometry +0+0 -composite</span><br><span class="line">-fill rgba\(255,255,255,0.35\) -font fzltchjt.TTF</span><br><span class="line">-pointsize 20 -stroke rgba\(0,0,0,0.22\) -strokewidth 1</span><br><span class="line">-gravity SouthEast -draw <span class="string">&quot;text 28,15 &#x27;贴图ID:188916&#x27;&quot;</span> dest</span><br></pre></td></tr></table></figure>
+<ul>
+<li>+profile<br>Use <code>+profile profile_name</code> to remove the indicated profile.<br><code>*</code>代表去除所有。但没弄懂profile是啥。</li>
+<li>source 原图片</li>
+<li>quality 质量，品质</li>
+<li>resize 重新设置大小，以上两项均针对原图片source</li>
+<li>water.png 水印图片</li>
+<li>southeast 和 geometry 指定图片叠加位置，遵循地理位置，上北下南左西右东，southeast就是右下角，geometry指定相对原点的偏移值，有很多写法，默认是 +0+0，可省略</li>
+<li>composite 代表用多个图片合并起来，这里应该是将两个图片（source和water.png）叠加起来</li>
+<li>(下面一些是对添加水印字体的设置)</li>
+<li>fill 字体颜色</li>
+<li>font 指定字体</li>
+<li>pointsize 字体大小，像素为单位</li>
+<li>stroke 描边颜色</li>
+<li>strokewidth 描边宽度</li>
+<li>-gravity SouthEast 第二个指定水印字体相对位置，此处如同上面相同可省略</li>
+<li>draw 绘制字体 text 28,15 代表相对水平和垂直位置，后面是具体值</li>
+<li>dest 目标输出图片</li>
+</ul>
+<p>关于路径写法，绝对路径和相对路径都支持，但输出图片时不允许新建目录。</p>
+<p>测试过部分参数，不知道理解的对不对，原参数实在太多了 -_-||</p>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>水印</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2、数据、内存和变量</title>
+    <url>/p/95830350/</url>
+    <content><![CDATA[<ol>
+<li>什么是数据?<ul>
+<li>存储在内存中代表特定信息的’东东’, 本质上是0101…</li>
+<li>数据的特点: 可传递, 可运算</li>
+<li>一切皆数据, 函数也是数据</li>
+<li>内存中所有操作的目标: 数据<ul>
+<li>算术运算</li>
+<li>逻辑运算</li>
+<li>赋值</li>
+<li>运行函数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li>什么是内存?<ul>
+<li>内存条通电后产生的可储存数据的空间(临时的)</li>
+<li>内存产生和死亡: 内存条(电路版)==&gt;通电==&gt;产生内存空间==&gt;存储数据==&gt;处理数据==&gt;断电==&gt;内存空间和数据都消失</li>
+<li>一块小内存的2个数据<ul>
+<li>内部存储的数据(一般数据/地址数据)</li>
+<li>地址值数据</li>
+</ul>
+</li>
+<li>内存空间的分类<ul>
+<li>栈: 全局变量/局部变量</li>
+<li>堆: 对象(空间较大)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol start="3">
+<li><p>什么是变量?</p>
+<ul>
+<li><p>在程序运行过程中值是允许改变的量, 由变量名和变量值组成</p>
+</li>
+<li><p>每个变量都对应的一块小内存, 变量名用来查找对应的内存, 变量值就是内存中保存的数据</p>
+</li>
+<li><p>数据, 内存和变量三者之间的关系</p>
+<ul>
+<li>内存是容器, 用来存储不同数据</li>
+<li>变量是内存的标识, 通过变量我们可以操作(读/写)内存中的数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol start="4">
+<li>相关问题</li>
+</ol>
+<ul>
+<li>关于赋值和内存的问题<br>  问题: var a = xxx, a内存中到底保存的是什么?<ul>
+<li>xxx是基本数据, 保存的就是这个数据</li>
+<li>xxx是对象, 保存的是对象的地址值</li>
+<li>xxx是一个变量, 保存的xxx的内存内容(可能是基本数据, 也可能是地址值)</li>
+</ul>
+</li>
+<li>关于引用变量赋值问题<ul>
+<li>2个引用变量指向同一个对象, 通过一个变量修改对象内部数据, 另一个变量看到的是修改之后的数据<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">name</span>: <span class="string">&#x27;Tom&#x27;</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  obj.name = <span class="string">&#x27;A&#x27;</span> <span class="comment">//操作对象</span></span><br><span class="line">&#125;</span><br><span class="line">fn(obj1)</span><br><span class="line"><span class="built_in">console</span>.log(obj2.name) <span class="comment">//A</span></span><br></pre></td></tr></table></figure></li>
+<li>2个引用变量指向同一个对象, 让其中一个引用变量指向另一个对象, 另一引用变量依然指向前一个对象<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">a = &#123;<span class="attr">name</span>: <span class="string">&#x27;BOB&#x27;</span>, <span class="attr">age</span>: <span class="number">13</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  obj = &#123;<span class="attr">age</span>: <span class="number">15</span>&#125; <span class="comment">//重新赋值</span></span><br><span class="line">&#125;</span><br><span class="line">fn2(a)</span><br><span class="line"><span class="built_in">console</span>.log(a.age) <span class="comment">// 13</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>关于数据传递问题<br>问题: 在调用函数时传递变量参数时, 是值传递还是引用传递？<ul>
+<li>理解1: 都是值(基本/地址值)传递</li>
+<li>理解2: 可能是值传递, 也可能是引用传递(地址值)</li>
+</ul>
+</li>
+<li>内存管理<br>问题: JS引擎如何管理内存?<ol>
+<li>内存生命周期  <ul>
+<li>分配小内存空间, 得到它的使用权</li>
+<li>存储数据, 可以反复进行操作</li>
+<li>不需要时将其释放/归还</li>
+</ul>
+</li>
+<li>释放内存<ul>
+<li>为执行函数分配的栈空间内存: 函数执行完 <strong>自动释放</strong></li>
+<li>存储对象的堆空间内存: 成为垃圾对象==&gt; <strong>垃圾回收器回收</strong></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>内存</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>1、数据类型的分类与判断</title>
+    <url>/p/f0517a0b/</url>
+    <content><![CDATA[<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>基本(值)类型<ul>
+<li>String: 任意字符串</li>
+<li>Number: 任意的数值，三个特殊值: <code>Infinity</code>, <code>-Infinity</code>, <code>NaN</code>.</li>
+<li>Boolean: true/false</li>
+<li>undefined: undefined, 变量声明未赋值，<code>is reserved as a default initial value for unassigned things.</code></li>
+<li>null: null，表示“nothing”, “empty”, “value unknown”.</li>
+</ul>
+</li>
+<li>对象(引用)类型<ul>
+<li>Object: 任意对象</li>
+<li>Function: 一种特殊的对象(可执行)</li>
+<li>Array: 一种特殊的对象(数值下标, 内部数据有序)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p>  返回数据类型的字符串表达形式（小写），支持两种语法：</p>
+<ul>
+<li>作为操作符: <code>typeof x</code></li>
+<li>作为函数: <code>typeof(x)</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">typeof undefined &#x2F;&#x2F; &quot;undefined&quot;</span><br><span class="line">typeof 0 &#x2F;&#x2F; &quot;number&quot;</span><br><span class="line">typeof 10n &#x2F;&#x2F; &quot;bigint&quot;</span><br><span class="line">typeof true &#x2F;&#x2F; &quot;boolean&quot;</span><br><span class="line">typeof &quot;foo&quot; &#x2F;&#x2F; &quot;string&quot;</span><br><span class="line">typeof Symbol(&quot;id&quot;) &#x2F;&#x2F; &quot;symbol&quot; ？</span><br><span class="line">typeof Math &#x2F;&#x2F; &quot;object&quot;</span><br><span class="line"></span><br><span class="line">typeof null &#x2F;&#x2F; &quot;object&quot;, 无法区分 null 与 object 类型</span><br><span class="line">typeof [1,2] &#x2F;&#x2F; &quot;object&quot;, 无法区分 array 与 object 类型</span><br><span class="line">typeof alert &#x2F;&#x2F; &quot;function&quot;，可以区分 function 与 object 类型</span><br></pre></td></tr></table></figure>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>专门用来判断对象数据的类型: Object, Array 与 Function</p>
+<h3 id=""><a href="#" class="headerlink" title="==="></a>===</h3><p>只能判断具有唯一值的类型，即: undefined, null</p>
+<hr>
+<h2 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h2><h3 id="1、什么时候给变量赋值为null？"><a href="#1、什么时候给变量赋值为null？" class="headerlink" title="1、什么时候给变量赋值为null？"></a>1、什么时候给变量赋值为null？</h3><ul>
+<li>var a = null //初始赋值, 表明将要赋值为对象</li>
+<li>a = null //结束前, 让对象成为垃圾对象(被垃圾回收器回收)</li>
+</ul>
+<h3 id="2、严格区别变量类型与数据类型"><a href="#2、严格区别变量类型与数据类型" class="headerlink" title="2、严格区别变量类型与数据类型?"></a>2、严格区别变量类型与数据类型?</h3><p>变量本身是没有类型的, 变量的类型实际上是变量内存中数据的类型</p>
+<ul>
+<li>变量的类型(变量内存值的类型)<ul>
+<li>基本类型: 保存就是基本类型的数据</li>
+<li>引用类型: 保存的是对象的地址值</li>
+</ul>
+</li>
+<li>数据的类型<ul>
+<li>基本类型</li>
+<li>对象类型</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>数据类型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>6、执行上下文与执行上下文栈</title>
+    <url>/p/fc7eaee4/</url>
+    <content><![CDATA[<ul>
+<li>变量提升与函数提升<ul>
+<li>变量提升: 在变量var定义(声明)语句之前, 就可以访问到这个变量(undefined)</li>
+<li>函数提升: 在函数定义语句之前, 就执行该函数</li>
+<li>先有变量提升, 再有函数提升<a id="more"></a></li>
+</ul>
+</li>
+<li>理解<ul>
+<li>执行上下文: 由js引擎自动创建的对象, 包含对应作用域中的所有变量属性</li>
+<li>执行上下文栈: 用来管理产生的多个执行上下文</li>
+</ul>
+</li>
+<li>分类:<ul>
+<li>全局: window</li>
+<li>函数(局部): 对程序员来说是透明的</li>
+</ul>
+</li>
+<li>生命周期<ul>
+<li>全局 : 准备执行全局代码前产生, 当页面刷新/关闭页面时死亡</li>
+<li>函数 : 调用函数时产生, 函数执行完时死亡</li>
+</ul>
+</li>
+<li>包含哪些属性:<ul>
+<li>全局 :<ul>
+<li>用var定义的全局变量  ==&gt;undefined</li>
+<li>使用function声明的函数   ===&gt;function</li>
+<li>this   ===&gt;window</li>
+</ul>
+</li>
+<li>函数<ul>
+<li>用var定义的局部变量  ==&gt;undefined</li>
+<li>使用function声明的函数   ===&gt;function</li>
+<li>this   ===&gt; 调用函数的对象, 如果没有指定就是window</li>
+<li>形参变量   ===&gt;对应实参值</li>
+<li>arguments ===&gt;实参列表的伪数组</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>执行上下文创建和初始化的过程<ul>
+<li>全局:<ul>
+<li>在全局代码执行前最先创建一个全局执行上下文(window)</li>
+<li>收集一些全局变量, 并初始化</li>
+<li>将这些变量设置为window的属性</li>
+</ul>
+</li>
+<li>函数:<ul>
+<li>在调用函数时, 在执行函数体之前先创建一个函数执行上下文</li>
+<li>收集一些局部变量, 并初始化</li>
+<li>将这些变量设置为执行上下文的属性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>执行上下文栈<ul>
+<li>在全局代码执行前, JS引擎就会创建一个栈来存储管理所有的执行上下文对象</li>
+<li>在全局执行上下文(window)确定后, 将其添加到栈中(压栈)</li>
+<li>在函数执行上下文创建后, 将其添加到栈中(压栈)</li>
+<li>在当前函数执行完后,将栈顶的对象移除(出栈)</li>
+<li>当所有的代码执行完后, 栈中只剩下window<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">5</span></span><br><span class="line">    foo(x + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params">y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c = <span class="number">5</span></span><br><span class="line">    <span class="built_in">console</span>.log(a + c + y)</span><br><span class="line">&#125;</span><br><span class="line">bar(<span class="number">10</span>)</span><br><span class="line"><span class="comment">// bar(10)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>测试题1<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;gb: &#x27;</span>+ i)</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span></span><br><span class="line">foo(<span class="number">1</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (i == <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;fb:&#x27;</span> + i)</span><br><span class="line">  foo(i + <span class="number">1</span>) <span class="comment">//递归调用: 在函数内部调用自己</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;fe:&#x27;</span> + i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;ge: &#x27;</span> + i)</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  1. 依次输出什么?</span></span><br><span class="line"><span class="comment">    gb: undefined</span></span><br><span class="line"><span class="comment">    fb: 1</span></span><br><span class="line"><span class="comment">    fb: 2</span></span><br><span class="line"><span class="comment">    fb: 3</span></span><br><span class="line"><span class="comment">    fe: 3</span></span><br><span class="line"><span class="comment">    fe: 2</span></span><br><span class="line"><span class="comment">    fe: 1</span></span><br><span class="line"><span class="comment">    ge: 1</span></span><br><span class="line"><span class="comment">  2. 整个过程中产生了几个执行上下文?  5</span></span><br><span class="line"><span class="comment">  */</span></span><br></pre></td></tr></table></figure></li>
+<li>测试题2<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 1:先预处理变量, 后预处理函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a) <span class="comment">// &#x27;function&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 2:变量预处理, in操作符</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">if</span> (!(b <span class="keyword">in</span> <span class="built_in">window</span>)) &#123;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 3:预处理, 顺序执行</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">c</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(c)</span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line">c(<span class="number">2</span>) <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>execution</tag>
+        <tag>执行上下文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C21】Free Death</title>
+    <url>/p/76672179/</url>
+    <content><![CDATA[<p>Many die too late, and some die too early. Yet strange sounds the precept: “Die at the right time!</p>
+<p>Die at the right time: thus teaches Zarathustra.</p>
+<a id="more"></a>
+<p>To be sure, how could he who never lives at the right time ever die at the right time? If only he had never been born!- Thus do I advise the superfluous.</p>
+<p>But even the superfluous make a show of their death, and even the hollowest nut wants to be cracked.</p>
+<p>All regard dying as a great matter: but as yet death is not a festival. People have not yet learned to inaugurate the finest festivals.</p>
+<p>I teach you the death which consummates, and becomes a spur and promise to the living.</p>
+<p>He who consummates his life, then dies triumphant, surrounded by those who hope and promise.</p>
+<p>Thus should one learn to die; and there should be no festival at which one who dies in this way does not consecrate the oaths of the living!</p>
+<p>Thus to die is best; the next best, however, is to die in battle, and squander a great soul.</p>
+<p>But equally hateful to vanquished and victor, is the grinning death which steals nigh like a thief,- and yet comes as master.</p>
+<p>My death I praise to you, the voluntary death, which comes to me because I want it.</p>
+<p>And when shall I want it?- He that has a goal and an heir, wants death at the right time for the goal and the heir.</p>
+<p>And from reverence for the goal and heir, he will hang no more withered wreaths in the sanctuary of life.</p>
+<p>I will not imitate the rope-makers: they lengthen out their cord and always walk backward.</p>
+<p>And many grow too old for their truths and triumphs; a toothless mouth no longer has the right to every truth.</p>
+<p>And whoever wants fame must take leave of honor and practice the difficult art of- leaving at the right time.</p>
+<p>One must stop being eaten when one tastes best: those who want to be long loved know this.</p>
+<p>There are sour apples, no doubt, whose lot is to wait until the last day of autumn: and at once they become ripe, yellow, and shrivelled.</p>
+<p>In some the heart ages first, and in others the spirit. And some are hoary in youth, but those who are young latest keep young longer.</p>
+<p>To many men life is a failure; a poison-worm gnaws at their heart. Then at least let their dying be a success.</p>
+<p>Many never become sweet; they rot even in the summer. Cowardice holds them fast to their branches.</p>
+<p>Far too many live, and far too long do they hang on their branches. If only a storm would come and shake all that is rotten and worm-eaten from the tree!</p>
+<p>If only there were preachers of quick death! They would be the right storms and shakers of the trees of life! But I hear only the slow death preached, and patience with all that is “earthly.”</p>
+<p>Ah! you preach patience with what is earthly? It is the earthly that has too much patience with you, you blasphemers!</p>
+<p>Too early died that Hebrew whom the preachers of slow death honor: and it is a calamity to many that he died too early.</p>
+<p>As yet he knew only tears, and the melancholy of the Hebrews, and hatred of the good and just- the Hebrew Jesus: then he was seized with longing for death.</p>
+<p>If only he had remained in the wilderness, far from the good the just! Perhaps then he would have learned to live and love the earth- and laughter also!</p>
+<p>Believe me, my brothers! He died too early; he himself would have recanted his doctrine had he reached my age! He was noble enough to recant!</p>
+<p>But he was still immature. The youth loves immaturely, and he also hates immaturely both man and earth. His soul and the wings of his spirit are still confined and awkward.</p>
+<p>But in man there is more of the child than in the youth, and less melancholy: he better understands life and death.</p>
+<p>Free for death, and free in death; a sacred Nosayer, when there is no longer time for Yes: thus he understands death and life.</p>
+<p>That your dying be no reproach to man and the earth, my friends: that I ask of the honey of your soul.</p>
+<p>In your dying, your spirit and your virtue shall still shine like an sunset around the earth: otherwise your dying has gone badly.</p>
+<p>Thus I will die myself, that you, my friends, may love the earth more for my sake; and earth will I again become, to have rest in her that bore me.</p>
+<p>Zarathustra had a goal; he threw his ball. Now you, my friends, are the heirs of my goal; to you I throw the golden ball.</p>
+<p>I like best of all to see you, my friends, throw the golden ball! And so I tarry a little while on the earth- pardon me for it!</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>getimagesize()获取图片尺寸等信息</title>
+    <url>/p/7495c85b/</url>
+    <content><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>getimagesize - 获取图片尺寸</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">getimagesize ( <span class="keyword">string</span> $filename [, <span class="keyword">array</span> &amp;$imageinfo ] ) : <span class="keyword">array</span></span><br></pre></td></tr></table></figure>
+<p>返回一个 <strong>关联</strong> 数组，包含指定图片的相关信息。<br>$filename 可以是本地也可以是远程图片。<br>$imageinfo 用于获取更多扩展信息，只支持 JFIF 文件。</p>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>返回数组中最多可以包含7个元素，分别如下:</p>
+<p>索引 <code>0</code>，<code>1</code>分别是宽度和高度；<br>索引 <code>2</code>是图片的类型，是格式如 IMAGETYPE_XXX 的预定义常量之一，如IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP；<br>索引 <code>3</code> 是宽高的拼接好的字符串，如height=”yyy” width=”xxx”，方便直接用在img标签里；<br><code>mime</code> 是对应的MIME 类型，可用于http头信息，如 <code>header(&quot;Content-type: &#123;$size[&#39;mime&#39;]&#125;&quot;);</code>;</p>
+<p><code>channels</code> will be 3 for RGB pictures and 4 for CMYK pictures.<br><code>bits</code> is the number of bits for each color.</p>
+<hr>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$image = <span class="string">&#x27;https://avatars2.githubusercontent.com/u/646129?s=52&amp;v=4&#x27;</span>;</span><br><span class="line">$data = getimagesize($image, $info);</span><br><span class="line">print_r($data);</span><br><span class="line">print_r($info);</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">0</span>] =&gt; <span class="number">52</span></span><br><span class="line">    [<span class="number">1</span>] =&gt; <span class="number">52</span></span><br><span class="line">    [<span class="number">2</span>] =&gt; <span class="number">2</span></span><br><span class="line">    [<span class="number">3</span>] =&gt; width=<span class="string">&quot;52&quot;</span> height=<span class="string">&quot;52&quot;</span></span><br><span class="line">    [bits] =&gt; <span class="number">8</span></span><br><span class="line">    [channels] =&gt; <span class="number">3</span></span><br><span class="line">    [mime] =&gt; image/jpeg</span><br><span class="line">)</span><br><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [APP0] =&gt; JFIF``</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一般常用于获取图片宽高，其他信息基本用不到。<br>名称是image size，但不知道返回的是图片的实际大小还是图片的尺寸，而且既然已经返回这么多信息了，为啥不返回图片的字节大小呢，虽然可以通过其他方式获取，但如果能一步到位岂不更省事。</p>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>getimagesize</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP中 超全局变量 $_SERVER 详解</title>
+    <url>/p/adf01bc2/</url>
+    <content><![CDATA[<p><code>$_SERVER</code>是PHP中超全局变量之一，存储的是服务器、请求和执行环境等的信息，包括 headers, paths, script locations.<br>内容（entries）是由 web 服务器创建的，所以具体可能会有所不同，完整列表可参看 <a href="http://www.faqs.org/rfcs/rfc3875.html">» CGI/1.1 specification</a>.</p>
+<a id="more"></a>
+<p>下面列出一些常用的，有一些只在命令行模式下有效。</p>
+<table>
+<thead>
+<tr>
+<th>项 Entry</th>
+<th>描述 Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PHP_SELF</td>
+<td>当前运行脚本名，相对于文档根目录，如 http ://example.com/foo/bar.php -&gt; /foo/bar.php.</td>
+</tr>
+<tr>
+<td>argv</td>
+<td>命令行下，传递给脚本的参数数组，C风格</td>
+</tr>
+<tr>
+<td>argc</td>
+<td>命令行下，传递给脚本的参数的个数</td>
+</tr>
+<tr>
+<td>GATEWAY_INTERFACE</td>
+<td>使用的CGI和版本（revision）</td>
+</tr>
+<tr>
+<td>SERVER_ADDR</td>
+<td>服务端IP</td>
+</tr>
+<tr>
+<td>SERVER_NAME</td>
+<td>服务器名称，如果用虚拟主机则是配置的虚拟主机名</td>
+</tr>
+<tr>
+<td>SERVER_SOFTWARE</td>
+<td>服务器使用的软件和版本</td>
+</tr>
+<tr>
+<td>SERVER_PROTOCOL</td>
+<td>请求协议和版本</td>
+</tr>
+<tr>
+<td>REQUEST_METHOD</td>
+<td>请求方法</td>
+</tr>
+<tr>
+<td>REQUEST_TIME</td>
+<td>请求时间，时间戳格式</td>
+</tr>
+<tr>
+<td>REQUEST_TIME_FLOAT</td>
+<td>请求时间，时间戳微秒（microsecond precision）</td>
+</tr>
+<tr>
+<td>QUERY_STRING</td>
+<td>查询字符串</td>
+</tr>
+<tr>
+<td>DOCUMENT_ROOT</td>
+<td>文档根目录</td>
+</tr>
+<tr>
+<td>HTTP_ACCEPT</td>
+<td>请求接收的内容：Accept</td>
+</tr>
+<tr>
+<td>HTTP_ACCEPT_CHARSET</td>
+<td>请求接收的字符集：Accept-Charset:’iso-8859-1,*,utf-8’</td>
+</tr>
+<tr>
+<td>HTTP_ACCEPT_ENCODING</td>
+<td>请求接收的编码：Accept-Encoding:gzip</td>
+</tr>
+<tr>
+<td>HTTP_ACCEPT_LANGUAGE</td>
+<td>请求接收的语言：Accept-Language:en</td>
+</tr>
+<tr>
+<td>HTTP_CONNECTION</td>
+<td>请求连接类型：Connection:Keep-Alive</td>
+</tr>
+<tr>
+<td>HTTP_HOST</td>
+<td>请求的主机：Host</td>
+</tr>
+<tr>
+<td>HTTP_REFERER</td>
+<td>请求提交的页面</td>
+</tr>
+<tr>
+<td>HTTP_USER_AGENT</td>
+<td>用户浏览器：User-Agent</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>不为空如果是HTTPS访问</td>
+</tr>
+<tr>
+<td>REMOTE_ADDR</td>
+<td>用户IP</td>
+</tr>
+<tr>
+<td>REMOTE_HOST</td>
+<td>用户主机</td>
+</tr>
+<tr>
+<td>REMOTE_PORT</td>
+<td>用户端口号</td>
+</tr>
+<tr>
+<td>REMOTE_USER</td>
+<td>用户 The authenticated user.</td>
+</tr>
+<tr>
+<td>REDIRECT_REMOTE_USER</td>
+<td>The authenticated user if the request is internally redirected.</td>
+</tr>
+<tr>
+<td>SCRIPT_FILENAME</td>
+<td>当前执行脚本的绝对路径</td>
+</tr>
+<tr>
+<td>SERVER_ADMIN</td>
+<td>配置的管理员联系信息</td>
+</tr>
+<tr>
+<td>SERVER_PORT</td>
+<td>服务器端口号</td>
+</tr>
+<tr>
+<td>SERVER_SIGNATURE</td>
+<td>服务器签名信息，包含服务器软件版本和虚拟主机名</td>
+</tr>
+<tr>
+<td>PATH_TRANSLATED</td>
+<td>Filesystem</td>
+</tr>
+<tr>
+<td>SCRIPT_NAME</td>
+<td>当前脚本路径</td>
+</tr>
+<tr>
+<td>PHP_AUTH_DIGEST</td>
+<td>When doing Digest HTTP authentication this variable is set to the ‘Authorization’ header</td>
+</tr>
+<tr>
+<td>PHP_AUTH_USER</td>
+<td>HTTP authentication ，用户</td>
+</tr>
+<tr>
+<td>PHP_AUTH_PW</td>
+<td>HTTP authentication ，密码</td>
+</tr>
+<tr>
+<td>AUTH_TYPE</td>
+<td>HTTP authentication ，类型</td>
+</tr>
+<tr>
+<td>PATH_INFO</td>
+<td>Contains any client-provided pathname information.</td>
+</tr>
+<tr>
+<td>ORIG_PATH_INFO</td>
+<td>PHP处理前的，PATH_INFO的最初状态</td>
+</tr>
+<tr>
+<td>HTTP_X_FORWARDED_FOR</td>
+<td>用户加代理后的IP列表</td>
+</tr>
+<tr>
+<td>HTTP_CLIENT_IP</td>
+<td>客户端IP</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>Server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P2C2】In the Happy Isles</title>
+    <url>/p/2e448025/</url>
+    <content><![CDATA[<p>The figs fall from the trees, they are good and sweet; and in falling the red skins of them break. A north wind am I to ripe figs.</p>
+<p>Thus, like figs, do these doctrines fall for you, my friends: imbibe now their juice and their sweet substance! It is autumn all around, and clear sky, and afternoon.</p>
+<a id="more"></a>
+<p>Lo, what fullness is around us! And out of the midst of superabundance, it is delightful to look out upon distant seas.</p>
+<p>Once did people say God, when they looked out upon distant seas; now, however, have I taught you to say, Superman.</p>
+<p>God is a conjecture: but I do not wish your conjecturing to reach beyond your creating will.</p>
+<p>Could you create a God?- Then, I pray you, be silent about all gods! But you could well create the Superman.</p>
+<p>Not perhaps you yourselves, my brothers! But into fathers and forefathers of the Superman could you transform yourselves: and let that be your best creating!-</p>
+<p>God is a conjecture: but I should like your conjecturing restricted to the conceivable.</p>
+<p>Could you conceive a God?- But let this mean Will to Truth to you, that everything be transformed into the humanly conceivable, the humanly visible, the humanly sensible! Your own discernment shall you follow out to the end!</p>
+<p>And what you have called the world shall but be created by you: your reason, your likeness, your will, your love, shall it itself become! And verily, for your bliss, you discerning ones!</p>
+<p>And how would you endure life without that hope, you discerning ones? Neither in the inconceivable could you have been born, nor in the irrational.</p>
+<p>But that I may reveal my heart entirely to you, my friends: if there were gods, how could I endure it to be no God! Therefore there are no gods.</p>
+<p>Yes, I have drawn the conclusion; now, however, does it draw me.-</p>
+<p>God is a conjecture: but who could drink all the bitterness of this conjecture without dying? Shall his faith be taken from the creator, and from the eagle his flights into eagle-heights?</p>
+<p>God is a thought- it makes all the straight crooked, and all that stands reel. What? Time would be gone, and all the perishable would be but a lie?</p>
+<p>To think this is giddiness and vertigo to human limbs, and even vomiting to the stomach: verily, the reeling sickness do I call it, to conjecture such a thing.</p>
+<p>Evil do I call it and misanthropic: all that teaching about the one, and the plenum, and the unmoved, and the sufficient, and the imperishable!</p>
+<p>All the imperishable- that’s but a parable, and the poets lie too much.-</p>
+<p>But of time and of becoming shall the best parables speak: a praise shall they be, and a justification of all perishing!</p>
+<p>Creating- that is the great salvation from suffering, and life’s alleviation. But for the creator to appear, suffering itself is needed, and much transformation.</p>
+<p>Yes, much bitter dying must there be in your life, you creators! Thus are you advocates and justifiers of all perishing.</p>
+<p>For the creator himself to be the new-born child, he must also be willing to be the child-bearer, and endure the pangs of the child-bearer.</p>
+<p>Through a hundred souls went I my way, and through a hundred cradles and birth-throes. Many a farewell have I taken; I know the heartbreaking last hours.</p>
+<p>But so wills it my creating Will, my fate. Or, to tell you it more candidly: just such a fate- wills my Will.</p>
+<p>All feeling suffers in me, and is in prison: but my willing ever comes to me as my emancipator and comforter.</p>
+<p>Willing emancipates: that is the true doctrine of will and emancipation- so teaches you Zarathustra.</p>
+<p>No longer willing, and no longer valuing, and no longer creating! Ah, that that great debility may ever be far from me!</p>
+<p>And also in discerning do I feel only my will’s procreating and evolving delight; and if there be innocence in my knowledge, it is because there is will to procreation in it.</p>
+<p>Away from God and gods did this will allure me; what would there be to create if there were- gods!</p>
+<p>But to man does it ever impel me anew, my fervent creative will; thus impels it the hammer to the stone.</p>
+<p>Ah, you men, within the stone slumbers an image for me, the image of my visions! Ah, that it should slumber in the hardest, ugliest stone!</p>
+<p>Now rages my hammer ruthlessly against its prison. From the stone fly the fragments: what’s that to me?</p>
+<p>I will complete it: for a shadow came to me- the still and lightest of all things once came to me!</p>
+<p>The beauty of the Superman came to me as a shadow. Ah, my brothers! Of what account now are- the gods to me!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C5】Joys and Passions</title>
+    <url>/p/d32c0929/</url>
+    <content><![CDATA[<p>My brother, when you have a virtue, and it is your own virtue, you have it in common with no one.</p>
+<a id="more"></a>
+<p>To be sure, you would call it by name and caress it; you would tug its ears and amuse yourself with it.</p>
+<p>And lo! Then have you its name in common with the people, and have become one of the people and the herd with your virtue!</p>
+<p>Better for you to say: “Inexpressible and nameless is that which gives pain and sweetness to my soul, and is the hunger of my bowels.”</p>
+<p>Let your virtue be too exalted for the familiarity of names, and if you must speak of it, be not ashamed to stammer about it.</p>
+<p>Thus speak and stammer: “This is my good, this I love, thus does it please me entirely, thus alone do I want the good.</p>
+<p>I do not want it as divine law, not as a human law or a human need; it will not be a guide-post for me to over-earths and paradises.</p>
+<p>It is an earthly virtue which I love: there is little prudence in it, and least of all any common wisdom.</p>
+<p>But that bird built its nest with me: therefore, I love and cherish itnow it sits with me on its golden eggs.”</p>
+<p>Thus should you stammer, and praise your virtue.</p>
+<p>Once you had passions and called them evil. But now you have only your virtues: they grew out of your passions.</p>
+<p>You implanted your highest goal into the heart of those passions: then they became your virtues and joys.</p>
+<p>And though you were of the race of the hot-tempered, or of the voluptuous, or of the fanatical, or the vindictive;</p>
+<p>All your passions in the end became virtues, and all your devils angels.</p>
+<p>32 Once had you wild dogs in your cellar: but they changed at last into birds and charming singers.</p>
+<p>Out of your poisons you brewed your balsam; you milked your cow, melancholy- now you drink the sweet milk of her udder.</p>
+<p>And nothing evil grows in you any longer, unless it be the evil that grows out of the conflict of your virtues.</p>
+<p>My brother, if you are fortunate, then you have one virtue and no more: thus you will go easier over the bridge.</p>
+<p>It is illustrious to have many virtues, but a hard lot; and many a one has gone into the wilderness and killed himself, because he was weary of being the battle and battlefield of virtues.</p>
+<p>My brother, are war and battle evil? But this evil is necessary; necessary are the envy and the distrust and the back-biting among the virtues.</p>
+<p>Behold how each of your virtues is covetous of the highest place; each wants your whole spirit to be her herald, it wants your whole power, in wrath, hatred, and love.</p>
+<p>Each virtue is jealous of the others, and jealousy is a terrible thing. Even virtues may perish of jealousy.</p>
+<p>He whom the flame of jealousy encompasses, will at last, like the scorpion, turn the poisoned sting against himself.</p>
+<p>Ah! my brother, have you never seen a virtue backbite and stab itself?</p>
+<p>Man is something that must be overcome: and therefore you will love your virtues,- for you will perish by them.-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery数组的操作</title>
+    <url>/p/30266b9b/</url>
+    <content><![CDATA[<hr>
+<p>jQuery操作数组主要有两种方式：</p>
+<h2 id="普通数组"><a href="#普通数组" class="headerlink" title="普通数组"></a>普通数组</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.each(array,<span class="function"><span class="keyword">function</span>(<span class="params">k,v</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关联数组，{“id”:10,”name”:”tom”}</li>
+<li>索引数组，[1,2,3,4,5,6,7,8,9]</li>
+</ul>
+<p>k: 如果是关联是键名，如果是索引是下标（从0开始);<br>vo: 是元素值;</p>
+<hr>
+<h2 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">k,v</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>i 是数组元素的下标数字，索引下标<br>v 是dom中的节点[子对象]</p>
+<p>其中<br>v = this = <code>&#39;&lt;p&gt;...&lt;/p&gt;&#39;</code> //字符串<br>$(v) = $(this) = init… //dom节点对象</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>8、JS中的闭包</title>
+    <url>/p/33819c82/</url>
+    <content><![CDATA[<h2 id="JS中的闭包"><a href="#JS中的闭包" class="headerlink" title="JS中的闭包"></a>JS中的闭包</h2><ul>
+<li>引入<br>需求: 点击某个按钮, 提示”点击的是第 n 个按钮”<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;button&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,length=btns.length; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> btn = btns[i]</span><br><span class="line">    <span class="comment">//将btn所对应的下标保存在btn上</span></span><br><span class="line">    btn.index = i</span><br><span class="line">    btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="string">&#x27;第&#x27;</span>+(<span class="built_in">this</span>.index+<span class="number">1</span>)+<span class="string">&#x27;个&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//利用闭包</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,length=btns.length; i &lt; length; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> btn = btns[j]</span><br><span class="line">      btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">&#x27;第&#x27;</span>+(j+<span class="number">1</span>)+<span class="string">&#x27;个&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)(i)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li>如何产生闭包?<ul>
+<li>当一个嵌套的内部(子)函数引用了嵌套的外部(父)函数的变量(函数)时, 就产生了闭包<ul>
+<li>函数嵌套</li>
+<li>内部函数引用了外部函数的数据(变量/函数)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>闭包到底是什么?<ul>
+<li>理解一: 闭包是嵌套的内部函数(绝大部分人)</li>
+<li>理解二: 包含被引用变量(函数)的对象(极少数人)</li>
+<li>注意: 闭包存在于嵌套的内部函数中</li>
+<li>闭包本质是内部函数中的一个对象, 这个对象中包含引用的变量属性</li>
+</ul>
+</li>
+<li>常见闭包<ul>
+<li><ol>
+<li>将函数作为另一个函数的返回值<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn1() &#123;</span><br><span class="line">  var a &#x3D; 2;</span><br><span class="line">  function fn2() &#123;</span><br><span class="line">    a++;</span><br><span class="line">    console.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">  return fn2;</span><br><span class="line">&#125;</span><br><span class="line">var f &#x3D; fn1();</span><br><span class="line">f();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将函数作为实参传递给另一个函数调用<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function showDelay(msg, time) &#123;</span><br><span class="line">  setTimeout(function () &#123;</span><br><span class="line">    alert(msg)</span><br><span class="line">  &#125;, time)</span><br><span class="line">&#125;</span><br><span class="line">showDelay(&#39;atguigu&#39;, 2000)</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>闭包的作用:<ul>
+<li>使用函数内部的变量在函数执行完后, 仍然存活在内存中(延长了局部变量的生命周期)</li>
+<li>让函数外部可以操作(读写)到函数内部的数据(变量/函数)</li>
+<li>函数执行完后, 函数内部声明的局部变量是否还存在?  //一般是不存在, 存在于闭中的变量才可能存在</li>
+<li>在函数外部能直接访问函数内部的局部变量吗? //不能, 但我们可以通过闭包让外部操作它</li>
+</ul>
+</li>
+<li>闭包的生命周期<ul>
+<li>产生: 在嵌套内部函数定义执行完时就产生了(不是在调用)</li>
+<li>死亡: 在嵌套的内部函数成为垃圾对象时，<code>f = null</code></li>
+</ul>
+</li>
+<li>闭包应用:<ul>
+<li>模块化: 封装一些数据以及操作数据的函数, 向外暴露一些行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">window</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//私有的数据</span></span><br><span class="line">  <span class="keyword">var</span> msg = <span class="string">&#x27;atguigu&#x27;</span></span><br><span class="line">  <span class="keyword">var</span> names = [<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;Love&#x27;</span>, <span class="string">&#x27;you&#x27;</span>]</span><br><span class="line">  <span class="comment">//操作数据的函数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(msg.toUpperCase())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(names.join(<span class="string">&#x27; &#x27;</span>))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.coolModule2 =  &#123;</span><br><span class="line">      doSomething: a,</span><br><span class="line">      doOtherthing: b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure></li>
+<li>循环遍历加监听</li>
+<li>JS框架(jQuery)大量使用了闭包</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>变量占用内存的时间可能会过长</li>
+<li>可能导致内存泄露</li>
+<li>解决:<ul>
+<li>及时释放 : f = null; //让内部函数对象成为垃圾对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul>
+<li>1.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  <span class="comment">//代码片段一</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;The Window&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name : <span class="string">&quot;My Object&quot;</span>,</span><br><span class="line">  getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(object.getNameFunc()());  <span class="comment">//?  the window</span></span><br><span class="line"><span class="comment">//代码片段二</span></span><br><span class="line"><span class="keyword">var</span> name2 = <span class="string">&quot;The Window&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> object2 = &#123;</span><br><span class="line">  name2 : <span class="string">&quot;My Object&quot;</span>,</span><br><span class="line">  getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> that.name2;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(object2.getNameFunc()()); <span class="comment">//?  my object</span></span><br></pre></td></tr></table></figure></li>
+<li>2.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">n,o</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(o)</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> fun(m,n)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = fun(<span class="number">0</span>)</span><br><span class="line">a.fun(<span class="number">1</span>)</span><br><span class="line">a.fun(<span class="number">2</span>)</span><br><span class="line">a.fun(<span class="number">3</span>)<span class="comment">//undefined,0,0,0</span></span><br><span class="line"><span class="keyword">var</span> b = fun(<span class="number">0</span>).fun(<span class="number">1</span>).fun(<span class="number">2</span>).fun(<span class="number">3</span>)<span class="comment">//undefined,0,1,2</span></span><br><span class="line"><span class="keyword">var</span> c = fun(<span class="number">0</span>).fun(<span class="number">1</span>)</span><br><span class="line">c.fun(<span class="number">2</span>)</span><br><span class="line">c.fun(<span class="number">3</span>)<span class="comment">//undefined,0,1,1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="内存溢出与内存泄露"><a href="#内存溢出与内存泄露" class="headerlink" title="内存溢出与内存泄露"></a>内存溢出与内存泄露</h2><ol>
+<li>内存溢出<ul>
+<li>一种程序运行出现的错误</li>
+<li>当程序运行需要的内存超过了剩余的内存时, 就出抛出内存溢出的错误</li>
+</ul>
+</li>
+<li>内存泄露<ul>
+<li>占用的内存没有及时释放</li>
+<li>内存泄露积累多了就容易导致内存溢出</li>
+<li>常见的内存泄露:<ul>
+<li>意外的全局变量</li>
+<li>没有及时清理的计时器或回调函数</li>
+<li>闭包<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 内存溢出</span></span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    obj[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10000000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;-----&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 2. 内存泄露</span></span><br><span class="line">    <span class="comment">// 意外的全局变量</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10000000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  fn()</span><br><span class="line">   <span class="comment">// 没有及时清理的计时器或回调函数</span></span><br><span class="line">  <span class="keyword">var</span> intervalId = <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//启动循环定时器后不清理</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;----&#x27;</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">  <span class="comment">// clearInterval(intervalId)</span></span><br><span class="line">    <span class="comment">// 闭包</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">4</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(++a)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fn2</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> f = fn1()</span><br><span class="line">  f()</span><br><span class="line">  <span class="comment">// f = null</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>闭包</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>4、JS中的函数</title>
+    <url>/p/a7b6368c/</url>
+    <content><![CDATA[<h2 id="JS中的函数"><a href="#JS中的函数" class="headerlink" title="JS中的函数"></a>JS中的函数</h2><ol>
+<li>什么是函数?<ul>
+<li>具有特定功能的n条语句的封装体</li>
+<li>只有函数是可执行的, 其它类型的数据是不可执行的</li>
+<li>函数也是对象</li>
+</ul>
+</li>
+<li>为什么要用函数?<ul>
+<li>提高代码复用</li>
+<li>便于阅读和交流</li>
+</ul>
+</li>
+<li>如何定义函数?<ul>
+<li>函数声明 <code>function f()&#123;&#125;</code></li>
+<li>表达式 <code>var f = function()&#123;&#125;</code></li>
+</ul>
+</li>
+<li>如何调用(执行)函数?<ul>
+<li>test(): 直接调用</li>
+<li>obj.test(): 通过对象调用</li>
+<li>new test(): new调用</li>
+<li>test.call/apply(obj): 临时让test成为obj的方法进行调用</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><ol>
+<li>什么函数才是回调函数?<ul>
+<li>你定义的</li>
+<li>没有直接调用</li>
+<li>但最终它执行了(在特定条件或时刻)</li>
+</ul>
+</li>
+<li>常见的回调函数?<ul>
+<li>DOM事件函数 ==&gt;发生事件的dom元素</li>
+<li>定时器函数 ===&gt;window, setInterval、setTimeout</li>
+<li>ajax回调函数</li>
+<li>生命周期回调函数</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="匿名函数自调用-IIFE"><a href="#匿名函数自调用-IIFE" class="headerlink" title="匿名函数自调用 (IIFE)"></a>匿名函数自调用 (IIFE)</h2><ol>
+<li>理解<ul>
+<li>全称: Immediately-Invoked Function Expression 立即调用函数表达式</li>
+<li>别名: 匿名函数自调用</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>隐藏内部实现</li>
+<li>不污染外部命名空间</li>
+<li>用来编码js模块<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">test</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(++a)</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">window</span>.$ = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">// 向外暴露一个全局函数</span></span><br><span class="line">     <span class="keyword">return</span> &#123;</span><br><span class="line">       test: test</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;)()</span><br><span class="line">$().test() <span class="comment">// 1. $是一个函数 2. $执行后返回的是一个对象</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="函数中的this"><a href="#函数中的this" class="headerlink" title="函数中的this"></a>函数中的this</h2><ol>
+<li>this是什么?<ul>
+<li>任何函数本质上都是通过某个对象来调用的, 如果没有直接指定就是window</li>
+<li>所有函数内部都有一个变量this，可以直接使用</li>
+<li>它的值是调用函数的当前对象</li>
+<li>一个关键字, 一个内置的引用变量</li>
+<li>在定义函数时, this还没有确定, 只有在执行时才动态确定(绑定)的</li>
+</ul>
+</li>
+<li>如何确定this的值?<ul>
+<li>test(): window</li>
+<li>p.test(): p</li>
+<li>new test(): 新创建的对象</li>
+<li>p.call(obj): obj</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>Function</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS中 Number()方法的两种用法</title>
+    <url>/p/ad62e574/</url>
+    <content><![CDATA[<p>JS中，调用Number()主要有两种方式，一是作为一个 function 将任意类型的数据转换成数值，二是作为一个类，通过new 生成一个数值对象。  </p>
+<a id="more"></a>
+<p>其中第一种方式更常用。</p>
+<hr>
+<h2 id="用法一：function"><a href="#用法一：function" class="headerlink" title="用法一：function"></a>用法一：function</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Number(value)</span><br></pre></td></tr></table></figure>
+<p>将一个任意类型的数据转换成数值，无法转换的则返回 NaN，转换规则类似于类型隐式转换，与 <code>parseFloat</code> 略有差异。</p>
+<p>转换规则如下：</p>
+<table>
+<thead>
+<tr>
+<th>值 Value</th>
+<th>结果 Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>undefined</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td>null</td>
+<td>0</td>
+</tr>
+<tr>
+<td>false</td>
+<td>0</td>
+</tr>
+<tr>
+<td>true</td>
+<td>1</td>
+</tr>
+<tr>
+<td>number</td>
+<td>原样输出</td>
+</tr>
+<tr>
+<td>string</td>
+<td>忽略前后空格，碰到第一个非数字字符为止，空字符串返回 0</td>
+</tr>
+<tr>
+<td>object</td>
+<td>调用内部 ToPrimitive(value, Number)，如果是 Date 对象，返回从 1970年1月1日至Date的毫秒数</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="用法二：constructor"><a href="#用法二：constructor" class="headerlink" title="用法二：constructor"></a>用法二：constructor</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">new Number(num)</span><br></pre></td></tr></table></figure>
+<p>作为一个构造器，生成一个 Number 实例， wraps num (after converting it to a number).</p>
+<p>如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; typeof new Number(3)</span><br><span class="line">&#39;object&#39;</span><br></pre></td></tr></table></figure>
+<p>既然是对象，肯定有相关的属性和方法，Number也不例外。</p>
+<h3 id="属性-Properties"><a href="#属性-Properties" class="headerlink" title="属性 Properties"></a>属性 Properties</h3><ul>
+<li>Number.MAX_VALUE 表示的最大正数值  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; Number.MAX_VALUE</span><br><span class="line">1.7976931348623157e+308</span><br></pre></td></tr></table></figure></li>
+<li>Number.MIN_VALUE 表示的最小正数值<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; Number.MIN_VALUE</span><br><span class="line">5e-324</span><br></pre></td></tr></table></figure></li>
+<li>Number.NaN 与全局 NaN 等同</li>
+<li>Number.NEGATIVE_INFINITY 与 -Infinity 等同</li>
+<li>Number.POSITIVE_INFINITY 与 Infinity 等同</li>
+</ul>
+<h3 id="方法-Methods"><a href="#方法-Methods" class="headerlink" title="方法 Methods"></a>方法 Methods</h3><p>所有原生的数值相关函数均被保存在对象原型（ Number.prototype ）里，可以直接调用。</p>
+<ul>
+<li>Number.prototype.toFixed(fractionDigits?)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 0.0000003.toFixed(10)</span><br><span class="line">&#39;0.0000003000&#39;</span><br></pre></td></tr></table></figure></li>
+<li>Number.prototype.toPrecision(precision?)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 1234..toPrecision(3)</span><br><span class="line">&#39;1.23e+3&#39;</span><br></pre></td></tr></table></figure></li>
+<li>Number.prototype.toString(radix?)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 15..toString(2)</span><br><span class="line">&#39;1111&#39;</span><br><span class="line">&gt; 65535..toString(16)</span><br><span class="line">&#39;ffff&#39;</span><br></pre></td></tr></table></figure></li>
+<li>Number.prototype.toExponential(fractionDigits?)</li>
+</ul>
+<hr>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://speakingjs.com/es5/ch11.html">http://speakingjs.com/Chapter 11. Numbers</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>数据类型</tag>
+        <tag>Number</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3、JS中的对象</title>
+    <url>/p/b73cad21/</url>
+    <content><![CDATA[<ol>
+<li>什么是对象?<ul>
+<li>代表现实中的某个事物, 是该事物在编程中的抽象</li>
+<li>多个数据的集合体(封装体)</li>
+<li>用于保存多个数据的容器</li>
+</ul>
+</li>
+<li>为什么要用对象?<ul>
+<li>便于对多个数据进行统一管理</li>
+</ul>
+</li>
+<li>对象的组成<ul>
+<li>属性<ul>
+<li>代表现实事物的状态数据</li>
+<li>由属性名和属性值组成</li>
+<li>属性名都是字符串类型, 属性值是任意类型</li>
+</ul>
+</li>
+<li>方法<ul>
+<li>代表现实事物的行为数据</li>
+<li>是特别的属性==&gt;属性值是函数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如何访问对象内部数据?<ul>
+<li>.属性名: 编码简单, 但有时不能用</li>
+<li><code>[&#39;属性名&#39;]</code>: 编码麻烦, 但通用</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="什么时候必须使用-39-属性名-39-的方式"><a href="#什么时候必须使用-39-属性名-39-的方式" class="headerlink" title="什么时候必须使用 [&#39;属性名&#39;] 的方式?"></a>什么时候必须使用 <code>[&#39;属性名&#39;]</code> 的方式?</h3><ul>
+<li>属性名不是合法的标识名，包含特殊字符，如-，空格等<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  p.content-type = &#x27;text/json&#x27; //不正确</span></span><br><span class="line">p[<span class="string">&#x27;content-type&#x27;</span>] = <span class="string">&#x27;text/json&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>属性名不确定，用变量表示<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> prop = <span class="string">&#x27;xxx&#x27;</span></span><br><span class="line"><span class="keyword">var</span> value = <span class="number">123</span></span><br><span class="line"><span class="comment">// p.prop = value  //不正确</span></span><br><span class="line">p[prop] = value</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>Object</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JSON_UNESCAPED_UNICODE的作用与理解</title>
+    <url>/p/8157d8ea/</url>
+    <content><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在使用json_encode转换的时候，默认情况下中文会转换成 <code>\u***</code> 的格式, 不仅不可读，还会在一定程度上增加传输的数据量.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo json_encode(&quot;中文&quot;);</span><br><span class="line">&#x2F;&#x2F;&quot;\u4e2d\u6587&quot;</span><br></pre></td></tr></table></figure>
+<p>在PHP5.4, 这个问题得以解决, Json新增了一个选项: JSON_UNESCAPED_UNICODE,加上之后就可以正确输出中文。<br>详见鸟哥的文章，<a href="https://www.laruence.com/2011/10/10/2239.html">让Json更懂中文</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对这个选项的作用和用法都没有歧义，有点不同的是对这个组合词 JSON_UNESCAPED_UNICODE 的理解，鸟哥文章中说是”顾名思义，不要编码Unicode”，实际上并这里的意思并不明显，escape是避开，避免的意思，前面加上 un 表示否定，是不要避开不要避免，应该是说把Unicode当成本身处理，不要避开Unicode这种字符或格式，即承认它，再结合官网对这个选项的解释，(逐个字符的编码多字节Unicode字符)<br><code>Encode multibyte Unicode characters literally (default is to escape as \uXXXX).</code><br>，虽然最后结果是一样的，但从字义上其实很难一下子看出来。</p>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>Json</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C16】Love of the Neighbor</title>
+    <url>/p/6ba77d60/</url>
+    <content><![CDATA[<p>You crowd around your neighbor, and have fine words for it. But I say to you: your love of the neighbor is your bad love of yourselves.</p>
+<p>You flee to your neighbor from yourselves, and would rather make a virtue of it: but I fathom your “unselfishness.”</p>
+<a id="more"></a>
+<p>The you is older than the I; the you has been consecrated, but not yet the I: so man presses near to his neighbor.</p>
+<p>Do I advise you to love of the neighbor? Rather do I advise you to flight from the neighbor and to love of the farthest!</p>
+<p>Higher than love of your neighbor is love of the farthest and future ones; higher still than love to men, is love to things and phantoms.</p>
+<p>The phantom that runs on before you, my brother, is fairer than you; why do you not give to it your flesh and your bones? But you are afraid, and run to your neighbor.</p>
+<p>You cannot endure yourselves and do not love yourselves sufficiently: so you seek to mislead your neighbor into love, to gild yourselves with his error.</p>
+<p>If only you could not endure any kinds of neighbors; then you would have to create your friend and his overflowing heart out of yourselves.</p>
+<p>You call in a witness when you want to speak well of yourselves; and when you have misled him to think well of you, you also think well of yourselves.</p>
+<p>Not only does he lie, who speaks when he knows better, but more so, he who speaks when he knows nothing. And thus you speak of yourselves, and lie to your neighbor with yourselves.</p>
+<p>Thus says the fool: “Association with men spoils the character, especially when one has none.”</p>
+<p>The one goes to his neighbor because he seeks himself, and the other because he would rather lose himself. Your bad love of yourselves makes solitude a prison to you.</p>
+<p>It is the farthest ones who pay for your love to the near ones; and even when there are five of you together, there is always a sixth who must die.</p>
+<p>I do not love your festivals either: I found too many actors there, and even the spectators often behaved like actors.</p>
+<p>Not the neighbor do I teach you, but the friend. Let the friend be the festival of the earth to you, and a foretaste of the Superman.</p>
+<p>I teach you the friend and his overflowing heart. But one must know how to be a sponge, if one would be loved by over-flowing hearts.</p>
+<p>I teach you the friend in whom the world stands complete, a capsule of the good,- the creating friend, who always has a complete world to give away.</p>
+<p>And as the world unrolled itself for him, so rolls it together again for him in rings, as the becoming of good through evil, as the becoming of purpose out of chance.</p>
+<p>Let the future and the farthest be the motive of your today; in your friend you shall love the Superman as your motive.</p>
+<p>My brothers, I advise you not to love of the neighbor- I advise you to love of the farthest!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>thinkPHP模型调试之查看执行的SQL语句</title>
+    <url>/p/65fe8651/</url>
+    <content><![CDATA[<h2 id="调试执行的SQL语句"><a href="#调试执行的SQL语句" class="headerlink" title="调试执行的SQL语句"></a>调试执行的SQL语句</h2><p>在模型操作中 ，为了更好的查明错误，经常需要查看下最近使用的SQL语句，我们可以用 <code>getLastsql</code> 方法来输出上次执行的sql语句。例如：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$User = M(<span class="string">&quot;User&quot;</span>); <span class="comment">// 实例化User对象</span></span><br><span class="line">$User-&gt;find(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">echo</span> $User-&gt;getLastSql();</span><br><span class="line"><span class="comment">// 3.2版本中可以使用简化的方法</span></span><br><span class="line"><span class="keyword">echo</span> $User-&gt;_sql();</span><br></pre></td></tr></table></figure>
+<p>并且每个模型都使用独立的最后SQL记录，互不干扰，但是可以用空模型的getLastSql方法获取全局的最后SQL语句。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">echo</span> M()-&gt;getLastSql();</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="fetchSql"><a href="#fetchSql" class="headerlink" title="fetchSql"></a>fetchSql</h2><p>模型连贯操作之一 <code>fetchSql</code> 用于直接返回SQL而不是执行查询，适用于任何的CURD操作方法。 例如：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$result = M(<span class="string">&#x27;User&#x27;</span>)-&gt;fetchSql(<span class="literal">true</span>)-&gt;find(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="调试数据库错误信息"><a href="#调试数据库错误信息" class="headerlink" title="调试数据库错误信息"></a>调试数据库错误信息</h2><p>在模型操作中，还可以获取数据库的错误信息，例如：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$User = M(<span class="string">&quot;User&quot;</span>);</span><br><span class="line">$result = $User-&gt;find(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">false</span> === $result)&#123;</span><br><span class="line">  <span class="keyword">echo</span> $User-&gt;getDbError();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>CURD操作如果返回值为false，表示数据库操作发生错误，这时就需要使用模型的getDbError方法来查看数据库返回的具体错误信息。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+        <tag>thinkPHP</tag>
+        <tag>调试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用MySQL日期时间处理函数</title>
+    <url>/p/bcfc76f0/</url>
+    <content><![CDATA[<h2 id="FROM-UNIXTIME"><a href="#FROM-UNIXTIME" class="headerlink" title="FROM_UNIXTIME"></a>FROM_UNIXTIME</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">FROM_UNIXTIME(unix_timestamp[,format])</span><br></pre></td></tr></table></figure>
+<p>将时间戳转换成日期时间表示。如’YYYY-MM-DD hh:mm:ss’ 或 YYYYMMDDhhmmss</p>
+<hr>
+<h2 id="NOW"><a href="#NOW" class="headerlink" title="NOW"></a>NOW</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">NOW([fsp])</span><br></pre></td></tr></table></figure>
+<p>返回当前时间的日期时间表示，如’YYYY-MM-DD hh:mm:ss’ 或 YYYYMMDDhhmmss，取决于执行时的上下文环境，如下</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT NOW();</span><br><span class="line">-&gt; &#x27;2007-12-15 23:50:26&#x27;</span><br><span class="line">mysql&gt; SELECT NOW() + 0;//此处+0，所以被当成数值处理</span><br><span class="line">-&gt; 20071215235026.000000</span><br></pre></td></tr></table></figure>
+<p>参数 fsp （fractional seconds precision），可指定返回秒的精度，取值 0-6<br>NOW()与CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP是同义词。</p>
+<hr>
+<h2 id="UNIX-TIMESTAMP"><a href="#UNIX-TIMESTAMP" class="headerlink" title="UNIX_TIMESTAMP"></a>UNIX_TIMESTAMP</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">UNIX_TIMESTAMP([date])</span><br></pre></td></tr></table></figure>
+<p>返回当前时间或指定日期的时间戳，如</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT UNIX_TIMESTAMP(&#39;2015-11-13 10:20:19.012&#39;);</span><br><span class="line">-&gt; 1447431619.012</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="DATE-FORMAT"><a href="#DATE-FORMAT" class="headerlink" title="DATE_FORMAT"></a>DATE_FORMAT</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">DATE_FORMAT(date,format)</span><br></pre></td></tr></table></figure>
+<p>日期格式化</p>
+<hr>
+<h2 id="TO-DAYS"><a href="#TO-DAYS" class="headerlink" title="TO_DAYS"></a>TO_DAYS</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">TO_DAYS(date)</span><br></pre></td></tr></table></figure>
+<p>返回某一日期距离 0 年的总天数，如下面的近似计算应该是，2007<em>365 + 10</em>30 + 7 = 732862，有一些差距。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT TO_DAYS(&#x27;2007-10-07&#x27;);</span><br><span class="line">-&gt; 733321</span><br></pre></td></tr></table></figure>
+<hr>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>date</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C18】Old and Young Women</title>
+    <url>/p/7de1690d/</url>
+    <content><![CDATA[<p>Why do you steal along so furtively in the twilight, Zarathustra? And what do you hide so carefully under your cloak?</p>
+<p>Is it a treasure that has been given to you? Or a child that has been born to you? Or do you go on a thief’s errand, you friend of evil?-</p>
+<a id="more"></a>
+<p>My brother, said Zarathustra, it is a treasure that has been given me: I carry a little truth.</p>
+<p>But it is naughty, like a young child; and if I do not hold its mouth, it screams too loudly.</p>
+<p>As I went on my way alone today, at sunset I met an old woman, and she spoke thus to my soul:</p>
+<p>“Much has Zarathustra spoken also to us women, but never spoke he to us concerning woman.”</p>
+<p>And I answered her: “About woman, one should speak only to men.”</p>
+<p>“Talk also to me of woman,” said she; “I am old enough to forget it presently.”</p>
+<p>And I obliged the old woman and spoke thus to her:</p>
+<p>Everything in woman is a riddle, and everything in woman has one answer- it is called pregnancy.</p>
+<p>Man is for woman a means: the purpose is always the child. But what is woman for man?</p>
+<p>The real man wants two different things: danger and play. Therefore he wants woman, as the most dangerous plaything.</p>
+<p>Man shall be trained for war, and woman for the recreation of the warrior: all else is folly.</p>
+<p>The warrior does not like fruits which are too sweet. Therefore he likes woman;- bitter is even the sweetest woman.</p>
+<p>Woman understands children better than man does, but man is more childish than woman.</p>
+<p>In a real man there is a child hidden: it wants to play. Up then, you women, and discover the child in man!</p>
+<p>Let woman be a plaything, pure and fine like the precious stone, illumined with the virtues of a world not yet come.</p>
+<p>Let the beam of a star shine in your love! Let your hope say: “May I give birth to the Superman!”</p>
+<p>In your love let there be courage! With your love you shall attack him who causes you fear!</p>
+<p>In your love let there be honor! Little does woman understand about honor otherwise. But let this be your honor: always to love more than you are loved, and never to be second.</p>
+<p>Let man fear woman when she loves: then she makes every sacrifice, and everything else she regards as worthless.</p>
+<p>Let man fear woman when she hates: for man in his innermost soul is merely evil; woman, however, is bad.</p>
+<p>Whom does woman hate most?- Thus spoke the iron to the magnet: “I hate you most, because you attract me, but are too weak to draw me to you.”</p>
+<p>The happiness of man is, “I will.” The happiness of woman is, “He wills.”</p>
+<p>“Lo! “Lo! now has the world become perfect!”- thus thinks every woman when she obeys with all her love.</p>
+<p>The woman must obey, and find a depth for her surface. Woman’s soul is all surface, a mobile, stormy film on shallow water.</p>
+<p>Man’s soul, however, is deep, its torrent thunders in subterranean caverns: woman feels his strength, but does not understand it.</p>
+<p>Then the old woman answered me: “Many fine things has Zarathustra said, especially for those who are young enough for them.</p>
+<p>Strange! Zarathustra knows little about woman, and yet he is right about her! Is this because with woman nothing is impossible?</p>
+<p>And now accept a little truth by way of thanks! I am old enough for it!</p>
+<p>Swaddle it up and hold its mouth: otherwise it will scream too loudly, the little truth.”</p>
+<p>“ Woman, give me your little truth!” I said. And thus spoke the old woman:</p>
+<p>“You go to women? Do not forget the whip!”</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>5、原型与原型链</title>
+    <url>/p/e8f85541/</url>
+    <content><![CDATA[<ul>
+<li>显式原型与隐式原型<ul>
+<li>每个函数都有一个 <code>prototype</code> 属性, 称为显式原型属性，默认指向一个 Object空对象, 即原型对象</li>
+<li>原型对象中有一个属性 constructor, 它指向函数对象</li>
+<li>所有实例对象都有一个特别的属性，<code>__proto__</code>，称为隐式原型属性</li>
+</ul>
+</li>
+<li>显式原型与隐式原型的关系<ul>
+<li>函数的prototype: 定义函数时被自动赋值, 值默认为{}, 即用为原型对象</li>
+<li>实例对象的<strong>proto</strong>: 在创建实例对象时被自动添加, 并赋值为构造函数的prototype值</li>
+<li>原型对象即为当前实例对象的父对象</li>
+<li>给原型对象添加属性(一般是方法), 实例对象可以访问</li>
+</ul>
+</li>
+<li>原型链<ul>
+<li>所有的实例对象都有<strong>proto</strong>属性, 它指向的就是原型对象</li>
+<li>这样通过<strong>proto</strong>属性就形成了一个链的结构—-&gt;原型链</li>
+<li>当查找对象内部的属性/方法时, js引擎自动沿着这个原型链查找,如果最终没找到, 返回undefined</li>
+<li>当给对象属性赋值时不会使用原型链, 而只是在当前对象中进行操作</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>函数的显示原型指向的对象默认是空Object实例对象(但Object不满足)</li>
+<li>所有函数都是Function的实例(包含Function) ，Function是通过new自己产生的实例<br><code>Function = new Function()</code></li>
+<li>Object的原型对象是原型链尽头<br><code>Object.prototype.__proto__ === null</code></li>
+</ul>
+</li>
+<li>探索 instanceof<ul>
+<li>表达式: A instanceof B</li>
+<li>如果B函数的显式原型对象在A对象的原型链上, 返回true, 否则返回false<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>测试题1.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">A.prototype.n = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> A()</span><br><span class="line">A.prototype = &#123;</span><br><span class="line">  n: <span class="number">2</span>,</span><br><span class="line">  m: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> A()</span><br><span class="line"><span class="built_in">console</span>.log(b.n, b.m, c.n, c.m)</span><br></pre></td></tr></table></figure></li>
+<li>测试题2.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;a()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;b()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F()</span><br><span class="line">f.a()</span><br><span class="line"><span class="comment">// f.b()</span></span><br><span class="line">F.a()</span><br><span class="line">F.b()</span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.prototype)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>prototype</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C7】Reading And Writing</title>
+    <url>/p/6d1738f6/</url>
+    <content><![CDATA[<p>Of all that is written, I love only what a man has written with his blood. Write with blood, and you will find that blood is spirit.</p>
+<a id="more"></a>
+
+<p>It is no easy task to understand unfamiliar blood; I hate reading idlers.</p>
+<p>He who knows the reader, does nothing for the reader. Another century of readers- and spirit itself will stink.</p>
+<p>That everyone is allowed to learn to read, ruins in the long run not only writing but also thinking.</p>
+<p>Once spirit was God, then it became man, and now it even becomes rabble.</p>
+<p>He that writes in blood and aphorisms does not want to be read, but learnt by heart.</p>
+<p>In the mountains the shortest way is from peak to peak, but for that route you must have long legs. Aphorisms should be peaks, and those spoken to should be tall and lofty.</p>
+<p>The atmosphere rare and pure, danger near and the spirit full of a joyful wickedness: these things go well together.</p>
+<p>I want to have goblins about me, for I am courageous. Courage which scares away ghosts, creates goblins for itself- it wants to laugh.</p>
+<p>I no longer feel as you do; the very cloud which I see beneath me, the blackness and heaviness at which I laugh- that is your thunder-cloud.</p>
+<p>You look aloft when you long for exaltation; and I look downward because I am exalted.</p>
+<p>Who among you can at the same time laugh and be exalted?</p>
+<p>He who climbs high mountains, laughs at all tragic plays and tragic realities.</p>
+<p>Brave, unconcerned, mocking, violent- thus wisdom wants us; wisdom is a woman, and always loves only a warrior.</p>
+<p>You tell me, “Life is hard to bear.” But why should you have your pride in the morning and your resignation in the evening?</p>
+<p>Life is hard to bear: but do not pretend to be so delicate! We are all of us fine sumpter asses and she-asses.</p>
+<p>What do we have in common with the rose-bud, which trembles because a drop of dew lies on it?</p>
+<p>It is true we love life; not because we are wont to live, but because we are wont to love.</p>
+<p>There is always some madness in love. But there is always, also, some method in madness.</p>
+<p>And to me also, who appreciates life, the butterflies, and soap-bubbles, and whatever is like them, seem to know most about happiness.</p>
+<p>To see these light, foolish, pretty, lively little sprites flit about- that moves Zarathustra to tears and songs.</p>
+<p>I would only believe in a God who could dance.</p>
+<p>And when I saw my devil, I found him serious, thorough, profound, solemn: he was the spirit of gravity- through him all things fall.</p>
+<p>Not by wrath, but by laughter, do we kill. Come, let us kill the spirit of gravity!</p>
+<p>I learned to walk; since then have I let myself run. I learned to fly; since then I do not need to be pushed to move from a spot.</p>
+<p>Now I am light, now I fly, now I see myself beneath myself, now a god dances through me.Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>7、作用域与作用域链</title>
+    <url>/p/7466a774/</url>
+    <content><![CDATA[<h2 id="作用域与作用域链"><a href="#作用域与作用域链" class="headerlink" title="作用域与作用域链"></a>作用域与作用域链</h2><ul>
+<li>理解:<ul>
+<li>作用域: 一块代码区域, 在编码时就确定了, 不会再变化</li>
+<li>作用域链: 多个上下级关系的作用域形成的链, 方向是从下向上的(从内到外)</li>
+</ul>
+</li>
+<li>分类:<ul>
+<li>全局</li>
+<li>函数</li>
+<li>js没有块作用域(在ES6之前)</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>作用域: 隔离变量, 可以在不同作用域定义同名的变量不冲突</li>
+<li>作用域链: 查找变量</li>
+</ul>
+</li>
+<li>区别作用域与执行上下文<ul>
+<li>作用域: 每个函数都会创建自己的作用域，在函数定义时就已经确定了。而不是在函数调用时, 静态的, 编码时就确定了(不是在运行时), 一旦确定就不会变化了</li>
+<li>执行上下文: 动态的, 执行代码时动态创建, 当执行结束消失</li>
+<li>联系: 执行上下文(对象)是从属于所在的作用域</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>面试题1<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(x);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> x = <span class="number">20</span>;</span><br><span class="line">   f();</span><br><span class="line"> &#125;</span><br><span class="line"> show(fn);</span><br></pre></td></tr></table></figure></li>
+<li>面试题2<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(fn)</span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  fn2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(fn2)</span><br><span class="line">   <span class="comment">//console.log(this.fn2)</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>Scope</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>strtotime关于在某个日期区间的优化</title>
+    <url>/p/1cf0e13d/</url>
+    <content><![CDATA[<p>工作中，经常碰到需要判断某个当前时间是否在某个时间区间的情况，一般可通过使用 strtotime 将日期转换成时间戳，然后进行比较，比如：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$freedaystart = strtotime($info[<span class="string">&#x27;freedaystart&#x27;</span>].<span class="string">&#x27; 00:00:00&#x27;</span>);</span><br><span class="line">$freedayend = strtotime($info[<span class="string">&#x27;freedayend&#x27;</span>].<span class="string">&#x27; 23:59:59&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(time() &gt; $freedaystart &amp;&amp;  time() &lt; $freedayend)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但时分秒拼接上去，感觉不够简洁优雅，可以将结束时间退后一天，时分秒仍默认为0点，像下面这样：</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$freedaystart = strtotime($info[<span class="string">&#x27;freedaystart&#x27;</span>]);</span><br><span class="line">$freedayend = strtotime(<span class="string">&quot;$info[&#x27;freedayend&#x27;] +1 day&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>是不是感觉清爽多了，strtotime 还支持其他时间格式，如 <code>strtotime(&quot;$date +1 month +2 day&quot;)</code>等，完整格式列表可参看官网对应页面。</p>
+<hr>
+<p>经测试，这里 day 的单复数都没有影响，可能是为了更好的兼容，不过为了严谨也为了增强可读性，建议按规范写，该复数的加上复数。</p>
+<hr>
+<p>日期数据也是可以直接比较的，但需要保持要比较的数据格式完全一致，否则容易出错，因为它们本质上还是当成字符串比较，所以最保险的还是转化成时间戳比较。<br>比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#39;2020-04-05&#39; &gt; &#39;2020-03-05&#39;&#x2F;&#x2F;true</span><br><span class="line">&#39;2020-04-05&#39; &gt; &#39;2020-3-5&#39;&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>date</tag>
+        <tag>strtotime</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL字符串函数：substring_index()的使用详解</title>
+    <url>/p/deda0d61/</url>
+    <content><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>SUBSTRING_INDEX - 按分隔符截取字符串</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SUBSTRING_INDEX(str, delimiter, count)</span><br></pre></td></tr></table></figure>
+<p>返回一个 str 的子字符串，在 delimiter 出现 count 次的位置截取。<br>如果 count &gt; 0，从则左边数起，且返回位置前的子串；<br>如果 count &lt; 0，从则右边数起，且返回位置后的子串。</p>
+<p>delimiter 是大小写敏感，且是多字节安全的。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT SUBSTRING_INDEX(&#39;www.mysql.com&#39;, &#39;.&#39;, 2);</span><br><span class="line">        -&gt; &#39;www.mysql&#39;</span><br><span class="line">mysql&gt; SELECT SUBSTRING_INDEX(&#39;www.mysql.com&#39;, &#39;.&#39;, -2);</span><br><span class="line">        -&gt; &#39;mysql.com&#39;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个函数很实用，PHP中都没有类似的函数，<br>比如取一个以斜线分割的图片路径的名称，<code>201807/20180731181759_5b603757ea5e4.jpg</code>，这个函数可以一步到位，PHP中则需要explode成数组，然后取最后一个元素。</p>
+<p>美中不足的是，我感觉可以再设置个可选参数，就是返回的时候是否保留分隔符，这个当然通过concat连接，但如果能直接返回就更好了。</p>
+]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>That Is My Spot</title>
+    <url>/p/bc92ce6c/</url>
+    <content><![CDATA[<blockquote><p>In an ever-changing world,it is a single point of consistency.</p>
+<p>If my life were expressed as a function on a four-dimensional Cartesian coordinate system, that spot at the moment I first sat on it would be zero-zero-zero-zero.</p>
+<footer><strong>Sheldon</strong><cite>The Big Bang Theory</cite></footer></blockquote>
+]]></content>
+      <categories>
+        <category>TBBT</category>
+      </categories>
+      <tags>
+        <tag>Sheldon</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C19】The Bite of the Adder</title>
+    <url>/p/db77dade/</url>
+    <content><![CDATA[<p>One day Zarathustra had fallen asleep under a fig-tree, owing to the heat, with his arm over his face. And there came an adder and bit him in the neck, so that Zarathustra cried with pain. When he had taken his arm from his face he looked at the serpent; and then it recognized the eyes of Zarathustra, wriggled awkwardly, and tried to get away. “Do not go,” said Zarathustra, “as yet have you not received my thanks! you have awakened me in time; my journey is yet long.” “Your journey is short,” said the adder sadly; “my poison is fatal.” Zarathustra smiled. “When ever did a dragon die of a serpent’s poison?”- he said. “But take your poison back! you are not rich enough to give it to me.” Then the adder fell again on his neck, and licked his wound.</p>
+<a id="more"></a>
+<p>When Zarathustra had told this to his disciples they asked him: “And what, O Zarathustra, is the moral of your story?” And Zarathustra answered them thus:</p>
+<p>The destroyer of morality, the good and just call me: my story is immoral.</p>
+<p>When, however, you have an enemy, then do not requite him good for evil: for that would shame him. Instead, prove that he did some good for you.</p>
+<p>And rather be angry than put to shame! And when you are cursed, I do not like it that you want to bless. Rather curse a little also!</p>
+<p>And if you are done a great injustice, then quickly add five small ones. Hideous to behold is he who is obsessed with an injustice.</p>
+<p>Did you know this? A shared injustice is half just. And he who can bear it, should take the injustice upon himself!</p>
+<p>A small revenge is more human than no revenge at all. And if the punishment is not also a right and an honor to the transgressor, I do not like your punishment.</p>
+<p>It is nobler to declare oneself wrong than to prove oneself right, especially when one is right. Only, one must be rich enough to do so.</p>
+<p>I do not like your cold justice; out of the eye of your judges there always glances the executioner and his cold steel.</p>
+<p>Tell me: where do we find the justice which is love with open eyes? Invent for me then the love which not only bears all punishment, but also all guilt!</p>
+<p>Invent for me then the justice which acquits every one, except he who judges!</p>
+<p>And would you hear this? To him who would be just from the heart, even lies become a kindness to others.</p>
+<p>But how could I be just from the heart! How can I give each his own! Let this be enough for me: I give each my own.</p>
+<p>Finally, my brothers, guard against doing wrong to any hermit. How could a hermit forget! How could he requite!</p>
+<p>Like a deep well is a hermit. It is easy to throw in a stone: if it sinks to the bottom then tell me, who will bring it out again?</p>
+<p>Guard against injuring the hermit! But if you have done so, well then kill him also!Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P2C1】The Child with the Mirror</title>
+    <url>/p/e0dc4cb4/</url>
+    <content><![CDATA[<p>After this Zarathustra returned again into the mountains to the solitude of his cave, and withdrew himself from men, waiting like a sower who has scattered his seed. His soul, however, became impatient and full of longing for those whom he loved: because he had still much to give them. For this is hardest of all: to close the open hand out of love, and keep modest as a giver.</p>
+<a id="more"></a>
+<p>Thus passed with the lonesome one months and years; his wisdom meanwhile increased, and caused him pain by its abundance.</p>
+<p>One morning, however, he awoke before the rosy dawn, and having meditated long on his couch, at last spoke thus to his heart:</p>
+<p>Why did I startle in my dream, so that I awoke? Did not a child come to me, carrying a mirror?</p>
+<p>“O Zarathustra”- said the child to me- “look at yourself in the mirror!” But when I looked into the mirror, I shrieked, and my heart throbbed: for not myself did I see therein, but a devil’s grimace and derision.</p>
+<p>All too well do I understand the dream’s portent and monition: my doctrine is in danger; tares want to be called wheat!</p>
+<p>My enemies have grown powerful and have disfigured the likeness of my doctrine, so that my dearest ones have to blush for the gifts that I gave them.</p>
+<p>Lost are my friends; the hour has come for me to seek my lost ones!-</p>
+<p>With these words Zarathustra started up, not however like a person in anguish seeking relief, but rather like a seer and a singer whom the spirit inspires. With amazement did his eagle and serpent gaze upon him: for a coming bliss overspread his countenance like the rosy dawn.</p>
+<p>What has happened to me, my animals?- said Zarathustra. Am I not transformed? has not bliss come to me like a whirlwind?</p>
+<p>Foolish is my happiness, and foolish things will it speak: it is still too young- so have patience with it!</p>
+<p>Wounded am I by my happiness: all sufferers shall be physicians to me!</p>
+<p>To my friends can I again go down, and also to my enemies! Zarathustra can again speak and give, and show his best love to his loved ones!</p>
+<p>My impatient love overflows in streams,- down towards sunrise and sunset. Out of silent mountains and storms of affliction, rushes my soul into the valleys.</p>
+<p>Too long have I longed and looked into the distance. Too long has solitude possessed me: thus have I unlearned to keep silence.</p>
+<p>Utterance have I become altogether, and the brawling of a brook from high rocks: downward into the valleys will I hurl my speech.</p>
+<p>And let the stream of my love sweep into unfrequented channels! How should a stream not finally find its way to the sea!</p>
+<p>There is a lake in me, sequestered and self-sufficing; but the stream of my love bears this along with it, down- to the sea!</p>
+<p>New paths do I tread, a new speech comes to me; tired have I becomelike all creators- of the old tongues. No longer will my spirit walk on worn-out soles.</p>
+<p>Too slowly runs all speaking for me:- into your chariot, O storm, do I leap! And even you will I whip with my spite!</p>
+<p>Like a cry and an huzza will I traverse wide seas, till I find the Blessed isles where my friends sojourn;-</p>
+<p>And my enemies amongst them! How I now love every one to whom I may but speak! Even my enemies pertain to my bliss.</p>
+<p>And when I want to mount my wildest horse, then does my spear always help me up best: it is my foot’s ever ready servant:-</p>
+<p>The spear which I hurl at my enemies! How grateful am I to my enemies that I may at last hurl it!</p>
+<p>Too great has been the tension of my cloud: ‘twixt laughters of lightnings will I cast hail-showers into the depths.</p>
+<p>Violently will my breast then heave; violently will it blow its storm over the mountains: thus comes its assuagement.</p>
+<p>Like a storm comes my happiness, and my freedom! But my enemies shall think that the evil one roars over their heads.</p>
+<p>Yes, you also, my friends, will be alarmed by my wild wisdom; and perhaps you will flee therefrom, along with my enemies.</p>
+<p>Ah, that I knew how to lure you back with shepherds’ flutes! Ah, that my lioness wisdom would learn to roar softly! And much have we already learned with one another!</p>
+<p>My wild wisdom became pregnant on the lonesome mountains; on the rough stones did she bear the youngest of her young.</p>
+<p>Now runs she foolishly in the arid wilderness, and seeks and seeks the soft sward- my old, wild wisdom!</p>
+<p>On the soft sward of your hearts, my friends!- on your love, would she rather couch her dearest one!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P2C3】The Compassionate</title>
+    <url>/p/efaea7e3/</url>
+    <content><![CDATA[<p>My friends, there has arisen a satire on your friend: “Behold Zarathustra! Walks he not amongst us as if amongst animals?”</p>
+<p>But it is better said in this wise: “The discerning one walks amongst men as amongst animals.”</p>
+<a id="more"></a>
+<p>Man himself is to the discerning one: the animal with red cheeks.</p>
+<p>How has that happened to him? Is it not because he has had to be ashamed too oft?</p>
+<p>O my friends! Thus speaks the discerning one: shame, shame, shamethat is the history of man!</p>
+<p>And on that account does the noble one enjoin on himself not to abash: bashfulness does he enjoin himself in presence of all sufferers.</p>
+<p>I like them not, the merciful ones, whose bliss is in their pity: too destitute are they of bashfulness.</p>
+<p>If I must be pitiful, I dislike to be called so; and if I be so, it is preferably at a distance.</p>
+<p>Preferably also do I shroud my head, and flee, before being recognized: and thus do I bid you do, my friends!</p>
+<p>May my destiny ever lead unafflicted ones like you across my path, and those with whom I may have hope and repast and honey in common!</p>
+<p>I have done this and that for the afflicted: but something better did I always seem to do when I had learned to enjoy myself better.</p>
+<p>Since humanity came into being, man has enjoyed himself too little: that alone, my brothers, is our original sin!</p>
+<p>And when we learn better to enjoy ourselves, then do we unlearn best to give pain to others, and to contrive pain.</p>
+<p>Therefore do I wash the hand that has helped the sufferer; therefore do I wipe also my soul.</p>
+<p>For in seeing the sufferer suffering- thereof was I ashamed on account of his shame; and in helping him, sorely did I wound his pride.</p>
+<p>Great obligations do not make grateful, but revengeful; and when a small kindness is not forgotten, it becomes a gnawing worm.</p>
+<p>“Be shy in accepting! Distinguish by accepting!”- thus do I advise those who have naught to give.</p>
+<p>I, however, am a giver: willingly do I give as friend to friends. Strangers, however, and the poor, may pluck for themselves the fruit from my tree: thus does it cause less shame.</p>
+<p>Beggars, however, one should entirely do away with! it annoys one to give to them, and it annoys one not to give to them.</p>
+<p>And likewise sinners and bad consciences! Believe me, my friends: the sting of conscience teaches one to sting.</p>
+<p>The worst things, however, are the petty thoughts. Better to have done evilly than to have thought pettily!</p>
+<p>To be sure, you say: “The delight in petty evils spares one many a great evil deed.” But here one should not wish to be sparing.</p>
+<p>Like a boil is the evil deed: it itches and irritates and breaks forth- it speaks honorably.</p>
+<p>“Behold, I am disease,” says the evil deed: that is its honorableness.</p>
+<p>But like infection is the petty thought: it creeps and hides, and wants to be nowhere- until the whole body is decayed and withered by the petty infection.</p>
+<p>To him however, who is possessed of a devil, I would whisper this word in the ear: “Better for you to rear up your devil! Even for you there is still a path to greatness!”-</p>
+<p>Ah, my brothers! One knows a little too much about every one! And many a one becomes transparent to us, but still we can by no means penetrate him.</p>
+<p>It is difficult to live among men because silence is so difficult.</p>
+<p>And not to him who is offensive to us are we most unfair, but to him who does not concern us at all.</p>
+<p>If, however, you have a suffering friend, then be a resting-place for his suffering; like a hard bed, however, a camp-bed: thus will you serve him best.</p>
+<p>And if a friend does you wrong, then say: “I forgive you what you have done to me; that you have done it to yourself, however- how could I forgive that!”</p>
+<p>Thus speaks all great love: it overcomes even forgiveness and pity.</p>
+<p>One should hold fast one’s heart; for when one lets it go, how quickly does one’s head run away!</p>
+<p>Ah, where in the world have there been greater follies than with the pitiful? And what in the world has caused more suffering than the follies of the pitiful?</p>
+<p>Woe to all loving ones who have not an elevation which is above their pity!</p>
+<p>Thus spoke the devil to me, once on a time: “Even God has his hell: it is his love for man.”</p>
+<p>And lately, did I hear him say these words: “God is dead: of his pity for man has God died.”-</p>
+<p>So be you warned against pity: from thence there yet comes to men a heavy cloud! I understand weather-signs!</p>
+<p>But attend also to this word: All great love is above all its pity: for it seeks- to create what is loved!</p>
+<p>“Myself do I offer to my love, and my neighbor as myself”- such is the language of all creators.</p>
+<p>All creators, however, are hard.-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C4】The Despisers of the Body</title>
+    <url>/p/50bd86d4/</url>
+    <content><![CDATA[<p>To the despisers of the body I speak my word. I wish them neither to learn afresh, nor teach anew, but only to bid farewell to their own bodies,- and thus become silent.</p>
+<p>“Body am I, and soul”- so says the child. And why should one not speak like children?</p>
+<p>But the awakened one, the knowing one, says: “Body am I entirely, and nothing more; and soul is only the name of something in the body.”</p>
+<p>The body is a great wisdom, a plurality with one sense, a war and a peace, a flock and a shepherd.</p>
+<p>An instrument of your body is also your small wisdom, my brother, which you call “mind”- a little instrument and toy of your great wisdom.</p>
+<p>“I,” you say, and are proud of that word. But the greater thing- in which you are unwilling to believe- is your body with its great wisdom; that does not say “I,” but does “I.”</p>
+<p>What the sense feels, what the mind knows, never has its end in itself. But sense and mind would rather persuade you that they are the end of all things: so vain are they.</p>
+<p>Instruments and toys are sense and mind: behind them there is still the Self. The Self seeks with the eyes of the senses, it listens also with the ears of the mind.</p>
+<p>Always the Self listens and seeks; it compares, masters, conquers, and destroys. It rules, and is also the mind’s ruler.</p>
+<p>Behind your thoughts and feelings, my brother, there is a mighty lord, an unknown sage- it is called Self; it dwells in your body, it is your body.</p>
+<p>There is more wisdom in your body than in your best wisdom. And who then knows why your body needs precisely your best wisdom?</p>
+<p>Your Self laughs at your mind, and its bold leaps. “What are these leaps and flights of thought to me?” it says to itself. “A detour to my end.</p>
+<p>30 I hold the puppet-strings of the mind, and am the prompter of its notions.”</p>
+<p>The Self says to the mind: “Feel pain!” Then the mind suffers, and thinks how it may put an end to its suffering- and that is why it is made to think.</p>
+<p>The Self says to the mind: “Feel pleasure!” Then the mind is pleased, and thinks how it may be pleased again- and that is why it is made to think.</p>
+<p>I want to speak to the despisers of the body. Their contempt is caused by their respect. What is it that created respect and contempt and worth and will?</p>
+<p>The creating Self created for itself respect and contempt, it created for itself pleasure and pain. The creative body created the mind as a hand for its will.</p>
+<p>Even in your folly and contempt you each serve your Self, you despisers of the body. I tell you, your very Self wants to die, and turns away from life.</p>
+<p>No longer can your Self do that which it desires most:- create beyond itself. That is what it desires most; that is its fervent wish.</p>
+<p>But it is now too late to do so:- so your Self wishes to perish, you despisers of the body.</p>
+<p>To perish- so wishes your Self; and therefore you have become despisers of the body. For you can no longer create beyond yourselves.</p>
+<p>And that is why you are angry with life and the earth. An unconscious envy is in the sidelong glance of your contempt.</p>
+<p>I do not go your way, you despisers of the body! You are no bridges to the Superman!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C12】The Flies in the Market-Place</title>
+    <url>/p/88d678d/</url>
+    <content><![CDATA[<p>Flee, my friend, into your solitude! I see you deafened with the noise of the great men, and stung all over with the stings of the little ones.</p>
+<a id="more"></a>
+<p>Forest and rock know how to be silent with you. Be like the tree which you love, the broad-branched one- silently and attentively it overhangs the sea.</p>
+<p>Where solitude ends, there begins the market-place; and where the market-place begins, there begins also the noise of the great actors, and the buzzing of the poison-flies.</p>
+<p>In the world even the best things are worthless without those who make a side-show of them: these showmen, the people call great men.</p>
+<p>Little do the people understand what is great- that is to say, the creator. But they have a taste for all showmen and actors of great things.</p>
+<p>Around the creators of new values revolves the world:- invisibly it revolves. But around the actors revolve the people and the glory: such is the course of things.</p>
+<p>The actor has spirit, but little conscience of the spirit. He always believes in that with which he most strongly inspires belief - in himself!</p>
+<p>Tomorrow he has a new belief, and the day after, one still newer. Like the people, he has quick perceptions and fickle moods.</p>
+<p>To defeat- that means for him: to prove. To drive to frenzy- that means for him: to convince. And blood is to him the best of all arguments.</p>
+<p>A truth which glides only into refined ears, he calls falsehood and nothing. He believes only in gods that make a big noise in the world!</p>
+<p>Full of clattering fools is the market-place,- and the people glory in their great men! These are for them the masters of the hour.</p>
+<p>But the hour presses them; so they press you. And also from you they want Yes or No. Alas! would you set your chair between Pro and Con?</p>
+<p>Do not be jealous of those unyielding and impatient men, you lover of truth! Never yet did truth cling to the arm of the unyielding.</p>
+<p>On account of those abrupt ones, return into your security: only in the market-place is one assailed by Yes? or No?</p>
+<p>Slow is the experience of all deep fountains: long have they to wait until they know what has fallen into their depths.</p>
+<p>Far away from the market-place and from fame happens all that is great: far away from the market-place and from fame have always dwelt the creators of new values.</p>
+<p>Flee, my friend, into your solitude: I see you stung all over by the poisonous flies. Flee to where a rough, strong breeze blows!</p>
+<p>Flee into your solitude! you have lived too closely to the small and the pitiful. Flee from their invisible vengeance! For you they have nothing but vengeance.</p>
+<p>No longer raise your arm against them! They are innumerable, and it is not your task to shoo flies.</p>
+<p>Innumerable are the small and pitiful ones; and rain-drops and weeds have been the ruin of many a proud structure.</p>
+<p>You are not stone; but already have you become hollow from many drops. You will yet break and burst from the many drops.</p>
+<p>I see you exhausted by poisonous flies; I see you bleeding and torn at a hundred spots; and your pride refuses even to be angry.</p>
+<p>They would have blood from you in all innocence; blood is what bloodless souls crave- and therefore they sting in all innocence.</p>
+<p>But you, profound one, you suffer too profoundly even from small wounds; and before you have healed, the same poison-worm crawls over your hand.</p>
+<p>You are too proud to kill these gluttons. But take care lest it be your fate to suffer all their poisonous injustice!</p>
+<p>They buzz around you also with their praise: obtrusiveness is their praise. They want to be close to your skin and your blood.</p>
+<p>They flatter you, as one flatters a God or devil; they whimper before you, as before a God or devil; What does it come to! They are flatterers and whimperers, and nothing more.</p>
+<p>Often, also, do they show themselves to you as friendly ones. But that has always been the prudence of cowards. Yes! cowards are wise!</p>
+<p>They think much about you with their petty souls- you are always suspect to them! Whatever is much thought about is at last thought suspicious.</p>
+<p>They punish you for all your virtues. They pardon you entirely- for your errors.</p>
+<p>Because you are gentle and of honest character, you say: “Guiltless are they for their small existence.” But their petty souls think: “Guilty is every great existence.”</p>
+<p>Even when you are gentle towards them, they still feel themselves despised by you; and they repay your beneficence with secret maleficence.</p>
+<p>Your silent pride is always counter to their taste; they rejoice if once you are humble enough to be vain.</p>
+<p>What we recognize in a man, we also irritate in him. Therefore be on your guard against the small ones!</p>
+<p>In your presence they feel themselves small, and their baseness gleams and glows against you in invisible vengeance.</p>
+<p>You did not see how often they became silent when you approached them, and how their energy left them like the smoke of an waning fire?</p>
+<p>Yes, my friend, you are the bad conscience of your neighbors, for they are unworthy of you. Therefore they hate you, and would rather suck your blood.</p>
+<p>Your neighbors will always be poisonous flies; what is great in youthat itself must make them more poisonous, and always more fly-like.</p>
+<p>Flee, my friend, into your solitude- and there, where a rough strong breeze blows. It is not your lot to shoo flies.-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C14】The Friend</title>
+    <url>/p/ebb7e67c/</url>
+    <content><![CDATA[<p>“There is always one too many about me”- thinks the hermit. “Always one and one- eventually that makes two!”</p>
+<p>I and me are always too deeply in conversation: how could I endure it, if there were not a friend?</p>
+<a id="more"></a>
+
+<p>The friend of the hermit is always the third one: the third one is the float which prevents the conversation of the two from sinking into the depth.</p>
+<p>Ah! there are too many depths for all hermits. Therefore, do they long so much for a friend and his height.</p>
+<p>Our faith in others betrays that we would rather have faith in ourselves. Our longing for a friend is our betrayer.</p>
+<p>And often with our love we want merely to overcome envy. And often we attack and make ourselves enemies, to conceal that we are vulnerable.</p>
+<p>“Be at least my enemy!”- thus speaks true reverence, which dares not ask for friendship.</p>
+<p>If one would have a friend, then must one also be willing to wage war for him: and in order to wage war, one must be capable of being an enemy.</p>
+<p>One ought still to honor the enemy in one’s friend. Can you go near to your friend, and not go over to him?</p>
+<p>In a friend one shall have one’s best enemy. You shall be closest to him with your heart when you withstand him.</p>
+<p>You would wear no raiment before your friend? It is in honor of your friend that you show yourself to him as you are? But he sends you to the devil for that!</p>
+<p>He who makes no secret of himself shocks: so much reason have you to fear nakedness! Aye, if you were gods, you might then be ashamed of clothing!</p>
+<p>You can not adorn yourself fine enough for your friend; for you shall be to him an arrow and a longing for the Superman.</p>
+<p>Did you ever see your friend asleep- and saw how he looks? What is the face of your friend? It is your own face, in a coarse and imperfect mirror.</p>
+<p>Did you ever see your friend asleep? were you not shocked that your friend looked like that? O my friend, man is something that must be overcome.</p>
+<p>In guessing and keeping silent, the friend shall be a master: you must not want to see everything. Your dreams will tell you what your friend does when awake.</p>
+<p>Let your pity be a guess: to know first if your friend wants pity. Perhaps he loves in you the unmoved eye, and the look of eternity.</p>
+<p>Let your pity for your friend be hidden under a hard shell; you shall break a tooth on it. Thus it will have delicacy and sweetness.</p>
+<p>Are you pure air and solitude and bread and medicine to your friend? Many a one cannot loosen his own chains, but can nevertheless free his friend.</p>
+<p>Are you a slave? Then you cannot be a friend. Are you a tyrant? Then you cannot have friends.</p>
+<p>Far too long have slave and tyrant been concealed in woman. On that account woman is not yet capable of friendship: she knows only love.</p>
+<p>In woman’s love there is injustice and blindness to all she does not love. And even in woman’s conscious love, there is still always attack and lightning and night, along with the light.</p>
+<p>As yet woman is not capable of friendship: women are still cats and birds. Or at best, cows.</p>
+<p>As yet woman is not capable of friendship. But tell me, you men, who of you is capable of friendship?</p>
+<p>Oh! your poverty, you men, and your sparingness of soul! As much as you give to your friend, I will give even to my enemy, and will not become poorer for it.</p>
+<p>There is comradeship: may there be friendship!</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C22】The Giving Virtue</title>
+    <url>/p/6fd217a7/</url>
+    <content><![CDATA[<p>1.<br>When Zarathustra had taken leave of the town to which his heart was attached, the name of which is “The Pied Cow,” many people who called themselves his disciples followed him, and kept him company. Thus they came to a crossroads. Then Zarathustra told them that he now wanted to walk alone; for he was fond of walking alone. His disciples, however, presented him a staff with a golden handle, on which a serpent twined round the sun. Zarathustra rejoiced on account of the staff, and leaned on it; then thus he spoke to his disciples:</p>
+<a id="more"></a>
+<p>Tell me, pray: how did gold attain the highest value? Because it is uncommon, and useless, and gleaming, and soft in lustre; it always gives itself.</p>
+<p>Only as an image of the highest virtue did gold attain the highest value. Golden, gleams the glance of the giver. Golden lustre makes peace between moon and sun.</p>
+<p>Uncommon is the highest virtue, and useless, it is gleaming, and soft of lustre: a giving virtue is the highest virtue.</p>
+<p>I know you well, my disciples: you strive like me for the giving virtue. What would you have in common with cats and wolves?</p>
+<p>You thirst to become sacrifices and gifts yourselves: and so you thirst to amass all riches in your soul.</p>
+<p>Your soul strives insatiably for treasures and jewels, because your virtue is insatiable in desiring to give.</p>
+<p>You force all things to flow towards you and into you, so that they shall flow back again out of your fountain as the gifts of your love.</p>
+<p>Such giving love must become a thief of all values; but I call this selfishness healthy and sacred,.-</p>
+<p>There is another selfishness, an all-too-poor and hungry kind, which would always steal- the selfishness of the sick, the sickly selfishness.</p>
+<p>With the eye of the thief it looks upon all that is lustrous; with the craving of hunger it measures him who has abundance; and ever does it prowl round the tables of givers.</p>
+<p>Sickness speaks in such craving and invisible degeneration; the larcenous craving of this selfishness speaks of a sickly body.</p>
+<p>Tell me, my brother, what do we think bad, and worst of all? Is it not degeneration?- And we always suspect degeneration when the giving soul is lacking.</p>
+<p>Upward goes our course from genera on to over-genera. But a horror to us is the degenerate sense, which says: “All for myself.”</p>
+<p>Upward soars our sense: thus is it a parable of our body, a parable of an elevation. Such parables of elevations are the names of the virtues.</p>
+<p>Thus the body goes through history, a becoming and fighting. And the spirit- what is that to the body? The herald of its fights and victories, its companion and echo.</p>
+<p>All names of good and evil are parables; they do not speak out, they only hint. A fool is he who seeks knowledge from them!</p>
+<p>Take heed, my brothers, of every hour when your spirit would speak in parables: there is the origin of your virtue.</p>
+<p>Your body is then elevated and raised up; with its rapture it delights the spirit, so that it becomes creator, and valuer, and lover, and benefactor of all.</p>
+<p>When your heart overflows broad and full like the river, a blessing and a danger to those on the banks: there is the origin of your virtue.</p>
+<p>When you are exalted above praise and blame, and your will wants to command all things, as a lover’s will: there is the origin of your virtue.</p>
+<p>When you despise pleasant things, and the soft couch, and cannot couch far enough from the soft: there is the origin of your virtue.</p>
+<p>When you will with one will, and when the end of all need is necessary to you: there is the origin of your virtue.</p>
+<p>It is a new good and evil! a new deep murmuring, and the voice of a new fountain!</p>
+<p>This new virtue is power; it is a ruling thought, and around it a discerning soul: a golden sun, with the serpent of knowledge around it.</p>
+<p>2.</p>
+<p>Here Zarathustra paused awhile, and looked lovingly on his disciples. Then he continued to speak thus- and his voice had changed:</p>
+<p>Remain faithful to the earth, my brothers, with the power of your virtue! Let your giving love and your knowledge serve the meaning of the earth! Thus I pray and beseech you.</p>
+<p>Do not let it fly away from the earthly and beat its wings against eternal walls! Ah, there has always been so much virtue that has flown away!</p>
+<p>Lead, like me, the virtue that has flown away back to the earth- yes, back to body and life: that it may give a meaning to the earth, a human meaning!</p>
+<p>A hundred times before spirit as well as virtue has flown away and blundered. Alas! all this delusion and blundering still dwells in our body: it has there become body and will.</p>
+<p>A hundred times before has spirit as well as virtue tried and erred. Yes, man has been an experiment. Alas, much ignorance and error has become embodied in us!</p>
+<p>Not only the rationality of millennia- also their madness, breaks out in us. It is dangerous to be an heir.</p>
+<p>Still we fight step by step with the giant Chance, and hitherto over all mankind has ruled nonsense, the lack-of-sense.</p>
+<p>Let your spirit and your virtue serve the sense of the earth, my brothers: let the value of all things be determined anew by you! Therefore you shall be fighters! Therefore you shall be creators!</p>
+<p>With knowledge, the body purifies itself; experimenting with knowledge, it exalts itself; to the knowledgeable all impulses are sacred; to the exalted, the soul becomes joyful.</p>
+<p>Physician, heal thyself: then you will also heal your patient. Let it be his best cure to see with his eyes the man who heals himself.</p>
+<p>There are a thousand paths which have never yet been trodden; a thousand healths and hidden islands of life. Man and man’s world is still unexhausted and undiscovered.</p>
+<p>Awake and listen, you that are lonely! From the future come winds with stealthy wings, and to subtle ears good tidings are proclaimed.</p>
+<p>You that are lonely today, you that withdraw, you shall one day be a people: out of you, who have chosen yourselves, shall arise a chosen people:- and out of them, the Superman.</p>
+<p>The earth shall become a place of healing! And there already is a new fragrance surrounding it, a salvation-bringing fragrance- and a new hope!</p>
+<p>3.</p>
+<p>When Zarathustra had spoken these words, he paused, like one who had not yet said his last word; and long did he balance the staff doubtfully in his hand. At last he spoke thus- and his voice had changed:</p>
+<p>I now go alone, my disciples! You too go now, alone! Thus I want it.</p>
+<p>I advise you: depart from me, and guard yourselves against Zarathustra! And better still: be ashamed of him! Perhaps he has deceived you.</p>
+<p>The man of knowledge must be able not only to love his enemies, but also to hate his friends.</p>
+<p>One requites a teacher badly if one remains merely a student. And why will you not pluck at my wreath?</p>
+<p>You venerate me; but what if your veneration should some day collapse? Beware lest a statue crush you!</p>
+<p>You say you believe in Zarathustra? But what matters Zarathustra! You are my believers: but what matters all believers!</p>
+<p>You had not yet sought yourselves: then you found me. So do all believers; thus all belief matters so little.</p>
+<p>Now I bid you lose me and find yourselves; and only when you have all denied me will I return to you.</p>
+<p>With other eyes, my brothers, shall I then seek my lost ones; with another love shall I then love you.</p>
+<p>And once again you shall become friends to me, and children of one hope: then I will be with you for the third time, to celebrate the great noontide with you.</p>
+<p>And it is the great noontide, when man is in the middle of his course between animal and Superman, and celebrates his advance to the evening as his highest hope: for it is the advance to a new morning.</p>
+<p>Then will the down-goer bless himself, for being an over-goer; and the sun of his knowledge will be at noontide.</p>
+<p>“Dead are all Gods: now we want the Superman to live.”- Let this be our final will at the great noontide!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C11】The New Idol</title>
+    <url>/p/265c1246/</url>
+    <content><![CDATA[<p>Somewhere there are still peoples and herds, but not with us, my brothers: here there are states.</p>
+<p>A state? What is that? Well! open now your ears to me, for now I will speak to you about the death of peoples.</p>
+<a id="more"></a>
+
+<p>State is the name of the coldest of all cold monsters. Coldly it lies; and this lie slips from its mouth: “I, the state, am the people.”</p>
+<p>It is a lie! It was creators who created peoples, and hung a faith and a love over them: thus they served life.</p>
+<p>Destroyers are they who lay snares for the many, and call it state: they hang a sword and a hundred cravings over them.</p>
+<p>Where there are still peoples, the state is not understood, and is hated as the evil eye, and as sin against laws and customs.</p>
+<p>This sign I give to you: every people speaks its own language of good and evil, which its neighbor does not understand. It has created its own language of laws and customs.</p>
+<p>But the state lies in all the tongues of good and evil; and whatever it says it lies; and whatever it has it has stolen.</p>
+<p>Everything in it is false; it bites with stolen teeth, and bites often. It is false down to its bowels.</p>
+<p>Confusion of tongues of good and evil; this sign I give you as the sign of the state. This sign points to the will to death! it points to the preachers of death!</p>
+<p>All too many are born: for the superfluous the state was created!</p>
+<p>See how it entices them to it, the all-too-many! How it swallows and chews and rechews them!</p>
+<p>“On earth there is nothing greater than I: I am the governing hand of God.”- thus roars the monster. And not only the long-eared and shortsighted fall upon their knees!</p>
+<p>Ah! even in your ears, you great souls, it whispers its gloomy lies! Ah! it finds out the rich hearts which willingly squander themselves!</p>
+<p>Yes, it finds you too, you conquerors of the old God! You became weary of conflict, and now your weariness serves the new idol!</p>
+<p>It would set up heroes and honorable ones around it, the new idol! Gladly it basks in the sunshine of good consciences,- the cold monster!</p>
+<p>It will give everything to you, if you worship it, the new idol: thus it buys the lustre of your virtue, and the glance of your proud eyes.</p>
+<p>Through you it seeks to seduce the all-too-many! Yes, a hellish artifice has been created here, a death-horse jingling with the trappings of divine honors!</p>
+<p>Yes, a dying for many has been created here, which glorifies itself as life: verily, a great service to all preachers of death!</p>
+<p>The state, I call it, where all drink poison, the good and the bad: the state, where all lose themselves, the good and the bad: the state, where the slow suicide of all- is called “life.”</p>
+<p>Behold the superfluous! They steal the works of the creators and the treasures of the wise. Education, they call their theft- and everything becomes sickness and trouble to them!</p>
+<p>Behold the superfluous! They are always sick; they vomit their bile and call it a newspaper. They devour each other and cannot even digest themselves.</p>
+<p>Behold the superfluous! They acquire wealth and become the poorer for it. They seek power, and the lever of power, much money- these impotent ones!</p>
+<p>See them clamber, these nimble apes! They clamber over one another, and thus pull each other into the mud and the abyss.</p>
+<p>They all strive for the throne: this is their madness- as if happiness sat on the throne! Often filth sits on the throne.- and often also the throne on filth.</p>
+<p>Madmen they all seem to me, and clambering apes, and too eager. Foul smells their idol to me, the cold monster: foul they all smell to me, these idolaters.</p>
+<p>My brothers, will you suffocate in the fumes of their maws and appetites! Better to break the windows and jump into the open air!</p>
+<p>Escape from their foul stench! Escape from the idolatry of the superfluous!</p>
+<p>Escape from their foul stench! Escape from the steam of these human sacrifices!</p>
+<p>The earth is yet free for great souls. There are still many empty sites for the lonesome and the twosome, surrounded by the fragrance of tranquil seas.</p>
+<p>A free life is yet possible for great souls. He who possesses little is that much less possessed: blessed be a little poverty!</p>
+<p>There, where the state ends- there only begins the man who is not superfluous: there begins the song of the necessary, the single and irreplaceable melody.</p>
+<p>There, where the state ends- look there, my brothers! Do you not see it, the rainbow and the bridges of the Superman?</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C6】The Pale Criminal</title>
+    <url>/p/dfd4a9fc/</url>
+    <content><![CDATA[<p>YOU do not want to kill, you judges and executioners, until the animal has bowed its head? Behold, the pale criminal has bowed his head: out of his eye speaks the great contempt.</p>
+<a id="more"></a>
+<p>“My ego is something that shall be overcome: my ego is to me the great contempt of man”: so speaks it out of that eye.</p>
+<p>When he judged himself- that was his supreme moment; let not the exalted one return again to his baseness!</p>
+<p>There is no salvation for the man who thus suffers from himself, unless it be speedy death.</p>
+<p>Your killing, you judges, shall be pity, and not revenge; and as you kill, be sure that you yourselves affirm life!</p>
+<p>It is not enough that you should reconcile with the man whom you kill. Let your sorrow be love of the Superman: thus you will justify your own survival!</p>
+<p>“Enemy” you shall say, but not “villain,” “invalid” you shall say, but not “wretch,” “fool” you shall say, but not “sinner.”</p>
+<p>And you, red judge, if you would confess to all you have done in thought, then everyone would cry: “Away with this filth and this poisonous snake!”</p>
+<p>But the thought is one thing, the deed another, and the idea of the deed still another. The wheel of causality does not roll between them.</p>
+<p>An idea made this pale man pale. He was equal to his deed when he did it, but the idea of it, he could not endure when it was done.</p>
+<p>Always he now saw himself as the doer of one deed. Madness, I call this: the exception reversed itself to the rule in him.</p>
+<p>The streak of chalk bewitches the hen; the stroke he struck stopped his weak reason. Madness after the deed, I call this.</p>
+<p>34 Hearken, you judges! There is another madness besides, and it is before the deed. Ah! you have not yet crept deep enough into this soul!</p>
+<p>Thus speaks the red judge: “Why did this criminal commit murder? He meant to rob.” I tell you, however, that his soul wanted blood, not robbery: he thirsted for the bliss of the knife!</p>
+<p>But his weak reason did not understand this madness, and it persuaded him: “What matters blood!” it said; “don’t you want, at least, to rob? Or take revenge?”</p>
+<p>And he listened to his weak reason: like lead its words laid upon himtherefore he robbed when he murdered. He did not want to be ashamed of his madness.</p>
+<p>And now the lead of his guilt lies upon him, and once more his weak reason is so numb, so paralyzed, so dull.</p>
+<p>If only he could only shake his head, then his burden would roll off; but who can shake that head?</p>
+<p>What is this man? A mass of diseases that reach out into the world through his spirit; there they want to catch their prey.</p>
+<p>What is this man? A coil of wild snakes that are seldom at peace among themselves- so they go forth separately and seek their prey in the world.</p>
+<p>Look at that poor body! What it suffered and craved, the poor soul interpreted to itself- it interpreted it as murderous desire, and eagerness for the bliss of the knife.</p>
+<p>The man who turns sick today, is overcome by the evil which is evil today: he seeks to cause pain with whatever causes him pain. But there have been other ages, and another evil and good.</p>
+<p>Once doubt was evil, and the will to Self. Then the invalids became heretics or witches; as heretics or witches they suffered, and sought to cause suffering.</p>
+<p>But this will not enter your ears; it hurts your good people, you tell me. But what matter your good people to me!</p>
+<p>Much about your good people cause me disgust, and verily, not their evil. I wish that they had a madness by which they might perish, like this pale criminal!</p>
+<p>I wish that their madness were called truth, or fidelity, or justice: but they have their virtue in order to live long, and in miserable selfcomplacency.</p>
+<p>I am a railing beside the torrent; whoever is able to grasp me may grasp me! Your crutch, however, I am not.-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C9】The Preachers of Death</title>
+    <url>/p/4442ec63/</url>
+    <content><![CDATA[<p>There are preachers of death: and the earth is full of those to whom renunciation of life must be preached.</p>
+<a id="more"></a>
+<p>The earth is full of the superfluous; life is marred by the all-too-many. May they be tempted out of this life by the “life eternal”!</p>
+<p>“The yellow ones”: so are called the preachers of death, or “the black ones.” But I will show them to you in still other colors.</p>
+<p>There are the terrible ones who carry about in themselves the beast of prey, and have no choice except lusts or self-laceration. And even their lusts are self-laceration.</p>
+<p>They have not yet become men, those terrible ones: may they preach renunciation of life, and pass away themselves!</p>
+<p>There are the spiritually consumptive ones: hardly are they born when they begin to die, and long for doctrines of weariness and renunciation.</p>
+<p>They would rather be dead, and we should welcome their wish! Let us beware of awakening those dead ones, and of damaging those living coffins!</p>
+<p>They meet an invalid, or an old man, or a corpse- and immediately they say: “Life is refuted!”</p>
+<p>But only they are refuted, and their eye, which sees only one facet of existence.</p>
+<p>Shrouded in thick melancholy, and eager for the little casualties that bring death: thus do they wait, and clench their teeth.</p>
+<p>Or else, they grasp at sweetmeats while mocking their childishness: they cling to their straw of life, and mock at their clinging.</p>
+<p>Their wisdom speaks thus: “He who remains alive is a fool; but we are all such fools! And that is the most foolish thing in life!”</p>
+<p>“Life is only suffering”: say others, and do not lie. Then see to it that you cease! See to it that the life which is only suffering ceases!</p>
+<p>And let this be the teaching of your virtue: “Thou shalt kill thyself! thou shalt steal away from thy life!”-</p>
+<p>“Lust is sin,”- so say some who preach death- “let us go apart and beget no children!”</p>
+<p>“Giving birth is troublesome,”- say others- “why still give birth? One bears only unfortunates!” And they also are preachers of death.</p>
+<p>“Pity is necessary,”- so says a third party. “Take what I have! Take what I am! So much less does life bind me!”</p>
+<p>If they were overflowing with pity, they would make their neighbors sick of life. To be evil- that would be their true goodness.</p>
+<p>But they want to be rid of life; what do they care if they bind others tighter with their chains and gifts!-</p>
+<p>And you also, to whom life is unending work and dissatisfaction, are you not very tired of life? Are you not very ripe for the sermon of death?</p>
+<p>All you to whom unending work is dear, and all that is quick, new, and strange- you endure yourselves badly; your diligence is escape, and the will to forget yourself.</p>
+<p>If you believed more in life, then would you fling yourselves less to the moment. But you do not have enough capacity for waiting- or even for idling!</p>
+<p>Everywhere resounds the voices of those who preach death; and the earth is full of those to whom death must be preached.</p>
+<p>Or “life eternal”; it is all the same to me- if only they pass away quickly!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C15】The Thousand and One Goals</title>
+    <url>/p/4a4a0f12/</url>
+    <content><![CDATA[<p>Zarathustra saw many lands and many peoples: thus he discovered the good and evil of many peoples. No greater power did Zarathustra find on earth than good and evil.</p>
+<p>No people could live without first valuing; if a people would preserve itself, however, it must not value as its neighbor values.</p>
+<a id="more"></a>
+<p>Much that passed for good with one people was regarded with scorn and contempt by another: thus I found it. Much I found here called evil, which was there decked with purple honors.</p>
+<p>Never did the one neighbor understand the other: always did his soul marvel at his neighbor’s delusion and wickedness.</p>
+<p>A tablet of the good hangs over every people. Behold, it is the tablet of their triumphs; behold, it is the voice of their Will to Power.</p>
+<p>Laudable is all they think difficult; what is indispensable and difficult they call good; and what relieves in the direst distress, the unique and most difficult of all,- they extol as sacred.</p>
+<p>Whatever makes them rule and conquer and shine, to the dismay and envy of their neighbors, they regard as the highest and most important thing, the test and the meaning of all else.</p>
+<p>My brother, if you only knew a people’s need, its land, its sky, and its neighbor, then you would guess the law of its overcomings, and why it climbs up that ladder to its hope.</p>
+<p>“Always shall you be the first and excel all others: your jealous soul shall love no one, except the friend”- that made the soul of a Greek thrill: thereby went he his way to greatness.</p>
+<p>“To speak truth, and be skilful with bow and arrow”- so it seemed both pleasing and difficult to the people who gave me my name- the name which is both pleasing and difficult for me.</p>
+<p>“To honor father and mother, and from the root of the soul to do their will”- this tablet of overcoming another people hung over them, and became powerful and permanent thereby.</p>
+<p>“To be loyal, and for the sake of loyalty to risk honor and blood, even for evil and dangerous purposes”- teaching itself so, another people mastered itself, and thus mastering itself, became pregnant and heavy with great hopes.</p>
+<p>Men have given to themselves all their good and evil. They did not take it, they did not find it, it did not come to them as a voice from heaven.</p>
+<p>Man assigned values to things in order to preserve himself- he alone created the meaning of things, a human meaning! Therefore, calls he himself “man,” that is, the valuator.</p>
+<p>Valuing is creating: hear it, you creators! Valuing itself is the treasure and jewel of all valued things.</p>
+<p>Through valuation only is there value; and without valuation the nut of existence would be hollow. Hear it, you creators!</p>
+<p>Change of values- that means, change of creators. Always he destroys, he who would be a creator.</p>
+<p>Peoples were the first creators, and only in later times individuals; verily, the individual himself is the latest creation.</p>
+<p>Peoples once hung over themselves law-tablets of the good. Love which would rule and love which would obey have created for themselves such law-tablets.</p>
+<p>Pleasure in the herd is older than pleasure in the ego: and as long as the good conscience is for the herd, only the evil conscience says: “I”.</p>
+<p>The crafty ego, the loveless one, that seeks its advantage in the advantage of many- it is not the origin of the herd, but its downfall.</p>
+<p>It was always loving ones and creators that created good and evil. Fire of love glows in the names of all the virtues, and fire of wrath.</p>
+<p>Zarathustra saw many lands, and many peoples: no greater power did Zarathustra find on earth than the creations of the loving ones- “good” and “evil” are their names.</p>
+<p>A monster is this power of praising and blaming. Tell me, you brothers, who will master it for me? Who will yoke the thousand necks of this beast?</p>
+<p>A thousand goals have there been so far, for a there have been a thousand peoples. Only the yoke for the thousand necks is still lacking; there is lacking the one goal. Humanity still has no goal.</p>
+<p>But pray tell me, my brothers, if the goal of humanity is still lacking, is humanity itself- not also lacking?</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C8】The Tree on the Hill</title>
+    <url>/p/793aaa02/</url>
+    <content><![CDATA[<p>Zarathustra’s eye had perceived that a certain youth avoided him. And as he walked alone one evening over the hills surrounding the town called “The Pied Cow,” behold, there he found the youth sitting leaning against a tree, and gazing with wearied look into the valley.</p>
+<a id="more"></a>
+<p>Zarathustra then laid hold of the tree beside which the youth sat, and spoke thus:</p>
+<p>“If I wished to shake this tree with my hands, I should not be able to do so.</p>
+<p>But the wind, which we do not see, troubles and bends it as it lists. We are worst bent and troubled by invisible hands.”</p>
+<p>Then the youth arose disconcerted, and said: “I hear Zarathustra, and just now was I thinking of him!” Zarathustra answered:</p>
+<p>“Why are you frightened on that account?- But it is the same with man as with the tree.</p>
+<p>The more he seeks to rise into the height and light, the more vigorously do his roots struggle earthward, downward, into the dark and deep- into evil.”</p>
+<p>“Yes, into evil!” cried the youth. “How is it possible that you have discovered my soul?”</p>
+<p>Zarathustra smiled, and said: “Many a soul one can never discover, unless one firsts invents it.”</p>
+<p>“Yes, into evil!” cried the youth once more.</p>
+<p>“You said the truth, Zarathustra. I trust myself no longer since I sought to rise into the height, and nobody trusts me any longer; how does that happen?</p>
+<p>I change too quickly: my today refutes my yesterday. I often overleap the steps when I climb; none of the steps pardons me for it.</p>
+<p>When aloft, I find myself always alone. No one speaks to me; the frost of solitude makes me tremble. What do I seek in the heights?</p>
+<p>My contempt and my longing increase together; the higher I climb, the more do I despise him who climbs. What does he seek in the heights?</p>
+<p>How ashamed I am of my climbing and stumbling! How I mock my violent panting! How I hate him who flies! How tired I am on the height!”</p>
+<p>Here the youth was silent. And Zarathustra contemplated the tree beside which they stood, and spoke thus:</p>
+<p>“This tree stands lonely here on the hills; it has grown up high above man and beast.</p>
+<p>And if it wanted to speak, there would be no one who could understand it: so high has it grown.</p>
+<p>Now it waits and waits,- for what does it wait? It dwells too close to the seat of the clouds; it waits- for the lightning?”</p>
+<p>When Zarathustra had said this, the youth called out with violent gestures: “Yes, Zarathustra, you speak the truth. I longed for my destruction, when I wanted to be in the heights, and you are the lightning for which I waited! Behold, what have I been since you have appeared amongst us? It is my envy of you that has destroyed me!”- Thus spoke the youth, and wept bitterly. Zarathustra, however, put his arm about him, and led the youth away with him.</p>
+<p>And when they had walked a while together, Zarathustra began to speak thus:</p>
+<p>It rends my heart. Better than your words can express it, your eyes tell me all your danger.</p>
+<p>You are not yet free; you still search for freedom. You are too weary from your search, and too wakeful.</p>
+<p>You aspire to the heights; you thirst for the stars. But your evil impulses also thirst for freedom.</p>
+<p>Your wild dogs want freedom; they bark for joy in their cellar when your spirit trys to open all prison doors.</p>
+<p>To me you are still a prisoner who seeks his freedom: ah! in such prisoners the soul becomes clever, but also deceitful and wicked.</p>
+<p>And the liberated spirit must still purify himself. Much of the prison and the mould still remains in him: his eye has still to become pure.</p>
+<p>Yes, I know your danger. But by my love and hope I beseech you: do not throw away your love and hope!</p>
+<p>You still feel noble, and others still feel your nobility, though they bear you a grudge and cast evil glances. Know that the noble one stands in everyones way.</p>
+<p>To the good, also, a noble one stands in the way: and even when they call him a good man, they want to push him aside.</p>
+<p>The noble man would create the new, and a new virtue. The good want the old, and that the old should be preserved.</p>
+<p>But it is not the danger of the noble man that he might become one of the good, but that he might become a blusterer, a scoffer, or a destroyer.</p>
+<p>Ah! I have known noble ones who lost their highest hope. And then they slandered all high hopes.</p>
+<p>Then they lived shamelessly in brief pleasures, only lived from day to day.</p>
+<p>“Spirit too is lust,”- they said. The wings of their spirit are broken; and now their spirit crawls about, and defiles what it gnaws.</p>
+<p>Once they thought of becoming heroes; now they are libertines. The idea of the hero offends and troubles them.</p>
+<p>But by my love and hope I beseech you: do not throw away the hero in your soul! Keep sacred your highest hope!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C17】The Way of the Creator</title>
+    <url>/p/41969214/</url>
+    <content><![CDATA[<p>Would you go into solitude, my brother? would you seek the way to yourself? The wait a moment and listen to me.</p>
+<p>“He who seeks may easily get lost himself. All solitude is wrong”: so say the herd. And long did you belong to the herd.</p>
+<a id="more"></a>
+<p>The voice of the herd will still echo in you. And when you say, “I no longer have a conscience in common with you,” then it will be a grief and a pain.</p>
+<p>Lo, that same conscience created that pain; and the last gleam of that conscience still glows on your affliction.</p>
+<p>But you would go the way of your affliction, which is the way to yourself? Then show me your right and your strength to do so!</p>
+<p>Are you a new strength and a new right? A first motion? A self-rolling wheel? Can you even compel the stars to revolve around you?</p>
+<p>Alas! there is so much lusting for loftiness! There are so many convulsions of the ambitious! Show me that you are not a lusting and ambitious one!</p>
+<p>Alas! there are so many great thoughts that do nothing more than the bellows: they inflate, and make emptier than ever.</p>
+<p>Free, do you call yourself? Then I would hear your ruling thought, and not merely that you have escaped from a yoke.</p>
+<p>Are you one of those who had the right to escape from a yoke? Many a one has cast away his last worth when he has cast away his servitude.</p>
+<p>Free from what? What does that matter to Zarathustra! But your fiery eyes should tell me: free for what?</p>
+<p>Can you give yourself your own evil and good, and set up your own will as a law over you? Can you be judge for yourself, and avenger of your law?</p>
+<p>Terrible is it to be alone with the judge and avenger of one’s own law. Thus is a star thrown into the void, and into the icy breath of solitude.</p>
+<p>Today you still suffer from the many, you individual; today your courage and hopes are undiminished.</p>
+<p>But one day the solitude will weary you; one day your pride will yield, and your courage quail. You will one day cry: “I am alone!”</p>
+<p>One day you will no longer see your heights, and see too closely your depths; even your sublimity will frighten you like a phantom. You will one day cry: “All is false!”</p>
+<p>There are feelings which seek to kill the solitary one; if they do not succeed, then they themselves must die! But are you capable of this- to be a murderer?</p>
+<p>Have you ever known, my brother, the word “contempt”? And the anguish of your justice in being just to those that despise you?</p>
+<p>You force many to think differently about you; that, they charge bitterly to your account. You came near to them and yet went past: for that they never forgive you.</p>
+<p>You go beyond them: but the higher you rise, the smaller do you appear to the eye of envy. But the flying one is hated most of all.</p>
+<p>“How could you be just to me!”- you must say- “I choose your injustice as my proper lot.</p>
+<p>They cast injustice and filth at the solitary one: but, my brother, if you would be a star, you must shine for them none the less on that account!</p>
+<p>And be on your guard against the good and the just! They would rather crucify those who create their own virtue- they hate the solitary ones.</p>
+<p>Be on your guard, also, against holy simplicity! All that is not simple is unholy to it; it likes to play with fire and burn- at the stake.</p>
+<p>And be on your guard, also, against the assaults of your love! Too readily does the recluse offer his hand to any one he meets.</p>
+<p>To many you may not give a hand, but only a paw; and I want your paw to have claws.</p>
+<p>But the worst enemy you can meet will always be yourself; you ambush yourself in caverns and forests.</p>
+<p>You solitary one, you go the way to yourself! And your way leads you past yourself and your seven devils!</p>
+<p>You will be a heretic to yourself, and a sorcerer and a soothsayer, and a fool, and a doubter, and a reprobate, and a villain.</p>
+<p>You must be ready to burn yourself in your own flame; how could you rise anew if you have not first become ashes!</p>
+<p>You solitary one, you go the way of the creator: you will create a god for yourself out of your seven devils!</p>
+<p>You solitary one, you go the way of the lover: you love yourself, and on that account you despise yourself, as only the lover can despise.</p>
+<p>The lover wants to create because he despises! What does he know of love who has not despised that which he loved!</p>
+<p>With your love and with your creating go into your solitude, my brother; only much later will justice limp after you.</p>
+<p>With my tears, go into your solitude, my brother. I love him who seeks to create beyond himself, and thus perishes.</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C10】War and Warriors</title>
+    <url>/p/1773cf2f/</url>
+    <content><![CDATA[<p>We do not want to be spared by our best enemies, nor by those whom we love from the very heart. So let me tell you the truth!</p>
+<a id="more"></a>
+<p>My brothers in war! I love you from the very heart. I am, and was always, your counterpart. And I am also your best enemy. So let me tell you the truth!</p>
+<p>I know the hatred and envy of your hearts. You are not great enough not to know hatred and envy. Then be great enough not to be ashamed of them!</p>
+<p>And if you cannot be saints of knowledge, then, I pray you, be at least its warriors. They are the companions and precursors of such saints.</p>
+<p>I see many soldiers; If only I saw many warriors! “Uniform” one calls what they wear; if only what it covers were not uniform!</p>
+<p>You shall be those whose eyes always seek for an enemy- for your enemy. And some of you hate at first sight.</p>
+<p>You shall seek your enemy; you shall wage your war- for your thoughts! And if your thoughts perish, your honesty should still shout triumph for that!</p>
+<p>You shall love peace as a means to new wars- and the short peace more than the long.</p>
+<p>I recommend to you not work, but battle. I recommend to you not peace, but victory. Let your work be a battle, let your peace be a victory!</p>
+<p>One can only be silent and sit peacefully when one has arrow and bow; otherwise one chatters and quarrels. Let your peace be a victory!</p>
+<p>You say it is the good cause which hallows even war? I say to you: it is the good war which hallows every cause.</p>
+<p>War and courage have done more great things than charity. Not your sympathy, but your bravery has before now saved the unfortunate.</p>
+<p>“What is good?” you ask. To be brave is good. Let the little girls say: “The good is that which is both pretty and touching.”</p>
+<p>They call you heartless: but your heart is true, and I love that you are ashamed to show it. You are ashamed of your flood, while others are ashamed of their ebb.</p>
+<p>You are ugly? Well then, my brothers, wrap the sublime about you, the cloak of the ugly!</p>
+<p>And when your soul becomes great, then it becomes mischievous, and in your sublimity there is mockery. I know you.</p>
+<p>In mockery the mischievous man and the weakling meet. But they misunderstand each other. I know you.</p>
+<p>You shall only have enemies you can hate, not enemies you despise. You must be proud of your enemy; then, the success of your enemy is also your success.</p>
+<p>Disobedience- that is the nobility of slaves. Let your nobility be obedience. Let your commanding itself be an obeying!</p>
+<p>To the good warrior “thou shalt” sounds better than “I will.” And all that is dear to you, you shall first have it commanded of you.</p>
+<p>Let your love of life be love of your highest hope; and let your highest hope be the highest thought of life!</p>
+<p>Your highest thought, however, you shall receive as a command from me- and it is this: man is something that will be overcome.</p>
+<p>So live your life of obedience and of war! What matters long life! What warrior wishes to be spared!</p>
+<p>I do not spare you, I love you from my very heart, my brothers in war!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+</search>
