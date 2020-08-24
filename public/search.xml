@@ -2146,4 +2146,20 @@
         <tag>awk</tag>
       </tags>
   </entry>
+  <entry>
+    <title>SSH客户端连接服务器超时问题</title>
+    <url>/p/f30f991e/</url>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>用SSH客户端连接linux服务器时，经常会出现与服务器会话连接中断现象，造成这个问题的原因是SSH服务有自己独特的会话连接机制。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1、设置服务器向SSH客户端连接会话发送频率和时间"><a href="#1、设置服务器向SSH客户端连接会话发送频率和时间" class="headerlink" title="1、设置服务器向SSH客户端连接会话发送频率和时间"></a>1、设置服务器向SSH客户端连接会话发送频率和时间</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">ClientAliveInterval 60 //定义了每隔多少秒给SSH客户端发送一次信号</span><br><span class="line">ClientAliveCountMax 86400 //定义了超过多少秒后断开与ssh客户端连接</span><br></pre></td></tr></table></figure>
+<h3 id="2、重新启动系统SSH服务"><a href="#2、重新启动系统SSH服务" class="headerlink" title="2、重新启动系统SSH服务"></a>2、重新启动系统SSH服务</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+<p>大功告成！</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+        <tag>超时</tag>
+      </tags>
+  </entry>
 </search>
