@@ -2069,4 +2069,29 @@
         <tag>尼采</tag>
       </tags>
   </entry>
+  <entry>
+    <title>wc命令详解</title>
+    <url>/p/682def49/</url>
+    <content><![CDATA[<h2 id="NAME"><a href="#NAME" class="headerlink" title="NAME"></a>NAME</h2><p>wc – word, line, character, and byte count<br>计算给定文件的字符数、行数、字节数等</p>
+<hr>
+<h2 id="SYNOPSIS"><a href="#SYNOPSIS" class="headerlink" title="SYNOPSIS"></a>SYNOPSIS</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wc [-clmw] [file ...]</span><br></pre></td></tr></table></figure>
+<p>如果没有指定文件，则使用默认输入，如ls。</p>
+<hr>
+<h2 id="DESCRIPTION"><a href="#DESCRIPTION" class="headerlink" title="DESCRIPTION"></a>DESCRIPTION</h2><ul>
+<li>-c<br>输入文件的字节数，byte，characters；</li>
+<li>-l<br>  输入文件的行数, line;</li>
+<li>-m<br>  输入文件的字符数, multi-byte characters;</li>
+<li>-w<br>  输入文件的words数;<br>默认选项是 -c, -l and -w</li>
+</ul>
+<hr>
+<h2 id="EXAMPLES"><a href="#EXAMPLES" class="headerlink" title="EXAMPLES"></a>EXAMPLES</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wc -mlw report1 report2</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>wc</tag>
+        <tag>count</tag>
+      </tags>
+  </entry>
 </search>
