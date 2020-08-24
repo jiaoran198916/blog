@@ -22,18 +22,20 @@
     var CONFIG = {"hostname":"www.jiaoran.net","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一个人若能真正地独自立于这个世界只是听从自己良心的忠告那么他就是一位英雄--克尔凯戈尔">
-<meta property="og:type" content="website">
-<meta property="og:title" content="皎然 -- 自己的园地">
-<meta property="og:url" content="https://www.jiaoran.net/tags/%E5%A5%87%E6%96%87/index.html">
+  <meta name="description" content="awk是一个强大的文本分析工具，是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="awk命令详解">
+<meta property="og:url" content="https://www.jiaoran.net/p/cf83d80f/index.html">
 <meta property="og:site_name" content="皎然 -- 自己的园地">
-<meta property="og:description" content="一个人若能真正地独自立于这个世界只是听从自己良心的忠告那么他就是一位英雄--克尔凯戈尔">
+<meta property="og:description" content="awk是一个强大的文本分析工具，是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-24T07:01:16.000Z">
+<meta property="article:modified_time" content="2020-08-24T07:02:31.474Z">
 <meta property="article:author" content="皎然">
-<meta property="article:tag" content="技术、书与电影、哲学、杂谈、段子">
+<meta property="article:tag" content="awk">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.jiaoran.net/tags/%E5%A5%87%E6%96%87/">
+<link rel="canonical" href="https://www.jiaoran.net/p/cf83d80f/">
 
 
 <script id="page-configurations">
@@ -41,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: 奇文 | 皎然 -- 自己的园地</title>
+  <title>awk命令详解 | 皎然 -- 自己的园地</title>
   
 
 
@@ -190,51 +192,168 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">奇文
-          <small>标签</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jiaoran.net/p/cf83d80f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="皎然">
+      <meta itemprop="description" content="一个人若能真正地独自立于这个世界<br>只是听从自己良心的忠告<br>那么他就是一位英雄<br>--克尔凯戈尔">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="皎然 -- 自己的园地">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          awk命令详解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-24 15:01:16 / 修改时间：15:02:31" itemprop="dateCreated datePublished" datetime="2020-08-24T15:01:16+08:00">2020-08-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>awk是一个强大的文本分析工具，是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
+<a id="more"></a>
+<p>awk其名称得自于它的创始人 <code>Alfred Aho</code> 、<code>Peter Weinberger</code> 和 <code>Brian Kernighan</code> 姓氏的首字母。实际上 AWK 的确拥有自己的语言： AWK程序设计语言，三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。</p>
+<hr>
+<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk [-F  field-separator]  &#39;commands&#39;  input-file(s)</span><br></pre></td></tr></table></figure>
+<p>其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。默认的域分隔符是空格。</p>
+<hr>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>获取当前目录下所有文件大小</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |awk &#39;&#123;print $5&#125;&#39;</span><br></pre></td></tr></table></figure>
+<p>读入有”\n”换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。所以$5表示文件大小以此类推。</p>
+<hr>
+<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>显示 /etc/passwd 的账户和账户对应的shell，而账户与shell之间以tab键分割，并且在所有行前添加列名name,shell,在最后一行添加”blue,/bin/nosh”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;passwd |awk  -F &#39;:&#39;  &#39;BEGIN &#123;print &quot;name,shell&quot;&#125;  &#123;print $1&quot;,&quot;$7&#125; END &#123;print &quot;blue,&#x2F;bin&#x2F;nosh&quot;&#125;&#39;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><p>搜索/etc/passwd有root关键字的所有行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F: &#39;&#x2F;^root&#x2F;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>pattern的使用示例，匹配了pattern(这里是以root开头)的行才会执行action(没有指定action，默认输出每行的内容)。</p>
+<hr>
+<h2 id="示例4"><a href="#示例4" class="headerlink" title="示例4"></a>示例4</h2><p>统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;print &quot;filename:&quot; FILENAME &quot;,linenumber:&quot; NR &quot;,columns:&quot; NF &quot;,linecontent:&quot;$0&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>FILENAME，NR，NF是内置变量，常用变量如下</p>
+<ul>
+<li>ARGC               命令行参数个数</li>
+<li>ARGV               命令行参数排列</li>
+<li>ENVIRON            支持队列中系统环境变量的使用</li>
+<li>FILENAME           awk浏览的文件名</li>
+<li>FNR                浏览文件的记录数</li>
+<li>FS                 设置输入域分隔符，等价于命令行 -F选项</li>
+<li>NF                 浏览记录的域的个数</li>
+<li>NR                 已读的记录数</li>
+<li>OFS                输出域分隔符</li>
+<li>ORS                输出记录分隔符</li>
+<li>RS                 控制记录分隔符</li>
+</ul>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filename:&#x2F;etc&#x2F;passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+<p>使用printf替代print，可以让代码更加简洁，易读</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;printf(&quot;filename:%10s,linenumber:%s,columns:%s,linecontent:%s\n&quot;,FILENAME,NR,NF,$0)&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h2 id="awk编程"><a href="#awk编程" class="headerlink" title="awk编程"></a>awk编程</h2><p>略，留给运维同学去研究。</p>
+<hr>
+<p>awk编程的内容超级多，更多请参考 <a target="_blank" rel="noopener" href="http://www.gnu.org/software/gawk/manual/gawk.html">The GNU Awk User’s Guide</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-08T20:40:21+08:00"
-              content="2020-08-08">
-          08-08
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>皎然
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.jiaoran.net/p/cf83d80f/" title="awk命令详解">https://www.jiaoran.net/p/cf83d80f/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/p/6a2ef26b/" itemprop="url">
-            <span itemprop="name">乳赋</span>
-          </a>
-      </div>
 
-    </header>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/awk/" rel="tag"><i class="fa fa-tag"></i> awk</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/p/682def49/" rel="prev" title="wc命令详解">
+      <i class="fa fa-chevron-left"></i> wc命令详解
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -287,6 +406,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="nav-number">1.</span> <span class="nav-text">命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B1"><span class="nav-number">2.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B2"><span class="nav-number">3.</span> <span class="nav-text">示例2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B3"><span class="nav-number">4.</span> <span class="nav-text">示例3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B4"><span class="nav-number">5.</span> <span class="nav-text">示例4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk%E7%BC%96%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">awk编程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -2094,4 +2094,56 @@
         <tag>count</tag>
       </tags>
   </entry>
+  <entry>
+    <title>awk命令详解</title>
+    <url>/p/cf83d80f/</url>
+    <content><![CDATA[<p>awk是一个强大的文本分析工具，是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
+<a id="more"></a>
+<p>awk其名称得自于它的创始人 <code>Alfred Aho</code> 、<code>Peter Weinberger</code> 和 <code>Brian Kernighan</code> 姓氏的首字母。实际上 AWK 的确拥有自己的语言： AWK程序设计语言，三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。</p>
+<hr>
+<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk [-F  field-separator]  &#39;commands&#39;  input-file(s)</span><br></pre></td></tr></table></figure>
+<p>其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。默认的域分隔符是空格。</p>
+<hr>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>获取当前目录下所有文件大小</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -l |awk &#39;&#123;print $5&#125;&#39;</span><br></pre></td></tr></table></figure>
+<p>读入有”\n”换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。所以$5表示文件大小以此类推。</p>
+<hr>
+<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>显示 /etc/passwd 的账户和账户对应的shell，而账户与shell之间以tab键分割，并且在所有行前添加列名name,shell,在最后一行添加”blue,/bin/nosh”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;passwd |awk  -F &#39;:&#39;  &#39;BEGIN &#123;print &quot;name,shell&quot;&#125;  &#123;print $1&quot;,&quot;$7&#125; END &#123;print &quot;blue,&#x2F;bin&#x2F;nosh&quot;&#125;&#39;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><p>搜索/etc/passwd有root关键字的所有行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk -F: &#39;&#x2F;^root&#x2F;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>pattern的使用示例，匹配了pattern(这里是以root开头)的行才会执行action(没有指定action，默认输出每行的内容)。</p>
+<hr>
+<h2 id="示例4"><a href="#示例4" class="headerlink" title="示例4"></a>示例4</h2><p>统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;print &quot;filename:&quot; FILENAME &quot;,linenumber:&quot; NR &quot;,columns:&quot; NF &quot;,linecontent:&quot;$0&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>FILENAME，NR，NF是内置变量，常用变量如下</p>
+<ul>
+<li>ARGC               命令行参数个数</li>
+<li>ARGV               命令行参数排列</li>
+<li>ENVIRON            支持队列中系统环境变量的使用</li>
+<li>FILENAME           awk浏览的文件名</li>
+<li>FNR                浏览文件的记录数</li>
+<li>FS                 设置输入域分隔符，等价于命令行 -F选项</li>
+<li>NF                 浏览记录的域的个数</li>
+<li>NR                 已读的记录数</li>
+<li>OFS                输出域分隔符</li>
+<li>ORS                输出记录分隔符</li>
+<li>RS                 控制记录分隔符</li>
+</ul>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filename:&#x2F;etc&#x2F;passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+<p>使用printf替代print，可以让代码更加简洁，易读</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;printf(&quot;filename:%10s,linenumber:%s,columns:%s,linecontent:%s\n&quot;,FILENAME,NR,NF,$0)&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h2 id="awk编程"><a href="#awk编程" class="headerlink" title="awk编程"></a>awk编程</h2><p>略，留给运维同学去研究。</p>
+<hr>
+<p>awk编程的内容超级多，更多请参考 <a href="http://www.gnu.org/software/gawk/manual/gawk.html">The GNU Awk User’s Guide</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>awk</tag>
+      </tags>
+  </entry>
 </search>
