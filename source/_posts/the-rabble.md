@@ -10,9 +10,9 @@ date: 2020-08-26 09:05:41
 Life is a well of delight; but where the rabble also drink, there all fountains are poisoned.
 
 To everything cleanly am I well disposed; but I hate to see the grinning mouths and the thirst of the unclean.
-
-They cast their eye down into the fountain: and now glances up to me their odious smile out of the fountain.
 <!-- more -->
+They cast their eye down into the fountain: and now glances up to me their odious smile out of the fountain.
+
 The holy water have they poisoned with their lustfulness; and when they called their filthy dreams delight, then poisoned they also the words.
 
 Indignant becomes the flame when they put their damp hearts to the fire; the spirit itself bubbles and smokes when the rabble approach the fire.

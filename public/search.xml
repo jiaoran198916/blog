@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>awk命令详解</title>
+    <url>/p/cf83d80f/</url>
+    <content><![CDATA[<p>awk是一个强大的文本分析工具，是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
+<a id="more"></a>
+<p>awk其名称得自于它的创始人 <code>Alfred Aho</code> 、<code>Peter Weinberger</code> 和 <code>Brian Kernighan</code> 姓氏的首字母。实际上 AWK 的确拥有自己的语言： AWK程序设计语言，三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。</p>
+<hr>
+<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk [-F  field-separator]  &#39;commands&#39;  input-file(s)</span><br></pre></td></tr></table></figure>
+<p>其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。默认的域分隔符是空格。</p>
+<hr>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>获取当前目录下所有文件大小</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -l |awk &#39;&#123;print $5&#125;&#39;</span><br></pre></td></tr></table></figure>
+<p>读入有”\n”换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。所以$5表示文件大小以此类推。</p>
+<hr>
+<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>显示 /etc/passwd 的账户和账户对应的shell，而账户与shell之间以tab键分割，并且在所有行前添加列名name,shell,在最后一行添加”blue,/bin/nosh”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;passwd |awk  -F &#39;:&#39;  &#39;BEGIN &#123;print &quot;name,shell&quot;&#125;  &#123;print $1&quot;,&quot;$7&#125; END &#123;print &quot;blue,&#x2F;bin&#x2F;nosh&quot;&#125;&#39;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><p>搜索/etc/passwd有root关键字的所有行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk -F: &#39;&#x2F;^root&#x2F;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>pattern的使用示例，匹配了pattern(这里是以root开头)的行才会执行action(没有指定action，默认输出每行的内容)。</p>
+<hr>
+<h2 id="示例4"><a href="#示例4" class="headerlink" title="示例4"></a>示例4</h2><p>统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;print &quot;filename:&quot; FILENAME &quot;,linenumber:&quot; NR &quot;,columns:&quot; NF &quot;,linecontent:&quot;$0&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>FILENAME，NR，NF是内置变量，常用变量如下</p>
+<ul>
+<li>ARGC               命令行参数个数</li>
+<li>ARGV               命令行参数排列</li>
+<li>ENVIRON            支持队列中系统环境变量的使用</li>
+<li>FILENAME           awk浏览的文件名</li>
+<li>FNR                浏览文件的记录数</li>
+<li>FS                 设置输入域分隔符，等价于命令行 -F选项</li>
+<li>NF                 浏览记录的域的个数</li>
+<li>NR                 已读的记录数</li>
+<li>OFS                输出域分隔符</li>
+<li>ORS                输出记录分隔符</li>
+<li>RS                 控制记录分隔符</li>
+</ul>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filename:&#x2F;etc&#x2F;passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+<p>使用printf替代print，可以让代码更加简洁，易读</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;printf(&quot;filename:%10s,linenumber:%s,columns:%s,linecontent:%s\n&quot;,FILENAME,NR,NF,$0)&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h2 id="awk编程"><a href="#awk编程" class="headerlink" title="awk编程"></a>awk编程</h2><p>略，留给运维同学去研究。</p>
+<hr>
+<p>awk编程的内容超级多，更多请参考 <a href="http://www.gnu.org/software/gawk/manual/gawk.html">The GNU Awk User’s Guide</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>awk</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>乳赋</title>
     <url>/p/6a2ef26b/</url>
     <content><![CDATA[<p>陈独秀著</p>
@@ -1329,6 +1381,22 @@
       </tags>
   </entry>
   <entry>
+    <title>SSH客户端连接服务器超时问题</title>
+    <url>/p/f30f991e/</url>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>用SSH客户端连接linux服务器时，经常会出现与服务器会话连接中断现象，造成这个问题的原因是SSH服务有自己独特的会话连接机制。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1、设置服务器向SSH客户端连接会话发送频率和时间"><a href="#1、设置服务器向SSH客户端连接会话发送频率和时间" class="headerlink" title="1、设置服务器向SSH客户端连接会话发送频率和时间"></a>1、设置服务器向SSH客户端连接会话发送频率和时间</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">ClientAliveInterval 60 //定义了每隔多少秒给SSH客户端发送一次信号</span><br><span class="line">ClientAliveCountMax 86400 //定义了超过多少秒后断开与ssh客户端连接</span><br></pre></td></tr></table></figure>
+<h3 id="2、重新启动系统SSH服务"><a href="#2、重新启动系统SSH服务" class="headerlink" title="2、重新启动系统SSH服务"></a>2、重新启动系统SSH服务</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+<p>大功告成！</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+        <tag>超时</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>strtotime关于在某个日期区间的优化</title>
     <url>/p/1cf0e13d/</url>
     <content><![CDATA[<p>工作中，经常碰到需要判断某个当前时间是否在某个时间区间的情况，一般可通过使用 strtotime 将日期转换成时间戳，然后进行比较，比如：</p>
@@ -1841,6 +1909,105 @@
       </tags>
   </entry>
   <entry>
+    <title>【P2C4】The Priests</title>
+    <url>/p/59a87ff0/</url>
+    <content><![CDATA[<p>And one day Zarathustra made a sign to his disciples and spoke these words to them:</p>
+<p>“Here are priests: but although they are my enemies, pass them quietly and with sleeping swords!</p>
+<p>Even among them there are heroes; many of them have suffered too much:- so they want to make others suffer.</p>
+<a id="more"></a>
+<p>Bad enemies are they: nothing is more revengeful than their meekness. And readily does he soil himself who touches them.</p>
+<p>But my blood is related to theirs; and I want withal to see my blood honored in theirs.”-</p>
+<p>And when they had passed, a pain attacked Zarathustra; but not long had he struggled with the pain, when he began to speak thus:</p>
+<p>It moves my heart for those priests. They also go against my taste; but that is the small matter to me, since I am among men.</p>
+<p>But I suffer and have suffered with them: prisoners are they to me, and stigmatised ones. He whom they call Saviour put them in fetters:-</p>
+<p>In fetters of false values and fatuous words! Oh, that some one would save them from their Saviour!</p>
+<p>On an isle they once thought they had landed, when the sea tossed them about; but behold, it was a slumbering monster!</p>
+<p>False values and fatuous words: these are the worst monsters for mortals- long slumbers and waits the fate that is in them.</p>
+<p>But at last it comes and awakes and devours and engulfs whatever has built tabernacles upon it.</p>
+<p>Oh, just look at those tabernacles which those priests have built themselves! Churches, they call their sweet-smelling caves!</p>
+<p>Oh, that falsified light, that mustified air! Where the soul- may not fly aloft to its height!</p>
+<p>But so enjoins their belief: “On your knees, up the stair, you sinners!”</p>
+<p>Rather would I see a shameless one than the distorted eyes of their shame and devotion!</p>
+<p>Who created for themselves such caves and penitence-stairs? Was it not those who sought to conceal themselves, and were ashamed under the clear sky?</p>
+<p>And only when the clear sky looks again through ruined roofs, and down upon grass and red poppies on ruined walls- will I again turn my heart to the seats of this God.</p>
+<p>They called God that which opposed and afflicted them: and verily, there was much hero-spirit in their worship!</p>
+<p>And they knew not how to love their God otherwise than by nailing men to the cross!</p>
+<p>As corpses they thought to live; in black draped they their corpses; even in their talk do I still feel the evil flavor of charnel-houses.</p>
+<p>And he who lives near to them lives near to black pools, wherein the toad sings his song with sweet gravity.</p>
+<p>Better songs would they have to sing, for me to believe in their Saviour: more! like saved ones would his disciples have to appear to me!</p>
+<p>Naked, would I like to see them: for beauty alone should preach penitence. But whom would that disguised affliction convince!</p>
+<p>Their saviours themselves came not from freedom and freedom’s seventh heaven! they themselves never trod the carpets of knowledge!</p>
+<p>Of defects did the spirit of those saviours consist; but into every defect had they put their illusion, their stop-gap, which they called God.</p>
+<p>In their pity was their spirit drowned; and when they swelled and o’erswelled with pity, there always floated to the surface a great folly.</p>
+<p>Eagerly and with shouts drove they their flock over their foot-bridge; as if there were but one foot-bridge to the future! those shepherds also were still of the flock!</p>
+<p>Small spirits and spacious souls had those shepherds: but, my brothers, what small domains have even the most spacious souls hitherto been!</p>
+<p>Characters of blood did they write on the way they went, and their folly taught that truth is proved by blood.</p>
+<p>But blood is the very worst witness to truth; blood taints the purest teaching, and turns it into delusion and hatred of heart.</p>
+<p>And when a person goes through fire for his teaching- what does that prove! It is more, verily, when out of one’s own burning comes one’s own teaching!</p>
+<p>Sultry heart and cold head; where these meet, there arises the blusterer, the “Saviour.”</p>
+<p>Greater ones, verily, have there been, and higher-born ones, than those whom the people call saviours, those rapturous blusterers!</p>
+<p>And by still greater ones than any of the saviours must you be saved, my brothers, if you would find the way to freedom!</p>
+<p>Never yet has there been a Superman. Naked have I seen both of them, the greatest man and the small man:-</p>
+<p>All-too-similar are they still to each other. Even the greatest found Iall-too-human!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P2C6】The Rabble</title>
+    <url>/p/ea6aa035/</url>
+    <content><![CDATA[<p>Life is a well of delight; but where the rabble also drink, there all fountains are poisoned.</p>
+<p>To everything cleanly am I well disposed; but I hate to see the grinning mouths and the thirst of the unclean.</p>
+<a id="more"></a>
+<p>They cast their eye down into the fountain: and now glances up to me their odious smile out of the fountain.</p>
+<p>The holy water have they poisoned with their lustfulness; and when they called their filthy dreams delight, then poisoned they also the words.</p>
+<p>Indignant becomes the flame when they put their damp hearts to the fire; the spirit itself bubbles and smokes when the rabble approach the fire.</p>
+<p>Mawkish and over-mellow becomes the fruit in their hands: unsteady, and withered at the top, does their look make the fruit-tree.</p>
+<p>And many a one who has turned away from life, has only turned away from the rabble: he hated to share with them fountain, flame, and fruit.</p>
+<p>And many a one who has gone into the wilderness and suffered thirst with beasts of prey, disliked only to sit at the cistern with filthy cameldrivers.</p>
+<p>And many a one who has come along as a destroyer, and as a hailstorm to all cornfields, wanted merely to put his foot into the jaws of the rabble, and thus stop their throat.</p>
+<p>And it is not the mouthful which has most choked me, to know that life itself requires enmity and death and torture-crosses:-</p>
+<p>But I asked once, and suffocated almost with my question: What? Is the rabble also necessary for life?</p>
+<p>Are poisoned fountains necessary, and stinking fires, and filthy dreams, and maggots in the bread of life?</p>
+<p>Not my hatred, but my loathing, gnawed hungrily at my life! Ah, ofttimes became I weary of spirit, when I found even the rabble spiritual!</p>
+<p>And on the rulers turned I my back, when I saw what they now call ruling: to traffic and bargain for power- with the rabble!</p>
+<p>Amongst peoples of a strange language did I dwell, with stopped ears: so that the language of their trafficking might remain strange to me, and their bargaining for power.</p>
+<p>And holding my nose, I went morosely through all yesterdays and todays: verily, badly smell all yesterdays and todays of the scribbling rabble!</p>
+<p>Like a cripple become deaf, and blind, and dumb- thus have I lived long; that I might not live with the power-rabble, the scribe-rabble, and the pleasure-rabble.</p>
+<p>Toilsomely did my spirit mount stairs, and cautiously; alms of delight were its refreshment; on the staff did life creep along with the blind one.</p>
+<p>What has happened to me? How have I freed myself from loathing? Who has rejuvenated my eye? How have I flown to the height where no rabble any longer sit at the wells?</p>
+<p>Did my loathing itself create for me wings and fountain-divining powers? to the loftiest height had I to fly, to find again the well of delight!</p>
+<p>Oh, I have found it, my brothers! Here on the loftiest height bubbles up for me the well of delight! And there is a life at whose waters none of the rabble drink with me!</p>
+<p>Almost too violently do you flow for me, you fountain of delight! And often emptiest you the goblet again, in wanting to fill it!</p>
+<p>And yet must I learn to approach you more modestly: far too violently does my heart still flow towards you:-</p>
+<p>My heart on which my summer burns, my short, hot, melancholy, over-happy summer: how my summer heart longs for your coolness!</p>
+<p>Past, the lingering distress of my spring! Past, the wickedness of my snowflakes in June! Summer have I become entirely, and summernoontide!</p>
+<p>A summer on the loftiest height, with cold fountains and blissful stillness: oh, come, my friends, that the stillness may become more blissful!</p>
+<p>For this is our height and our home: too high and steep do we here dwell for all uncleanly ones and their thirst.</p>
+<p>Cast but your pure eyes into the well of my delight, my friends! How could it become turbid thereby! It shall laugh back to you with its purity.</p>
+<p>On the tree of the future build we our nest; eagles shall bring us lone ones food in their beaks!</p>
+<p>No food of which the impure could be fellow-partakers! Fire, would they think they devoured, and burn their mouths!</p>
+<p>No abodes do we here keep ready for the impure! An ice-cave to their bodies would our happiness be, and to their spirits!</p>
+<p>And as strong winds will we live above them, neighbors to the eagles, neighbors to the snow, neighbors to the sun: thus live the strong winds.</p>
+<p>And like a wind will I one day blow amongst them, and with my spirit, take the breath from their spirit: thus wills my future.</p>
+<p>A strong wind is Zarathustra to all low places; and this counsel counsels he to his enemies, and to whatever spits and spews: “Take care not to spit against the wind!”-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【P1C15】The Thousand and One Goals</title>
     <url>/p/4a4a0f12/</url>
     <content><![CDATA[<p>Zarathustra saw many lands and many peoples: thus he discovered the good and evil of many peoples. No greater power did Zarathustra find on earth than good and evil.</p>
@@ -1921,6 +2088,59 @@
 <p>“Spirit too is lust,”- they said. The wings of their spirit are broken; and now their spirit crawls about, and defiles what it gnaws.</p>
 <p>Once they thought of becoming heroes; now they are libertines. The idea of the hero offends and troubles them.</p>
 <p>But by my love and hope I beseech you: do not throw away the hero in your soul! Keep sacred your highest hope!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P2C5】The Virtuous</title>
+    <url>/p/fce73deb/</url>
+    <content><![CDATA[<p>With thunder and heavenly fireworks must one speak to indolent and somnolent senses.</p>
+<p>But beauty’s voice speaks gently: it appeals only to the most awakened souls.</p>
+<a id="more"></a>
+<p>Gently vibrated and laughed to me to-day my buckler; it was beauty’s holy laughing and thrilling.</p>
+<p>At you, you virtuous ones, laughed my beauty to-day. And thus came its voice to me: “They want- to be paid besides!”</p>
+<p>You want to be paid besides, you virtuous ones! You want reward for virtue, and heaven for earth, and eternity for your to-day?</p>
+<p>And now you upbraid me for teaching that there is no reward-giver, nor paymaster? And verily, I do not even teach that virtue is its own reward.</p>
+<p>Ah! this is my sorrow: into the basis of things have reward and punishment been insinuated- and now even into the basis of your souls, you virtuous ones!</p>
+<p>But like the snout of the boar shall my word grub up the basis of your souls; a ploughshare will I be called by you.</p>
+<p>All the secrets of your heart shall be brought to light; and when you lie in the sun, grubbed up and broken, then will also your falsehood be separated from your truth.</p>
+<p>For this is your truth: you are too pure for the filth of the words: vengeance, punishment, recompense, retribution.</p>
+<p>You love your virtue as a mother loves her child; but when did one hear of a mother wanting to be paid for her love?</p>
+<p>It is your dearest Self, your virtue. The ring’s thirst is in you: to reach itself again struggles every ring, and turns itself.</p>
+<p>And like the star that goes out, so is every work of your virtue: ever is its light on its way and travelling- and when will it cease to be on its way?</p>
+<p>Thus is the light of your virtue still on its way, even when its work is done. Be it forgotten and dead, still its ray of light lives and travels.</p>
+<p>That your virtue is your Self, and not an outward thing, a skin, or a cloak: that is the truth from the basis of your souls, you virtuous ones!-</p>
+<p>But sure enough there are those to whom virtue means writhing under the lash: and you have hearkened too much to their crying!</p>
+<p>And others are there who call virtue the slothfulness of their vices; and when once their hatred and jealousy relax the limbs, their “justice” becomes lively and rubs its sleepy eyes.</p>
+<p>And others are there who are drawn downwards: their devils draw them. But the more they sink, the more ardently glows their eye, and the longing for their God.</p>
+<p>Ah! their crying also has reached your ears, you virtuous ones: “What I am not, that, that is God to me, and virtue!”</p>
+<p>And others are there who go along heavily and creakingly, like carts taking stones downhill: they talk much of dignity and virtue- their drag they call virtue!</p>
+<p>And others are there who are like eight-day clocks when wound up; they tick, and want people to call ticking- virtue.</p>
+<p>In those have I my amusement: wherever I find such clocks I shall wind them up with my mockery, and they shall even whirr thereby!</p>
+<p>And others are proud of their modicum of righteousness, and for the sake of it do violence to all things: so that the world is drowned in their unrighteousness.</p>
+<p>Ah! how ineptly comes the word “virtue” out of their mouth! And when they say: “I am just,” it always sounds like: “I am just- revenged!”</p>
+<p>With their virtues they want to scratch out the eyes of their enemies; and they elevate themselves only that they may lower others.</p>
+<p>And again there are those who sit in their swamp, and speak thus from among the bulrushes: “Virtue- that is to sit quietly in the swamp.</p>
+<p>We bite no one, and go out of the way of him who would bite; and in all matters we have the opinion that is given us.”</p>
+<p>And again there are those who love attitudes, and think that virtue is a sort of attitude.</p>
+<p>Their knees continually adore, and their hands are eulogies of virtue, but their heart knows naught thereof.</p>
+<p>And again there are those who regard it as virtue to say: “Virtue is necessary”; but after all they believe only that policemen are necessary.</p>
+<p>And many a one who cannot see men’s loftiness, calls it virtue to see their baseness far too well: thus calls he his evil eye virtue.And some want to be edified and raised up, and call it virtue: and others want to be cast down,- and likewise call it virtue.</p>
+<p>And thus do almost all think that they participate in virtue; and at least every one claims to be an authority on “good” and “evil.”</p>
+<p>But Zarathustra came not to say to all those liars and fools: “What do you know of virtue! What could you know of virtue!”But that you, my friends, might become weary of the old words which you have learned from the fools and liars:</p>
+<p>That you might become weary of the words “reward,” “retribution,” “punishment,” “righteous vengeance.”That you might become weary of saying: “That an action is good is because it is unselfish.”</p>
+<p>Ah! my friends! That your very Self be in your action, as the mother is in the child: let that be your formula of virtue!</p>
+<p>I have taken from you a hundred formulae and your virtue’s favorite playthings; and now you upbraid me, as children upbraid.</p>
+<p>They played by the sea- then came there a wave and swept their playthings into the deep: and now do they cry.</p>
+<p>But the same wave shall bring them new playthings, and spread before them new speckled shells!</p>
+<p>Thus will they be comforted; and like them shall you also, my friends, have your comforting- and new speckled shells!</p>
 <p>Thus spoke Zarathustra.</p>
 ]]></content>
       <categories>
@@ -2019,57 +2239,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【P2C4】The Priests</title>
-    <url>/p/59a87ff0/</url>
-    <content><![CDATA[<p>And one day Zarathustra made a sign to his disciples and spoke these words to them:</p>
-<p>“Here are priests: but although they are my enemies, pass them quietly and with sleeping swords!</p>
-<p>Even among them there are heroes; many of them have suffered too much:- so they want to make others suffer.</p>
-<a id="more"></a>
-<p>Bad enemies are they: nothing is more revengeful than their meekness. And readily does he soil himself who touches them.</p>
-<p>But my blood is related to theirs; and I want withal to see my blood honored in theirs.”-</p>
-<p>And when they had passed, a pain attacked Zarathustra; but not long had he struggled with the pain, when he began to speak thus:</p>
-<p>It moves my heart for those priests. They also go against my taste; but that is the small matter to me, since I am among men.</p>
-<p>But I suffer and have suffered with them: prisoners are they to me, and stigmatised ones. He whom they call Saviour put them in fetters:-</p>
-<p>In fetters of false values and fatuous words! Oh, that some one would save them from their Saviour!</p>
-<p>On an isle they once thought they had landed, when the sea tossed them about; but behold, it was a slumbering monster!</p>
-<p>False values and fatuous words: these are the worst monsters for mortals- long slumbers and waits the fate that is in them.</p>
-<p>But at last it comes and awakes and devours and engulfs whatever has built tabernacles upon it.</p>
-<p>Oh, just look at those tabernacles which those priests have built themselves! Churches, they call their sweet-smelling caves!</p>
-<p>Oh, that falsified light, that mustified air! Where the soul- may not fly aloft to its height!</p>
-<p>But so enjoins their belief: “On your knees, up the stair, you sinners!”</p>
-<p>Rather would I see a shameless one than the distorted eyes of their shame and devotion!</p>
-<p>Who created for themselves such caves and penitence-stairs? Was it not those who sought to conceal themselves, and were ashamed under the clear sky?</p>
-<p>And only when the clear sky looks again through ruined roofs, and down upon grass and red poppies on ruined walls- will I again turn my heart to the seats of this God.</p>
-<p>They called God that which opposed and afflicted them: and verily, there was much hero-spirit in their worship!</p>
-<p>And they knew not how to love their God otherwise than by nailing men to the cross!</p>
-<p>As corpses they thought to live; in black draped they their corpses; even in their talk do I still feel the evil flavor of charnel-houses.</p>
-<p>And he who lives near to them lives near to black pools, wherein the toad sings his song with sweet gravity.</p>
-<p>Better songs would they have to sing, for me to believe in their Saviour: more! like saved ones would his disciples have to appear to me!</p>
-<p>Naked, would I like to see them: for beauty alone should preach penitence. But whom would that disguised affliction convince!</p>
-<p>Their saviours themselves came not from freedom and freedom’s seventh heaven! they themselves never trod the carpets of knowledge!</p>
-<p>Of defects did the spirit of those saviours consist; but into every defect had they put their illusion, their stop-gap, which they called God.</p>
-<p>In their pity was their spirit drowned; and when they swelled and o’erswelled with pity, there always floated to the surface a great folly.</p>
-<p>Eagerly and with shouts drove they their flock over their foot-bridge; as if there were but one foot-bridge to the future! those shepherds also were still of the flock!</p>
-<p>Small spirits and spacious souls had those shepherds: but, my brothers, what small domains have even the most spacious souls hitherto been!</p>
-<p>Characters of blood did they write on the way they went, and their folly taught that truth is proved by blood.</p>
-<p>But blood is the very worst witness to truth; blood taints the purest teaching, and turns it into delusion and hatred of heart.</p>
-<p>And when a person goes through fire for his teaching- what does that prove! It is more, verily, when out of one’s own burning comes one’s own teaching!</p>
-<p>Sultry heart and cold head; where these meet, there arises the blusterer, the “Saviour.”</p>
-<p>Greater ones, verily, have there been, and higher-born ones, than those whom the people call saviours, those rapturous blusterers!</p>
-<p>And by still greater ones than any of the saviours must you be saved, my brothers, if you would find the way to freedom!</p>
-<p>Never yet has there been a Superman. Naked have I seen both of them, the greatest man and the small man:-</p>
-<p>All-too-similar are they still to each other. Even the greatest found Iall-too-human!-</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>wc命令详解</title>
     <url>/p/682def49/</url>
     <content><![CDATA[<h2 id="NAME"><a href="#NAME" class="headerlink" title="NAME"></a>NAME</h2><p>wc – word, line, character, and byte count<br>计算给定文件的字符数、行数、字节数等</p>
@@ -2092,175 +2261,6 @@
       <tags>
         <tag>wc</tag>
         <tag>count</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>awk命令详解</title>
-    <url>/p/cf83d80f/</url>
-    <content><![CDATA[<p>awk是一个强大的文本分析工具，是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
-<a id="more"></a>
-<p>awk其名称得自于它的创始人 <code>Alfred Aho</code> 、<code>Peter Weinberger</code> 和 <code>Brian Kernighan</code> 姓氏的首字母。实际上 AWK 的确拥有自己的语言： AWK程序设计语言，三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。</p>
-<hr>
-<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk [-F  field-separator]  &#39;commands&#39;  input-file(s)</span><br></pre></td></tr></table></figure>
-<p>其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。默认的域分隔符是空格。</p>
-<hr>
-<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>获取当前目录下所有文件大小</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -l |awk &#39;&#123;print $5&#125;&#39;</span><br></pre></td></tr></table></figure>
-<p>读入有”\n”换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。所以$5表示文件大小以此类推。</p>
-<hr>
-<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>显示 /etc/passwd 的账户和账户对应的shell，而账户与shell之间以tab键分割，并且在所有行前添加列名name,shell,在最后一行添加”blue,/bin/nosh”</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;passwd |awk  -F &#39;:&#39;  &#39;BEGIN &#123;print &quot;name,shell&quot;&#125;  &#123;print $1&quot;,&quot;$7&#125; END &#123;print &quot;blue,&#x2F;bin&#x2F;nosh&quot;&#125;&#39;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><p>搜索/etc/passwd有root关键字的所有行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk -F: &#39;&#x2F;^root&#x2F;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
-<p>pattern的使用示例，匹配了pattern(这里是以root开头)的行才会执行action(没有指定action，默认输出每行的内容)。</p>
-<hr>
-<h2 id="示例4"><a href="#示例4" class="headerlink" title="示例4"></a>示例4</h2><p>统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;print &quot;filename:&quot; FILENAME &quot;,linenumber:&quot; NR &quot;,columns:&quot; NF &quot;,linecontent:&quot;$0&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
-<p>FILENAME，NR，NF是内置变量，常用变量如下</p>
-<ul>
-<li>ARGC               命令行参数个数</li>
-<li>ARGV               命令行参数排列</li>
-<li>ENVIRON            支持队列中系统环境变量的使用</li>
-<li>FILENAME           awk浏览的文件名</li>
-<li>FNR                浏览文件的记录数</li>
-<li>FS                 设置输入域分隔符，等价于命令行 -F选项</li>
-<li>NF                 浏览记录的域的个数</li>
-<li>NR                 已读的记录数</li>
-<li>OFS                输出域分隔符</li>
-<li>ORS                输出记录分隔符</li>
-<li>RS                 控制记录分隔符</li>
-</ul>
-<p>结果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filename:&#x2F;etc&#x2F;passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
-<p>使用printf替代print，可以让代码更加简洁，易读</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;printf(&quot;filename:%10s,linenumber:%s,columns:%s,linecontent:%s\n&quot;,FILENAME,NR,NF,$0)&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
-<h2 id="awk编程"><a href="#awk编程" class="headerlink" title="awk编程"></a>awk编程</h2><p>略，留给运维同学去研究。</p>
-<hr>
-<p>awk编程的内容超级多，更多请参考 <a href="http://www.gnu.org/software/gawk/manual/gawk.html">The GNU Awk User’s Guide</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>awk</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSH客户端连接服务器超时问题</title>
-    <url>/p/f30f991e/</url>
-    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>用SSH客户端连接linux服务器时，经常会出现与服务器会话连接中断现象，造成这个问题的原因是SSH服务有自己独特的会话连接机制。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1、设置服务器向SSH客户端连接会话发送频率和时间"><a href="#1、设置服务器向SSH客户端连接会话发送频率和时间" class="headerlink" title="1、设置服务器向SSH客户端连接会话发送频率和时间"></a>1、设置服务器向SSH客户端连接会话发送频率和时间</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">ClientAliveInterval 60 //定义了每隔多少秒给SSH客户端发送一次信号</span><br><span class="line">ClientAliveCountMax 86400 //定义了超过多少秒后断开与ssh客户端连接</span><br></pre></td></tr></table></figure>
-<h3 id="2、重新启动系统SSH服务"><a href="#2、重新启动系统SSH服务" class="headerlink" title="2、重新启动系统SSH服务"></a>2、重新启动系统SSH服务</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
-<p>大功告成！</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>ssh</tag>
-        <tag>超时</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P2C5】The Virtuous</title>
-    <url>/p/fce73deb/</url>
-    <content><![CDATA[<p>With thunder and heavenly fireworks must one speak to indolent and somnolent senses.</p>
-<p>But beauty’s voice speaks gently: it appeals only to the most awakened souls.</p>
-<a id="more"></a>
-<p>Gently vibrated and laughed to me to-day my buckler; it was beauty’s holy laughing and thrilling.</p>
-<p>At you, you virtuous ones, laughed my beauty to-day. And thus came its voice to me: “They want- to be paid besides!”</p>
-<p>You want to be paid besides, you virtuous ones! You want reward for virtue, and heaven for earth, and eternity for your to-day?</p>
-<p>And now you upbraid me for teaching that there is no reward-giver, nor paymaster? And verily, I do not even teach that virtue is its own reward.</p>
-<p>Ah! this is my sorrow: into the basis of things have reward and punishment been insinuated- and now even into the basis of your souls, you virtuous ones!</p>
-<p>But like the snout of the boar shall my word grub up the basis of your souls; a ploughshare will I be called by you.</p>
-<p>All the secrets of your heart shall be brought to light; and when you lie in the sun, grubbed up and broken, then will also your falsehood be separated from your truth.</p>
-<p>For this is your truth: you are too pure for the filth of the words: vengeance, punishment, recompense, retribution.</p>
-<p>You love your virtue as a mother loves her child; but when did one hear of a mother wanting to be paid for her love?</p>
-<p>It is your dearest Self, your virtue. The ring’s thirst is in you: to reach itself again struggles every ring, and turns itself.</p>
-<p>And like the star that goes out, so is every work of your virtue: ever is its light on its way and travelling- and when will it cease to be on its way?</p>
-<p>Thus is the light of your virtue still on its way, even when its work is done. Be it forgotten and dead, still its ray of light lives and travels.</p>
-<p>That your virtue is your Self, and not an outward thing, a skin, or a cloak: that is the truth from the basis of your souls, you virtuous ones!-</p>
-<p>But sure enough there are those to whom virtue means writhing under the lash: and you have hearkened too much to their crying!</p>
-<p>And others are there who call virtue the slothfulness of their vices; and when once their hatred and jealousy relax the limbs, their “justice” becomes lively and rubs its sleepy eyes.</p>
-<p>And others are there who are drawn downwards: their devils draw them. But the more they sink, the more ardently glows their eye, and the longing for their God.</p>
-<p>Ah! their crying also has reached your ears, you virtuous ones: “What I am not, that, that is God to me, and virtue!”</p>
-<p>And others are there who go along heavily and creakingly, like carts taking stones downhill: they talk much of dignity and virtue- their drag they call virtue!</p>
-<p>And others are there who are like eight-day clocks when wound up; they tick, and want people to call ticking- virtue.</p>
-<p>In those have I my amusement: wherever I find such clocks I shall wind them up with my mockery, and they shall even whirr thereby!</p>
-<p>And others are proud of their modicum of righteousness, and for the sake of it do violence to all things: so that the world is drowned in their unrighteousness.</p>
-<p>Ah! how ineptly comes the word “virtue” out of their mouth! And when they say: “I am just,” it always sounds like: “I am just- revenged!”</p>
-<p>With their virtues they want to scratch out the eyes of their enemies; and they elevate themselves only that they may lower others.</p>
-<p>And again there are those who sit in their swamp, and speak thus from among the bulrushes: “Virtue- that is to sit quietly in the swamp.</p>
-<p>We bite no one, and go out of the way of him who would bite; and in all matters we have the opinion that is given us.”</p>
-<p>And again there are those who love attitudes, and think that virtue is a sort of attitude.</p>
-<p>Their knees continually adore, and their hands are eulogies of virtue, but their heart knows naught thereof.</p>
-<p>And again there are those who regard it as virtue to say: “Virtue is necessary”; but after all they believe only that policemen are necessary.</p>
-<p>And many a one who cannot see men’s loftiness, calls it virtue to see their baseness far too well: thus calls he his evil eye virtue.And some want to be edified and raised up, and call it virtue: and others want to be cast down,- and likewise call it virtue.</p>
-<p>And thus do almost all think that they participate in virtue; and at least every one claims to be an authority on “good” and “evil.”</p>
-<p>But Zarathustra came not to say to all those liars and fools: “What do you know of virtue! What could you know of virtue!”But that you, my friends, might become weary of the old words which you have learned from the fools and liars:</p>
-<p>That you might become weary of the words “reward,” “retribution,” “punishment,” “righteous vengeance.”That you might become weary of saying: “That an action is good is because it is unselfish.”</p>
-<p>Ah! my friends! That your very Self be in your action, as the mother is in the child: let that be your formula of virtue!</p>
-<p>I have taken from you a hundred formulae and your virtue’s favorite playthings; and now you upbraid me, as children upbraid.</p>
-<p>They played by the sea- then came there a wave and swept their playthings into the deep: and now do they cry.</p>
-<p>But the same wave shall bring them new playthings, and spread before them new speckled shells!</p>
-<p>Thus will they be comforted; and like them shall you also, my friends, have your comforting- and new speckled shells!</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P2C6】The Rabble</title>
-    <url>/p/ea6aa035/</url>
-    <content><![CDATA[<p>Life is a well of delight; but where the rabble also drink, there all fountains are poisoned.</p>
-<p>To everything cleanly am I well disposed; but I hate to see the grinning mouths and the thirst of the unclean.</p>
-<p>They cast their eye down into the fountain: and now glances up to me their odious smile out of the fountain.</p>
-<a id="more"></a>
-<p>The holy water have they poisoned with their lustfulness; and when they called their filthy dreams delight, then poisoned they also the words.</p>
-<p>Indignant becomes the flame when they put their damp hearts to the fire; the spirit itself bubbles and smokes when the rabble approach the fire.</p>
-<p>Mawkish and over-mellow becomes the fruit in their hands: unsteady, and withered at the top, does their look make the fruit-tree.</p>
-<p>And many a one who has turned away from life, has only turned away from the rabble: he hated to share with them fountain, flame, and fruit.</p>
-<p>And many a one who has gone into the wilderness and suffered thirst with beasts of prey, disliked only to sit at the cistern with filthy cameldrivers.</p>
-<p>And many a one who has come along as a destroyer, and as a hailstorm to all cornfields, wanted merely to put his foot into the jaws of the rabble, and thus stop their throat.</p>
-<p>And it is not the mouthful which has most choked me, to know that life itself requires enmity and death and torture-crosses:-</p>
-<p>But I asked once, and suffocated almost with my question: What? Is the rabble also necessary for life?</p>
-<p>Are poisoned fountains necessary, and stinking fires, and filthy dreams, and maggots in the bread of life?</p>
-<p>Not my hatred, but my loathing, gnawed hungrily at my life! Ah, ofttimes became I weary of spirit, when I found even the rabble spiritual!</p>
-<p>And on the rulers turned I my back, when I saw what they now call ruling: to traffic and bargain for power- with the rabble!</p>
-<p>Amongst peoples of a strange language did I dwell, with stopped ears: so that the language of their trafficking might remain strange to me, and their bargaining for power.</p>
-<p>And holding my nose, I went morosely through all yesterdays and todays: verily, badly smell all yesterdays and todays of the scribbling rabble!</p>
-<p>Like a cripple become deaf, and blind, and dumb- thus have I lived long; that I might not live with the power-rabble, the scribe-rabble, and the pleasure-rabble.</p>
-<p>Toilsomely did my spirit mount stairs, and cautiously; alms of delight were its refreshment; on the staff did life creep along with the blind one.</p>
-<p>What has happened to me? How have I freed myself from loathing? Who has rejuvenated my eye? How have I flown to the height where no rabble any longer sit at the wells?</p>
-<p>Did my loathing itself create for me wings and fountain-divining powers? to the loftiest height had I to fly, to find again the well of delight!</p>
-<p>Oh, I have found it, my brothers! Here on the loftiest height bubbles up for me the well of delight! And there is a life at whose waters none of the rabble drink with me!</p>
-<p>Almost too violently do you flow for me, you fountain of delight! And often emptiest you the goblet again, in wanting to fill it!</p>
-<p>And yet must I learn to approach you more modestly: far too violently does my heart still flow towards you:-</p>
-<p>My heart on which my summer burns, my short, hot, melancholy, over-happy summer: how my summer heart longs for your coolness!</p>
-<p>Past, the lingering distress of my spring! Past, the wickedness of my snowflakes in June! Summer have I become entirely, and summernoontide!</p>
-<p>A summer on the loftiest height, with cold fountains and blissful stillness: oh, come, my friends, that the stillness may become more blissful!</p>
-<p>For this is our height and our home: too high and steep do we here dwell for all uncleanly ones and their thirst.</p>
-<p>Cast but your pure eyes into the well of my delight, my friends! How could it become turbid thereby! It shall laugh back to you with its purity.</p>
-<p>On the tree of the future build we our nest; eagles shall bring us lone ones food in their beaks!</p>
-<p>No food of which the impure could be fellow-partakers! Fire, would they think they devoured, and burn their mouths!</p>
-<p>No abodes do we here keep ready for the impure! An ice-cave to their bodies would our happiness be, and to their spirits!</p>
-<p>And as strong winds will we live above them, neighbors to the eagles, neighbors to the snow, neighbors to the sun: thus live the strong winds.</p>
-<p>And like a wind will I one day blow amongst them, and with my spirit, take the breath from their spirit: thus wills my future.</p>
-<p>A strong wind is Zarathustra to all low places; and this counsel counsels he to his enemies, and to whatever spits and spews: “Take care not to spit against the wind!”-</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
       </tags>
   </entry>
 </search>
