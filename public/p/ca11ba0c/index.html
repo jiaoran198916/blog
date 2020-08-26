@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-jiao-32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-jiao-16.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Lobster Two, Roboto Slab, Noto Serif SC:300,300italic,400,400italic,700,700italic|Amita:300,300italic,400,400italic,700,700italic|Montserrat:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.jiaoran.net","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="ff">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery选择器">
+<meta property="og:url" content="https://www.jiaoran.net/p/ca11ba0c/index.html">
+<meta property="og:site_name" content="皎然 -- 自己的园地">
+<meta property="og:description" content="ff">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-26T03:12:54.000Z">
+<meta property="article:modified_time" content="2020-08-26T06:01:41.629Z">
+<meta property="article:author" content="皎然">
+<meta property="article:tag" content="selector">
+<meta property="article:tag" content="attribute">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.jiaoran.net/p/ca11ba0c/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>jQuery选择器 | 皎然 -- 自己的园地</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">皎然 -- 自己的园地</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个个体</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.jiaoran.net/p/ca11ba0c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="皎然">
+      <meta itemprop="description" content="一个人若能真正地独自立于这个世界<br>只是听从自己良心的忠告<br>那么他就是一位英雄<br>--克尔凯戈尔">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="皎然 -- 自己的园地">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          jQuery选择器
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-26 11:12:54 / 修改时间：14:01:41" itemprop="dateCreated datePublished" datetime="2020-08-26T11:12:54+08:00">2020-08-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jQuery/" itemprop="url" rel="index"><span itemprop="name">jQuery</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="基础选择器（Basic）"><a href="#基础选择器（Basic）" class="headerlink" title="基础选择器（Basic）"></a>基础选择器（Basic）</h2><ul>
+<li>$(“*“) 所有标签</li>
+<li>$(“.className”)</li>
+<li>$(“#id”)</li>
+<li>$(“标签名”)</li>
+<li>$(“selector1, selector2, selectorN”)</li>
+</ul>
+<h2 id="根据标签层级关系（Hierarchy）"><a href="#根据标签层级关系（Hierarchy）" class="headerlink" title="根据标签层级关系（Hierarchy）"></a>根据标签层级关系（Hierarchy）</h2><ul>
+<li>Child Selector: 匹配 parent 的直接 child<br><code>jQuery( &quot;parent &gt; child&quot; )</code></li>
+<li>Descendant Selector: 匹配ancestor下面的所有 descendant<br><code>jQuery( &quot;ancestor descendant&quot; )</code></li>
+<li>Next Adjacent Selector: 捕获的是 prev 后最近的兄弟 next ，并且必须是直接的兄弟标签<br><code>jQuery( &quot;prev + next&quot; )</code></li>
+<li>Next Siblings Selector: 匹配 prev 后的所有兄弟 siblings 同级关系<br><code>jQuery( &quot;prev ~ siblings&quot; )</code></li>
+</ul>
+<h2 id="根据属性（Attribute）"><a href="#根据属性（Attribute）" class="headerlink" title="根据属性（Attribute）"></a>根据属性（Attribute）</h2><p>写法有如下四种，具体哪一种根据个人习惯。</p>
+<ul>
+<li>double quotes inside single quotes: $(‘a[rel=”nofollow self”]’)</li>
+<li>single quotes inside double quotes: $(“a[rel=’nofollow self’]”)</li>
+<li>escaped single quotes inside single quotes: $(‘a[rel=&#39;nofollow self&#39;]’)</li>
+<li>escaped double quotes inside double quotes: $(“a[rel=&quot;nofollow self&quot;]”)</li>
+</ul>
+<ul>
+<li>Has Attribute Selector: 是否包含某属性<br><code>jQuery( &quot;[attribute]&quot; )</code></li>
+<li>Attribute Equals Selector: 属性是某一具体值<br><code>jQuery( &quot;[attribute=&#39;value&#39;]&quot; )</code></li>
+<li>Attribute Starts With Selector: 属性以某值开头<br><code>jQuery( &quot;[attribute^=&#39;value&#39;]&quot; )</code></li>
+<li>Attribute Ends With Selector: 属性以某值结尾<br><code>jQuery( &quot;[attribute$=&#39;value&#39;]&quot; )</code></li>
+<li>Attribute Contains Selector: 属性包含某值<br><code>jQuery( &quot;[attribute*=&#39;value&#39;]&quot; )</code></li>
+</ul>
+<h2 id="基础过滤器（Basic-Filter）"><a href="#基础过滤器（Basic-Filter）" class="headerlink" title="基础过滤器（Basic Filter）"></a>基础过滤器（Basic Filter）</h2><p>根据函数捕获对象，就是选择器选择到对象后进行二次筛选。</p>
+<ul>
+<li>:eq() Selector: 下标等于某个值<br><code>jQuery( &quot;:eq(index)&quot; )</code></li>
+<li>:even Selector: 偶数<br><code>jQuery( &quot;:even&quot; )</code></li>
+<li>:odd Selector: 奇数<br><code>jQuery( &quot;:odd&quot; )</code></li>
+<li>:gt() Selector: 大于某个值<br><code>jQuery( &quot;:gt(index)&quot; )</code></li>
+<li>:lt() Selector: 小于某个值<br><code>jQuery( &quot;:lt(index)&quot; )</code></li>
+<li>:first Selector: 第一个元素<br><code>jQuery( &quot;:first&quot; )</code></li>
+<li>:last Selector: 最后一个元素<br><code>jQuery( &quot;:last&quot; )</code></li>
+<li>:not() Selector: 排除，非<br><code>jQuery( &quot;:not(selector)&quot; )</code></li>
+</ul>
+<h2 id="根据子节点过滤（Child-Filter）"><a href="#根据子节点过滤（Child-Filter）" class="headerlink" title="根据子节点过滤（Child Filter）"></a>根据子节点过滤（Child Filter）</h2><p>根据函数捕获对象，就是选择器选择到对象后进行二次筛选。</p>
+<ul>
+<li>:first-child Selector: 第一个子节点<br><code>jQuery( &quot;:first-child&quot; )</code></li>
+<li>:last-child Selector: 最后一个子节点<br><code>jQuery( &quot;:last-child&quot; )</code></li>
+<li>:nth-child() Selector: 子节点索引，从1开始<br><code>jQuery( &quot;:nth-child(index/even/odd/equation)&quot; )</code></li>
+</ul>
+<h2 id="根据表单控件（Form）"><a href="#根据表单控件（Form）" class="headerlink" title="根据表单控件（Form）"></a>根据表单控件（Form）</h2><p>根据表单元素的类型等获取对象。</p>
+<ul>
+<li>:checkbox Selector: 所有的复选框<br><code>jQuery( &quot;:checkbox&quot; )</code></li>
+<li>:checked Selector: checked or selected<br><code>jQuery( &quot;:checked&quot; )</code></li>
+</ul>
+<h2 id="根据可见性（Visibility-Filter）"><a href="#根据可见性（Visibility-Filter）" class="headerlink" title="根据可见性（Visibility Filter）"></a>根据可见性（Visibility Filter）</h2><p>根据元素是否可见，共有两个。</p>
+<ul>
+<li>:hidden Selector: 隐藏<br><code>jQuery( &quot;:hidden&quot; )</code></li>
+<li>:visible Selector: 可见<br><code>jQuery( &quot;:visible&quot; )</code></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>皎然
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.jiaoran.net/p/ca11ba0c/" title="jQuery选择器">https://www.jiaoran.net/p/ca11ba0c/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/selector/" rel="tag"><i class="fa fa-tag"></i> selector</a>
+              <a href="/tags/attribute/" rel="tag"><i class="fa fa-tag"></i> attribute</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/p/ea6aa035/" rel="prev" title="【P2C6】The Rabble">
+      <i class="fa fa-chevron-left"></i> 【P2C6】The Rabble
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%88Basic%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">基础选择器（Basic）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E6%A0%87%E7%AD%BE%E5%B1%82%E7%BA%A7%E5%85%B3%E7%B3%BB%EF%BC%88Hierarchy%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">根据标签层级关系（Hierarchy）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E5%B1%9E%E6%80%A7%EF%BC%88Attribute%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">根据属性（Attribute）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%88Basic-Filter%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">基础过滤器（Basic Filter）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E5%AD%90%E8%8A%82%E7%82%B9%E8%BF%87%E6%BB%A4%EF%BC%88Child-Filter%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">根据子节点过滤（Child Filter）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E8%A1%A8%E5%8D%95%E6%8E%A7%E4%BB%B6%EF%BC%88Form%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">根据表单控件（Form）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E5%8F%AF%E8%A7%81%E6%80%A7%EF%BC%88Visibility-Filter%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">根据可见性（Visibility Filter）</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">皎然</p>
+  <div class="site-description" itemprop="description">一个人若能真正地独自立于这个世界<br>只是听从自己良心的忠告<br>那么他就是一位英雄<br>--克尔凯戈尔</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jiaoran198916" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jiaoran198916" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/1997783773" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;1997783773" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一个人的孤岛</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">103k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:34</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1277889664&web_id=1277889664"></script>
+  </div>
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="200" alpha="0.3" zIndex="-1" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-ribbon@1/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

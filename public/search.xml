@@ -2263,4 +2263,70 @@
         <tag>count</tag>
       </tags>
   </entry>
+  <entry>
+    <title>jQuery选择器</title>
+    <url>/p/ca11ba0c/</url>
+    <content><![CDATA[<h2 id="基础选择器（Basic）"><a href="#基础选择器（Basic）" class="headerlink" title="基础选择器（Basic）"></a>基础选择器（Basic）</h2><ul>
+<li>$(“*“) 所有标签</li>
+<li>$(“.className”)</li>
+<li>$(“#id”)</li>
+<li>$(“标签名”)</li>
+<li>$(“selector1, selector2, selectorN”)</li>
+</ul>
+<h2 id="根据标签层级关系（Hierarchy）"><a href="#根据标签层级关系（Hierarchy）" class="headerlink" title="根据标签层级关系（Hierarchy）"></a>根据标签层级关系（Hierarchy）</h2><ul>
+<li>Child Selector: 匹配 parent 的直接 child<br><code>jQuery( &quot;parent &gt; child&quot; )</code></li>
+<li>Descendant Selector: 匹配ancestor下面的所有 descendant<br><code>jQuery( &quot;ancestor descendant&quot; )</code></li>
+<li>Next Adjacent Selector: 捕获的是 prev 后最近的兄弟 next ，并且必须是直接的兄弟标签<br><code>jQuery( &quot;prev + next&quot; )</code></li>
+<li>Next Siblings Selector: 匹配 prev 后的所有兄弟 siblings 同级关系<br><code>jQuery( &quot;prev ~ siblings&quot; )</code></li>
+</ul>
+<h2 id="根据属性（Attribute）"><a href="#根据属性（Attribute）" class="headerlink" title="根据属性（Attribute）"></a>根据属性（Attribute）</h2><p>写法有如下四种，具体哪一种根据个人习惯。</p>
+<ul>
+<li>double quotes inside single quotes: $(‘a[rel=”nofollow self”]’)</li>
+<li>single quotes inside double quotes: $(“a[rel=’nofollow self’]”)</li>
+<li>escaped single quotes inside single quotes: $(‘a[rel=&#39;nofollow self&#39;]’)</li>
+<li>escaped double quotes inside double quotes: $(“a[rel=&quot;nofollow self&quot;]”)</li>
+</ul>
+<ul>
+<li>Has Attribute Selector: 是否包含某属性<br><code>jQuery( &quot;[attribute]&quot; )</code></li>
+<li>Attribute Equals Selector: 属性是某一具体值<br><code>jQuery( &quot;[attribute=&#39;value&#39;]&quot; )</code></li>
+<li>Attribute Starts With Selector: 属性以某值开头<br><code>jQuery( &quot;[attribute^=&#39;value&#39;]&quot; )</code></li>
+<li>Attribute Ends With Selector: 属性以某值结尾<br><code>jQuery( &quot;[attribute$=&#39;value&#39;]&quot; )</code></li>
+<li>Attribute Contains Selector: 属性包含某值<br><code>jQuery( &quot;[attribute*=&#39;value&#39;]&quot; )</code></li>
+</ul>
+<h2 id="基础过滤器（Basic-Filter）"><a href="#基础过滤器（Basic-Filter）" class="headerlink" title="基础过滤器（Basic Filter）"></a>基础过滤器（Basic Filter）</h2><p>根据函数捕获对象，就是选择器选择到对象后进行二次筛选。</p>
+<ul>
+<li>:eq() Selector: 下标等于某个值<br><code>jQuery( &quot;:eq(index)&quot; )</code></li>
+<li>:even Selector: 偶数<br><code>jQuery( &quot;:even&quot; )</code></li>
+<li>:odd Selector: 奇数<br><code>jQuery( &quot;:odd&quot; )</code></li>
+<li>:gt() Selector: 大于某个值<br><code>jQuery( &quot;:gt(index)&quot; )</code></li>
+<li>:lt() Selector: 小于某个值<br><code>jQuery( &quot;:lt(index)&quot; )</code></li>
+<li>:first Selector: 第一个元素<br><code>jQuery( &quot;:first&quot; )</code></li>
+<li>:last Selector: 最后一个元素<br><code>jQuery( &quot;:last&quot; )</code></li>
+<li>:not() Selector: 排除，非<br><code>jQuery( &quot;:not(selector)&quot; )</code></li>
+</ul>
+<h2 id="根据子节点过滤（Child-Filter）"><a href="#根据子节点过滤（Child-Filter）" class="headerlink" title="根据子节点过滤（Child Filter）"></a>根据子节点过滤（Child Filter）</h2><p>根据函数捕获对象，就是选择器选择到对象后进行二次筛选。</p>
+<ul>
+<li>:first-child Selector: 第一个子节点<br><code>jQuery( &quot;:first-child&quot; )</code></li>
+<li>:last-child Selector: 最后一个子节点<br><code>jQuery( &quot;:last-child&quot; )</code></li>
+<li>:nth-child() Selector: 子节点索引，从1开始<br><code>jQuery( &quot;:nth-child(index/even/odd/equation)&quot; )</code></li>
+</ul>
+<h2 id="根据表单控件（Form）"><a href="#根据表单控件（Form）" class="headerlink" title="根据表单控件（Form）"></a>根据表单控件（Form）</h2><p>根据表单元素的类型等获取对象。</p>
+<ul>
+<li>:checkbox Selector: 所有的复选框<br><code>jQuery( &quot;:checkbox&quot; )</code></li>
+<li>:checked Selector: checked or selected<br><code>jQuery( &quot;:checked&quot; )</code></li>
+</ul>
+<h2 id="根据可见性（Visibility-Filter）"><a href="#根据可见性（Visibility-Filter）" class="headerlink" title="根据可见性（Visibility Filter）"></a>根据可见性（Visibility Filter）</h2><p>根据元素是否可见，共有两个。</p>
+<ul>
+<li>:hidden Selector: 隐藏<br><code>jQuery( &quot;:hidden&quot; )</code></li>
+<li>:visible Selector: 可见<br><code>jQuery( &quot;:visible&quot; )</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>selector</tag>
+        <tag>attribute</tag>
+      </tags>
+  </entry>
 </search>
