@@ -4,7 +4,7 @@ tags:
   - selector
   - attribute
 categories: jQuery
-excerpt: ff
+excerpt: jQuery常用选择器
 abbrlink: ca11ba0c
 date: 2020-08-26 11:12:54
 ---
