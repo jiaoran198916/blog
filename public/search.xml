@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>awk命令详解</title>
+    <url>/p/cf83d80f/</url>
+    <content><![CDATA[<p>awk是一个强大的文本分析工具，是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
+<a id="more"></a>
+<p>awk其名称得自于它的创始人 <code>Alfred Aho</code> 、<code>Peter Weinberger</code> 和 <code>Brian Kernighan</code> 姓氏的首字母。实际上 AWK 的确拥有自己的语言： AWK程序设计语言，三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。</p>
+<hr>
+<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk [-F  field-separator]  &#39;commands&#39;  input-file(s)</span><br></pre></td></tr></table></figure>
+<p>其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。默认的域分隔符是空格。</p>
+<hr>
+<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>获取当前目录下所有文件大小</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -l |awk &#39;&#123;print $5&#125;&#39;</span><br></pre></td></tr></table></figure>
+<p>读入有”\n”换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。所以$5表示文件大小以此类推。</p>
+<hr>
+<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>显示 /etc/passwd 的账户和账户对应的shell，而账户与shell之间以tab键分割，并且在所有行前添加列名name,shell,在最后一行添加”blue,/bin/nosh”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;passwd |awk  -F &#39;:&#39;  &#39;BEGIN &#123;print &quot;name,shell&quot;&#125;  &#123;print $1&quot;,&quot;$7&#125; END &#123;print &quot;blue,&#x2F;bin&#x2F;nosh&quot;&#125;&#39;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><p>搜索/etc/passwd有root关键字的所有行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk -F: &#39;&#x2F;^root&#x2F;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>pattern的使用示例，匹配了pattern(这里是以root开头)的行才会执行action(没有指定action，默认输出每行的内容)。</p>
+<hr>
+<h2 id="示例4"><a href="#示例4" class="headerlink" title="示例4"></a>示例4</h2><p>统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;print &quot;filename:&quot; FILENAME &quot;,linenumber:&quot; NR &quot;,columns:&quot; NF &quot;,linecontent:&quot;$0&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<p>FILENAME，NR，NF是内置变量，常用变量如下</p>
+<ul>
+<li>ARGC               命令行参数个数</li>
+<li>ARGV               命令行参数排列</li>
+<li>ENVIRON            支持队列中系统环境变量的使用</li>
+<li>FILENAME           awk浏览的文件名</li>
+<li>FNR                浏览文件的记录数</li>
+<li>FS                 设置输入域分隔符，等价于命令行 -F选项</li>
+<li>NF                 浏览记录的域的个数</li>
+<li>NR                 已读的记录数</li>
+<li>OFS                输出域分隔符</li>
+<li>ORS                输出记录分隔符</li>
+<li>RS                 控制记录分隔符</li>
+</ul>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filename:&#x2F;etc&#x2F;passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+<p>使用printf替代print，可以让代码更加简洁，易读</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;printf(&quot;filename:%10s,linenumber:%s,columns:%s,linecontent:%s\n&quot;,FILENAME,NR,NF,$0)&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
+<h2 id="awk编程"><a href="#awk编程" class="headerlink" title="awk编程"></a>awk编程</h2><p>略，留给运维同学去研究。</p>
+<hr>
+<p>awk编程的内容超级多，更多请参考 <a href="http://www.gnu.org/software/gawk/manual/gawk.html">The GNU Awk User’s Guide</a></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>awk</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>乳赋</title>
     <url>/p/6a2ef26b/</url>
     <content><![CDATA[<p>陈独秀著</p>
@@ -136,6 +188,51 @@
       </categories>
       <tags>
         <tag>水印</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>9、对象创建模式</title>
+    <url>/p/a879112e/</url>
+    <content><![CDATA[<p>一共5种，除了工厂函数不常用外，其他都很常用。</p>
+<h2 id="方式一-Object构造函数模式"><a href="#方式一-Object构造函数模式" class="headerlink" title="方式一: Object构造函数模式"></a>方式一: Object构造函数模式</h2><ul>
+<li>套路: 先创建空Object对象, 再动态添加属性/方法</li>
+<li>适用场景: 起始时不确定对象内部数据</li>
+<li>问题: 语句太多</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj &#x3D; new Object()</span><br><span class="line">obj.name &#x3D; &#39;Tom&#39;</span><br><span class="line">obj.setName &#x3D; function(name)&#123;this.name&#x3D;name&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="方式二-对象字面量模式"><a href="#方式二-对象字面量模式" class="headerlink" title="方式二: 对象字面量模式"></a>方式二: 对象字面量模式</h2><ul>
+<li>套路: 使用{}创建对象, 同时指定属性/方法</li>
+<li>适用场景: 起始时对象内部数据是确定的</li>
+<li>问题: 如果创建多个对象, 有重复代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var p &#x3D; &#123;</span><br><span class="line">  name: &#39;Tom&#39;,</span><br><span class="line">  age: 12,</span><br><span class="line">  setName: function (name) &#123;</span><br><span class="line">    this.name &#x3D; name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="方式三-工厂模式"><a href="#方式三-工厂模式" class="headerlink" title="方式三: 工厂模式"></a>方式三: 工厂模式</h2><ul>
+<li>套路: 通过工厂函数动态创建对象并返回</li>
+<li>适用场景: 需要创建多个对象</li>
+<li>问题: 对象没有一个具体的类型, 都是Object类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function createPerson(name, age) &#123;</span><br><span class="line">  var obj &#x3D; &#123;</span><br><span class="line">    name: name,</span><br><span class="line">    age: age,</span><br><span class="line">    setName: function (name) &#123;</span><br><span class="line">      this.name &#x3D; name</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="方式四-自定义构造函数模式"><a href="#方式四-自定义构造函数模式" class="headerlink" title="方式四: 自定义构造函数模式"></a>方式四: 自定义构造函数模式</h2><ul>
+<li>套路: 自定义构造函数, 通过new创建对象</li>
+<li>适用场景: 需要创建多个类型确定的对象</li>
+<li>问题: 每个对象都有相同的数据, 浪费内存</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">  this.name &#x3D; name;</span><br><span class="line">  this.age &#x3D; age;</span><br><span class="line">  this.setName &#x3D; function(name)&#123;this.name&#x3D;name;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">new Person(&#39;tom&#39;, 12);</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="方式五-构造函数-原型的组合模式"><a href="#方式五-构造函数-原型的组合模式" class="headerlink" title="方式五: 构造函数+原型的组合模式"></a>方式五: 构造函数+原型的组合模式</h2><ul>
+<li>套路: 自定义构造函数, 属性在函数中初始化, 方法添加到原型上</li>
+<li>适用场景: 需要创建多个类型确定的对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">   this.name &#x3D; name</span><br><span class="line">   this.age &#x3D; age</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.setName &#x3D; function (name) &#123;</span><br><span class="line">   this.name &#x3D; name</span><br><span class="line">&#125;</span><br><span class="line">new Person(&#39;Tom&#39;, 23)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>object</tag>
       </tags>
   </entry>
   <entry>
@@ -288,6 +385,32 @@
       <tags>
         <tag>数据类型</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>一个特别有自知之明的人</title>
+    <url>/p/4896b4e3/</url>
+    <content><![CDATA[<div class="note success">
+            <p>我是个特别有自知之明的人，只要对方退一步对我冷淡，我就会连滚带爬火速滚开然后在心里默默格式化这个人。<br>#只要你退一步，剩下九十九步让我来#</p>
+          </div>
+<div class="note info">
+            <p>人生就是一场巨大的俄罗斯方块，美好和顺利会瞬间消失，失败和错误却会不断累积。<br>#没事，大不了重开一局#</p>
+          </div>
+<div class="note warning">
+            <p>手机坏了，老婆拿一个闲置的给我换上。运动鞋挂烂了，老妈心灵手巧给我补上。在这个家里感受到了无微不至的温暖。但有一个疑问“当她们面临和我一样问题的时候，处理方式好像都是换新！”  #心疼自己！#</p>
+          </div>
+<div class="note primary">
+            <p>小时候以为自己有魔法，无论是在树下、草地上、山谷底还是哪里睡着，都能从家里的床上醒来。可是离开了妈妈以后，这个魔法就消失了。<br>#学会独立吧孩砸#</p>
+          </div>
+<div class="note default">
+            <p>和老一辈崩溃了就歇斯底里摔门砸东西不一样，当代摩登的都市人崩溃起来毫无声息，一点迹象都没有。很多年轻人看上去是在发呆或者是玩手机，但其实已经完全崩溃了，你碰一下他他就可能想死了，dead inside。</p>
+          </div>
+<div class="note danger">
+            <p>人生就像不停在用的铅笔，开始很尖，但慢慢的就磨的圆滑了。不过，太过圆滑了，就差不多又该挨削了。</p>
+          </div>
+]]></content>
+      <categories>
+        <category>经典段子</category>
+      </categories>
   </entry>
   <entry>
     <title>6、执行上下文与执行上下文栈</title>
@@ -736,6 +859,165 @@
       </categories>
       <tags>
         <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery选择器</title>
+    <url>/p/ca11ba0c/</url>
+    <content><![CDATA[<h2 id="基础选择器（Basic）"><a href="#基础选择器（Basic）" class="headerlink" title="基础选择器（Basic）"></a>基础选择器（Basic）</h2><ul>
+<li>$(“*“) 所有标签</li>
+<li>$(“.className”)</li>
+<li>$(“#id”)</li>
+<li>$(“标签名”)</li>
+<li>$(“selector1, selector2, selectorN”)</li>
+</ul>
+<h2 id="根据标签层级关系（Hierarchy）"><a href="#根据标签层级关系（Hierarchy）" class="headerlink" title="根据标签层级关系（Hierarchy）"></a>根据标签层级关系（Hierarchy）</h2><ul>
+<li>Child Selector: 匹配 parent 的直接 child<br><code>jQuery( &quot;parent &gt; child&quot; )</code></li>
+<li>Descendant Selector: 匹配ancestor下面的所有 descendant<br><code>jQuery( &quot;ancestor descendant&quot; )</code></li>
+<li>Next Adjacent Selector: 捕获的是 prev 后最近的兄弟 next ，并且必须是直接的兄弟标签<br><code>jQuery( &quot;prev + next&quot; )</code></li>
+<li>Next Siblings Selector: 匹配 prev 后的所有兄弟 siblings 同级关系<br><code>jQuery( &quot;prev ~ siblings&quot; )</code></li>
+</ul>
+<h2 id="根据属性（Attribute）"><a href="#根据属性（Attribute）" class="headerlink" title="根据属性（Attribute）"></a>根据属性（Attribute）</h2><p>写法有如下四种，具体哪一种根据个人习惯。</p>
+<ul>
+<li>double quotes inside single quotes: $(‘a[rel=”nofollow self”]’)</li>
+<li>single quotes inside double quotes: $(“a[rel=’nofollow self’]”)</li>
+<li>escaped single quotes inside single quotes: $(‘a[rel=&#39;nofollow self&#39;]’)</li>
+<li>escaped double quotes inside double quotes: $(“a[rel=&quot;nofollow self&quot;]”)</li>
+</ul>
+<ul>
+<li>Has Attribute Selector: 是否包含某属性<br><code>jQuery( &quot;[attribute]&quot; )</code></li>
+<li>Attribute Equals Selector: 属性是某一具体值<br><code>jQuery( &quot;[attribute=&#39;value&#39;]&quot; )</code></li>
+<li>Attribute Starts With Selector: 属性以某值开头<br><code>jQuery( &quot;[attribute^=&#39;value&#39;]&quot; )</code></li>
+<li>Attribute Ends With Selector: 属性以某值结尾<br><code>jQuery( &quot;[attribute$=&#39;value&#39;]&quot; )</code></li>
+<li>Attribute Contains Selector: 属性包含某值<br><code>jQuery( &quot;[attribute*=&#39;value&#39;]&quot; )</code></li>
+</ul>
+<h2 id="基础过滤器（Basic-Filter）"><a href="#基础过滤器（Basic-Filter）" class="headerlink" title="基础过滤器（Basic Filter）"></a>基础过滤器（Basic Filter）</h2><p>根据函数捕获对象，就是选择器选择到对象后进行二次筛选。</p>
+<ul>
+<li>:eq() Selector: 下标等于某个值<br><code>jQuery( &quot;:eq(index)&quot; )</code></li>
+<li>:even Selector: 偶数<br><code>jQuery( &quot;:even&quot; )</code></li>
+<li>:odd Selector: 奇数<br><code>jQuery( &quot;:odd&quot; )</code></li>
+<li>:gt() Selector: 大于某个值<br><code>jQuery( &quot;:gt(index)&quot; )</code></li>
+<li>:lt() Selector: 小于某个值<br><code>jQuery( &quot;:lt(index)&quot; )</code></li>
+<li>:first Selector: 第一个元素<br><code>jQuery( &quot;:first&quot; )</code></li>
+<li>:last Selector: 最后一个元素<br><code>jQuery( &quot;:last&quot; )</code></li>
+<li>:not() Selector: 排除，非<br><code>jQuery( &quot;:not(selector)&quot; )</code></li>
+</ul>
+<h2 id="根据子节点过滤（Child-Filter）"><a href="#根据子节点过滤（Child-Filter）" class="headerlink" title="根据子节点过滤（Child Filter）"></a>根据子节点过滤（Child Filter）</h2><p>根据函数捕获对象，就是选择器选择到对象后进行二次筛选。</p>
+<ul>
+<li>:first-child Selector: 第一个子节点<br><code>jQuery( &quot;:first-child&quot; )</code></li>
+<li>:last-child Selector: 最后一个子节点<br><code>jQuery( &quot;:last-child&quot; )</code></li>
+<li>:nth-child() Selector: 子节点索引，从1开始<br><code>jQuery( &quot;:nth-child(index/even/odd/equation)&quot; )</code></li>
+</ul>
+<h2 id="根据表单控件（Form）"><a href="#根据表单控件（Form）" class="headerlink" title="根据表单控件（Form）"></a>根据表单控件（Form）</h2><p>根据表单元素的类型等获取对象。</p>
+<ul>
+<li>:checkbox Selector: 所有的复选框<br><code>jQuery( &quot;:checkbox&quot; )</code></li>
+<li>:checked Selector: checked or selected<br><code>jQuery( &quot;:checked&quot; )</code></li>
+</ul>
+<h2 id="根据可见性（Visibility-Filter）"><a href="#根据可见性（Visibility-Filter）" class="headerlink" title="根据可见性（Visibility Filter）"></a>根据可见性（Visibility Filter）</h2><p>根据元素是否可见，共有两个。</p>
+<ul>
+<li>:hidden Selector: 隐藏<br><code>jQuery( &quot;:hidden&quot; )</code></li>
+<li>:visible Selector: 可见<br><code>jQuery( &quot;:visible&quot; )</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>selector</tag>
+        <tag>attribute</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>8、JS中的闭包</title>
+    <url>/p/33819c82/</url>
+    <content><![CDATA[<h2 id="JS中的闭包"><a href="#JS中的闭包" class="headerlink" title="JS中的闭包"></a>JS中的闭包</h2><ul>
+<li>引入<br>需求: 点击某个按钮, 提示”点击的是第 n 个按钮”<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;button&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,length=btns.length; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> btn = btns[i]</span><br><span class="line">    <span class="comment">//将btn所对应的下标保存在btn上</span></span><br><span class="line">    btn.index = i</span><br><span class="line">    btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="string">&#x27;第&#x27;</span>+(<span class="built_in">this</span>.index+<span class="number">1</span>)+<span class="string">&#x27;个&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//利用闭包</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,length=btns.length; i &lt; length; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> btn = btns[j]</span><br><span class="line">      btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">&#x27;第&#x27;</span>+(j+<span class="number">1</span>)+<span class="string">&#x27;个&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)(i)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
+<li>如何产生闭包?<ul>
+<li>当一个嵌套的内部(子)函数引用了嵌套的外部(父)函数的变量(函数)时, 就产生了闭包<ul>
+<li>函数嵌套</li>
+<li>内部函数引用了外部函数的数据(变量/函数)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>闭包到底是什么?<ul>
+<li>理解一: 闭包是嵌套的内部函数(绝大部分人)</li>
+<li>理解二: 包含被引用变量(函数)的对象(极少数人)</li>
+<li>注意: 闭包存在于嵌套的内部函数中</li>
+<li>闭包本质是内部函数中的一个对象, 这个对象中包含引用的变量属性</li>
+</ul>
+</li>
+<li>常见闭包<ul>
+<li><ol>
+<li>将函数作为另一个函数的返回值<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn1() &#123;</span><br><span class="line">  var a &#x3D; 2;</span><br><span class="line">  function fn2() &#123;</span><br><span class="line">    a++;</span><br><span class="line">    console.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">  return fn2;</span><br><span class="line">&#125;</span><br><span class="line">var f &#x3D; fn1();</span><br><span class="line">f();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><ol start="2">
+<li>将函数作为实参传递给另一个函数调用<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function showDelay(msg, time) &#123;</span><br><span class="line">  setTimeout(function () &#123;</span><br><span class="line">    alert(msg)</span><br><span class="line">  &#125;, time)</span><br><span class="line">&#125;</span><br><span class="line">showDelay(&#39;atguigu&#39;, 2000)</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>闭包的作用:<ul>
+<li>使用函数内部的变量在函数执行完后, 仍然存活在内存中(延长了局部变量的生命周期)</li>
+<li>让函数外部可以操作(读写)到函数内部的数据(变量/函数)</li>
+<li>函数执行完后, 函数内部声明的局部变量是否还存在?  //一般是不存在, 存在于闭中的变量才可能存在</li>
+<li>在函数外部能直接访问函数内部的局部变量吗? //不能, 但我们可以通过闭包让外部操作它</li>
+</ul>
+</li>
+<li>闭包的生命周期<ul>
+<li>产生: 在嵌套内部函数定义执行完时就产生了(不是在调用)</li>
+<li>死亡: 在嵌套的内部函数成为垃圾对象时，<code>f = null</code></li>
+</ul>
+</li>
+<li>闭包应用:<ul>
+<li>模块化: 封装一些数据以及操作数据的函数, 向外暴露一些行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">window</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//私有的数据</span></span><br><span class="line">  <span class="keyword">var</span> msg = <span class="string">&#x27;atguigu&#x27;</span></span><br><span class="line">  <span class="keyword">var</span> names = [<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;Love&#x27;</span>, <span class="string">&#x27;you&#x27;</span>]</span><br><span class="line">  <span class="comment">//操作数据的函数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(msg.toUpperCase())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(names.join(<span class="string">&#x27; &#x27;</span>))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.coolModule2 =  &#123;</span><br><span class="line">      doSomething: a,</span><br><span class="line">      doOtherthing: b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure></li>
+<li>循环遍历加监听</li>
+<li>JS框架(jQuery)大量使用了闭包</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>变量占用内存的时间可能会过长</li>
+<li>可能导致内存泄露</li>
+<li>解决:<ul>
+<li>及时释放 : f = null; //让内部函数对象成为垃圾对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul>
+<li>1.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  <span class="comment">//代码片段一</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;The Window&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name : <span class="string">&quot;My Object&quot;</span>,</span><br><span class="line">  getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(object.getNameFunc()());  <span class="comment">//?  the window</span></span><br><span class="line"><span class="comment">//代码片段二</span></span><br><span class="line"><span class="keyword">var</span> name2 = <span class="string">&quot;The Window&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> object2 = &#123;</span><br><span class="line">  name2 : <span class="string">&quot;My Object&quot;</span>,</span><br><span class="line">  getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> that.name2;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(object2.getNameFunc()()); <span class="comment">//?  my object</span></span><br></pre></td></tr></table></figure></li>
+<li>2.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">n,o</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(o)</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> fun(m,n)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = fun(<span class="number">0</span>)</span><br><span class="line">a.fun(<span class="number">1</span>)</span><br><span class="line">a.fun(<span class="number">2</span>)</span><br><span class="line">a.fun(<span class="number">3</span>)<span class="comment">//undefined,0,0,0</span></span><br><span class="line"><span class="keyword">var</span> b = fun(<span class="number">0</span>).fun(<span class="number">1</span>).fun(<span class="number">2</span>).fun(<span class="number">3</span>)<span class="comment">//undefined,0,1,2</span></span><br><span class="line"><span class="keyword">var</span> c = fun(<span class="number">0</span>).fun(<span class="number">1</span>)</span><br><span class="line">c.fun(<span class="number">2</span>)</span><br><span class="line">c.fun(<span class="number">3</span>)<span class="comment">//undefined,0,1,1</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="内存溢出与内存泄露"><a href="#内存溢出与内存泄露" class="headerlink" title="内存溢出与内存泄露"></a>内存溢出与内存泄露</h2><ol>
+<li>内存溢出<ul>
+<li>一种程序运行出现的错误</li>
+<li>当程序运行需要的内存超过了剩余的内存时, 就出抛出内存溢出的错误</li>
+</ul>
+</li>
+<li>内存泄露<ul>
+<li>占用的内存没有及时释放</li>
+<li>内存泄露积累多了就容易导致内存溢出</li>
+<li>常见的内存泄露:<ul>
+<li>意外的全局变量</li>
+<li>没有及时清理的计时器或回调函数</li>
+<li>闭包<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 内存溢出</span></span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    obj[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10000000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;-----&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 2. 内存泄露</span></span><br><span class="line">    <span class="comment">// 意外的全局变量</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10000000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  fn()</span><br><span class="line">   <span class="comment">// 没有及时清理的计时器或回调函数</span></span><br><span class="line">  <span class="keyword">var</span> intervalId = <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//启动循环定时器后不清理</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;----&#x27;</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">  <span class="comment">// clearInterval(intervalId)</span></span><br><span class="line">    <span class="comment">// 闭包</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">4</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(++a)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fn2</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> f = fn1()</span><br><span class="line">  f()</span><br><span class="line">  <span class="comment">// f = null</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>闭包</tag>
       </tags>
   </entry>
   <entry>
@@ -1195,6 +1477,63 @@
       </tags>
   </entry>
   <entry>
+    <title>7、作用域与作用域链</title>
+    <url>/p/7466a774/</url>
+    <content><![CDATA[<h2 id="作用域与作用域链"><a href="#作用域与作用域链" class="headerlink" title="作用域与作用域链"></a>作用域与作用域链</h2><ul>
+<li>理解:<ul>
+<li>作用域: 一块代码区域, 在编码时就确定了, 不会再变化</li>
+<li>作用域链: 多个上下级关系的作用域形成的链, 方向是从下向上的(从内到外)</li>
+</ul>
+</li>
+<li>分类:<ul>
+<li>全局</li>
+<li>函数</li>
+<li>js没有块作用域(在ES6之前)</li>
+</ul>
+</li>
+<li>作用<ul>
+<li>作用域: 隔离变量, 可以在不同作用域定义同名的变量不冲突</li>
+<li>作用域链: 查找变量</li>
+</ul>
+</li>
+<li>区别作用域与执行上下文<ul>
+<li>作用域: 每个函数都会创建自己的作用域，在函数定义时就已经确定了。而不是在函数调用时, 静态的, 编码时就确定了(不是在运行时), 一旦确定就不会变化了</li>
+<li>执行上下文: 动态的, 执行代码时动态创建, 当执行结束消失</li>
+<li>联系: 执行上下文(对象)是从属于所在的作用域</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>面试题1<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(x);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> x = <span class="number">20</span>;</span><br><span class="line">   f();</span><br><span class="line"> &#125;</span><br><span class="line"> show(fn);</span><br></pre></td></tr></table></figure></li>
+<li>面试题2<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(fn)</span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  fn2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(fn2)</span><br><span class="line">   <span class="comment">//console.log(this.fn2)</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JS高级</category>
+      </categories>
+      <tags>
+        <tag>Scope</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SSH客户端连接服务器超时问题</title>
+    <url>/p/f30f991e/</url>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>用SSH客户端连接linux服务器时，经常会出现与服务器会话连接中断现象，造成这个问题的原因是SSH服务有自己独特的会话连接机制。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1、设置服务器向SSH客户端连接会话发送频率和时间"><a href="#1、设置服务器向SSH客户端连接会话发送频率和时间" class="headerlink" title="1、设置服务器向SSH客户端连接会话发送频率和时间"></a>1、设置服务器向SSH客户端连接会话发送频率和时间</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">ClientAliveInterval 60 //定义了每隔多少秒给SSH客户端发送一次信号</span><br><span class="line">ClientAliveCountMax 86400 //定义了超过多少秒后断开与ssh客户端连接</span><br></pre></td></tr></table></figure>
+<h3 id="2、重新启动系统SSH服务"><a href="#2、重新启动系统SSH服务" class="headerlink" title="2、重新启动系统SSH服务"></a>2、重新启动系统SSH服务</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+<p>大功告成！</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+        <tag>超时</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>strtotime关于在某个日期区间的优化</title>
     <url>/p/1cf0e13d/</url>
     <content><![CDATA[<p>工作中，经常碰到需要判断某个当前时间是否在某个时间区间的情况，一般可通过使用 strtotime 将日期转换成时间戳，然后进行比较，比如：</p>
@@ -1326,6 +1665,61 @@
       </tags>
   </entry>
   <entry>
+    <title>【P2C3】The Compassionate</title>
+    <url>/p/efaea7e3/</url>
+    <content><![CDATA[<p>My friends, there has arisen a satire on your friend: “Behold Zarathustra! Walks he not amongst us as if amongst animals?”</p>
+<p>But it is better said in this wise: “The discerning one walks amongst men as amongst animals.”</p>
+<a id="more"></a>
+<p>Man himself is to the discerning one: the animal with red cheeks.</p>
+<p>How has that happened to him? Is it not because he has had to be ashamed too oft?</p>
+<p>O my friends! Thus speaks the discerning one: shame, shame, shamethat is the history of man!</p>
+<p>And on that account does the noble one enjoin on himself not to abash: bashfulness does he enjoin himself in presence of all sufferers.</p>
+<p>I like them not, the merciful ones, whose bliss is in their pity: too destitute are they of bashfulness.</p>
+<p>If I must be pitiful, I dislike to be called so; and if I be so, it is preferably at a distance.</p>
+<p>Preferably also do I shroud my head, and flee, before being recognized: and thus do I bid you do, my friends!</p>
+<p>May my destiny ever lead unafflicted ones like you across my path, and those with whom I may have hope and repast and honey in common!</p>
+<p>I have done this and that for the afflicted: but something better did I always seem to do when I had learned to enjoy myself better.</p>
+<p>Since humanity came into being, man has enjoyed himself too little: that alone, my brothers, is our original sin!</p>
+<p>And when we learn better to enjoy ourselves, then do we unlearn best to give pain to others, and to contrive pain.</p>
+<p>Therefore do I wash the hand that has helped the sufferer; therefore do I wipe also my soul.</p>
+<p>For in seeing the sufferer suffering- thereof was I ashamed on account of his shame; and in helping him, sorely did I wound his pride.</p>
+<p>Great obligations do not make grateful, but revengeful; and when a small kindness is not forgotten, it becomes a gnawing worm.</p>
+<p>“Be shy in accepting! Distinguish by accepting!”- thus do I advise those who have naught to give.</p>
+<p>I, however, am a giver: willingly do I give as friend to friends. Strangers, however, and the poor, may pluck for themselves the fruit from my tree: thus does it cause less shame.</p>
+<p>Beggars, however, one should entirely do away with! it annoys one to give to them, and it annoys one not to give to them.</p>
+<p>And likewise sinners and bad consciences! Believe me, my friends: the sting of conscience teaches one to sting.</p>
+<p>The worst things, however, are the petty thoughts. Better to have done evilly than to have thought pettily!</p>
+<p>To be sure, you say: “The delight in petty evils spares one many a great evil deed.” But here one should not wish to be sparing.</p>
+<p>Like a boil is the evil deed: it itches and irritates and breaks forth- it speaks honorably.</p>
+<p>“Behold, I am disease,” says the evil deed: that is its honorableness.</p>
+<p>But like infection is the petty thought: it creeps and hides, and wants to be nowhere- until the whole body is decayed and withered by the petty infection.</p>
+<p>To him however, who is possessed of a devil, I would whisper this word in the ear: “Better for you to rear up your devil! Even for you there is still a path to greatness!”-</p>
+<p>Ah, my brothers! One knows a little too much about every one! And many a one becomes transparent to us, but still we can by no means penetrate him.</p>
+<p>It is difficult to live among men because silence is so difficult.</p>
+<p>And not to him who is offensive to us are we most unfair, but to him who does not concern us at all.</p>
+<p>If, however, you have a suffering friend, then be a resting-place for his suffering; like a hard bed, however, a camp-bed: thus will you serve him best.</p>
+<p>And if a friend does you wrong, then say: “I forgive you what you have done to me; that you have done it to yourself, however- how could I forgive that!”</p>
+<p>Thus speaks all great love: it overcomes even forgiveness and pity.</p>
+<p>One should hold fast one’s heart; for when one lets it go, how quickly does one’s head run away!</p>
+<p>Ah, where in the world have there been greater follies than with the pitiful? And what in the world has caused more suffering than the follies of the pitiful?</p>
+<p>Woe to all loving ones who have not an elevation which is above their pity!</p>
+<p>Thus spoke the devil to me, once on a time: “Even God has his hell: it is his love for man.”</p>
+<p>And lately, did I hear him say these words: “God is dead: of his pity for man has God died.”-</p>
+<p>So be you warned against pity: from thence there yet comes to men a heavy cloud! I understand weather-signs!</p>
+<p>But attend also to this word: All great love is above all its pity: for it seeks- to create what is loved!</p>
+<p>“Myself do I offer to my love, and my neighbor as myself”- such is the language of all creators.</p>
+<p>All creators, however, are hard.-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【P1C4】The Despisers of the Body</title>
     <url>/p/50bd86d4/</url>
     <content><![CDATA[<p>To the despisers of the body I speak my word. I wish them neither to learn afresh, nor teach anew, but only to bid farewell to their own bodies,- and thus become silent.</p>
@@ -1358,6 +1752,58 @@
       </categories>
       <tags>
         <tag>哲学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P2C8】The Famous Wise Men</title>
+    <url>/p/a0eaddb2/</url>
+    <content><![CDATA[<p>The people have you served and the people’s superstition- not the truth!- all you famous wise ones! And just on that account did they pay you reverence.</p>
+<p>And on that account also did they tolerate your unbelief, because it was a pleasantry and a by-path for the people. Thus does the master give free scope to his slaves, and even enjoys their presumptuousness.</p>
+<a id="more"></a>
+<p>But he who is hated by the people, as the wolf by the dogs- is the free spirit, the enemy of fetters, the non-adorer, the dweller in the woods.</p>
+<p>To hunt him out of his lair- that was always called “sense of right” by the people: on him do they still hound their sharpest-toothed dogs.</p>
+<p>“For there the truth is, where the people are! Woe, woe to the seeking ones!”- thus has it echoed through all time.</p>
+<p>Your people would you justify in their reverence: that called you “Will to Truth,” you famous wise ones!</p>
+<p>And your heart has always said to itself: “From the people have I come: from thence came to me also the voice of God.”</p>
+<p>Stiff-necked and artful, like the ass, have you always been, as the advocates of the people.</p>
+<p>And many a powerful one who wanted to run well with the people, has harnessed in front of his horses- a donkey, a famous wise man.</p>
+<p>And now, you famous wise ones, I would have you finally throw off entirely the skin of the lion!</p>
+<p>The skin of the beast of prey, the speckled skin, and the dishevelled locks of the investigator, the searcher, and the conqueror!</p>
+<p>Ah! for me to learn to believe in your “conscientiousness,” you would first have to break your venerating will.</p>
+<p>Conscientious- so call I him who goes into God-forsaken wildernesses, and has broken his venerating heart.</p>
+<p>In the yellow sands and burnt by the sun, he doubtless peers thirstily at the isles rich in fountains, where life reposes under shady trees.</p>
+<p>But his thirst does not persuade him to become like those comfortable ones: for where there are oases, there are also idols.</p>
+<p>Hungry, fierce, lonesome, God-forsaken: so does the lion-will wish itself.</p>
+<p>Free from the happiness of slaves, redeemed from deities and adorations, fearless and fear-inspiring, grand and lonesome: so is the will of the conscientious.</p>
+<p>In the wilderness have ever dwelt the conscientious, the free spirits, as lords of the wilderness; but in the cities dwell the well-foddered, famous wise ones- the draught-beasts.</p>
+<p>For, always do they draw, as asses- the people’s carts!</p>
+<p>Not that I on that account upbraid them: but serving ones do they remain, and harnessed ones, even though they glitter in golden harness.</p>
+<p>And often have they been good servants and worthy of their hire. For thus says virtue: “If you must be a servant, seek him to whom your service is most useful!</p>
+<p>The spirit and virtue of your master shall advance by you being his servant: thus will you yourself advance with his spirit and virtue!”</p>
+<p>And verily, you famous wise ones, you servants of the people! You yourselves have advanced with the people’s spirit and virtue- and the people by you! To your honor do I say it!</p>
+<p>But the people you remain for me, even with your virtues, the people with purblind eyes- the people who know not what spirit is!</p>
+<p>Spirit is life which itself cuts into life: by its own torture does it increase its own knowledge,- did you know that before?</p>
+<p>And the spirit’s happiness is this: to be anointed and consecrated with tears as a sacrificial victim,- did you know that before?</p>
+<p>And the blindness of the blind one, and his seeking and groping, shall yet testify to the power of the sun into which he has gazed,- did you know that before?</p>
+<p>And with mountains shall the discerning one learn to build! It is a small thing for the spirit to remove mountains,- did you know that before?</p>
+<p>You know only the sparks of the spirit: but you do not see the anvil which it is, and the cruelty of its hammer!</p>
+<p>You know not the spirit’s pride! But still less could you endure the spirit’s humility, should it ever want to speak!</p>
+<p>And never yet could you cast your spirit into a pit of snow: you are not hot enough for that! Thus are you unaware, also, of the delight of its coldness.</p>
+<p>In all respects, however, you make too familiar with the spirit; and out of wisdom have you often made an alms-house and a hospital for bad poets.</p>
+<p>You are not eagles: thus have you never experienced the happiness of the alarm of the spirit. And he who is not a bird should not camp above abysses.</p>
+<p>You seem to me lukewarm ones: but coldly flows all deep knowledge. Ice-cold are the innermost wells of the spirit: a refreshment to hot hands and handlers.</p>
+<p>Respectable do you there stand, and stiff, and with straight backs, you famous wise ones!- no strong wind or will impels you.</p>
+<p>Have you ne’er seen a sail crossing the sea, rounded and inflated, and trembling with the violence of the wind?</p>
+<p>Like the sail trembling with the violence of the spirit, does my wisdom cross the sea- my wild wisdom!</p>
+<p>But you servants of the people, you famous wise ones- how could you go with me!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
       </tags>
   </entry>
   <entry>
@@ -1573,6 +2019,48 @@
       </tags>
   </entry>
   <entry>
+    <title>【P2C9】The Night Song</title>
+    <url>/p/b1acfdd4/</url>
+    <content><![CDATA[<p>‘TIS night: now do all gushing fountains speak louder. And my soul also is a gushing fountain.</p>
+<p>‘Tis night: now only do all songs of the loving ones awake. And my soul also is the song of a loving one.</p>
+<a id="more"></a>
+<p>Something unappeased, unappeasable, is within me; it longs to find expression. A craving for love is within me, which speaks itself the language of love.</p>
+<p>Light am I: ah, that I were night! But it is my lonesomeness to be begirt with light!</p>
+<p>Ah, that I were dark and nightly! How would I suck at the breasts of light!</p>
+<p>And you yourselves would I bless, you twinkling starlets and glowworms aloft!- and would rejoice in the gifts of your light.</p>
+<p>But I live in my own light, I drink again into myself the flames that break forth from me.</p>
+<p>I know not the happiness of the receiver; and oft have I dreamt that stealing must be more blessed than receiving.</p>
+<p>It is my poverty that my hand never ceases giving; it is my envy that I see waiting eyes and the brightened nights of longing.</p>
+<p>Oh, the misery of all givers! Oh, the darkening of my sun! Oh, the craving to crave! Oh, the violent hunger in satiety!</p>
+<p>They take from me: but do I yet touch their soul? There is a gap ‘twixt giving and receiving; and the small gap has finally to be bridged over.</p>
+<p>A hunger arises out of my beauty: I should like to injure those I illumine; I should like to rob those I have gifted:- thus do I hunger for wickedness.</p>
+<p>Withdrawing my hand when another hand already stretches out to it; hesitating like the cascade, which hesitates even in its leap:- thus do I hunger for wickedness!</p>
+<p>Such revenge does my abundance think of such mischief wells out of my lonesomeness.</p>
+<p>My happiness in giving died in giving; my virtue became weary of itself by its abundance!</p>
+<p>He who ever gives is in danger of losing his shame; to him who ever dispenses, the hand and heart become callous by very dispensing.</p>
+<p>My eye no longer overflows for the shame of suppliants; my hand has become too hard for the trembling of filled hands.</p>
+<p>Whence have gone the tears of my eye, and the down of my heart? Oh, the lonesomeness of all givers! Oh, the silence of all shining ones!</p>
+<p>Many suns circle in desert space: to all that is dark do they speak with their light- but to me they are silent.</p>
+<p>Oh, this is the hostility of light to the shining one: unpityingly does it pursue its course.</p>
+<p>Unfair to the shining one in its innermost heart, cold to the suns:- thus travels every sun.</p>
+<p>Like a storm do the suns pursue their courses: that is their travelling. Their inexorable will do they follow: that is their coldness.</p>
+<p>Oh, you only is it, you dark, nightly ones, that extract warmth from the shining ones! Oh, you only drink milk and refreshment from the light’s udders!</p>
+<p>Ah, there is ice around me; my hand burns with the iciness! Ah, there is thirst in me; it pants after your thirst!</p>
+<p>‘Tis night: alas, that I have to be light! And thirst for the nightly! And lonesomeness!</p>
+<p>‘Tis night: now do my longing break forth in me as a fountain,- for speech do I long.</p>
+<p>‘Tis night: now do all gushing fountains speak louder. And my soul also is a gushing fountain.</p>
+<p>‘Tis night: now do all songs of loving ones awake. And my soul also is the song of a loving one.-</p>
+<p>Thus sang Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【P1C6】The Pale Criminal</title>
     <url>/p/dfd4a9fc/</url>
     <content><![CDATA[<p>YOU do not want to kill, you judges and executioners, until the animal has bowed its head? Behold, the pale criminal has bowed his head: out of his eye speaks the great contempt.</p>
@@ -1641,630 +2129,6 @@
 <p>If you believed more in life, then would you fling yourselves less to the moment. But you do not have enough capacity for waiting- or even for idling!</p>
 <p>Everywhere resounds the voices of those who preach death; and the earth is full of those to whom death must be preached.</p>
 <p>Or “life eternal”; it is all the same to me- if only they pass away quickly!-</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P1C15】The Thousand and One Goals</title>
-    <url>/p/4a4a0f12/</url>
-    <content><![CDATA[<p>Zarathustra saw many lands and many peoples: thus he discovered the good and evil of many peoples. No greater power did Zarathustra find on earth than good and evil.</p>
-<p>No people could live without first valuing; if a people would preserve itself, however, it must not value as its neighbor values.</p>
-<a id="more"></a>
-<p>Much that passed for good with one people was regarded with scorn and contempt by another: thus I found it. Much I found here called evil, which was there decked with purple honors.</p>
-<p>Never did the one neighbor understand the other: always did his soul marvel at his neighbor’s delusion and wickedness.</p>
-<p>A tablet of the good hangs over every people. Behold, it is the tablet of their triumphs; behold, it is the voice of their Will to Power.</p>
-<p>Laudable is all they think difficult; what is indispensable and difficult they call good; and what relieves in the direst distress, the unique and most difficult of all,- they extol as sacred.</p>
-<p>Whatever makes them rule and conquer and shine, to the dismay and envy of their neighbors, they regard as the highest and most important thing, the test and the meaning of all else.</p>
-<p>My brother, if you only knew a people’s need, its land, its sky, and its neighbor, then you would guess the law of its overcomings, and why it climbs up that ladder to its hope.</p>
-<p>“Always shall you be the first and excel all others: your jealous soul shall love no one, except the friend”- that made the soul of a Greek thrill: thereby went he his way to greatness.</p>
-<p>“To speak truth, and be skilful with bow and arrow”- so it seemed both pleasing and difficult to the people who gave me my name- the name which is both pleasing and difficult for me.</p>
-<p>“To honor father and mother, and from the root of the soul to do their will”- this tablet of overcoming another people hung over them, and became powerful and permanent thereby.</p>
-<p>“To be loyal, and for the sake of loyalty to risk honor and blood, even for evil and dangerous purposes”- teaching itself so, another people mastered itself, and thus mastering itself, became pregnant and heavy with great hopes.</p>
-<p>Men have given to themselves all their good and evil. They did not take it, they did not find it, it did not come to them as a voice from heaven.</p>
-<p>Man assigned values to things in order to preserve himself- he alone created the meaning of things, a human meaning! Therefore, calls he himself “man,” that is, the valuator.</p>
-<p>Valuing is creating: hear it, you creators! Valuing itself is the treasure and jewel of all valued things.</p>
-<p>Through valuation only is there value; and without valuation the nut of existence would be hollow. Hear it, you creators!</p>
-<p>Change of values- that means, change of creators. Always he destroys, he who would be a creator.</p>
-<p>Peoples were the first creators, and only in later times individuals; verily, the individual himself is the latest creation.</p>
-<p>Peoples once hung over themselves law-tablets of the good. Love which would rule and love which would obey have created for themselves such law-tablets.</p>
-<p>Pleasure in the herd is older than pleasure in the ego: and as long as the good conscience is for the herd, only the evil conscience says: “I”.</p>
-<p>The crafty ego, the loveless one, that seeks its advantage in the advantage of many- it is not the origin of the herd, but its downfall.</p>
-<p>It was always loving ones and creators that created good and evil. Fire of love glows in the names of all the virtues, and fire of wrath.</p>
-<p>Zarathustra saw many lands, and many peoples: no greater power did Zarathustra find on earth than the creations of the loving ones- “good” and “evil” are their names.</p>
-<p>A monster is this power of praising and blaming. Tell me, you brothers, who will master it for me? Who will yoke the thousand necks of this beast?</p>
-<p>A thousand goals have there been so far, for a there have been a thousand peoples. Only the yoke for the thousand necks is still lacking; there is lacking the one goal. Humanity still has no goal.</p>
-<p>But pray tell me, my brothers, if the goal of humanity is still lacking, is humanity itself- not also lacking?</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P1C8】The Tree on the Hill</title>
-    <url>/p/793aaa02/</url>
-    <content><![CDATA[<p>Zarathustra’s eye had perceived that a certain youth avoided him. And as he walked alone one evening over the hills surrounding the town called “The Pied Cow,” behold, there he found the youth sitting leaning against a tree, and gazing with wearied look into the valley.</p>
-<a id="more"></a>
-<p>Zarathustra then laid hold of the tree beside which the youth sat, and spoke thus:</p>
-<p>“If I wished to shake this tree with my hands, I should not be able to do so.</p>
-<p>But the wind, which we do not see, troubles and bends it as it lists. We are worst bent and troubled by invisible hands.”</p>
-<p>Then the youth arose disconcerted, and said: “I hear Zarathustra, and just now was I thinking of him!” Zarathustra answered:</p>
-<p>“Why are you frightened on that account?- But it is the same with man as with the tree.</p>
-<p>The more he seeks to rise into the height and light, the more vigorously do his roots struggle earthward, downward, into the dark and deep- into evil.”</p>
-<p>“Yes, into evil!” cried the youth. “How is it possible that you have discovered my soul?”</p>
-<p>Zarathustra smiled, and said: “Many a soul one can never discover, unless one firsts invents it.”</p>
-<p>“Yes, into evil!” cried the youth once more.</p>
-<p>“You said the truth, Zarathustra. I trust myself no longer since I sought to rise into the height, and nobody trusts me any longer; how does that happen?</p>
-<p>I change too quickly: my today refutes my yesterday. I often overleap the steps when I climb; none of the steps pardons me for it.</p>
-<p>When aloft, I find myself always alone. No one speaks to me; the frost of solitude makes me tremble. What do I seek in the heights?</p>
-<p>My contempt and my longing increase together; the higher I climb, the more do I despise him who climbs. What does he seek in the heights?</p>
-<p>How ashamed I am of my climbing and stumbling! How I mock my violent panting! How I hate him who flies! How tired I am on the height!”</p>
-<p>Here the youth was silent. And Zarathustra contemplated the tree beside which they stood, and spoke thus:</p>
-<p>“This tree stands lonely here on the hills; it has grown up high above man and beast.</p>
-<p>And if it wanted to speak, there would be no one who could understand it: so high has it grown.</p>
-<p>Now it waits and waits,- for what does it wait? It dwells too close to the seat of the clouds; it waits- for the lightning?”</p>
-<p>When Zarathustra had said this, the youth called out with violent gestures: “Yes, Zarathustra, you speak the truth. I longed for my destruction, when I wanted to be in the heights, and you are the lightning for which I waited! Behold, what have I been since you have appeared amongst us? It is my envy of you that has destroyed me!”- Thus spoke the youth, and wept bitterly. Zarathustra, however, put his arm about him, and led the youth away with him.</p>
-<p>And when they had walked a while together, Zarathustra began to speak thus:</p>
-<p>It rends my heart. Better than your words can express it, your eyes tell me all your danger.</p>
-<p>You are not yet free; you still search for freedom. You are too weary from your search, and too wakeful.</p>
-<p>You aspire to the heights; you thirst for the stars. But your evil impulses also thirst for freedom.</p>
-<p>Your wild dogs want freedom; they bark for joy in their cellar when your spirit trys to open all prison doors.</p>
-<p>To me you are still a prisoner who seeks his freedom: ah! in such prisoners the soul becomes clever, but also deceitful and wicked.</p>
-<p>And the liberated spirit must still purify himself. Much of the prison and the mould still remains in him: his eye has still to become pure.</p>
-<p>Yes, I know your danger. But by my love and hope I beseech you: do not throw away your love and hope!</p>
-<p>You still feel noble, and others still feel your nobility, though they bear you a grudge and cast evil glances. Know that the noble one stands in everyones way.</p>
-<p>To the good, also, a noble one stands in the way: and even when they call him a good man, they want to push him aside.</p>
-<p>The noble man would create the new, and a new virtue. The good want the old, and that the old should be preserved.</p>
-<p>But it is not the danger of the noble man that he might become one of the good, but that he might become a blusterer, a scoffer, or a destroyer.</p>
-<p>Ah! I have known noble ones who lost their highest hope. And then they slandered all high hopes.</p>
-<p>Then they lived shamelessly in brief pleasures, only lived from day to day.</p>
-<p>“Spirit too is lust,”- they said. The wings of their spirit are broken; and now their spirit crawls about, and defiles what it gnaws.</p>
-<p>Once they thought of becoming heroes; now they are libertines. The idea of the hero offends and troubles them.</p>
-<p>But by my love and hope I beseech you: do not throw away the hero in your soul! Keep sacred your highest hope!-</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P1C17】The Way of the Creator</title>
-    <url>/p/41969214/</url>
-    <content><![CDATA[<p>Would you go into solitude, my brother? would you seek the way to yourself? The wait a moment and listen to me.</p>
-<p>“He who seeks may easily get lost himself. All solitude is wrong”: so say the herd. And long did you belong to the herd.</p>
-<a id="more"></a>
-<p>The voice of the herd will still echo in you. And when you say, “I no longer have a conscience in common with you,” then it will be a grief and a pain.</p>
-<p>Lo, that same conscience created that pain; and the last gleam of that conscience still glows on your affliction.</p>
-<p>But you would go the way of your affliction, which is the way to yourself? Then show me your right and your strength to do so!</p>
-<p>Are you a new strength and a new right? A first motion? A self-rolling wheel? Can you even compel the stars to revolve around you?</p>
-<p>Alas! there is so much lusting for loftiness! There are so many convulsions of the ambitious! Show me that you are not a lusting and ambitious one!</p>
-<p>Alas! there are so many great thoughts that do nothing more than the bellows: they inflate, and make emptier than ever.</p>
-<p>Free, do you call yourself? Then I would hear your ruling thought, and not merely that you have escaped from a yoke.</p>
-<p>Are you one of those who had the right to escape from a yoke? Many a one has cast away his last worth when he has cast away his servitude.</p>
-<p>Free from what? What does that matter to Zarathustra! But your fiery eyes should tell me: free for what?</p>
-<p>Can you give yourself your own evil and good, and set up your own will as a law over you? Can you be judge for yourself, and avenger of your law?</p>
-<p>Terrible is it to be alone with the judge and avenger of one’s own law. Thus is a star thrown into the void, and into the icy breath of solitude.</p>
-<p>Today you still suffer from the many, you individual; today your courage and hopes are undiminished.</p>
-<p>But one day the solitude will weary you; one day your pride will yield, and your courage quail. You will one day cry: “I am alone!”</p>
-<p>One day you will no longer see your heights, and see too closely your depths; even your sublimity will frighten you like a phantom. You will one day cry: “All is false!”</p>
-<p>There are feelings which seek to kill the solitary one; if they do not succeed, then they themselves must die! But are you capable of this- to be a murderer?</p>
-<p>Have you ever known, my brother, the word “contempt”? And the anguish of your justice in being just to those that despise you?</p>
-<p>You force many to think differently about you; that, they charge bitterly to your account. You came near to them and yet went past: for that they never forgive you.</p>
-<p>You go beyond them: but the higher you rise, the smaller do you appear to the eye of envy. But the flying one is hated most of all.</p>
-<p>“How could you be just to me!”- you must say- “I choose your injustice as my proper lot.</p>
-<p>They cast injustice and filth at the solitary one: but, my brother, if you would be a star, you must shine for them none the less on that account!</p>
-<p>And be on your guard against the good and the just! They would rather crucify those who create their own virtue- they hate the solitary ones.</p>
-<p>Be on your guard, also, against holy simplicity! All that is not simple is unholy to it; it likes to play with fire and burn- at the stake.</p>
-<p>And be on your guard, also, against the assaults of your love! Too readily does the recluse offer his hand to any one he meets.</p>
-<p>To many you may not give a hand, but only a paw; and I want your paw to have claws.</p>
-<p>But the worst enemy you can meet will always be yourself; you ambush yourself in caverns and forests.</p>
-<p>You solitary one, you go the way to yourself! And your way leads you past yourself and your seven devils!</p>
-<p>You will be a heretic to yourself, and a sorcerer and a soothsayer, and a fool, and a doubter, and a reprobate, and a villain.</p>
-<p>You must be ready to burn yourself in your own flame; how could you rise anew if you have not first become ashes!</p>
-<p>You solitary one, you go the way of the creator: you will create a god for yourself out of your seven devils!</p>
-<p>You solitary one, you go the way of the lover: you love yourself, and on that account you despise yourself, as only the lover can despise.</p>
-<p>The lover wants to create because he despises! What does he know of love who has not despised that which he loved!</p>
-<p>With your love and with your creating go into your solitude, my brother; only much later will justice limp after you.</p>
-<p>With my tears, go into your solitude, my brother. I love him who seeks to create beyond himself, and thus perishes.</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P1C10】War and Warriors</title>
-    <url>/p/1773cf2f/</url>
-    <content><![CDATA[<p>We do not want to be spared by our best enemies, nor by those whom we love from the very heart. So let me tell you the truth!</p>
-<a id="more"></a>
-<p>My brothers in war! I love you from the very heart. I am, and was always, your counterpart. And I am also your best enemy. So let me tell you the truth!</p>
-<p>I know the hatred and envy of your hearts. You are not great enough not to know hatred and envy. Then be great enough not to be ashamed of them!</p>
-<p>And if you cannot be saints of knowledge, then, I pray you, be at least its warriors. They are the companions and precursors of such saints.</p>
-<p>I see many soldiers; If only I saw many warriors! “Uniform” one calls what they wear; if only what it covers were not uniform!</p>
-<p>You shall be those whose eyes always seek for an enemy- for your enemy. And some of you hate at first sight.</p>
-<p>You shall seek your enemy; you shall wage your war- for your thoughts! And if your thoughts perish, your honesty should still shout triumph for that!</p>
-<p>You shall love peace as a means to new wars- and the short peace more than the long.</p>
-<p>I recommend to you not work, but battle. I recommend to you not peace, but victory. Let your work be a battle, let your peace be a victory!</p>
-<p>One can only be silent and sit peacefully when one has arrow and bow; otherwise one chatters and quarrels. Let your peace be a victory!</p>
-<p>You say it is the good cause which hallows even war? I say to you: it is the good war which hallows every cause.</p>
-<p>War and courage have done more great things than charity. Not your sympathy, but your bravery has before now saved the unfortunate.</p>
-<p>“What is good?” you ask. To be brave is good. Let the little girls say: “The good is that which is both pretty and touching.”</p>
-<p>They call you heartless: but your heart is true, and I love that you are ashamed to show it. You are ashamed of your flood, while others are ashamed of their ebb.</p>
-<p>You are ugly? Well then, my brothers, wrap the sublime about you, the cloak of the ugly!</p>
-<p>And when your soul becomes great, then it becomes mischievous, and in your sublimity there is mockery. I know you.</p>
-<p>In mockery the mischievous man and the weakling meet. But they misunderstand each other. I know you.</p>
-<p>You shall only have enemies you can hate, not enemies you despise. You must be proud of your enemy; then, the success of your enemy is also your success.</p>
-<p>Disobedience- that is the nobility of slaves. Let your nobility be obedience. Let your commanding itself be an obeying!</p>
-<p>To the good warrior “thou shalt” sounds better than “I will.” And all that is dear to you, you shall first have it commanded of you.</p>
-<p>Let your love of life be love of your highest hope; and let your highest hope be the highest thought of life!</p>
-<p>Your highest thought, however, you shall receive as a command from me- and it is this: man is something that will be overcome.</p>
-<p>So live your life of obedience and of war! What matters long life! What warrior wishes to be spared!</p>
-<p>I do not spare you, I love you from my very heart, my brothers in war!-</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>7、作用域与作用域链</title>
-    <url>/p/7466a774/</url>
-    <content><![CDATA[<h2 id="作用域与作用域链"><a href="#作用域与作用域链" class="headerlink" title="作用域与作用域链"></a>作用域与作用域链</h2><ul>
-<li>理解:<ul>
-<li>作用域: 一块代码区域, 在编码时就确定了, 不会再变化</li>
-<li>作用域链: 多个上下级关系的作用域形成的链, 方向是从下向上的(从内到外)</li>
-</ul>
-</li>
-<li>分类:<ul>
-<li>全局</li>
-<li>函数</li>
-<li>js没有块作用域(在ES6之前)</li>
-</ul>
-</li>
-<li>作用<ul>
-<li>作用域: 隔离变量, 可以在不同作用域定义同名的变量不冲突</li>
-<li>作用域链: 查找变量</li>
-</ul>
-</li>
-<li>区别作用域与执行上下文<ul>
-<li>作用域: 每个函数都会创建自己的作用域，在函数定义时就已经确定了。而不是在函数调用时, 静态的, 编码时就确定了(不是在运行时), 一旦确定就不会变化了</li>
-<li>执行上下文: 动态的, 执行代码时动态创建, 当执行结束消失</li>
-<li>联系: 执行上下文(对象)是从属于所在的作用域</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li>面试题1<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(x);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">var</span> x = <span class="number">20</span>;</span><br><span class="line">   f();</span><br><span class="line"> &#125;</span><br><span class="line"> show(fn);</span><br></pre></td></tr></table></figure></li>
-<li>面试题2<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(fn)</span><br><span class="line">&#125;</span><br><span class="line">fn()</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  fn2: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(fn2)</span><br><span class="line">   <span class="comment">//console.log(this.fn2)</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2()</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JS高级</category>
-      </categories>
-      <tags>
-        <tag>Scope</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>8、JS中的闭包</title>
-    <url>/p/33819c82/</url>
-    <content><![CDATA[<h2 id="JS中的闭包"><a href="#JS中的闭包" class="headerlink" title="JS中的闭包"></a>JS中的闭包</h2><ul>
-<li>引入<br>需求: 点击某个按钮, 提示”点击的是第 n 个按钮”<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;button&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,length=btns.length; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">var</span> btn = btns[i]</span><br><span class="line">    <span class="comment">//将btn所对应的下标保存在btn上</span></span><br><span class="line">    btn.index = i</span><br><span class="line">    btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="string">&#x27;第&#x27;</span>+(<span class="built_in">this</span>.index+<span class="number">1</span>)+<span class="string">&#x27;个&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//利用闭包</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>,length=btns.length; i &lt; length; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> btn = btns[j]</span><br><span class="line">      btn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">&#x27;第&#x27;</span>+(j+<span class="number">1</span>)+<span class="string">&#x27;个&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)(i)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></li>
-<li>如何产生闭包?<ul>
-<li>当一个嵌套的内部(子)函数引用了嵌套的外部(父)函数的变量(函数)时, 就产生了闭包<ul>
-<li>函数嵌套</li>
-<li>内部函数引用了外部函数的数据(变量/函数)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>闭包到底是什么?<ul>
-<li>理解一: 闭包是嵌套的内部函数(绝大部分人)</li>
-<li>理解二: 包含被引用变量(函数)的对象(极少数人)</li>
-<li>注意: 闭包存在于嵌套的内部函数中</li>
-<li>闭包本质是内部函数中的一个对象, 这个对象中包含引用的变量属性</li>
-</ul>
-</li>
-<li>常见闭包<ul>
-<li><ol>
-<li>将函数作为另一个函数的返回值<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function fn1() &#123;</span><br><span class="line">  var a &#x3D; 2;</span><br><span class="line">  function fn2() &#123;</span><br><span class="line">    a++;</span><br><span class="line">    console.log(a);</span><br><span class="line">  &#125;</span><br><span class="line">  return fn2;</span><br><span class="line">&#125;</span><br><span class="line">var f &#x3D; fn1();</span><br><span class="line">f();</span><br><span class="line">f();</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><ol start="2">
-<li>将函数作为实参传递给另一个函数调用<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function showDelay(msg, time) &#123;</span><br><span class="line">  setTimeout(function () &#123;</span><br><span class="line">    alert(msg)</span><br><span class="line">  &#125;, time)</span><br><span class="line">&#125;</span><br><span class="line">showDelay(&#39;atguigu&#39;, 2000)</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ul>
-</li>
-<li>闭包的作用:<ul>
-<li>使用函数内部的变量在函数执行完后, 仍然存活在内存中(延长了局部变量的生命周期)</li>
-<li>让函数外部可以操作(读写)到函数内部的数据(变量/函数)</li>
-<li>函数执行完后, 函数内部声明的局部变量是否还存在?  //一般是不存在, 存在于闭中的变量才可能存在</li>
-<li>在函数外部能直接访问函数内部的局部变量吗? //不能, 但我们可以通过闭包让外部操作它</li>
-</ul>
-</li>
-<li>闭包的生命周期<ul>
-<li>产生: 在嵌套内部函数定义执行完时就产生了(不是在调用)</li>
-<li>死亡: 在嵌套的内部函数成为垃圾对象时，<code>f = null</code></li>
-</ul>
-</li>
-<li>闭包应用:<ul>
-<li>模块化: 封装一些数据以及操作数据的函数, 向外暴露一些行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">window</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//私有的数据</span></span><br><span class="line">  <span class="keyword">var</span> msg = <span class="string">&#x27;atguigu&#x27;</span></span><br><span class="line">  <span class="keyword">var</span> names = [<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;Love&#x27;</span>, <span class="string">&#x27;you&#x27;</span>]</span><br><span class="line">  <span class="comment">//操作数据的函数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(msg.toUpperCase())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(names.join(<span class="string">&#x27; &#x27;</span>))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.coolModule2 =  &#123;</span><br><span class="line">      doSomething: a,</span><br><span class="line">      doOtherthing: b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure></li>
-<li>循环遍历加监听</li>
-<li>JS框架(jQuery)大量使用了闭包</li>
-</ul>
-</li>
-<li>缺点:<ul>
-<li>变量占用内存的时间可能会过长</li>
-<li>可能导致内存泄露</li>
-<li>解决:<ul>
-<li>及时释放 : f = null; //让内部函数对象成为垃圾对象</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ul>
-<li>1.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  <span class="comment">//代码片段一</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&quot;The Window&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> object = &#123;</span><br><span class="line">  name : <span class="string">&quot;My Object&quot;</span>,</span><br><span class="line">  getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.name;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(object.getNameFunc()());  <span class="comment">//?  the window</span></span><br><span class="line"><span class="comment">//代码片段二</span></span><br><span class="line"><span class="keyword">var</span> name2 = <span class="string">&quot;The Window&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> object2 = &#123;</span><br><span class="line">  name2 : <span class="string">&quot;My Object&quot;</span>,</span><br><span class="line">  getNameFunc : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="built_in">this</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> that.name2;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(object2.getNameFunc()()); <span class="comment">//?  my object</span></span><br></pre></td></tr></table></figure></li>
-<li>2.<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">n,o</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(o)</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> fun(m,n)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = fun(<span class="number">0</span>)</span><br><span class="line">a.fun(<span class="number">1</span>)</span><br><span class="line">a.fun(<span class="number">2</span>)</span><br><span class="line">a.fun(<span class="number">3</span>)<span class="comment">//undefined,0,0,0</span></span><br><span class="line"><span class="keyword">var</span> b = fun(<span class="number">0</span>).fun(<span class="number">1</span>).fun(<span class="number">2</span>).fun(<span class="number">3</span>)<span class="comment">//undefined,0,1,2</span></span><br><span class="line"><span class="keyword">var</span> c = fun(<span class="number">0</span>).fun(<span class="number">1</span>)</span><br><span class="line">c.fun(<span class="number">2</span>)</span><br><span class="line">c.fun(<span class="number">3</span>)<span class="comment">//undefined,0,1,1</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h2 id="内存溢出与内存泄露"><a href="#内存溢出与内存泄露" class="headerlink" title="内存溢出与内存泄露"></a>内存溢出与内存泄露</h2><ol>
-<li>内存溢出<ul>
-<li>一种程序运行出现的错误</li>
-<li>当程序运行需要的内存超过了剩余的内存时, 就出抛出内存溢出的错误</li>
-</ul>
-</li>
-<li>内存泄露<ul>
-<li>占用的内存没有及时释放</li>
-<li>内存泄露积累多了就容易导致内存溢出</li>
-<li>常见的内存泄露:<ul>
-<li>意外的全局变量</li>
-<li>没有及时清理的计时器或回调函数</li>
-<li>闭包<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 内存溢出</span></span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">    obj[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10000000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;-----&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 2. 内存泄露</span></span><br><span class="line">    <span class="comment">// 意外的全局变量</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10000000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  fn()</span><br><span class="line">   <span class="comment">// 没有及时清理的计时器或回调函数</span></span><br><span class="line">  <span class="keyword">var</span> intervalId = <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="comment">//启动循环定时器后不清理</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;----&#x27;</span>)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">  <span class="comment">// clearInterval(intervalId)</span></span><br><span class="line">    <span class="comment">// 闭包</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">4</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(++a)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fn2</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> f = fn1()</span><br><span class="line">  f()</span><br><span class="line">  <span class="comment">// f = null</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>JS高级</category>
-      </categories>
-      <tags>
-        <tag>闭包</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>awk命令详解</title>
-    <url>/p/cf83d80f/</url>
-    <content><![CDATA[<p>awk是一个强大的文本分析工具，是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
-<a id="more"></a>
-<p>awk其名称得自于它的创始人 <code>Alfred Aho</code> 、<code>Peter Weinberger</code> 和 <code>Brian Kernighan</code> 姓氏的首字母。实际上 AWK 的确拥有自己的语言： AWK程序设计语言，三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。</p>
-<hr>
-<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk [-F  field-separator]  &#39;commands&#39;  input-file(s)</span><br></pre></td></tr></table></figure>
-<p>其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。<br>在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。默认的域分隔符是空格。</p>
-<hr>
-<h2 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h2><p>获取当前目录下所有文件大小</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ls -l |awk &#39;&#123;print $5&#125;&#39;</span><br></pre></td></tr></table></figure>
-<p>读入有”\n”换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。所以$5表示文件大小以此类推。</p>
-<hr>
-<h2 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h2><p>显示 /etc/passwd 的账户和账户对应的shell，而账户与shell之间以tab键分割，并且在所有行前添加列名name,shell,在最后一行添加”blue,/bin/nosh”</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;passwd |awk  -F &#39;:&#39;  &#39;BEGIN &#123;print &quot;name,shell&quot;&#125;  &#123;print $1&quot;,&quot;$7&#125; END &#123;print &quot;blue,&#x2F;bin&#x2F;nosh&quot;&#125;&#39;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h2><p>搜索/etc/passwd有root关键字的所有行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk -F: &#39;&#x2F;^root&#x2F;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
-<p>pattern的使用示例，匹配了pattern(这里是以root开头)的行才会执行action(没有指定action，默认输出每行的内容)。</p>
-<hr>
-<h2 id="示例4"><a href="#示例4" class="headerlink" title="示例4"></a>示例4</h2><p>统计/etc/passwd:文件名，每行的行号，每行的列数，对应的完整行内容</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;print &quot;filename:&quot; FILENAME &quot;,linenumber:&quot; NR &quot;,columns:&quot; NF &quot;,linecontent:&quot;$0&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
-<p>FILENAME，NR，NF是内置变量，常用变量如下</p>
-<ul>
-<li>ARGC               命令行参数个数</li>
-<li>ARGV               命令行参数排列</li>
-<li>ENVIRON            支持队列中系统环境变量的使用</li>
-<li>FILENAME           awk浏览的文件名</li>
-<li>FNR                浏览文件的记录数</li>
-<li>FS                 设置输入域分隔符，等价于命令行 -F选项</li>
-<li>NF                 浏览记录的域的个数</li>
-<li>NR                 已读的记录数</li>
-<li>OFS                输出域分隔符</li>
-<li>ORS                输出记录分隔符</li>
-<li>RS                 控制记录分隔符</li>
-</ul>
-<p>结果：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filename:&#x2F;etc&#x2F;passwd,linenumber:1,columns:7,linecontent:root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
-<p>使用printf替代print，可以让代码更加简洁，易读</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">awk  -F &#39;:&#39;  &#39;&#123;printf(&quot;filename:%10s,linenumber:%s,columns:%s,linecontent:%s\n&quot;,FILENAME,NR,NF,$0)&#125;&#39; &#x2F;etc&#x2F;passwd</span><br></pre></td></tr></table></figure>
-<h2 id="awk编程"><a href="#awk编程" class="headerlink" title="awk编程"></a>awk编程</h2><p>略，留给运维同学去研究。</p>
-<hr>
-<p>awk编程的内容超级多，更多请参考 <a href="http://www.gnu.org/software/gawk/manual/gawk.html">The GNU Awk User’s Guide</a></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>awk</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>9、对象创建模式</title>
-    <url>/p/a879112e/</url>
-    <content><![CDATA[<p>一共5种，除了工厂函数不常用外，其他都很常用。</p>
-<h2 id="方式一-Object构造函数模式"><a href="#方式一-Object构造函数模式" class="headerlink" title="方式一: Object构造函数模式"></a>方式一: Object构造函数模式</h2><ul>
-<li>套路: 先创建空Object对象, 再动态添加属性/方法</li>
-<li>适用场景: 起始时不确定对象内部数据</li>
-<li>问题: 语句太多</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var obj &#x3D; new Object()</span><br><span class="line">obj.name &#x3D; &#39;Tom&#39;</span><br><span class="line">obj.setName &#x3D; function(name)&#123;this.name&#x3D;name&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="方式二-对象字面量模式"><a href="#方式二-对象字面量模式" class="headerlink" title="方式二: 对象字面量模式"></a>方式二: 对象字面量模式</h2><ul>
-<li>套路: 使用{}创建对象, 同时指定属性/方法</li>
-<li>适用场景: 起始时对象内部数据是确定的</li>
-<li>问题: 如果创建多个对象, 有重复代码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var p &#x3D; &#123;</span><br><span class="line">  name: &#39;Tom&#39;,</span><br><span class="line">  age: 12,</span><br><span class="line">  setName: function (name) &#123;</span><br><span class="line">    this.name &#x3D; name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="方式三-工厂模式"><a href="#方式三-工厂模式" class="headerlink" title="方式三: 工厂模式"></a>方式三: 工厂模式</h2><ul>
-<li>套路: 通过工厂函数动态创建对象并返回</li>
-<li>适用场景: 需要创建多个对象</li>
-<li>问题: 对象没有一个具体的类型, 都是Object类型</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function createPerson(name, age) &#123;</span><br><span class="line">  var obj &#x3D; &#123;</span><br><span class="line">    name: name,</span><br><span class="line">    age: age,</span><br><span class="line">    setName: function (name) &#123;</span><br><span class="line">      this.name &#x3D; name</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="方式四-自定义构造函数模式"><a href="#方式四-自定义构造函数模式" class="headerlink" title="方式四: 自定义构造函数模式"></a>方式四: 自定义构造函数模式</h2><ul>
-<li>套路: 自定义构造函数, 通过new创建对象</li>
-<li>适用场景: 需要创建多个类型确定的对象</li>
-<li>问题: 每个对象都有相同的数据, 浪费内存</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">  this.name &#x3D; name;</span><br><span class="line">  this.age &#x3D; age;</span><br><span class="line">  this.setName &#x3D; function(name)&#123;this.name&#x3D;name;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">new Person(&#39;tom&#39;, 12);</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="方式五-构造函数-原型的组合模式"><a href="#方式五-构造函数-原型的组合模式" class="headerlink" title="方式五: 构造函数+原型的组合模式"></a>方式五: 构造函数+原型的组合模式</h2><ul>
-<li>套路: 自定义构造函数, 属性在函数中初始化, 方法添加到原型上</li>
-<li>适用场景: 需要创建多个类型确定的对象</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function Person(name, age) &#123;</span><br><span class="line">   this.name &#x3D; name</span><br><span class="line">   this.age &#x3D; age</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.setName &#x3D; function (name) &#123;</span><br><span class="line">   this.name &#x3D; name</span><br><span class="line">&#125;</span><br><span class="line">new Person(&#39;Tom&#39;, 23)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>JS高级</category>
-      </categories>
-      <tags>
-        <tag>object</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一个特别有自知之明的人</title>
-    <url>/p/4896b4e3/</url>
-    <content><![CDATA[<div class="note success">
-            <p>我是个特别有自知之明的人，只要对方退一步对我冷淡，我就会连滚带爬火速滚开然后在心里默默格式化这个人。<br>#只要你退一步，剩下九十九步让我来#</p>
-          </div>
-<div class="note info">
-            <p>人生就是一场巨大的俄罗斯方块，美好和顺利会瞬间消失，失败和错误却会不断累积。<br>#没事，大不了重开一局#</p>
-          </div>
-<div class="note warning">
-            <p>手机坏了，老婆拿一个闲置的给我换上。运动鞋挂烂了，老妈心灵手巧给我补上。在这个家里感受到了无微不至的温暖。但有一个疑问“当她们面临和我一样问题的时候，处理方式好像都是换新！”  #心疼自己！#</p>
-          </div>
-<div class="note primary">
-            <p>小时候以为自己有魔法，无论是在树下、草地上、山谷底还是哪里睡着，都能从家里的床上醒来。可是离开了妈妈以后，这个魔法就消失了。<br>#学会独立吧孩砸#</p>
-          </div>
-<div class="note default">
-            <p>和老一辈崩溃了就歇斯底里摔门砸东西不一样，当代摩登的都市人崩溃起来毫无声息，一点迹象都没有。很多年轻人看上去是在发呆或者是玩手机，但其实已经完全崩溃了，你碰一下他他就可能想死了，dead inside。</p>
-          </div>
-<div class="note danger">
-            <p>人生就像不停在用的铅笔，开始很尖，但慢慢的就磨的圆滑了。不过，太过圆滑了，就差不多又该挨削了。</p>
-          </div>
-]]></content>
-      <categories>
-        <category>经典段子</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>jQuery选择器</title>
-    <url>/p/ca11ba0c/</url>
-    <content><![CDATA[<h2 id="基础选择器（Basic）"><a href="#基础选择器（Basic）" class="headerlink" title="基础选择器（Basic）"></a>基础选择器（Basic）</h2><ul>
-<li>$(“*“) 所有标签</li>
-<li>$(“.className”)</li>
-<li>$(“#id”)</li>
-<li>$(“标签名”)</li>
-<li>$(“selector1, selector2, selectorN”)</li>
-</ul>
-<h2 id="根据标签层级关系（Hierarchy）"><a href="#根据标签层级关系（Hierarchy）" class="headerlink" title="根据标签层级关系（Hierarchy）"></a>根据标签层级关系（Hierarchy）</h2><ul>
-<li>Child Selector: 匹配 parent 的直接 child<br><code>jQuery( &quot;parent &gt; child&quot; )</code></li>
-<li>Descendant Selector: 匹配ancestor下面的所有 descendant<br><code>jQuery( &quot;ancestor descendant&quot; )</code></li>
-<li>Next Adjacent Selector: 捕获的是 prev 后最近的兄弟 next ，并且必须是直接的兄弟标签<br><code>jQuery( &quot;prev + next&quot; )</code></li>
-<li>Next Siblings Selector: 匹配 prev 后的所有兄弟 siblings 同级关系<br><code>jQuery( &quot;prev ~ siblings&quot; )</code></li>
-</ul>
-<h2 id="根据属性（Attribute）"><a href="#根据属性（Attribute）" class="headerlink" title="根据属性（Attribute）"></a>根据属性（Attribute）</h2><p>写法有如下四种，具体哪一种根据个人习惯。</p>
-<ul>
-<li>double quotes inside single quotes: $(‘a[rel=”nofollow self”]’)</li>
-<li>single quotes inside double quotes: $(“a[rel=’nofollow self’]”)</li>
-<li>escaped single quotes inside single quotes: $(‘a[rel=&#39;nofollow self&#39;]’)</li>
-<li>escaped double quotes inside double quotes: $(“a[rel=&quot;nofollow self&quot;]”)</li>
-</ul>
-<ul>
-<li>Has Attribute Selector: 是否包含某属性<br><code>jQuery( &quot;[attribute]&quot; )</code></li>
-<li>Attribute Equals Selector: 属性是某一具体值<br><code>jQuery( &quot;[attribute=&#39;value&#39;]&quot; )</code></li>
-<li>Attribute Starts With Selector: 属性以某值开头<br><code>jQuery( &quot;[attribute^=&#39;value&#39;]&quot; )</code></li>
-<li>Attribute Ends With Selector: 属性以某值结尾<br><code>jQuery( &quot;[attribute$=&#39;value&#39;]&quot; )</code></li>
-<li>Attribute Contains Selector: 属性包含某值<br><code>jQuery( &quot;[attribute*=&#39;value&#39;]&quot; )</code></li>
-</ul>
-<h2 id="基础过滤器（Basic-Filter）"><a href="#基础过滤器（Basic-Filter）" class="headerlink" title="基础过滤器（Basic Filter）"></a>基础过滤器（Basic Filter）</h2><p>根据函数捕获对象，就是选择器选择到对象后进行二次筛选。</p>
-<ul>
-<li>:eq() Selector: 下标等于某个值<br><code>jQuery( &quot;:eq(index)&quot; )</code></li>
-<li>:even Selector: 偶数<br><code>jQuery( &quot;:even&quot; )</code></li>
-<li>:odd Selector: 奇数<br><code>jQuery( &quot;:odd&quot; )</code></li>
-<li>:gt() Selector: 大于某个值<br><code>jQuery( &quot;:gt(index)&quot; )</code></li>
-<li>:lt() Selector: 小于某个值<br><code>jQuery( &quot;:lt(index)&quot; )</code></li>
-<li>:first Selector: 第一个元素<br><code>jQuery( &quot;:first&quot; )</code></li>
-<li>:last Selector: 最后一个元素<br><code>jQuery( &quot;:last&quot; )</code></li>
-<li>:not() Selector: 排除，非<br><code>jQuery( &quot;:not(selector)&quot; )</code></li>
-</ul>
-<h2 id="根据子节点过滤（Child-Filter）"><a href="#根据子节点过滤（Child-Filter）" class="headerlink" title="根据子节点过滤（Child Filter）"></a>根据子节点过滤（Child Filter）</h2><p>根据函数捕获对象，就是选择器选择到对象后进行二次筛选。</p>
-<ul>
-<li>:first-child Selector: 第一个子节点<br><code>jQuery( &quot;:first-child&quot; )</code></li>
-<li>:last-child Selector: 最后一个子节点<br><code>jQuery( &quot;:last-child&quot; )</code></li>
-<li>:nth-child() Selector: 子节点索引，从1开始<br><code>jQuery( &quot;:nth-child(index/even/odd/equation)&quot; )</code></li>
-</ul>
-<h2 id="根据表单控件（Form）"><a href="#根据表单控件（Form）" class="headerlink" title="根据表单控件（Form）"></a>根据表单控件（Form）</h2><p>根据表单元素的类型等获取对象。</p>
-<ul>
-<li>:checkbox Selector: 所有的复选框<br><code>jQuery( &quot;:checkbox&quot; )</code></li>
-<li>:checked Selector: checked or selected<br><code>jQuery( &quot;:checked&quot; )</code></li>
-</ul>
-<h2 id="根据可见性（Visibility-Filter）"><a href="#根据可见性（Visibility-Filter）" class="headerlink" title="根据可见性（Visibility Filter）"></a>根据可见性（Visibility Filter）</h2><p>根据元素是否可见，共有两个。</p>
-<ul>
-<li>:hidden Selector: 隐藏<br><code>jQuery( &quot;:hidden&quot; )</code></li>
-<li>:visible Selector: 可见<br><code>jQuery( &quot;:visible&quot; )</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>jQuery</category>
-      </categories>
-      <tags>
-        <tag>selector</tag>
-        <tag>attribute</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SSH客户端连接服务器超时问题</title>
-    <url>/p/f30f991e/</url>
-    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>用SSH客户端连接linux服务器时，经常会出现与服务器会话连接中断现象，造成这个问题的原因是SSH服务有自己独特的会话连接机制。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="1、设置服务器向SSH客户端连接会话发送频率和时间"><a href="#1、设置服务器向SSH客户端连接会话发送频率和时间" class="headerlink" title="1、设置服务器向SSH客户端连接会话发送频率和时间"></a>1、设置服务器向SSH客户端连接会话发送频率和时间</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br><span class="line">ClientAliveInterval 60 //定义了每隔多少秒给SSH客户端发送一次信号</span><br><span class="line">ClientAliveCountMax 86400 //定义了超过多少秒后断开与ssh客户端连接</span><br></pre></td></tr></table></figure>
-<h3 id="2、重新启动系统SSH服务"><a href="#2、重新启动系统SSH服务" class="headerlink" title="2、重新启动系统SSH服务"></a>2、重新启动系统SSH服务</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
-<p>大功告成！</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>ssh</tag>
-        <tag>超时</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P2C3】The Compassionate</title>
-    <url>/p/efaea7e3/</url>
-    <content><![CDATA[<p>My friends, there has arisen a satire on your friend: “Behold Zarathustra! Walks he not amongst us as if amongst animals?”</p>
-<p>But it is better said in this wise: “The discerning one walks amongst men as amongst animals.”</p>
-<a id="more"></a>
-<p>Man himself is to the discerning one: the animal with red cheeks.</p>
-<p>How has that happened to him? Is it not because he has had to be ashamed too oft?</p>
-<p>O my friends! Thus speaks the discerning one: shame, shame, shamethat is the history of man!</p>
-<p>And on that account does the noble one enjoin on himself not to abash: bashfulness does he enjoin himself in presence of all sufferers.</p>
-<p>I like them not, the merciful ones, whose bliss is in their pity: too destitute are they of bashfulness.</p>
-<p>If I must be pitiful, I dislike to be called so; and if I be so, it is preferably at a distance.</p>
-<p>Preferably also do I shroud my head, and flee, before being recognized: and thus do I bid you do, my friends!</p>
-<p>May my destiny ever lead unafflicted ones like you across my path, and those with whom I may have hope and repast and honey in common!</p>
-<p>I have done this and that for the afflicted: but something better did I always seem to do when I had learned to enjoy myself better.</p>
-<p>Since humanity came into being, man has enjoyed himself too little: that alone, my brothers, is our original sin!</p>
-<p>And when we learn better to enjoy ourselves, then do we unlearn best to give pain to others, and to contrive pain.</p>
-<p>Therefore do I wash the hand that has helped the sufferer; therefore do I wipe also my soul.</p>
-<p>For in seeing the sufferer suffering- thereof was I ashamed on account of his shame; and in helping him, sorely did I wound his pride.</p>
-<p>Great obligations do not make grateful, but revengeful; and when a small kindness is not forgotten, it becomes a gnawing worm.</p>
-<p>“Be shy in accepting! Distinguish by accepting!”- thus do I advise those who have naught to give.</p>
-<p>I, however, am a giver: willingly do I give as friend to friends. Strangers, however, and the poor, may pluck for themselves the fruit from my tree: thus does it cause less shame.</p>
-<p>Beggars, however, one should entirely do away with! it annoys one to give to them, and it annoys one not to give to them.</p>
-<p>And likewise sinners and bad consciences! Believe me, my friends: the sting of conscience teaches one to sting.</p>
-<p>The worst things, however, are the petty thoughts. Better to have done evilly than to have thought pettily!</p>
-<p>To be sure, you say: “The delight in petty evils spares one many a great evil deed.” But here one should not wish to be sparing.</p>
-<p>Like a boil is the evil deed: it itches and irritates and breaks forth- it speaks honorably.</p>
-<p>“Behold, I am disease,” says the evil deed: that is its honorableness.</p>
-<p>But like infection is the petty thought: it creeps and hides, and wants to be nowhere- until the whole body is decayed and withered by the petty infection.</p>
-<p>To him however, who is possessed of a devil, I would whisper this word in the ear: “Better for you to rear up your devil! Even for you there is still a path to greatness!”-</p>
-<p>Ah, my brothers! One knows a little too much about every one! And many a one becomes transparent to us, but still we can by no means penetrate him.</p>
-<p>It is difficult to live among men because silence is so difficult.</p>
-<p>And not to him who is offensive to us are we most unfair, but to him who does not concern us at all.</p>
-<p>If, however, you have a suffering friend, then be a resting-place for his suffering; like a hard bed, however, a camp-bed: thus will you serve him best.</p>
-<p>And if a friend does you wrong, then say: “I forgive you what you have done to me; that you have done it to yourself, however- how could I forgive that!”</p>
-<p>Thus speaks all great love: it overcomes even forgiveness and pity.</p>
-<p>One should hold fast one’s heart; for when one lets it go, how quickly does one’s head run away!</p>
-<p>Ah, where in the world have there been greater follies than with the pitiful? And what in the world has caused more suffering than the follies of the pitiful?</p>
-<p>Woe to all loving ones who have not an elevation which is above their pity!</p>
-<p>Thus spoke the devil to me, once on a time: “Even God has his hell: it is his love for man.”</p>
-<p>And lately, did I hear him say these words: “God is dead: of his pity for man has God died.”-</p>
-<p>So be you warned against pity: from thence there yet comes to men a heavy cloud! I understand weather-signs!</p>
-<p>But attend also to this word: All great love is above all its pity: for it seeks- to create what is loved!</p>
-<p>“Myself do I offer to my love, and my neighbor as myself”- such is the language of all creators.</p>
-<p>All creators, however, are hard.-</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【P2C8】The Famous Wise Men</title>
-    <url>/p/a0eaddb2/</url>
-    <content><![CDATA[<p>The people have you served and the people’s superstition- not the truth!- all you famous wise ones! And just on that account did they pay you reverence.</p>
-<p>And on that account also did they tolerate your unbelief, because it was a pleasantry and a by-path for the people. Thus does the master give free scope to his slaves, and even enjoys their presumptuousness.</p>
-<a id="more"></a>
-<p>But he who is hated by the people, as the wolf by the dogs- is the free spirit, the enemy of fetters, the non-adorer, the dweller in the woods.</p>
-<p>To hunt him out of his lair- that was always called “sense of right” by the people: on him do they still hound their sharpest-toothed dogs.</p>
-<p>“For there the truth is, where the people are! Woe, woe to the seeking ones!”- thus has it echoed through all time.</p>
-<p>Your people would you justify in their reverence: that called you “Will to Truth,” you famous wise ones!</p>
-<p>And your heart has always said to itself: “From the people have I come: from thence came to me also the voice of God.”</p>
-<p>Stiff-necked and artful, like the ass, have you always been, as the advocates of the people.</p>
-<p>And many a powerful one who wanted to run well with the people, has harnessed in front of his horses- a donkey, a famous wise man.</p>
-<p>And now, you famous wise ones, I would have you finally throw off entirely the skin of the lion!</p>
-<p>The skin of the beast of prey, the speckled skin, and the dishevelled locks of the investigator, the searcher, and the conqueror!</p>
-<p>Ah! for me to learn to believe in your “conscientiousness,” you would first have to break your venerating will.</p>
-<p>Conscientious- so call I him who goes into God-forsaken wildernesses, and has broken his venerating heart.</p>
-<p>In the yellow sands and burnt by the sun, he doubtless peers thirstily at the isles rich in fountains, where life reposes under shady trees.</p>
-<p>But his thirst does not persuade him to become like those comfortable ones: for where there are oases, there are also idols.</p>
-<p>Hungry, fierce, lonesome, God-forsaken: so does the lion-will wish itself.</p>
-<p>Free from the happiness of slaves, redeemed from deities and adorations, fearless and fear-inspiring, grand and lonesome: so is the will of the conscientious.</p>
-<p>In the wilderness have ever dwelt the conscientious, the free spirits, as lords of the wilderness; but in the cities dwell the well-foddered, famous wise ones- the draught-beasts.</p>
-<p>For, always do they draw, as asses- the people’s carts!</p>
-<p>Not that I on that account upbraid them: but serving ones do they remain, and harnessed ones, even though they glitter in golden harness.</p>
-<p>And often have they been good servants and worthy of their hire. For thus says virtue: “If you must be a servant, seek him to whom your service is most useful!</p>
-<p>The spirit and virtue of your master shall advance by you being his servant: thus will you yourself advance with his spirit and virtue!”</p>
-<p>And verily, you famous wise ones, you servants of the people! You yourselves have advanced with the people’s spirit and virtue- and the people by you! To your honor do I say it!</p>
-<p>But the people you remain for me, even with your virtues, the people with purblind eyes- the people who know not what spirit is!</p>
-<p>Spirit is life which itself cuts into life: by its own torture does it increase its own knowledge,- did you know that before?</p>
-<p>And the spirit’s happiness is this: to be anointed and consecrated with tears as a sacrificial victim,- did you know that before?</p>
-<p>And the blindness of the blind one, and his seeking and groping, shall yet testify to the power of the sun into which he has gazed,- did you know that before?</p>
-<p>And with mountains shall the discerning one learn to build! It is a small thing for the spirit to remove mountains,- did you know that before?</p>
-<p>You know only the sparks of the spirit: but you do not see the anvil which it is, and the cruelty of its hammer!</p>
-<p>You know not the spirit’s pride! But still less could you endure the spirit’s humility, should it ever want to speak!</p>
-<p>And never yet could you cast your spirit into a pit of snow: you are not hot enough for that! Thus are you unaware, also, of the delight of its coldness.</p>
-<p>In all respects, however, you make too familiar with the spirit; and out of wisdom have you often made an alms-house and a hospital for bad poets.</p>
-<p>You are not eagles: thus have you never experienced the happiness of the alarm of the spirit. And he who is not a bird should not camp above abysses.</p>
-<p>You seem to me lukewarm ones: but coldly flows all deep knowledge. Ice-cold are the innermost wells of the spirit: a refreshment to hot hands and handlers.</p>
-<p>Respectable do you there stand, and stiff, and with straight backs, you famous wise ones!- no strong wind or will impels you.</p>
-<p>Have you ne’er seen a sail crossing the sea, rounded and inflated, and trembling with the violence of the wind?</p>
-<p>Like the sail trembling with the violence of the spirit, does my wisdom cross the sea- my wild wisdom!</p>
-<p>But you servants of the people, you famous wise ones- how could you go with me!-</p>
 <p>Thus spoke Zarathustra.</p>
 ]]></content>
       <categories>
@@ -2431,6 +2295,97 @@
       </tags>
   </entry>
   <entry>
+    <title>【P1C15】The Thousand and One Goals</title>
+    <url>/p/4a4a0f12/</url>
+    <content><![CDATA[<p>Zarathustra saw many lands and many peoples: thus he discovered the good and evil of many peoples. No greater power did Zarathustra find on earth than good and evil.</p>
+<p>No people could live without first valuing; if a people would preserve itself, however, it must not value as its neighbor values.</p>
+<a id="more"></a>
+<p>Much that passed for good with one people was regarded with scorn and contempt by another: thus I found it. Much I found here called evil, which was there decked with purple honors.</p>
+<p>Never did the one neighbor understand the other: always did his soul marvel at his neighbor’s delusion and wickedness.</p>
+<p>A tablet of the good hangs over every people. Behold, it is the tablet of their triumphs; behold, it is the voice of their Will to Power.</p>
+<p>Laudable is all they think difficult; what is indispensable and difficult they call good; and what relieves in the direst distress, the unique and most difficult of all,- they extol as sacred.</p>
+<p>Whatever makes them rule and conquer and shine, to the dismay and envy of their neighbors, they regard as the highest and most important thing, the test and the meaning of all else.</p>
+<p>My brother, if you only knew a people’s need, its land, its sky, and its neighbor, then you would guess the law of its overcomings, and why it climbs up that ladder to its hope.</p>
+<p>“Always shall you be the first and excel all others: your jealous soul shall love no one, except the friend”- that made the soul of a Greek thrill: thereby went he his way to greatness.</p>
+<p>“To speak truth, and be skilful with bow and arrow”- so it seemed both pleasing and difficult to the people who gave me my name- the name which is both pleasing and difficult for me.</p>
+<p>“To honor father and mother, and from the root of the soul to do their will”- this tablet of overcoming another people hung over them, and became powerful and permanent thereby.</p>
+<p>“To be loyal, and for the sake of loyalty to risk honor and blood, even for evil and dangerous purposes”- teaching itself so, another people mastered itself, and thus mastering itself, became pregnant and heavy with great hopes.</p>
+<p>Men have given to themselves all their good and evil. They did not take it, they did not find it, it did not come to them as a voice from heaven.</p>
+<p>Man assigned values to things in order to preserve himself- he alone created the meaning of things, a human meaning! Therefore, calls he himself “man,” that is, the valuator.</p>
+<p>Valuing is creating: hear it, you creators! Valuing itself is the treasure and jewel of all valued things.</p>
+<p>Through valuation only is there value; and without valuation the nut of existence would be hollow. Hear it, you creators!</p>
+<p>Change of values- that means, change of creators. Always he destroys, he who would be a creator.</p>
+<p>Peoples were the first creators, and only in later times individuals; verily, the individual himself is the latest creation.</p>
+<p>Peoples once hung over themselves law-tablets of the good. Love which would rule and love which would obey have created for themselves such law-tablets.</p>
+<p>Pleasure in the herd is older than pleasure in the ego: and as long as the good conscience is for the herd, only the evil conscience says: “I”.</p>
+<p>The crafty ego, the loveless one, that seeks its advantage in the advantage of many- it is not the origin of the herd, but its downfall.</p>
+<p>It was always loving ones and creators that created good and evil. Fire of love glows in the names of all the virtues, and fire of wrath.</p>
+<p>Zarathustra saw many lands, and many peoples: no greater power did Zarathustra find on earth than the creations of the loving ones- “good” and “evil” are their names.</p>
+<p>A monster is this power of praising and blaming. Tell me, you brothers, who will master it for me? Who will yoke the thousand necks of this beast?</p>
+<p>A thousand goals have there been so far, for a there have been a thousand peoples. Only the yoke for the thousand necks is still lacking; there is lacking the one goal. Humanity still has no goal.</p>
+<p>But pray tell me, my brothers, if the goal of humanity is still lacking, is humanity itself- not also lacking?</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C8】The Tree on the Hill</title>
+    <url>/p/793aaa02/</url>
+    <content><![CDATA[<p>Zarathustra’s eye had perceived that a certain youth avoided him. And as he walked alone one evening over the hills surrounding the town called “The Pied Cow,” behold, there he found the youth sitting leaning against a tree, and gazing with wearied look into the valley.</p>
+<a id="more"></a>
+<p>Zarathustra then laid hold of the tree beside which the youth sat, and spoke thus:</p>
+<p>“If I wished to shake this tree with my hands, I should not be able to do so.</p>
+<p>But the wind, which we do not see, troubles and bends it as it lists. We are worst bent and troubled by invisible hands.”</p>
+<p>Then the youth arose disconcerted, and said: “I hear Zarathustra, and just now was I thinking of him!” Zarathustra answered:</p>
+<p>“Why are you frightened on that account?- But it is the same with man as with the tree.</p>
+<p>The more he seeks to rise into the height and light, the more vigorously do his roots struggle earthward, downward, into the dark and deep- into evil.”</p>
+<p>“Yes, into evil!” cried the youth. “How is it possible that you have discovered my soul?”</p>
+<p>Zarathustra smiled, and said: “Many a soul one can never discover, unless one firsts invents it.”</p>
+<p>“Yes, into evil!” cried the youth once more.</p>
+<p>“You said the truth, Zarathustra. I trust myself no longer since I sought to rise into the height, and nobody trusts me any longer; how does that happen?</p>
+<p>I change too quickly: my today refutes my yesterday. I often overleap the steps when I climb; none of the steps pardons me for it.</p>
+<p>When aloft, I find myself always alone. No one speaks to me; the frost of solitude makes me tremble. What do I seek in the heights?</p>
+<p>My contempt and my longing increase together; the higher I climb, the more do I despise him who climbs. What does he seek in the heights?</p>
+<p>How ashamed I am of my climbing and stumbling! How I mock my violent panting! How I hate him who flies! How tired I am on the height!”</p>
+<p>Here the youth was silent. And Zarathustra contemplated the tree beside which they stood, and spoke thus:</p>
+<p>“This tree stands lonely here on the hills; it has grown up high above man and beast.</p>
+<p>And if it wanted to speak, there would be no one who could understand it: so high has it grown.</p>
+<p>Now it waits and waits,- for what does it wait? It dwells too close to the seat of the clouds; it waits- for the lightning?”</p>
+<p>When Zarathustra had said this, the youth called out with violent gestures: “Yes, Zarathustra, you speak the truth. I longed for my destruction, when I wanted to be in the heights, and you are the lightning for which I waited! Behold, what have I been since you have appeared amongst us? It is my envy of you that has destroyed me!”- Thus spoke the youth, and wept bitterly. Zarathustra, however, put his arm about him, and led the youth away with him.</p>
+<p>And when they had walked a while together, Zarathustra began to speak thus:</p>
+<p>It rends my heart. Better than your words can express it, your eyes tell me all your danger.</p>
+<p>You are not yet free; you still search for freedom. You are too weary from your search, and too wakeful.</p>
+<p>You aspire to the heights; you thirst for the stars. But your evil impulses also thirst for freedom.</p>
+<p>Your wild dogs want freedom; they bark for joy in their cellar when your spirit trys to open all prison doors.</p>
+<p>To me you are still a prisoner who seeks his freedom: ah! in such prisoners the soul becomes clever, but also deceitful and wicked.</p>
+<p>And the liberated spirit must still purify himself. Much of the prison and the mould still remains in him: his eye has still to become pure.</p>
+<p>Yes, I know your danger. But by my love and hope I beseech you: do not throw away your love and hope!</p>
+<p>You still feel noble, and others still feel your nobility, though they bear you a grudge and cast evil glances. Know that the noble one stands in everyones way.</p>
+<p>To the good, also, a noble one stands in the way: and even when they call him a good man, they want to push him aside.</p>
+<p>The noble man would create the new, and a new virtue. The good want the old, and that the old should be preserved.</p>
+<p>But it is not the danger of the noble man that he might become one of the good, but that he might become a blusterer, a scoffer, or a destroyer.</p>
+<p>Ah! I have known noble ones who lost their highest hope. And then they slandered all high hopes.</p>
+<p>Then they lived shamelessly in brief pleasures, only lived from day to day.</p>
+<p>“Spirit too is lust,”- they said. The wings of their spirit are broken; and now their spirit crawls about, and defiles what it gnaws.</p>
+<p>Once they thought of becoming heroes; now they are libertines. The idea of the hero offends and troubles them.</p>
+<p>But by my love and hope I beseech you: do not throw away the hero in your soul! Keep sacred your highest hope!-</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【P2C5】The Virtuous</title>
     <url>/p/fce73deb/</url>
     <content><![CDATA[<p>With thunder and heavenly fireworks must one speak to indolent and somnolent senses.</p>
@@ -2473,6 +2428,93 @@
 <p>They played by the sea- then came there a wave and swept their playthings into the deep: and now do they cry.</p>
 <p>But the same wave shall bring them new playthings, and spread before them new speckled shells!</p>
 <p>Thus will they be comforted; and like them shall you also, my friends, have your comforting- and new speckled shells!</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C17】The Way of the Creator</title>
+    <url>/p/41969214/</url>
+    <content><![CDATA[<p>Would you go into solitude, my brother? would you seek the way to yourself? The wait a moment and listen to me.</p>
+<p>“He who seeks may easily get lost himself. All solitude is wrong”: so say the herd. And long did you belong to the herd.</p>
+<a id="more"></a>
+<p>The voice of the herd will still echo in you. And when you say, “I no longer have a conscience in common with you,” then it will be a grief and a pain.</p>
+<p>Lo, that same conscience created that pain; and the last gleam of that conscience still glows on your affliction.</p>
+<p>But you would go the way of your affliction, which is the way to yourself? Then show me your right and your strength to do so!</p>
+<p>Are you a new strength and a new right? A first motion? A self-rolling wheel? Can you even compel the stars to revolve around you?</p>
+<p>Alas! there is so much lusting for loftiness! There are so many convulsions of the ambitious! Show me that you are not a lusting and ambitious one!</p>
+<p>Alas! there are so many great thoughts that do nothing more than the bellows: they inflate, and make emptier than ever.</p>
+<p>Free, do you call yourself? Then I would hear your ruling thought, and not merely that you have escaped from a yoke.</p>
+<p>Are you one of those who had the right to escape from a yoke? Many a one has cast away his last worth when he has cast away his servitude.</p>
+<p>Free from what? What does that matter to Zarathustra! But your fiery eyes should tell me: free for what?</p>
+<p>Can you give yourself your own evil and good, and set up your own will as a law over you? Can you be judge for yourself, and avenger of your law?</p>
+<p>Terrible is it to be alone with the judge and avenger of one’s own law. Thus is a star thrown into the void, and into the icy breath of solitude.</p>
+<p>Today you still suffer from the many, you individual; today your courage and hopes are undiminished.</p>
+<p>But one day the solitude will weary you; one day your pride will yield, and your courage quail. You will one day cry: “I am alone!”</p>
+<p>One day you will no longer see your heights, and see too closely your depths; even your sublimity will frighten you like a phantom. You will one day cry: “All is false!”</p>
+<p>There are feelings which seek to kill the solitary one; if they do not succeed, then they themselves must die! But are you capable of this- to be a murderer?</p>
+<p>Have you ever known, my brother, the word “contempt”? And the anguish of your justice in being just to those that despise you?</p>
+<p>You force many to think differently about you; that, they charge bitterly to your account. You came near to them and yet went past: for that they never forgive you.</p>
+<p>You go beyond them: but the higher you rise, the smaller do you appear to the eye of envy. But the flying one is hated most of all.</p>
+<p>“How could you be just to me!”- you must say- “I choose your injustice as my proper lot.</p>
+<p>They cast injustice and filth at the solitary one: but, my brother, if you would be a star, you must shine for them none the less on that account!</p>
+<p>And be on your guard against the good and the just! They would rather crucify those who create their own virtue- they hate the solitary ones.</p>
+<p>Be on your guard, also, against holy simplicity! All that is not simple is unholy to it; it likes to play with fire and burn- at the stake.</p>
+<p>And be on your guard, also, against the assaults of your love! Too readily does the recluse offer his hand to any one he meets.</p>
+<p>To many you may not give a hand, but only a paw; and I want your paw to have claws.</p>
+<p>But the worst enemy you can meet will always be yourself; you ambush yourself in caverns and forests.</p>
+<p>You solitary one, you go the way to yourself! And your way leads you past yourself and your seven devils!</p>
+<p>You will be a heretic to yourself, and a sorcerer and a soothsayer, and a fool, and a doubter, and a reprobate, and a villain.</p>
+<p>You must be ready to burn yourself in your own flame; how could you rise anew if you have not first become ashes!</p>
+<p>You solitary one, you go the way of the creator: you will create a god for yourself out of your seven devils!</p>
+<p>You solitary one, you go the way of the lover: you love yourself, and on that account you despise yourself, as only the lover can despise.</p>
+<p>The lover wants to create because he despises! What does he know of love who has not despised that which he loved!</p>
+<p>With your love and with your creating go into your solitude, my brother; only much later will justice limp after you.</p>
+<p>With my tears, go into your solitude, my brother. I love him who seeks to create beyond himself, and thus perishes.</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C10】War and Warriors</title>
+    <url>/p/1773cf2f/</url>
+    <content><![CDATA[<p>We do not want to be spared by our best enemies, nor by those whom we love from the very heart. So let me tell you the truth!</p>
+<a id="more"></a>
+<p>My brothers in war! I love you from the very heart. I am, and was always, your counterpart. And I am also your best enemy. So let me tell you the truth!</p>
+<p>I know the hatred and envy of your hearts. You are not great enough not to know hatred and envy. Then be great enough not to be ashamed of them!</p>
+<p>And if you cannot be saints of knowledge, then, I pray you, be at least its warriors. They are the companions and precursors of such saints.</p>
+<p>I see many soldiers; If only I saw many warriors! “Uniform” one calls what they wear; if only what it covers were not uniform!</p>
+<p>You shall be those whose eyes always seek for an enemy- for your enemy. And some of you hate at first sight.</p>
+<p>You shall seek your enemy; you shall wage your war- for your thoughts! And if your thoughts perish, your honesty should still shout triumph for that!</p>
+<p>You shall love peace as a means to new wars- and the short peace more than the long.</p>
+<p>I recommend to you not work, but battle. I recommend to you not peace, but victory. Let your work be a battle, let your peace be a victory!</p>
+<p>One can only be silent and sit peacefully when one has arrow and bow; otherwise one chatters and quarrels. Let your peace be a victory!</p>
+<p>You say it is the good cause which hallows even war? I say to you: it is the good war which hallows every cause.</p>
+<p>War and courage have done more great things than charity. Not your sympathy, but your bravery has before now saved the unfortunate.</p>
+<p>“What is good?” you ask. To be brave is good. Let the little girls say: “The good is that which is both pretty and touching.”</p>
+<p>They call you heartless: but your heart is true, and I love that you are ashamed to show it. You are ashamed of your flood, while others are ashamed of their ebb.</p>
+<p>You are ugly? Well then, my brothers, wrap the sublime about you, the cloak of the ugly!</p>
+<p>And when your soul becomes great, then it becomes mischievous, and in your sublimity there is mockery. I know you.</p>
+<p>In mockery the mischievous man and the weakling meet. But they misunderstand each other. I know you.</p>
+<p>You shall only have enemies you can hate, not enemies you despise. You must be proud of your enemy; then, the success of your enemy is also your success.</p>
+<p>Disobedience- that is the nobility of slaves. Let your nobility be obedience. Let your commanding itself be an obeying!</p>
+<p>To the good warrior “thou shalt” sounds better than “I will.” And all that is dear to you, you shall first have it commanded of you.</p>
+<p>Let your love of life be love of your highest hope; and let your highest hope be the highest thought of life!</p>
+<p>Your highest thought, however, you shall receive as a command from me- and it is this: man is something that will be overcome.</p>
+<p>So live your life of obedience and of war! What matters long life! What warrior wishes to be spared!</p>
+<p>I do not spare you, I love you from my very heart, my brothers in war!-</p>
 <p>Thus spoke Zarathustra.</p>
 ]]></content>
       <categories>
