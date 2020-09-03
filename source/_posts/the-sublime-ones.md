@@ -1,5 +1,5 @@
 ---
-title: 【P2C15】The Sublime Ones
+title: 【P2C13】The Sublime Ones
 tags:
   - 哲学
   - 尼采
