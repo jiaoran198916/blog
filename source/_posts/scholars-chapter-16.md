@@ -10,7 +10,7 @@ date: 2020-09-07 17:59:32
 When I lay asleep, then did a sheep eat at the ivy-wreath on my head,it ate, and said thereby: "Zarathustra is no longer a scholar."
 
 It said this, and went away clumsily and proudly. A child told it to me.
-
+<!-- more -->
 I like to lie here where the children play, beside the ruined wall, among thistles and red poppies.
 
 A scholar am I still to the children, and also to the thistles and red poppies. Innocent are they, even in their wickedness.
