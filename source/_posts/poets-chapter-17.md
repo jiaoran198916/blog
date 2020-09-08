@@ -10,7 +10,7 @@ date: 2020-09-08 08:57:04
 "Since I have known the body better"- said Zarathustra to one of his disciples- "the spirit has only been to me symbolically spirit; and all the 'imperishable'- that is also but a parable."
 
 "So have I heard you say once before," answered the disciple, "and then you added: 'But the poets lie too much.' Why did you say that the poets lie too much?"
-
+<!-- more -->
 "Why?" said Zarathustra. "You ask why? I do not belong to those who may be asked after their Why.
 
 Is my experience but of yesterday? It is long ago that I experienced the reasons for my opinions.
