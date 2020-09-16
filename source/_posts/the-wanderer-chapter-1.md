@@ -8,9 +8,9 @@ abbrlink: 5517996d
 date: 2020-09-16 09:00:34
 ---
 Then, when it was about midnight, Zarathustra went his way over the ridge of the isle, that he might arrive early in the morning at the other coast; because there he meant to embark. For there was a good roadstead there, in which foreign ships also liked to anchor: those ships took many people with them, who wished to cross over from the Blessed isles. So when Zarathustra thus ascended the mountain, he thought on the way of his many solitary wanderings from youth onwards, and how many mountains and ridges and summits he had already climbed.
-
-I am a wanderer and mountain-climber, said he to his heart. I love not the plains, and it seems I cannot long sit still.
 <!-- more -->
+I am a wanderer and mountain-climber, said he to his heart. I love not the plains, and it seems I cannot long sit still.
+
 And whatever may still overtake me as fate and experience- a wandering will be therein, and a mountain-climbing: in the end one experiences only oneself.
 
 The time is now past when accidents could befall me; and what could now fall to my lot which would not already be my own!
