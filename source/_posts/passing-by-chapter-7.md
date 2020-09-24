@@ -8,11 +8,11 @@ abbrlink: '63879135'
 date: 2020-09-24 09:03:38
 ---
 Thus slowly wandering through many peoples and divers cities, did Zarathustra return by round-about roads to his mountains and his cave. And behold, thereby came he unawares also to the gate of the great city. Here, however, a foaming fool, with extended hands, sprang forward to him and stood in his way. It was the same fool whom the people called "the ape of Zarathustra:" for he had learned from him something of the expression and modulation of language, and perhaps liked also to borrow from the store of his wisdom. And the fool talked thus to Zarathustra:
-
+<!-- more -->
 O Zarathustra, here is the great city: here have you nothing to seek and everything to lose.
 
 Why would you wade through this mire? Have pity upon your foot! Spit rather on the gate of the city, and- turn back!
-<!-- more -->
+
 Here is the hell for hermits' thoughts: here are great thoughts seethed alive and boiled small.
 
 Here do all great sentiments decay: here may only rattle-boned sensations rattle!
