@@ -9,7 +9,7 @@ date: 2020-10-10 18:27:31
 ---
 1.
 
-IN MY dream, in my last morning-dream, I stood today on a promontory- beyond the world; I held a pair of scales, and weighed the world.
+In my dream, in my last morning-dream, I stood today on a promontory- beyond the world; I held a pair of scales, and weighed the world.
 
 Alas, that the rosy dawn came too early to me: she glowed me awake, the jealous one! Jealous is she always of the glows of my morning-dream.
 <!-- more -->
