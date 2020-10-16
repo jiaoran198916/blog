@@ -10,7 +10,7 @@ date: 2020-10-16 15:57:23
 O my soul, I have taught you to say "today" as "once on a time" and "formerly," and to dance your measure over every Here and There and Yonder.
 
 O my soul, I delivered you from all by-places, I brushed down from you dust and spiders and twilight.
-
+<!-- more -->
 O my soul, I washed the petty shame and the by-place virtue from you, and persuaded you to stand naked before the eyes of the sun.
 
 With the storm that is called "spirit" did I blow over your surging sea; all clouds did I blow away from it; I strangled even the strangler called "sin."
