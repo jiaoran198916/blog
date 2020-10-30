@@ -12,7 +12,7 @@ date: 2020-10-30 18:57:17
 "Go not away!" said then the wanderer who called himself Zarathustra's shadow, "abide with us- otherwise the old gloomy affliction might again fall upon us.
 
 Now has that old magician given us of his worst for our good, and lo! the good, pious pope there has tears in his eyes, and has quite embarked again upon the sea of melancholy.
-
+<!-- more -->
 Those kings may well put on a good air before us still: for that have they learned best of us all at present! Had they however no one to see them, I wager that with them also the bad game would again commence,-
 
 -The bad game of drifting clouds, of damp melancholy, of curtained heavens, of stolen suns, of howling autumn-winds,
