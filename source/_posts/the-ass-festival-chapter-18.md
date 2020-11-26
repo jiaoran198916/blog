@@ -12,7 +12,7 @@ date: 2020-11-26 19:48:18
 At this place in the litany, however, Zarathustra could no longer control himself; he himself cried out you-A, louder even than the ass, and sprang into the midst of his maddened guests. "Whatever are you about, you grown-up children?" he exclaimed, pulling up the praying ones from the ground. "Alas, if any one else, except Zarathustra, had seen you:
 
 Every one would think you the worst blasphemers, or the very most foolish old women, with your new belief!
-
+<!-- more -->
 And you yourself, you old pope, how is it in accordance with you, to adore an ass in such a manner as God?"-
 
 "O Zarathustra," answered the pope, "forgive me, but in divine matters I am more enlightened even than you. And it is right that it should be so.
