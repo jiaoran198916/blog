@@ -1,5 +1,5 @@
 ---
-title: 【P4C20】The Sign
+title: 【P4C20】【End】The Sign
 tags:
   - 哲学
   - 尼采
