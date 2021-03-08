@@ -9,7 +9,7 @@ date: 2020-09-20 20:30:01
 ---
 O heaven above me, you pure, you deep heaven! you abyss of light! Gazing on you, I tremble with divine desires.
 
-Up to your height to toss myself- that is my depth! In your purity to hide myself- that is my innocence!
+Up to your height to toss myself- that is my depth! In your purity to hide myself- that is my inno cence!
 
 The God veils his beauty: thus hide you your stars. You speak not: thus proclaim you your wisdom to me.
 <!-- more -->
