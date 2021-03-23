@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-jiao-32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-jiao-16.ico">
@@ -276,14 +276,14 @@
 </li>
 <li>显式原型与隐式原型的关系<ul>
 <li>函数的prototype: 定义函数时被自动赋值, 值默认为{}, 即用为原型对象</li>
-<li>实例对象的<strong>proto</strong>: 在创建实例对象时被自动添加, 并赋值为构造函数的prototype值</li>
+<li>实例对象的__proto__: 在创建实例对象时被自动添加, 并赋值为构造函数的prototype值</li>
 <li>原型对象即为当前实例对象的父对象</li>
 <li>给原型对象添加属性(一般是方法), 实例对象可以访问</li>
 </ul>
 </li>
 <li>原型链<ul>
-<li>所有的实例对象都有<strong>proto</strong>属性, 它指向的就是原型对象</li>
-<li>这样通过<strong>proto</strong>属性就形成了一个链的结构—-&gt;原型链</li>
+<li>所有的实例对象都有__proto__属性, 它指向的就是原型对象</li>
+<li>这样通过__proto__属性就形成了一个链的结构—-&gt;原型链</li>
 <li>当查找对象内部的属性/方法时, js引擎自动沿着这个原型链查找,如果最终没找到, 返回undefined</li>
 <li>当给对象属性赋值时不会使用原型链, 而只是在当前对象中进行操作</li>
 </ul>
@@ -296,16 +296,14 @@
 </li>
 <li>探索 instanceof<ul>
 <li>表达式: A instanceof B</li>
-<li>如果B函数的显式原型对象在A对象的原型链上, 返回true, 否则返回false<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>如果B函数的显式原型对象在A对象的原型链上, 返回true, 否则返回false<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
 <hr>
 <ul>
 <li>测试题1.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">A.prototype.n = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> A()</span><br><span class="line">A.prototype = &#123;</span><br><span class="line">  n: <span class="number">2</span>,</span><br><span class="line">  m: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> A()</span><br><span class="line"><span class="built_in">console</span>.log(b.n, b.m, c.n, c.m)</span><br></pre></td></tr></table></figure></li>
-<li>测试题2.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;a()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;b()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F()</span><br><span class="line">f.a()</span><br><span class="line"><span class="comment">// f.b()</span></span><br><span class="line">F.a()</span><br><span class="line">F.b()</span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.prototype)</span><br></pre></td></tr></table></figure>
-</li>
+<li>测试题2.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span> (<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;a()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;b()&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F()</span><br><span class="line">f.a()</span><br><span class="line"><span class="comment">// f.b()</span></span><br><span class="line">F.a()</span><br><span class="line">F.b()</span><br><span class="line"><span class="built_in">console</span>.log(f)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span>.prototype)</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>

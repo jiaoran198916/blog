@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.0.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-jiao-32.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-jiao-16.ico">
@@ -268,17 +268,23 @@
 
       
         <ol>
-<li>什么是对象?<ul>
+<li>什么是对象?</li>
+</ol>
+<ul>
 <li>代表现实中的某个事物, 是该事物在编程中的抽象</li>
 <li>多个数据的集合体(封装体)</li>
 <li>用于保存多个数据的容器</li>
 </ul>
-</li>
-<li>为什么要用对象?<ul>
+<ol start="2">
+<li>为什么要用对象?</li>
+</ol>
+<ul>
 <li>便于对多个数据进行统一管理</li>
 </ul>
-</li>
-<li>对象的组成<ul>
+<ol start="3">
+<li>对象的组成</li>
+</ol>
+<ul>
 <li>属性<ul>
 <li>代表现实事物的状态数据</li>
 <li>由属性名和属性值组成</li>
@@ -291,18 +297,17 @@
 </ul>
 </li>
 </ul>
-</li>
-<li>如何访问对象内部数据?<ul>
+<ol start="4">
+<li>如何访问对象内部数据?</li>
+</ol>
+<ul>
 <li>.属性名: 编码简单, 但有时不能用</li>
 <li><code>[&#39;属性名&#39;]</code>: 编码麻烦, 但通用</li>
 </ul>
-</li>
-</ol>
 <hr>
 <h3 id="什么时候必须使用-39-属性名-39-的方式"><a href="#什么时候必须使用-39-属性名-39-的方式" class="headerlink" title="什么时候必须使用 [&#39;属性名&#39;] 的方式?"></a>什么时候必须使用 <code>[&#39;属性名&#39;]</code> 的方式?</h3><ul>
 <li>属性名不是合法的标识名，包含特殊字符，如-，空格等<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  p.content-type = &#x27;text/json&#x27; //不正确</span></span><br><span class="line">p[<span class="string">&#x27;content-type&#x27;</span>] = <span class="string">&#x27;text/json&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li>属性名不确定，用变量表示<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> prop = <span class="string">&#x27;xxx&#x27;</span></span><br><span class="line"><span class="keyword">var</span> value = <span class="number">123</span></span><br><span class="line"><span class="comment">// p.prop = value  //不正确</span></span><br><span class="line">p[prop] = value</span><br></pre></td></tr></table></figure>
-</li>
+<li>属性名不确定，用变量表示<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> prop = <span class="string">&#x27;xxx&#x27;</span></span><br><span class="line"><span class="keyword">var</span> value = <span class="number">123</span></span><br><span class="line"><span class="comment">// p.prop = value  //不正确</span></span><br><span class="line">p[prop] = value</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
