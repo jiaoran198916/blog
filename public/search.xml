@@ -250,7 +250,7 @@
     <content><![CDATA[<p>有些时候想直接从数据库查询数据，并导出，但一些类型或状态存储的是01等数字，你想显示对应的文字，这个时候就可以使用 case…when 语句了。</p>
 <h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">case...when...then...when...then...else...end</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,title,<span class="keyword">CASE</span> <span class="keyword">type</span> <span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">&#x27;大学&#x27;</span> <span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span> <span class="string">&#x27;小学&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;未知&#x27;</span> <span class="keyword">END</span> <span class="keyword">as</span> 学历</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">table</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> id,title,<span class="keyword">CASE</span> type <span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">&#x27;大学&#x27;</span> <span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span> <span class="string">&#x27;小学&#x27;</span> <span class="keyword">ELSE</span> <span class="string">&#x27;未知&#x27;</span> <span class="keyword">END</span> <span class="keyword">as</span> 学历</span><br><span class="line"><span class="keyword">FROM</span> <span class="keyword">table</span>;</span><br></pre></td></tr></table></figure>
 <p>另外还可以使用if实现简单的条件筛选</p>
 <p>IF( expr1 , expr2 , expr3 )<br>expr1 的值为 TRUE，则返回值为 expr2<br>expr1 的值为 FALSE，则返回值为 expr3</p>
 ]]></content>
@@ -336,6 +336,40 @@
       </tags>
   </entry>
   <entry>
+    <title>打水印命令convert详解</title>
+    <url>/p/6ab45c92/</url>
+    <content><![CDATA[<p>打水印时主要用的是PHP扩展ImageMagick，该扩展专门用于处理图片，功能丰富，使用灵活，详细介绍可参看<a href="https://www.imagemagick.org/script/command-line-processing.php">官方文档</a>.</p>
+<p>基本操作有打水印、裁剪、划线、画矩形、格式转换等。其中打水印命令最为复杂，下面对其中的参数和选项做个梳理。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">convert +profile <span class="string">&#x27;*&#x27;</span> <span class="built_in">source</span> -quality 80 -resize <span class="string">&#x27;800x600&#x27;</span></span><br><span class="line">water.png -gravity southeast -geometry +0+0 -composite</span><br><span class="line">-fill rgba\(255,255,255,0.35\) -font fzltchjt.TTF</span><br><span class="line">-pointsize 20 -stroke rgba\(0,0,0,0.22\) -strokewidth 1</span><br><span class="line">-gravity SouthEast -draw <span class="string">&quot;text 28,15 &#x27;贴图ID:188916&#x27;&quot;</span> dest</span><br></pre></td></tr></table></figure>
+<ul>
+<li>+profile<br>Use <code>+profile profile_name</code> to remove the indicated profile.<br><code>*</code>代表去除所有。但没弄懂profile是啥。</li>
+<li>source 原图片</li>
+<li>quality 质量，品质</li>
+<li>resize 重新设置大小，以上两项均针对原图片source</li>
+<li>water.png 水印图片</li>
+<li>southeast 和 geometry 指定图片叠加位置，遵循地理位置，上北下南左西右东，southeast就是右下角，geometry指定相对原点的偏移值，有很多写法，默认是 +0+0，可省略</li>
+<li>composite 代表用多个图片合并起来，这里应该是将两个图片（source和water.png）叠加起来</li>
+<li>(下面一些是对添加水印字体的设置)</li>
+<li>fill 字体颜色</li>
+<li>font 指定字体</li>
+<li>pointsize 字体大小，像素为单位</li>
+<li>stroke 描边颜色</li>
+<li>strokewidth 描边宽度</li>
+<li>-gravity SouthEast 第二个指定水印字体相对位置，此处如同上面相同可省略</li>
+<li>draw 绘制字体 text 28,15 代表相对水平和垂直位置，后面是具体值</li>
+<li>dest 目标输出图片</li>
+</ul>
+<p>关于路径写法，绝对路径和相对路径都支持，但输出图片时不允许新建目录。</p>
+<p>测试过部分参数，不知道理解的对不对，原参数实在太多了 -_-||</p>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>水印</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>9、对象创建模式</title>
     <url>/p/a879112e/</url>
     <content><![CDATA[<p>一共5种，除了工厂函数不常用外，其他都很常用。</p>
@@ -378,40 +412,6 @@
       </categories>
       <tags>
         <tag>object</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>打水印命令convert详解</title>
-    <url>/p/6ab45c92/</url>
-    <content><![CDATA[<p>打水印时主要用的是PHP扩展ImageMagick，该扩展专门用于处理图片，功能丰富，使用灵活，详细介绍可参看<a href="https://www.imagemagick.org/script/command-line-processing.php">官方文档</a>.</p>
-<p>基本操作有打水印、裁剪、划线、画矩形、格式转换等。其中打水印命令最为复杂，下面对其中的参数和选项做个梳理。</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">convert +profile <span class="string">&#x27;*&#x27;</span> <span class="built_in">source</span> -quality 80 -resize <span class="string">&#x27;800x600&#x27;</span></span><br><span class="line">water.png -gravity southeast -geometry +0+0 -composite</span><br><span class="line">-fill rgba\(255,255,255,0.35\) -font fzltchjt.TTF</span><br><span class="line">-pointsize 20 -stroke rgba\(0,0,0,0.22\) -strokewidth 1</span><br><span class="line">-gravity SouthEast -draw <span class="string">&quot;text 28,15 &#x27;贴图ID:188916&#x27;&quot;</span> dest</span><br></pre></td></tr></table></figure>
-<ul>
-<li>+profile<br>Use <code>+profile profile_name</code> to remove the indicated profile.<br><code>*</code>代表去除所有。但没弄懂profile是啥。</li>
-<li>source 原图片</li>
-<li>quality 质量，品质</li>
-<li>resize 重新设置大小，以上两项均针对原图片source</li>
-<li>water.png 水印图片</li>
-<li>southeast 和 geometry 指定图片叠加位置，遵循地理位置，上北下南左西右东，southeast就是右下角，geometry指定相对原点的偏移值，有很多写法，默认是 +0+0，可省略</li>
-<li>composite 代表用多个图片合并起来，这里应该是将两个图片（source和water.png）叠加起来</li>
-<li>(下面一些是对添加水印字体的设置)</li>
-<li>fill 字体颜色</li>
-<li>font 指定字体</li>
-<li>pointsize 字体大小，像素为单位</li>
-<li>stroke 描边颜色</li>
-<li>strokewidth 描边宽度</li>
-<li>-gravity SouthEast 第二个指定水印字体相对位置，此处如同上面相同可省略</li>
-<li>draw 绘制字体 text 28,15 代表相对水平和垂直位置，后面是具体值</li>
-<li>dest 目标输出图片</li>
-</ul>
-<p>关于路径写法，绝对路径和相对路径都支持，但输出图片时不允许新建目录。</p>
-<p>测试过部分参数，不知道理解的对不对，原参数实在太多了 -_-||</p>
-]]></content>
-      <categories>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>水印</tag>
       </tags>
   </entry>
   <entry>
@@ -593,56 +593,6 @@
       </categories>
   </entry>
   <entry>
-    <title>【P1C21】Free Death</title>
-    <url>/p/76672179/</url>
-    <content><![CDATA[<p>Many die too late, and some die too early. Yet strange sounds the precept: “Die at the right time!</p>
-<p>Die at the right time: thus teaches Zarathustra.</p>
-<span id="more"></span>
-<p>To be sure, how could he who never lives at the right time ever die at the right time? If only he had never been born!- Thus do I advise the superfluous.</p>
-<p>But even the superfluous make a show of their death, and even the hollowest nut wants to be cracked.</p>
-<p>All regard dying as a great matter: but as yet death is not a festival. People have not yet learned to inaugurate the finest festivals.</p>
-<p>I teach you the death which consummates, and becomes a spur and promise to the living.</p>
-<p>He who consummates his life, then dies triumphant, surrounded by those who hope and promise.</p>
-<p>Thus should one learn to die; and there should be no festival at which one who dies in this way does not consecrate the oaths of the living!</p>
-<p>Thus to die is best; the next best, however, is to die in battle, and squander a great soul.</p>
-<p>But equally hateful to vanquished and victor, is the grinning death which steals nigh like a thief,- and yet comes as master.</p>
-<p>My death I praise to you, the voluntary death, which comes to me because I want it.</p>
-<p>And when shall I want it?- He that has a goal and an heir, wants death at the right time for the goal and the heir.</p>
-<p>And from reverence for the goal and heir, he will hang no more withered wreaths in the sanctuary of life.</p>
-<p>I will not imitate the rope-makers: they lengthen out their cord and always walk backward.</p>
-<p>And many grow too old for their truths and triumphs; a toothless mouth no longer has the right to every truth.</p>
-<p>And whoever wants fame must take leave of honor and practice the difficult art of- leaving at the right time.</p>
-<p>One must stop being eaten when one tastes best: those who want to be long loved know this.</p>
-<p>There are sour apples, no doubt, whose lot is to wait until the last day of autumn: and at once they become ripe, yellow, and shrivelled.</p>
-<p>In some the heart ages first, and in others the spirit. And some are hoary in youth, but those who are young latest keep young longer.</p>
-<p>To many men life is a failure; a poison-worm gnaws at their heart. Then at least let their dying be a success.</p>
-<p>Many never become sweet; they rot even in the summer. Cowardice holds them fast to their branches.</p>
-<p>Far too many live, and far too long do they hang on their branches. If only a storm would come and shake all that is rotten and worm-eaten from the tree!</p>
-<p>If only there were preachers of quick death! They would be the right storms and shakers of the trees of life! But I hear only the slow death preached, and patience with all that is “earthly.”</p>
-<p>Ah! you preach patience with what is earthly? It is the earthly that has too much patience with you, you blasphemers!</p>
-<p>Too early died that Hebrew whom the preachers of slow death honor: and it is a calamity to many that he died too early.</p>
-<p>As yet he knew only tears, and the melancholy of the Hebrews, and hatred of the good and just- the Hebrew Jesus: then he was seized with longing for death.</p>
-<p>If only he had remained in the wilderness, far from the good the just! Perhaps then he would have learned to live and love the earth- and laughter also!</p>
-<p>Believe me, my brothers! He died too early; he himself would have recanted his doctrine had he reached my age! He was noble enough to recant!</p>
-<p>But he was still immature. The youth loves immaturely, and he also hates immaturely both man and earth. His soul and the wings of his spirit are still confined and awkward.</p>
-<p>But in man there is more of the child than in the youth, and less melancholy: he better understands life and death.</p>
-<p>Free for death, and free in death; a sacred Nosayer, when there is no longer time for Yes: thus he understands death and life.</p>
-<p>That your dying be no reproach to man and the earth, my friends: that I ask of the honey of your soul.</p>
-<p>In your dying, your spirit and your virtue shall still shine like an sunset around the earth: otherwise your dying has gone badly.</p>
-<p>Thus I will die myself, that you, my friends, may love the earth more for my sake; and earth will I again become, to have rest in her that bore me.</p>
-<p>Zarathustra had a goal; he threw his ball. Now you, my friends, are the heirs of my goal; to you I throw the golden ball.</p>
-<p>I like best of all to see you, my friends, throw the golden ball! And so I tarry a little while on the earth- pardon me for it!</p>
-<p>Thus spoke Zarathustra.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>6、执行上下文与执行上下文栈</title>
     <url>/p/fc7eaee4/</url>
     <content><![CDATA[<ul>
@@ -720,6 +670,78 @@
       <tags>
         <tag>execution</tag>
         <tag>执行上下文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P1C21】Free Death</title>
+    <url>/p/76672179/</url>
+    <content><![CDATA[<p>Many die too late, and some die too early. Yet strange sounds the precept: “Die at the right time!</p>
+<p>Die at the right time: thus teaches Zarathustra.</p>
+<span id="more"></span>
+<p>To be sure, how could he who never lives at the right time ever die at the right time? If only he had never been born!- Thus do I advise the superfluous.</p>
+<p>But even the superfluous make a show of their death, and even the hollowest nut wants to be cracked.</p>
+<p>All regard dying as a great matter: but as yet death is not a festival. People have not yet learned to inaugurate the finest festivals.</p>
+<p>I teach you the death which consummates, and becomes a spur and promise to the living.</p>
+<p>He who consummates his life, then dies triumphant, surrounded by those who hope and promise.</p>
+<p>Thus should one learn to die; and there should be no festival at which one who dies in this way does not consecrate the oaths of the living!</p>
+<p>Thus to die is best; the next best, however, is to die in battle, and squander a great soul.</p>
+<p>But equally hateful to vanquished and victor, is the grinning death which steals nigh like a thief,- and yet comes as master.</p>
+<p>My death I praise to you, the voluntary death, which comes to me because I want it.</p>
+<p>And when shall I want it?- He that has a goal and an heir, wants death at the right time for the goal and the heir.</p>
+<p>And from reverence for the goal and heir, he will hang no more withered wreaths in the sanctuary of life.</p>
+<p>I will not imitate the rope-makers: they lengthen out their cord and always walk backward.</p>
+<p>And many grow too old for their truths and triumphs; a toothless mouth no longer has the right to every truth.</p>
+<p>And whoever wants fame must take leave of honor and practice the difficult art of- leaving at the right time.</p>
+<p>One must stop being eaten when one tastes best: those who want to be long loved know this.</p>
+<p>There are sour apples, no doubt, whose lot is to wait until the last day of autumn: and at once they become ripe, yellow, and shrivelled.</p>
+<p>In some the heart ages first, and in others the spirit. And some are hoary in youth, but those who are young latest keep young longer.</p>
+<p>To many men life is a failure; a poison-worm gnaws at their heart. Then at least let their dying be a success.</p>
+<p>Many never become sweet; they rot even in the summer. Cowardice holds them fast to their branches.</p>
+<p>Far too many live, and far too long do they hang on their branches. If only a storm would come and shake all that is rotten and worm-eaten from the tree!</p>
+<p>If only there were preachers of quick death! They would be the right storms and shakers of the trees of life! But I hear only the slow death preached, and patience with all that is “earthly.”</p>
+<p>Ah! you preach patience with what is earthly? It is the earthly that has too much patience with you, you blasphemers!</p>
+<p>Too early died that Hebrew whom the preachers of slow death honor: and it is a calamity to many that he died too early.</p>
+<p>As yet he knew only tears, and the melancholy of the Hebrews, and hatred of the good and just- the Hebrew Jesus: then he was seized with longing for death.</p>
+<p>If only he had remained in the wilderness, far from the good the just! Perhaps then he would have learned to live and love the earth- and laughter also!</p>
+<p>Believe me, my brothers! He died too early; he himself would have recanted his doctrine had he reached my age! He was noble enough to recant!</p>
+<p>But he was still immature. The youth loves immaturely, and he also hates immaturely both man and earth. His soul and the wings of his spirit are still confined and awkward.</p>
+<p>But in man there is more of the child than in the youth, and less melancholy: he better understands life and death.</p>
+<p>Free for death, and free in death; a sacred Nosayer, when there is no longer time for Yes: thus he understands death and life.</p>
+<p>That your dying be no reproach to man and the earth, my friends: that I ask of the honey of your soul.</p>
+<p>In your dying, your spirit and your virtue shall still shine like an sunset around the earth: otherwise your dying has gone badly.</p>
+<p>Thus I will die myself, that you, my friends, may love the earth more for my sake; and earth will I again become, to have rest in her that bore me.</p>
+<p>Zarathustra had a goal; he threw his ball. Now you, my friends, are the heirs of my goal; to you I throw the golden ball.</p>
+<p>I like best of all to see you, my friends, throw the golden ball! And so I tarry a little while on the earth- pardon me for it!</p>
+<p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>getimagesize()获取图片尺寸等信息</title>
+    <url>/p/7495c85b/</url>
+    <content><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>getimagesize - 获取图片尺寸</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">getimagesize ( <span class="keyword">string</span> <span class="variable">$filename</span> [, <span class="keyword">array</span> &amp;<span class="variable">$imageinfo</span> ] ) : <span class="keyword">array</span></span><br></pre></td></tr></table></figure>
+<p>返回一个 <strong>关联</strong> 数组，包含指定图片的相关信息。<br>$filename 可以是本地也可以是远程图片。<br>$imageinfo 用于获取更多扩展信息，只支持 JFIF 文件。</p>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>返回数组中最多可以包含7个元素，分别如下:</p>
+<p>索引 <code>0</code>，<code>1</code>分别是宽度和高度；<br>索引 <code>2</code>是图片的类型，是格式如 IMAGETYPE_XXX 的预定义常量之一，如IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP；<br>索引 <code>3</code> 是宽高的拼接好的字符串，如height=”yyy” width=”xxx”，方便直接用在img标签里；<br><code>mime</code> 是对应的MIME 类型，可用于http头信息，如 <code>header(&quot;Content-type: &#123;$size[&#39;mime&#39;]&#125;&quot;);</code>;</p>
+<p><code>channels</code> will be 3 for RGB pictures and 4 for CMYK pictures.<br><code>bits</code> is the number of bits for each color.</p>
+<hr>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$image</span> = <span class="string">&#x27;https://avatars2.githubusercontent.com/u/646129?s=52&amp;v=4&#x27;</span>;</span><br><span class="line"><span class="variable">$data</span> = getimagesize(<span class="variable">$image</span>, <span class="variable">$info</span>);</span><br><span class="line">print_r(<span class="variable">$data</span>);</span><br><span class="line">print_r(<span class="variable">$info</span>);</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">0</span>] =&gt; <span class="number">52</span></span><br><span class="line">    [<span class="number">1</span>] =&gt; <span class="number">52</span></span><br><span class="line">    [<span class="number">2</span>] =&gt; <span class="number">2</span></span><br><span class="line">    [<span class="number">3</span>] =&gt; width=<span class="string">&quot;52&quot;</span> height=<span class="string">&quot;52&quot;</span></span><br><span class="line">    [bits] =&gt; <span class="number">8</span></span><br><span class="line">    [channels] =&gt; <span class="number">3</span></span><br><span class="line">    [mime] =&gt; image/jpeg</span><br><span class="line">)</span><br><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [APP0] =&gt; JFIF``</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一般常用于获取图片宽高，其他信息基本用不到。<br>名称是image size，但不知道返回的是图片的实际大小还是图片的尺寸，而且既然已经返回这么多信息了，为啥不返回图片的字节大小呢，虽然可以通过其他方式获取，但如果能一步到位岂不更省事。</p>
+]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>getimagesize</tag>
       </tags>
   </entry>
   <entry>
@@ -1118,6 +1140,29 @@
       </tags>
   </entry>
   <entry>
+    <title>jQuery数组的操作</title>
+    <url>/p/30266b9b/</url>
+    <content><![CDATA[<hr>
+<p>jQuery操作数组主要有两种方式：</p>
+<h2 id="普通数组"><a href="#普通数组" class="headerlink" title="普通数组"></a>普通数组</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.each(array,<span class="function"><span class="keyword">function</span>(<span class="params">k,v</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关联数组，{“id”:10,”name”:”tom”}</li>
+<li>索引数组，[1,2,3,4,5,6,7,8,9]</li>
+</ul>
+<p>k: 如果是关联是键名，如果是索引是下标（从0开始);<br>vo: 是元素值;</p>
+<hr>
+<h2 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">k,v</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>i 是数组元素的下标数字，索引下标<br>v 是dom中的节点[子对象]</p>
+<p>其中<br>v = this = <code>&#39;&lt;p&gt;...&lt;/p&gt;&#39;</code> //字符串<br>$(v) = $(this) = init… //dom节点对象</p>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【P1C5】Joys and Passions</title>
     <url>/p/d32c0929/</url>
     <content><![CDATA[<p>My brother, when you have a virtue, and it is your own virtue, you have it in common with no one.</p>
@@ -1153,29 +1198,6 @@
       </categories>
       <tags>
         <tag>哲学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>jQuery数组的操作</title>
-    <url>/p/30266b9b/</url>
-    <content><![CDATA[<hr>
-<p>jQuery操作数组主要有两种方式：</p>
-<h2 id="普通数组"><a href="#普通数组" class="headerlink" title="普通数组"></a>普通数组</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$.each(array,<span class="function"><span class="keyword">function</span>(<span class="params">k,v</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>关联数组，{“id”:10,”name”:”tom”}</li>
-<li>索引数组，[1,2,3,4,5,6,7,8,9]</li>
-</ul>
-<p>k: 如果是关联是键名，如果是索引是下标（从0开始);<br>vo: 是元素值;</p>
-<hr>
-<h2 id="对象数组"><a href="#对象数组" class="headerlink" title="对象数组"></a>对象数组</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&quot;p&quot;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">k,v</span>)</span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>i 是数组元素的下标数字，索引下标<br>v 是dom中的节点[子对象]</p>
-<p>其中<br>v = this = <code>&#39;&lt;p&gt;...&lt;/p&gt;&#39;</code> //字符串<br>$(v) = $(this) = init… //dom节点对象</p>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>jQuery</tag>
       </tags>
   </entry>
   <entry>
@@ -1288,7 +1310,7 @@
 </ul>
 </li>
 <li>闭包应用:<ul>
-<li>模块化: 封装一些数据以及操作数据的函数, 向外暴露一些行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">window</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//私有的数据</span></span><br><span class="line">  <span class="keyword">var</span> msg = <span class="string">&#x27;atguigu&#x27;</span></span><br><span class="line">  <span class="keyword">var</span> names = [<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;Love&#x27;</span>, <span class="string">&#x27;you&#x27;</span>]</span><br><span class="line">  <span class="comment">//操作数据的函数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(msg.toUpperCase())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(names.join(<span class="string">&#x27; &#x27;</span>))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.coolModule2 =  &#123;</span><br><span class="line">      doSomething: a,</span><br><span class="line">      doOtherthing: b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure></li>
+<li>模块化: 封装一些数据以及操作数据的函数, 向外暴露一些行为<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params"><span class="built_in">window</span></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//私有的数据</span></span><br><span class="line">  <span class="keyword">var</span> msg = <span class="string">&#x27;atguigu&#x27;</span></span><br><span class="line">  <span class="keyword">var</span> names = [<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;Love&#x27;</span>, <span class="string">&#x27;you&#x27;</span>]</span><br><span class="line">  <span class="comment">//操作数据的函数</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(msg.toUpperCase())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(names.join(<span class="string">&#x27; &#x27;</span>))</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">window</span>.coolModule2 =  &#123;</span><br><span class="line">      doSomething: a,</span><br><span class="line">      doOtherthing: b</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)(<span class="built_in">window</span>)</span><br></pre></td></tr></table></figure></li>
 <li>循环遍历加监听</li>
 <li>JS框架(jQuery)大量使用了闭包</li>
 </ul>
@@ -1673,15 +1695,15 @@
     <title>thinkPHP模型调试之查看执行的SQL语句</title>
     <url>/p/65fe8651/</url>
     <content><![CDATA[<h2 id="调试执行的SQL语句"><a href="#调试执行的SQL语句" class="headerlink" title="调试执行的SQL语句"></a>调试执行的SQL语句</h2><p>在模型操作中 ，为了更好的查明错误，经常需要查看下最近使用的SQL语句，我们可以用 <code>getLastsql</code> 方法来输出上次执行的sql语句。例如：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$User = M(<span class="string">&quot;User&quot;</span>); <span class="comment">// 实例化User对象</span></span><br><span class="line">$User-&gt;find(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">echo</span> $User-&gt;getLastSql();</span><br><span class="line"><span class="comment">// 3.2版本中可以使用简化的方法</span></span><br><span class="line"><span class="keyword">echo</span> $User-&gt;_sql();</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$User</span> = M(<span class="string">&quot;User&quot;</span>); <span class="comment">// 实例化User对象</span></span><br><span class="line"><span class="variable">$User</span>-&gt;find(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$User</span>-&gt;getLastSql();</span><br><span class="line"><span class="comment">// 3.2版本中可以使用简化的方法</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$User</span>-&gt;_sql();</span><br></pre></td></tr></table></figure>
 <p>并且每个模型都使用独立的最后SQL记录，互不干扰，但是可以用空模型的getLastSql方法获取全局的最后SQL语句。</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">echo</span> M()-&gt;getLastSql();</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="fetchSql"><a href="#fetchSql" class="headerlink" title="fetchSql"></a>fetchSql</h2><p>模型连贯操作之一 <code>fetchSql</code> 用于直接返回SQL而不是执行查询，适用于任何的CURD操作方法。 例如：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$result = M(<span class="string">&#x27;User&#x27;</span>)-&gt;fetchSql(<span class="literal">true</span>)-&gt;find(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$result</span> = M(<span class="string">&#x27;User&#x27;</span>)-&gt;fetchSql(<span class="literal">true</span>)-&gt;find(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="调试数据库错误信息"><a href="#调试数据库错误信息" class="headerlink" title="调试数据库错误信息"></a>调试数据库错误信息</h2><p>在模型操作中，还可以获取数据库的错误信息，例如：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$User = M(<span class="string">&quot;User&quot;</span>);</span><br><span class="line">$result = $User-&gt;find(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">false</span> === $result)&#123;</span><br><span class="line">  <span class="keyword">echo</span> $User-&gt;getDbError();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$User</span> = M(<span class="string">&quot;User&quot;</span>);</span><br><span class="line"><span class="variable">$result</span> = <span class="variable">$User</span>-&gt;find(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">false</span> === <span class="variable">$result</span>)&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$User</span>-&gt;getDbError();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>CURD操作如果返回值为false，表示数据库操作发生错误，这时就需要使用模型的getDbError方法来查看数据库返回的具体错误信息。</p>
 </blockquote>
@@ -1704,19 +1726,19 @@
 <hr>
 <h2 id="NOW"><a href="#NOW" class="headerlink" title="NOW"></a>NOW</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">NOW([fsp])</span><br></pre></td></tr></table></figure>
 <p>返回当前时间的日期时间表示，如’YYYY-MM-DD hh:mm:ss’ 或 YYYYMMDDhhmmss，取决于执行时的上下文环境，如下</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT NOW();</span><br><span class="line">-&gt; &#x27;2007-12-15 23:50:26&#x27;</span><br><span class="line">mysql&gt; SELECT NOW() + 0;//此处+0，所以被当成数值处理</span><br><span class="line">-&gt; 20071215235026.000000</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> NOW();</span><br><span class="line"><span class="operator">-</span><span class="operator">&gt;</span> <span class="string">&#x27;2007-12-15 23:50:26&#x27;</span></span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> NOW() <span class="operator">+</span> <span class="number">0</span>;<span class="operator">/</span><span class="operator">/</span>此处<span class="operator">+</span><span class="number">0</span>，所以被当成数值处理</span><br><span class="line"><span class="operator">-</span><span class="operator">&gt;</span> <span class="number">20071215235026.000000</span></span><br></pre></td></tr></table></figure>
 <p>参数 fsp （fractional seconds precision），可指定返回秒的精度，取值 0-6<br>NOW()与CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP是同义词。</p>
 <hr>
-<h2 id="UNIX-TIMESTAMP"><a href="#UNIX-TIMESTAMP" class="headerlink" title="UNIX_TIMESTAMP"></a>UNIX_TIMESTAMP</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">UNIX_TIMESTAMP([date])</span><br></pre></td></tr></table></figure>
+<h2 id="UNIX-TIMESTAMP"><a href="#UNIX-TIMESTAMP" class="headerlink" title="UNIX_TIMESTAMP"></a>UNIX_TIMESTAMP</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">UNIX_TIMESTAMP([<span class="type">date</span>])</span><br></pre></td></tr></table></figure>
 <p>返回当前时间或指定日期的时间戳，如</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT UNIX_TIMESTAMP(&#39;2015-11-13 10:20:19.012&#39;);</span><br><span class="line">-&gt; 1447431619.012</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="DATE-FORMAT"><a href="#DATE-FORMAT" class="headerlink" title="DATE_FORMAT"></a>DATE_FORMAT</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">DATE_FORMAT(date,format)</span><br></pre></td></tr></table></figure>
+<h2 id="DATE-FORMAT"><a href="#DATE-FORMAT" class="headerlink" title="DATE_FORMAT"></a>DATE_FORMAT</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">DATE_FORMAT(<span class="type">date</span>,format)</span><br></pre></td></tr></table></figure>
 <p>日期格式化</p>
 <hr>
-<h2 id="TO-DAYS"><a href="#TO-DAYS" class="headerlink" title="TO_DAYS"></a>TO_DAYS</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">TO_DAYS(date)</span><br></pre></td></tr></table></figure>
+<h2 id="TO-DAYS"><a href="#TO-DAYS" class="headerlink" title="TO_DAYS"></a>TO_DAYS</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">TO_DAYS(<span class="type">date</span>)</span><br></pre></td></tr></table></figure>
 <p>返回某一日期距离 0 年的总天数，如下面的近似计算应该是，2007<em>365 + 10</em>30 + 7 = 732862，有一些差距。</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">mysql&gt; SELECT TO_DAYS(&#x27;2007-10-07&#x27;);</span><br><span class="line">-&gt; 733321</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">SELECT</span> TO_DAYS(<span class="string">&#x27;2007-10-07&#x27;</span>);</span><br><span class="line"><span class="operator">-</span><span class="operator">&gt;</span> <span class="number">733321</span></span><br></pre></td></tr></table></figure>
 <hr>
 ]]></content>
       <categories>
@@ -2326,9 +2348,9 @@
     <title>strtotime关于在某个日期区间的优化</title>
     <url>/p/1cf0e13d/</url>
     <content><![CDATA[<p>工作中，经常碰到需要判断某个当前时间是否在某个时间区间的情况，一般可通过使用 strtotime 将日期转换成时间戳，然后进行比较，比如：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$freedaystart = strtotime($info[<span class="string">&#x27;freedaystart&#x27;</span>].<span class="string">&#x27; 00:00:00&#x27;</span>);</span><br><span class="line">$freedayend = strtotime($info[<span class="string">&#x27;freedayend&#x27;</span>].<span class="string">&#x27; 23:59:59&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(time() &gt; $freedaystart &amp;&amp;  time() &lt; $freedayend)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$freedaystart</span> = strtotime(<span class="variable">$info</span>[<span class="string">&#x27;freedaystart&#x27;</span>].<span class="string">&#x27; 00:00:00&#x27;</span>);</span><br><span class="line"><span class="variable">$freedayend</span> = strtotime(<span class="variable">$info</span>[<span class="string">&#x27;freedayend&#x27;</span>].<span class="string">&#x27; 23:59:59&#x27;</span>);</span><br><span class="line"><span class="keyword">if</span>(time() &gt; <span class="variable">$freedaystart</span> &amp;&amp;  time() &lt; <span class="variable">$freedayend</span>)&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>但时分秒拼接上去，感觉不够简洁优雅，可以将结束时间退后一天，时分秒仍默认为0点，像下面这样：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$freedaystart = strtotime($info[<span class="string">&#x27;freedaystart&#x27;</span>]);</span><br><span class="line">$freedayend = strtotime(<span class="string">&quot;$info[&#x27;freedayend&#x27;] +1 day&quot;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$freedaystart</span> = strtotime(<span class="variable">$info</span>[<span class="string">&#x27;freedaystart&#x27;</span>]);</span><br><span class="line"><span class="variable">$freedayend</span> = strtotime(<span class="string">&quot;<span class="subst">$info</span>[&#x27;freedayend&#x27;] +1 day&quot;</span>);</span><br></pre></td></tr></table></figure>
 <p>是不是感觉清爽多了，strtotime 还支持其他时间格式，如 <code>strtotime(&quot;$date +1 month +2 day&quot;)</code>等，完整格式列表可参看官网对应页面。</p>
 <hr>
 <p>经测试，这里 day 的单复数都没有影响，可能是为了更好的兼容，不过为了严谨也为了增强可读性，建议按规范写，该复数的加上复数。</p>
@@ -3148,28 +3170,6 @@
       <tags>
         <tag>哲学</tag>
         <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>getimagesize()获取图片尺寸等信息</title>
-    <url>/p/7495c85b/</url>
-    <content><![CDATA[<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>getimagesize - 获取图片尺寸</p>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">getimagesize ( <span class="keyword">string</span> $filename [, <span class="keyword">array</span> &amp;$imageinfo ] ) : <span class="keyword">array</span></span><br></pre></td></tr></table></figure>
-<p>返回一个 <strong>关联</strong> 数组，包含指定图片的相关信息。<br>$filename 可以是本地也可以是远程图片。<br>$imageinfo 用于获取更多扩展信息，只支持 JFIF 文件。</p>
-<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>返回数组中最多可以包含7个元素，分别如下:</p>
-<p>索引 <code>0</code>，<code>1</code>分别是宽度和高度；<br>索引 <code>2</code>是图片的类型，是格式如 IMAGETYPE_XXX 的预定义常量之一，如IMAGETYPE_GIF, IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_BMP；<br>索引 <code>3</code> 是宽高的拼接好的字符串，如height=”yyy” width=”xxx”，方便直接用在img标签里；<br><code>mime</code> 是对应的MIME 类型，可用于http头信息，如 <code>header(&quot;Content-type: &#123;$size[&#39;mime&#39;]&#125;&quot;);</code>;</p>
-<p><code>channels</code> will be 3 for RGB pictures and 4 for CMYK pictures.<br><code>bits</code> is the number of bits for each color.</p>
-<hr>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$image = <span class="string">&#x27;https://avatars2.githubusercontent.com/u/646129?s=52&amp;v=4&#x27;</span>;</span><br><span class="line">$data = getimagesize($image, $info);</span><br><span class="line">print_r($data);</span><br><span class="line">print_r($info);</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">0</span>] =&gt; <span class="number">52</span></span><br><span class="line">    [<span class="number">1</span>] =&gt; <span class="number">52</span></span><br><span class="line">    [<span class="number">2</span>] =&gt; <span class="number">2</span></span><br><span class="line">    [<span class="number">3</span>] =&gt; width=<span class="string">&quot;52&quot;</span> height=<span class="string">&quot;52&quot;</span></span><br><span class="line">    [bits] =&gt; <span class="number">8</span></span><br><span class="line">    [channels] =&gt; <span class="number">3</span></span><br><span class="line">    [mime] =&gt; image/jpeg</span><br><span class="line">)</span><br><span class="line"><span class="keyword">Array</span></span><br><span class="line">(</span><br><span class="line">    [APP0] =&gt; JFIF``</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一般常用于获取图片宽高，其他信息基本用不到。<br>名称是image size，但不知道返回的是图片的实际大小还是图片的尺寸，而且既然已经返回这么多信息了，为啥不返回图片的字节大小呢，虽然可以通过其他方式获取，但如果能一步到位岂不更省事。</p>
-]]></content>
-      <categories>
-        <category>PHP</category>
-      </categories>
-      <tags>
-        <tag>getimagesize</tag>
       </tags>
   </entry>
   <entry>
@@ -4399,42 +4399,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【P4C20】【End】The Sign</title>
-    <url>/p/20da3c77/</url>
-    <content><![CDATA[<p>In the morning, however, after this night, Zarathustra jumped up from his couch, and, having girded his loins, he came out of his cave glowing and strong, like a morning sun coming out of gloomy mountains.</p>
-<p>“You great star,” spoke he, as he had spoken once before, “you deep eye of happiness, what would be all your happiness if you had not those for whom you shine!</p>
-<span id="more"></span>
-<p>And if they remained in their chambers whilst you are already awake, and come and give and distribute, how would your proud modesty upbraid for it!</p>
-<p>Well! they still sleep, these higher men, whilst I am awake: they are not my proper companions! Not for them do I wait here in my mountains.</p>
-<p>At my work I want to be, at my day: but they understand not what are the signs of my morning, my step- is not for them the awakening-call.</p>
-<p>They still sleep in my cave; their dream still drinks at my drunken songs. The audient ear for me- the obedient ear, is yet lacking in their limbs.”</p>
-<p>-This had Zarathustra spoken to his heart when the sun arose: then looked he inquiringly aloft, for he heard above him the sharp call of his eagle. “Well!” called he upwards, “thus is it pleasing and proper to me. My animals are awake, for I am awake.</p>
-<p>My eagle is awake, and like me honors the sun. With eagle-talons does it grasp at the new light. You are my proper animals; I love you.</p>
-<p>But still do I lack my proper men!”-</p>
-<p>Thus spoke Zarathustra; then, however, it happened that all on a sudden he became aware that he was flocked around and fluttered around, as if by innumerable birds,- the whizzing of so many wings, however, and the crowding around his head was so great that he shut his eyes.</p>
-<p>And verily, there came down upon him as it were a cloud, like a cloud of arrows which pours upon a new enemy. But behold, here it was a cloud of love, and showered upon a new friend.</p>
-<p>“What happens to me?” thought Zarathustra in his astonished heart, and slowly seated himself on the big stone which lay close to the exit from his cave. But while he grasped about with his hands, around him, above him and below him, and repelled the tender birds, behold, there then happened to him something still stranger: for he grasped thereby unawares into a mass of thick, warm, shaggy hair; at the same time, however, there sounded before him a roar,- a long, soft lion-roar.</p>
-<p>“The sign comes,” said Zarathustra, and a change came over his heart. And in truth, when it turned clear before him, there lay a yellow, powerful animal at his feet, resting its head on his knee,- unwilling to leave him out of love, and doing like a dog which again finds its old master. The doves, however, were no less eager with their love than the lion; and whenever a dove whisked over its nose, the lion shook its head and wondered and laughed.</p>
-<p>When all this went on Zarathustra spoke only a word: “My children are nigh, my children”-, then he became quite mute. His heart, however, was loosed, and from his eyes there dropped down tears and fell upon his hands. And he took no further notice of anything, but sat there motionless, without repelling the animals further. Then flew the doves to and fro, and perched on his shoulder, and caressed his white hair, and did not tire of their tenderness and joyousness. The strong lion, however, licked always the tears that fell on Zarathustra’s hands, and roared and growled shyly. Thus did these animals do.-</p>
-<p>All this went on for a long time, or a short time: for properly speaking, there is no time on earth for such things-. Meanwhile, however, the higher men had awakened in Zarathustra’s cave, and marshalled themselves for a procession to go to meet Zarathustra, and give him their morning greeting: for they had found when they awakened that he no longer tarried with them. When, however, they reached the door of the cave and the noise of their steps had preceded them, the lion started violently; it turned away all at once from Zarathustra, and roaring wildly, sprang towards the cave. The higher men, however, when they heard the lion roaring, cried all aloud as with one voice, fled back and vanished in an instant.</p>
-<p>Zarathustra himself, however, stunned and strange, rose from his seat, looked around him, stood there astonished, inquired of his heart, bethought himself, and remained alone. “What did I hear?” said he at last, slowly, “what happened to me just now?”</p>
-<p>But soon there came to him his recollection, and he took in at a glance all that had taken place between yesterday and to-day. “Here is indeed the stone,” said he, and stroked his beard, “on it sat I yester-morn; and here came the soothsayer to me, and here heard I first the cry which I heard just now, the great cry of distress.</p>
-<p>O you higher men, your distress was it that the old soothsayer foretold to me yester-morn,-</p>
-<p>-To your distress did he want to seduce and tempt me: ‘O Zarathustra,’ said he to me, ‘I come to seduce you to your last sin.’</p>
-<p>To my last sin?” cried Zarathustra, and laughed angrily at his own words: “what has been reserved for me as my last sin?”</p>
-<p>-And once more Zarathustra became absorbed in himself, and sat down again on the big stone and meditated. Suddenly he sprang up,”Fellow-suffering! Fellow-suffering with the higher men!” he cried out, and his countenance changed into brass. “Well! That- has had its time!</p>
-<p>My suffering and my fellow-suffering- what matter about them! Do I then strive after happiness? I strive after my work!</p>
-<p>Well! The lion has come, my children are nigh, Zarathustra has grown ripe, my hour has come:This is my morning, my day begins: arise now, arise, you great noontide!”- Thus spoke Zarathustra and left his cave, glowing and strong, like a morning sun coming out of gloomy mountains.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【P4C9】The Shadow</title>
     <url>/p/e78f3d24/</url>
     <content><![CDATA[<p>Scarcely however was the voluntary beggar gone in haste, and Zarathustra again alone, when he heard behind him a new voice which called out: “Stay! Zarathustra! Do wait! It is myself, O Zarathustra, myself, your shadow!” But Zarathustra did not wait; for a sudden irritation came over him on account of the crowd and the crowding in his mountains. “Where has my lonesomeness gone?” spoke he.</p>
@@ -4475,6 +4439,42 @@
 <p>There leads the way to my cave. And now will I run quickly away from you again. Already lies as it were a shadow upon me.</p>
 <p>I will run alone, so that it may again become bright around me. Therefore must I still be a long time merrily upon my legs. In the evening, however, there will be- dancing with me!”- -</p>
 <p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P4C20】【End】The Sign</title>
+    <url>/p/20da3c77/</url>
+    <content><![CDATA[<p>In the morning, however, after this night, Zarathustra jumped up from his couch, and, having girded his loins, he came out of his cave glowing and strong, like a morning sun coming out of gloomy mountains.</p>
+<p>“You great star,” spoke he, as he had spoken once before, “you deep eye of happiness, what would be all your happiness if you had not those for whom you shine!</p>
+<span id="more"></span>
+<p>And if they remained in their chambers whilst you are already awake, and come and give and distribute, how would your proud modesty upbraid for it!</p>
+<p>Well! they still sleep, these higher men, whilst I am awake: they are not my proper companions! Not for them do I wait here in my mountains.</p>
+<p>At my work I want to be, at my day: but they understand not what are the signs of my morning, my step- is not for them the awakening-call.</p>
+<p>They still sleep in my cave; their dream still drinks at my drunken songs. The audient ear for me- the obedient ear, is yet lacking in their limbs.”</p>
+<p>-This had Zarathustra spoken to his heart when the sun arose: then looked he inquiringly aloft, for he heard above him the sharp call of his eagle. “Well!” called he upwards, “thus is it pleasing and proper to me. My animals are awake, for I am awake.</p>
+<p>My eagle is awake, and like me honors the sun. With eagle-talons does it grasp at the new light. You are my proper animals; I love you.</p>
+<p>But still do I lack my proper men!”-</p>
+<p>Thus spoke Zarathustra; then, however, it happened that all on a sudden he became aware that he was flocked around and fluttered around, as if by innumerable birds,- the whizzing of so many wings, however, and the crowding around his head was so great that he shut his eyes.</p>
+<p>And verily, there came down upon him as it were a cloud, like a cloud of arrows which pours upon a new enemy. But behold, here it was a cloud of love, and showered upon a new friend.</p>
+<p>“What happens to me?” thought Zarathustra in his astonished heart, and slowly seated himself on the big stone which lay close to the exit from his cave. But while he grasped about with his hands, around him, above him and below him, and repelled the tender birds, behold, there then happened to him something still stranger: for he grasped thereby unawares into a mass of thick, warm, shaggy hair; at the same time, however, there sounded before him a roar,- a long, soft lion-roar.</p>
+<p>“The sign comes,” said Zarathustra, and a change came over his heart. And in truth, when it turned clear before him, there lay a yellow, powerful animal at his feet, resting its head on his knee,- unwilling to leave him out of love, and doing like a dog which again finds its old master. The doves, however, were no less eager with their love than the lion; and whenever a dove whisked over its nose, the lion shook its head and wondered and laughed.</p>
+<p>When all this went on Zarathustra spoke only a word: “My children are nigh, my children”-, then he became quite mute. His heart, however, was loosed, and from his eyes there dropped down tears and fell upon his hands. And he took no further notice of anything, but sat there motionless, without repelling the animals further. Then flew the doves to and fro, and perched on his shoulder, and caressed his white hair, and did not tire of their tenderness and joyousness. The strong lion, however, licked always the tears that fell on Zarathustra’s hands, and roared and growled shyly. Thus did these animals do.-</p>
+<p>All this went on for a long time, or a short time: for properly speaking, there is no time on earth for such things-. Meanwhile, however, the higher men had awakened in Zarathustra’s cave, and marshalled themselves for a procession to go to meet Zarathustra, and give him their morning greeting: for they had found when they awakened that he no longer tarried with them. When, however, they reached the door of the cave and the noise of their steps had preceded them, the lion started violently; it turned away all at once from Zarathustra, and roaring wildly, sprang towards the cave. The higher men, however, when they heard the lion roaring, cried all aloud as with one voice, fled back and vanished in an instant.</p>
+<p>Zarathustra himself, however, stunned and strange, rose from his seat, looked around him, stood there astonished, inquired of his heart, bethought himself, and remained alone. “What did I hear?” said he at last, slowly, “what happened to me just now?”</p>
+<p>But soon there came to him his recollection, and he took in at a glance all that had taken place between yesterday and to-day. “Here is indeed the stone,” said he, and stroked his beard, “on it sat I yester-morn; and here came the soothsayer to me, and here heard I first the cry which I heard just now, the great cry of distress.</p>
+<p>O you higher men, your distress was it that the old soothsayer foretold to me yester-morn,-</p>
+<p>-To your distress did he want to seduce and tempt me: ‘O Zarathustra,’ said he to me, ‘I come to seduce you to your last sin.’</p>
+<p>To my last sin?” cried Zarathustra, and laughed angrily at his own words: “what has been reserved for me as my last sin?”</p>
+<p>-And once more Zarathustra became absorbed in himself, and sat down again on the big stone and meditated. Suddenly he sprang up,”Fellow-suffering! Fellow-suffering with the higher men!” he cried out, and his countenance changed into brass. “Well! That- has had its time!</p>
+<p>My suffering and my fellow-suffering- what matter about them! Do I then strive after happiness? I strive after my work!</p>
+<p>Well! The lion has come, my children are nigh, Zarathustra has grown ripe, my hour has come:This is my morning, my day begins: arise now, arise, you great noontide!”- Thus spoke Zarathustra and left his cave, glowing and strong, like a morning sun coming out of gloomy mountains.</p>
 ]]></content>
       <categories>
         <category>Zarathustra</category>
@@ -4600,62 +4600,6 @@
       </tags>
   </entry>
   <entry>
-    <title>【P2C22】The Stillest Hour</title>
-    <url>/p/67bdf6df/</url>
-    <content><![CDATA[<p>What has happened to me, my friends? You see me troubled, driven forth, unwillingly obedient, ready to go- alas, to go away from you!</p>
-<p>Yes, once more must Zarathustra retire to his solitude: but unjoyously this time does the bear go back to his cave!</p>
-<p>What has happened to me? Who orders this?- Ah, my angry mistress wishes it so; she spoke to me. Have I ever named her name to you?</p>
-<span id="more"></span>
-<p>Yesterday towards evening there spoke to me my still hour: that is the name of my terrible mistress.</p>
-<p>And thus did it happen- for everything must I tell you, that your heart may not harden against the suddenly departing one!</p>
-<p>Do you know the terror of him who falls asleep?-</p>
-<p>To the very toes he is terrified, because the ground gives way under him, and the dream begins.</p>
-<p>This do I speak to you in parable. Yesterday at the still hour did the ground give way under me: the dream began.</p>
-<p>The hour-hand moved on, the timepiece of my life drew breath- never did I hear such stillness around me, so that my heart was terrified.</p>
-<p>Then was there spoken to me without voice: “You know it, Zarathustra?”-</p>
-<p>And I cried in terror at this whispering, and the blood left my face: but I was silent.</p>
-<p>Then was there once more spoken to me without voice: “You know it, Zarathustra, but you do not speak it!”-</p>
-<p>And at last I answered, like one defiant: “Yes, I know it, but I will not speak it!”</p>
-<p>Then was there again spoken to me without voice: “You will not, Zarathustra? Is this true? Conceal yourself not behind your defiance!”-</p>
-<p>And I wept and trembled like a child, and said: “Ah, I would indeed, but how can I do it! Exempt me only from this! It is beyond my power!”</p>
-<p>Then was there again spoken to me without voice: “What matter about yourself, Zarathustra! Speak your word, and perish!”</p>
-<p>And I answered: “Ah, is it my word? Who am I? I await the worthier one; I am not worthy even to perish by it.”</p>
-<p>Then was there again spoken to me without voice: “What matter about yourself? you are not yet humble enough for me. Humility has the hardest skin.”-</p>
-<p>And I answered: “What has not the skin of my humility endured! At the foot of my height do I dwell: how high are my summits, no one has yet told me. But well do I know my valleys.”</p>
-<p>Then was there again spoken to me without voice: “O Zarathustra, he who has to remove mountains removes also valleys and plains.”-</p>
-<p>And I answered: “As yet has my word not removed mountains, and what I have spoken has not reached man. I went, indeed, to men, but not yet have I attained to them.”</p>
-<p>Then was there again spoken to me without voice: “What know you thereof! The dew falls on the grass when the night is most silent.”-</p>
-<p>And I answered: “They mocked me when I found and walked in my own path; and certainly did my feet then tremble.</p>
-<p>And thus did they speak to me: you forgot the path before, now do you also forget how to walk!”</p>
-<p>Then was there again spoken to me without voice: “What matter about their mockery! you are one who have unlearned to obey: now shall you command!</p>
-<p>Know you not who is most needed by all? He who commands great things.</p>
-<p>To execute great things is difficult: but the more difficult task is to command great things.</p>
-<p>This is your most unpardonable obstinacy: you have the power, and you will not rule.”-</p>
-<p>And I answered: “I lack the lion’s voice for all commanding.”</p>
-<p>Then was there again spoken to me as a whispering: “It is the still words which bring the storm. Thoughts that come with doves’ footsteps guide the world.</p>
-<p>Zarathustra, you shall go as a shadow of that which is to come: thus will you command, and in commanding go foremost.”-</p>
-<p>And I answered: “I am ashamed.”</p>
-<p>Then was there again spoken to me without voice: “You must yet become a child, and be without shame.</p>
-<p>The pride of youth is still upon you; late have you become young: but he who would become a child must overcome even his youth.”-</p>
-<p>And I considered a long while, and trembled. At last, however, did I say what I had said at first. “I will not.”</p>
-<p>Then did a laughing take place all around me. Alas, how that laughing lacerated my bowels and cut into my heart!</p>
-<p>And there was spoken to me for the last time: “O Zarathustra, your fruits are ripe, but you are not ripe for your fruits!</p>
-<p>So must you go again into solitude: for you shall yet become mellow.”-</p>
-<p>And again was there a laughing, and it fled: then did it become still around me, as with a double stillness. I lay, however, on the ground, and the sweat flowed from my limbs.</p>
-<p>-Now have you heard all, and why I have to return into my solitude. Nothing have I kept hidden from you, my friends.</p>
-<p>But even this have you heard from me, who is still the most reserved of men- and will be so!</p>
-<p>Ah, my friends! I should have something more to say to you! I should have something more to give to you! Why do I not give it? Am I then a niggard?-</p>
-<p>When, however, Zarathustra had spoken these words, the violence of his pain, and a sense of the nearness of his departure from his friends came over him, so that he wept aloud; and no one knew how to console him. In the night, however, he went away alone and left his friends.</p>
-]]></content>
-      <categories>
-        <category>Zarathustra</category>
-      </categories>
-      <tags>
-        <tag>哲学</tag>
-        <tag>尼采</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>【P3C11】The Spirit of Gravity</title>
     <url>/p/64591ccf/</url>
     <content><![CDATA[<p>1.</p>
@@ -4707,6 +4651,62 @@
 <p>-Neither a good nor a bad taste, but my taste, of which I have no longer either shame or secrecy.</p>
 <p>“This- is now my way,- where is yours?” Thus did I answer those who asked me “the way.” For the way- it does not exist!</p>
 <p>Thus spoke Zarathustra.</p>
+]]></content>
+      <categories>
+        <category>Zarathustra</category>
+      </categories>
+      <tags>
+        <tag>哲学</tag>
+        <tag>尼采</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【P2C22】The Stillest Hour</title>
+    <url>/p/67bdf6df/</url>
+    <content><![CDATA[<p>What has happened to me, my friends? You see me troubled, driven forth, unwillingly obedient, ready to go- alas, to go away from you!</p>
+<p>Yes, once more must Zarathustra retire to his solitude: but unjoyously this time does the bear go back to his cave!</p>
+<p>What has happened to me? Who orders this?- Ah, my angry mistress wishes it so; she spoke to me. Have I ever named her name to you?</p>
+<span id="more"></span>
+<p>Yesterday towards evening there spoke to me my still hour: that is the name of my terrible mistress.</p>
+<p>And thus did it happen- for everything must I tell you, that your heart may not harden against the suddenly departing one!</p>
+<p>Do you know the terror of him who falls asleep?-</p>
+<p>To the very toes he is terrified, because the ground gives way under him, and the dream begins.</p>
+<p>This do I speak to you in parable. Yesterday at the still hour did the ground give way under me: the dream began.</p>
+<p>The hour-hand moved on, the timepiece of my life drew breath- never did I hear such stillness around me, so that my heart was terrified.</p>
+<p>Then was there spoken to me without voice: “You know it, Zarathustra?”-</p>
+<p>And I cried in terror at this whispering, and the blood left my face: but I was silent.</p>
+<p>Then was there once more spoken to me without voice: “You know it, Zarathustra, but you do not speak it!”-</p>
+<p>And at last I answered, like one defiant: “Yes, I know it, but I will not speak it!”</p>
+<p>Then was there again spoken to me without voice: “You will not, Zarathustra? Is this true? Conceal yourself not behind your defiance!”-</p>
+<p>And I wept and trembled like a child, and said: “Ah, I would indeed, but how can I do it! Exempt me only from this! It is beyond my power!”</p>
+<p>Then was there again spoken to me without voice: “What matter about yourself, Zarathustra! Speak your word, and perish!”</p>
+<p>And I answered: “Ah, is it my word? Who am I? I await the worthier one; I am not worthy even to perish by it.”</p>
+<p>Then was there again spoken to me without voice: “What matter about yourself? you are not yet humble enough for me. Humility has the hardest skin.”-</p>
+<p>And I answered: “What has not the skin of my humility endured! At the foot of my height do I dwell: how high are my summits, no one has yet told me. But well do I know my valleys.”</p>
+<p>Then was there again spoken to me without voice: “O Zarathustra, he who has to remove mountains removes also valleys and plains.”-</p>
+<p>And I answered: “As yet has my word not removed mountains, and what I have spoken has not reached man. I went, indeed, to men, but not yet have I attained to them.”</p>
+<p>Then was there again spoken to me without voice: “What know you thereof! The dew falls on the grass when the night is most silent.”-</p>
+<p>And I answered: “They mocked me when I found and walked in my own path; and certainly did my feet then tremble.</p>
+<p>And thus did they speak to me: you forgot the path before, now do you also forget how to walk!”</p>
+<p>Then was there again spoken to me without voice: “What matter about their mockery! you are one who have unlearned to obey: now shall you command!</p>
+<p>Know you not who is most needed by all? He who commands great things.</p>
+<p>To execute great things is difficult: but the more difficult task is to command great things.</p>
+<p>This is your most unpardonable obstinacy: you have the power, and you will not rule.”-</p>
+<p>And I answered: “I lack the lion’s voice for all commanding.”</p>
+<p>Then was there again spoken to me as a whispering: “It is the still words which bring the storm. Thoughts that come with doves’ footsteps guide the world.</p>
+<p>Zarathustra, you shall go as a shadow of that which is to come: thus will you command, and in commanding go foremost.”-</p>
+<p>And I answered: “I am ashamed.”</p>
+<p>Then was there again spoken to me without voice: “You must yet become a child, and be without shame.</p>
+<p>The pride of youth is still upon you; late have you become young: but he who would become a child must overcome even his youth.”-</p>
+<p>And I considered a long while, and trembled. At last, however, did I say what I had said at first. “I will not.”</p>
+<p>Then did a laughing take place all around me. Alas, how that laughing lacerated my bowels and cut into my heart!</p>
+<p>And there was spoken to me for the last time: “O Zarathustra, your fruits are ripe, but you are not ripe for your fruits!</p>
+<p>So must you go again into solitude: for you shall yet become mellow.”-</p>
+<p>And again was there a laughing, and it fled: then did it become still around me, as with a double stillness. I lay, however, on the ground, and the sweat flowed from my limbs.</p>
+<p>-Now have you heard all, and why I have to return into my solitude. Nothing have I kept hidden from you, my friends.</p>
+<p>But even this have you heard from me, who is still the most reserved of men- and will be so!</p>
+<p>Ah, my friends! I should have something more to say to you! I should have something more to give to you! Why do I not give it? Am I then a niggard?-</p>
+<p>When, however, Zarathustra had spoken these words, the violence of his pain, and a sense of the nearness of his departure from his friends came over him, so that he wept aloud; and no one knew how to console him. In the night, however, he went away alone and left his friends.</p>
 ]]></content>
       <categories>
         <category>Zarathustra</category>
