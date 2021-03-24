@@ -5742,4 +5742,70 @@
         <tag>尼采</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Python 常用内置数据结构和算法</title>
+    <url>/p/c118e337/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th>数据结构/算法</th>
+<th>语言内置</th>
+<th>内置库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>线性结构</td>
+<td>list/tuple</td>
+<td>array/collections.namedtuple</td>
+</tr>
+<tr>
+<td>链式结构</td>
+<td></td>
+<td>collections.deque(双端队列)</td>
+</tr>
+<tr>
+<td>字典结构</td>
+<td>dict</td>
+<td>collections.Counter/collections.OrderedDict(有序字典)</td>
+</tr>
+<tr>
+<td>集合结构</td>
+<td>set/frozenset</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>排序算法</td>
+<td>sorted</td>
+<td></td>
+</tr>
+<tr>
+<td>二分算法</td>
+<td></td>
+<td>bisect模块</td>
+</tr>
+<tr>
+<td>堆算法</td>
+<td></td>
+<td>heapq模块</td>
+</tr>
+<tr>
+<td>缓存算法</td>
+<td></td>
+<td>functools.lru_cache(Least Recent Used)</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>
